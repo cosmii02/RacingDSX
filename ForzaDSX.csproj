@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <!--<PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>-->
+	  <!--<SelfContained Condition="'$(Configuration)' == 'Release'">true</SelfContained>-->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	  <!--<PublishReadyToRun Condition="'$(Configuration)' == 'Release'">true</PublishReadyToRun>-->
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <SelfContained>true</SelfContained>
+	  <PublishReadyToRun>true</PublishReadyToRun>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platforms>AnyCPU</Platforms>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <UseWindowsForms>True</UseWindowsForms>
+    <StartupObject>ForzaDSX.Program</StartupObject>
+    <IsPublishable>True</IsPublishable>
+    <Title>ForzaDSX</Title>
+    <IncludeSymbols>False</IncludeSymbols>
+    <UseWPF>False</UseWPF>
+  </PropertyGroup>
+
+<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<PlatformTarget>AnyCPU</PlatformTarget>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>none</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <PlatformTarget>AnyCPU</PlatformTarget>
+	  <DebugType>none</DebugType>
+	  <Optimize>true</Optimize>
+	  <OutputPath>bin\Release\</OutputPath>
+	  <DefineConstants>TRACE</DefineConstants>
+	  <ErrorReport>prompt</ErrorReport>
+	  <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+<!--<ItemGroup>
+    <Content Include="appsettings.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Ini" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

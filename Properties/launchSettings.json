@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ForzaDSX": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
