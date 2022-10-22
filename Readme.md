@@ -18,6 +18,7 @@ Step by step instructions:
 ![image](https://user-images.githubusercontent.com/27782168/183418210-145b6701-f1f7-4783-91ba-7a1893294601.png)
 8. In DSX make sure UDP is enabled, go to settings, click controller and then click networking. UDP has to be enabled and must be listening to port 6969
 
+-----------------------------------------------------------------------------------------------------------------------------------------
 Note for Forza Motorsport 7
 1. Launch the game and head to the HUD options menu
 2. Set Data Out to ON
