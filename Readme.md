@@ -4,6 +4,7 @@ Note for Forza 4
 3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
 4. Save changes
 
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 Step by step instructions:
 1. Download latest version of ForzaDSX from releases https://github.com/cosmii02/ForzaDSX/releases
