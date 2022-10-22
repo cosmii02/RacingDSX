@@ -1,3 +1,10 @@
+Note for Forza 4
+1. Install Window 8 AppContainer Loopback Utility
+2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
+3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
+4. Save changes
+
+
 Step by step instructions:
 1. Download latest version of ForzaDSX from releases https://github.com/cosmii02/ForzaDSX/releases
 2. extract the zip file to a folder (For example desktop)
@@ -10,7 +17,12 @@ Step by step instructions:
 ![image](https://user-images.githubusercontent.com/27782168/183418210-145b6701-f1f7-4783-91ba-7a1893294601.png)
 8. In DSX make sure UDP is enabled, go to settings, click controller and then click networking. UDP has to be enabled and must be listening to port 6969
 
-
+Note for Forza Motorsport 7
+1. Launch the game and head to the HUD options menu
+2. Set Data Out to ON
+3. Set Data Out IP Address to 127.0.0.1 (localhost)
+4. Set Data Out IP Port to 5300
+5. Set Data Out Packet Format to CAR DASH
 
 
 
