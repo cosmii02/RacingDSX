@@ -1,5 +1,5 @@
 Note for Forza 4
-1. Install Window 8 AppContainer Loopback Utility
+1. Install Window 8 AppContainer Loopback Utility https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
 3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
 4. Save changes
