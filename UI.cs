@@ -372,12 +372,12 @@ namespace ForzaDSX
 
 		private void dsxNumericUpDown_ValueChanged(object sender, EventArgs e)
 		{
-			currentSettings.DSX_PORT = (int)Math.Floor(this.dsxNumericUpDown.Value);
+			currentSettings.DSX_PORT = (uint)Math.Floor(this.dsxNumericUpDown.Value);
 		}
 
 		private void forzaPortNumericUpDown_ValueChanged(object sender, EventArgs e)
 		{
-			currentSettings.FORZA_PORT = (int)Math.Floor(this.forzaPortNumericUpDown.Value);
+			currentSettings.FORZA_PORT = (uint)Math.Floor(this.forzaPortNumericUpDown.Value);
 		}
 		#endregion
 

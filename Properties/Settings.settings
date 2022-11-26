@@ -2,18 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ForzaDSX.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="_grip_Loss_Val" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.5</Value>
-    </Setting>
-    <Setting Name="_throttle_Grip_Loss_Val" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.2</Value>
-    </Setting>
-    <Setting Name="_max_Brake_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">35</Value>
-    </Setting>
-    <Setting Name="_min_Brake_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3</Value>
-    </Setting>
     <Setting Name="_turn_Accel_Mod" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.5</Value>
     </Setting>
@@ -31,27 +19,6 @@
     </Setting>
     <Setting Name="_forward_Accel_Mod" Type="System.Single" Scope="User">
       <Value Profile="(Default)">1</Value>
-    </Setting>
-    <Setting Name="_max_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">35</Value>
-    </Setting>
-    <Setting Name="_min_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3</Value>
-    </Setting>
-    <Setting Name="_min_Accel_Griploss_Stiffness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
-    </Setting>
-    <Setting Name="_max_Accel_Griploss_Stiffness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">75</Value>
-    </Setting>
-    <Setting Name="_min_Brake_Stiffness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
-    </Setting>
-    <Setting Name="_max_Brake_Stiffness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
-    <Setting Name="_brake_Vibration_Start" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="_brake_Vibration_Mode_Start" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
@@ -94,6 +61,39 @@
     </Setting>
     <Setting Name="_verbose" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="_grip_Loss_Val" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="_max_Brake_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="_max_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="_min_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">35</Value>
+    </Setting>
+    <Setting Name="_min_Accel_Griploss_Stiffness" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="_max_Accel_Griploss_Stiffness" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="_brake_Vibration_Start" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="_min_Brake_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="_throttle_Grip_Loss_Val" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.55</Value>
+    </Setting>
+    <Setting Name="_min_Brake_Stiffness" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="_max_Brake_Stiffness" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">180</Value>
     </Setting>
   </Settings>
 </SettingsFile>

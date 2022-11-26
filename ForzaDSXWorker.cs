@@ -254,13 +254,12 @@ namespace ForzaDSX
 
 				// Define losing grip as front tires slipping or rear tires slipping while accelerating a fair ammount
 				bool bLosingAccelGrip =
-					combinedFrontTireSlip > settings.THROTTLE_GRIP_LOSS_VAL
-				|| (combinedRearTireSlip > settings.THROTTLE_GRIP_LOSS_VAL && data.Accelerator > 200);
+					combinedFrontTireSlip > settings.THROTTLE_GRIP_LOSS_VAL * 5 || (combinedRearTireSlip > settings.THROTTLE_GRIP_LOSS_VAL * 5 && data.Accelerator > 200);
 
 				// If losing grip, start to "vibrate"
 				if (bLosingAccelGrip)
 				{
-					freq = (int)Math.Floor(Map(combinedTireSlip, settings.THROTTLE_GRIP_LOSS_VAL, 5, 0, settings.MAX_ACCEL_GRIPLOSS_VIBRATION));
+					freq = (int)Math.Floor(Map(combinedTireSlip, settings.THROTTLE_GRIP_LOSS_VAL, 5, settings.MIN_ACCEL_GRIPLOSS_VIBRATION, settings.MAX_ACCEL_GRIPLOSS_VIBRATION));
 					resistance = (int)Math.Floor(Map(avgAccel, 0, settings.ACCELERATION_LIMIT, settings.MIN_ACCEL_GRIPLOSS_STIFFNESS, settings.MAX_ACCEL_GRIPLOSS_STIFFNESS));
 					//resistance = settings.MIN_ACCEL_GRIPLOSS_STIFFNESS - (int)Math.Floor(Map(data.Accelerator, 0, 255, settings.MIN_ACCEL_GRIPLOSS_STIFFNESS, settings.MAX_ACCEL_GRIPLOSS_STIFFNESS));
 					filteredResistance = (int)Math.Floor(EWMA(resistance, lastThrottleResistance, settings.EWMA_ALPHA_THROTTLE) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
@@ -271,8 +270,7 @@ namespace ForzaDSX
                     lastThrottleResistance = filteredResistance;
 					lastThrottleFreq = filteredFreq;
 
-					if (filteredFreq <= settings.MIN_ACCEL_GRIPLOSS_VIBRATION
-						|| data.Accelerator <= settings.THROTTLE_VIBRATION_MODE_START)
+					if (data.Accelerator <= settings.THROTTLE_VIBRATION_MODE_START)
 					{
 						RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance };
 
@@ -286,7 +284,7 @@ namespace ForzaDSX
 					if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}, FrontTireSlip: {combinedFrontTireSlip}, RearTireSlip: {combinedRearTireSlip}" ));
 					}
 				}
 				else
@@ -434,20 +432,20 @@ namespace ForzaDSX
 				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.." ));
 			}
 
-			int portNum = settings.DSX_PORT;
+			int portNum = (int)settings.DSX_PORT;
 			if (portNumber != null)
 			{
 				try
 				{
 					portNum = Convert.ToInt32(portNumber);
 				}
-				catch (FormatException e)
+				catch (FormatException /*e*/)
 				{
 					if (progressReporter != null)
 					{
 						progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non numerical Port! Using configured default({settings.DSX_PORT})." ));
 					}
-					portNum = settings.DSX_PORT;
+					portNum = (int)settings.DSX_PORT;
 				}
 			}
 			else
@@ -524,7 +522,7 @@ namespace ForzaDSX
 				{
 					if (progressReporter != null)
 						progressReporter.Report(new ForzaDSXReportStruct("Couldn't Access Port. " + e.Message ));
-					throw e;
+					//throw e;
 				}
 				else if (e is ObjectDisposedException)
 				{
@@ -566,8 +564,8 @@ namespace ForzaDSX
 				Connect();
 
 				//Connect to Forza
-				ipEndPoint = new IPEndPoint(IPAddress.Loopback, settings.FORZA_PORT);
-				client = new UdpClient(settings.FORZA_PORT);
+				ipEndPoint = new IPEndPoint(IPAddress.Loopback, (int)settings.FORZA_PORT);
+				client = new UdpClient((int)settings.FORZA_PORT);
 
 				DataPacket data;
 				byte[] resultBuffer;
