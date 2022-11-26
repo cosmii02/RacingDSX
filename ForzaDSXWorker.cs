@@ -266,7 +266,9 @@ namespace ForzaDSX
 					filteredResistance = (int)Math.Floor(EWMA(resistance, lastThrottleResistance, settings.EWMA_ALPHA_THROTTLE) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
 					filteredFreq = (int)Math.Floor(EWMA(freq, lastThrottleFreq, settings.EWMA_ALPHA_THROTTLE_FREQ) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
 
-					lastThrottleResistance = filteredResistance;
+					//filteredResistance = Clamp(filteredResistance, settings.MIN_THROTTLE_RESISTANCE, settings.MAX_THROTTLE_RESISTANCE);
+
+                    lastThrottleResistance = filteredResistance;
 					lastThrottleFreq = filteredFreq;
 
 					if (filteredFreq <= settings.MIN_ACCEL_GRIPLOSS_VIBRATION
@@ -317,15 +319,18 @@ namespace ForzaDSX
 				#region Left Trigger
 				//Update the left(Brake) trigger
 
-				if (combinedTireSlip < settings.GRIP_LOSS_VAL 
-					&& data.Brake < settings.BRAKE_VIBRATION__MODE_START)
+				if ((combinedTireSlip > settings.GRIP_LOSS_VAL) && (data.Brake > settings.BRAKE_VIBRATION_START))
 				{
-					freq = settings.MAX_BRAKE_VIBRATION - (int)Math.Floor(Map(combinedTireSlip, settings.GRIP_LOSS_VAL, 1, 0, settings.MAX_BRAKE_VIBRATION));
-					resistance = settings.MIN_BRAKE_STIFFNESS - (int)Math.Floor(Map(data.Brake, 0, 255, settings.MAX_BRAKE_STIFFNESS, settings.MIN_BRAKE_STIFFNESS));
+					freq = (int)Math.Floor(Map(combinedTireSlip, settings.GRIP_LOSS_VAL, 1, 0, settings.MAX_BRAKE_VIBRATION));
+                    filteredFreq = (int)Math.Floor(EWMA(freq, lastBrakeFreq, settings.EWMA_ALPHA_BRAKE_FREQ) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
+					//filteredFreq = 50;
+                    lastBrakeFreq = filteredFreq;
+
+                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_STIFFNESS, settings.MAX_BRAKE_STIFFNESS));
 					filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
-					filteredFreq = (int)Math.Floor(EWMA(freq, lastBrakeFreq, settings.EWMA_ALPHA_BRAKE_FREQ) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
-					lastBrakeFreq = filteredFreq;
-					lastBrakeResistance = filteredResistance;
+					//filteredResistance = 50;
+                    lastBrakeResistance = filteredResistance;
+
 					if (filteredFreq <= settings.MIN_BRAKE_VIBRATION)
 					{
 						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, 0 };
@@ -333,7 +338,7 @@ namespace ForzaDSX
 					}
 					else
 					{
-						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq, filteredResistance, settings.BRAKE_VIBRATION_START, 0, 0, 0, 0 };
+						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq, filteredResistance, settings.BRAKE_VIBRATION__MODE_START, 0, 0, 0, 0 };
 
 					}
 					//Set left trigger to the custom mode VibrateResitance with values of Frequency = freq, Stiffness = 104, startPostion = 76. 
@@ -646,9 +651,35 @@ namespace ForzaDSX
 		{
 			return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
 		}
+        static int Clamp(int input, int min, int max)
+        {
+            if (input < min)
+			{
+				return min;
+			} else if (input > max)
+			{
+				return max;
+			}
 
-		//Parses data from Forza into a DataPacket
-		DataPacket ParseData(byte[] packet)
+			return input;
+        }
+
+        static float Clamp(float input, float min, float max)
+        {
+            if (input < min)
+            {
+                return min;
+            }
+            else if (input > max)
+            {
+                return max;
+            }
+
+            return input;
+        }
+
+        //Parses data from Forza into a DataPacket
+        DataPacket ParseData(byte[] packet)
 		{
 			DataPacket data = new DataPacket();
 
