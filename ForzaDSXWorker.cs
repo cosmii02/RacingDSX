@@ -321,23 +321,20 @@ namespace ForzaDSX
 				{
 					freq = (int)Math.Floor(Map(combinedTireSlip, settings.GRIP_LOSS_VAL, 1, 0, settings.MAX_BRAKE_VIBRATION));
                     filteredFreq = (int)Math.Floor(EWMA(freq, lastBrakeFreq, settings.EWMA_ALPHA_BRAKE_FREQ) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
-					//filteredFreq = 50;
                     lastBrakeFreq = filteredFreq;
 
-                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_STIFFNESS, settings.MAX_BRAKE_STIFFNESS));
-					filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
-					//filteredResistance = 50;
+                    //resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_STIFFNESS, settings.MAX_BRAKE_STIFFNESS));
+                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_RESISTANCE, settings.MAX_BRAKE_RESISTANCE));
+                    filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
                     lastBrakeResistance = filteredResistance;
 
 					if (filteredFreq <= settings.MIN_BRAKE_VIBRATION)
 					{
-						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, 0 };
-
-					}
+                        LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance };
+                    }
 					else
 					{
 						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq, filteredResistance, settings.BRAKE_VIBRATION__MODE_START, 0, 0, 0, 0 };
-
 					}
 					//Set left trigger to the custom mode VibrateResitance with values of Frequency = freq, Stiffness = 104, startPostion = 76. 
 					if (settings.Verbose > 0
@@ -402,19 +399,48 @@ namespace ForzaDSX
 				#endregion
 			}
 		}
+        static float Clamp(float input, float min, float max)
+        {
+            if (input < min)
+            {
+                return min;
+            }
+            else if (input > max)
+            {
+                return max;
+            }
 
-		//Maps floats from one range to another.
-		public float Map(float x, float in_min, float in_max, float out_min, float out_max)
+            return input;
+        }
+
+        static int Clamp(int input, int min, int max)
+        {
+            if (input < min)
+            {
+                return min;
+            }
+            else if (input > max)
+            {
+                return max;
+            }
+
+            return input;
+        }
+
+		// input( 0.0 ~ 1.0)
+		public float Lerp(float min, float max, float input)
 		{
-			if (x > in_max)
-			{
-				x = in_max;
-			}
-			else if (x < in_min)
-			{
-				x = in_min;
-			}
-			return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+			return min * (1 - input) + max * input;
+		}
+
+        //Maps floats from one range to another.
+        public float Map(float x, float in_min, float in_max, float out_min, float out_max)
+		{
+			x = Clamp(x, in_min, in_max);
+			x = (x - in_min) / (in_max - in_min);
+
+			return Lerp(x, out_min, out_max);
+ 			//return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 		}
 
 		//private DataPacket data;
@@ -649,32 +675,6 @@ namespace ForzaDSX
 		{
 			return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
 		}
-        static int Clamp(int input, int min, int max)
-        {
-            if (input < min)
-			{
-				return min;
-			} else if (input > max)
-			{
-				return max;
-			}
-
-			return input;
-        }
-
-        static float Clamp(float input, float min, float max)
-        {
-            if (input < min)
-            {
-                return min;
-            }
-            else if (input > max)
-            {
-                return max;
-            }
-
-            return input;
-        }
 
         //Parses data from Forza into a DataPacket
         DataPacket ParseData(byte[] packet)

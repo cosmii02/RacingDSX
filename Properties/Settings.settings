@@ -14,9 +14,6 @@
     <Setting Name="_ewma_Alpha_Brake_Freq" Type="System.Single" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="_ewma_Alpha_Throttle_Freq" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.5</Value>
-    </Setting>
     <Setting Name="_forward_Accel_Mod" Type="System.Single" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
@@ -65,12 +62,6 @@
     <Setting Name="_grip_Loss_Val" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.1</Value>
     </Setting>
-    <Setting Name="_max_Brake_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">60</Value>
-    </Setting>
-    <Setting Name="_max_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">60</Value>
-    </Setting>
     <Setting Name="_min_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">35</Value>
     </Setting>
@@ -94,6 +85,15 @@
     </Setting>
     <Setting Name="_max_Brake_Stiffness" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">180</Value>
+    </Setting>
+    <Setting Name="_ewma_Alpha_Throttle_Freq" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="_max_Brake_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="_max_Accel_Griploss_Vibration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">80</Value>
     </Setting>
   </Settings>
 </SettingsFile>

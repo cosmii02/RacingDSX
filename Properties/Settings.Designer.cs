@@ -73,18 +73,6 @@ namespace ForzaDSX.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.5")]
-        public float _ewma_Alpha_Throttle_Freq {
-            get {
-                return ((float)(this["_ewma_Alpha_Throttle_Freq"]));
-            }
-            set {
-                this["_ewma_Alpha_Throttle_Freq"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public float _forward_Accel_Mod {
             get {
@@ -277,30 +265,6 @@ namespace ForzaDSX.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public int _max_Brake_Vibration {
-            get {
-                return ((int)(this["_max_Brake_Vibration"]));
-            }
-            set {
-                this["_max_Brake_Vibration"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public int _max_Accel_Griploss_Vibration {
-            get {
-                return ((int)(this["_max_Accel_Griploss_Vibration"]));
-            }
-            set {
-                this["_max_Accel_Griploss_Vibration"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("35")]
         public int _min_Accel_Griploss_Vibration {
             get {
@@ -392,6 +356,42 @@ namespace ForzaDSX.Properties {
             }
             set {
                 this["_max_Brake_Stiffness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public float _ewma_Alpha_Throttle_Freq {
+            get {
+                return ((float)(this["_ewma_Alpha_Throttle_Freq"]));
+            }
+            set {
+                this["_ewma_Alpha_Throttle_Freq"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
+        public int _max_Brake_Vibration {
+            get {
+                return ((int)(this["_max_Brake_Vibration"]));
+            }
+            set {
+                this["_max_Brake_Vibration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
+        public int _max_Accel_Griploss_Vibration {
+            get {
+                return ((int)(this["_max_Accel_Griploss_Vibration"]));
+            }
+            set {
+                this["_max_Accel_Griploss_Vibration"] = value;
             }
         }
 
