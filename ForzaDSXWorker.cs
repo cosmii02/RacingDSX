@@ -45,7 +45,7 @@ namespace ForzaDSX
 			public ForzaDSXReportStruct(string msg)
 			{
 				this.type = ReportType.VERBOSEMESSAGE;
-				this.message = String.Empty;
+				this.message = msg;
 			}
 
 			public ReportType type = 0;
@@ -175,8 +175,35 @@ namespace ForzaDSX
 			Instruction LightBar = new Instruction();
 			LightBar.type = InstructionType.RGBUpdate;
 
-			// No race = normal triggers
-			if (!bInRace)
+            #region Light Bar
+            //Update the light bar
+            //Currently registers intensity on the green channel based on engine RPM as a percantage of the maxium. Changes to red if RPM ratio > 80% (usually red line)
+            float engineRange = data.EngineMaxRpm - data.EngineIdleRpm;
+            float CurrentRPMRatio = (currentRPM - data.EngineIdleRpm) / engineRange;
+            int GreenChannel = Math.Max((int)Math.Floor(CurrentRPMRatio * 255), 50);
+            int RedChannel = (int)Math.Floor(CurrentRPMRatio * 255);
+            if (CurrentRPMRatio >= settings.RPM_REDLINE_RATIO)
+            {
+                // Remove Green
+                GreenChannel = 255 - GreenChannel;
+            }
+
+            LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, 0 };
+
+            if (settings.Verbose > 1
+                && progressReporter != null)
+            {
+                progressReporter.Report(new ForzaDSXReportStruct($"Engine RPM: {data.CurrentEngineRpm}; Engine Max RPM: {data.EngineMaxRpm}; Engine Idle RPM: {data.EngineIdleRpm}"));
+            }
+
+            p.instructions = new Instruction[] { LightBar };
+
+            //Send the commands to DualSenseX
+            Send(p);
+            #endregion
+
+            // No race = normal triggers
+            if (!bInRace)
 			{
 				RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
 				LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
@@ -293,14 +320,27 @@ namespace ForzaDSX
 					resistance = (int)Math.Floor(Map(avgAccel, 0, settings.ACCELERATION_LIMIT, settings.MIN_THROTTLE_RESISTANCE, settings.MAX_THROTTLE_RESISTANCE));
 					filteredResistance = (int)Math.Floor(EWMA(resistance, lastThrottleResistance, settings.EWMA_ALPHA_THROTTLE) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
 
-					lastThrottleResistance = filteredResistance;
-					RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance };
+					filteredFreq = 0;
+                    if (CurrentRPMRatio >= 0.8)
+					{
+						//freq = (int)Math.Floor(Map(CurrentRPMRatio, 0.8f, 1.0f, settings.MIN_ACCEL_GRIPLOSS_VIBRATION, settings.MAX_ACCEL_GRIPLOSS_VIBRATION));
+						freq = settings.MIN_ACCEL_GRIPLOSS_VIBRATION;
+                        //filteredFreq = (int)Math.Floor(EWMA(freq, lastThrottleFreq, settings.EWMA_ALPHA_THROTTLE_FREQ) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
+                        //lastThrottleFreq = filteredFreq;
+                        RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, freq, filteredResistance, settings.THROTTLE_VIBRATION_MODE_START, 0, 0, 0, 0 };
+                    } else
+					{
+						RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, freq, filteredResistance };
+					}
 
-					if (settings.Verbose > 0
+                    lastThrottleResistance = filteredResistance;
+
+                    if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, String.Empty));
-					}
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"CurrentRPMRatio : {CurrentRPMRatio}, freq: {freq};"));
+
+                    }
 				}
 
 				if (settings.Verbose > 0
@@ -362,37 +402,10 @@ namespace ForzaDSX
 				if (settings.Verbose > 0
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance}; Tire Slip: {combinedTireSlip}" ));
+					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance}; Tire Slip: {combinedTireSlip}, Engine RPM: {data.CurrentEngineRpm}; Max RPM: {data.EngineMaxRpm}; Idle RPM: {data.EngineIdleRpm}" ));
 				}
 
 				p.instructions = new Instruction[] { LeftTrigger};
-
-				//Send the commands to DualSenseX
-				Send(p);
-				#endregion
-
-				#region Light Bar
-				//Update the light bar
-				//Currently registers intensity on the green channel based on engine RPM as a percantage of the maxium. Changes to red if RPM ratio > 80% (usually red line)
-				float engineRange = data.EngineMaxRpm - data.EngineIdleRpm;
-				float CurrentRPMRatio = (currentRPM - data.EngineIdleRpm) / engineRange;
-				int GreenChannel = Math.Max((int)Math.Floor(CurrentRPMRatio * 255), 50);
-				int RedChannel = (int)Math.Floor(CurrentRPMRatio * 255);
-				if (CurrentRPMRatio >= settings.RPM_REDLINE_RATIO)
-				{
-					// Remove Green
-					GreenChannel = 255 - GreenChannel;
-				}
-
-				LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, 0 };
-
-				if (settings.Verbose > 1
-					&& progressReporter != null)
-				{
-					progressReporter.Report(new ForzaDSXReportStruct($"Engine RPM: {data.CurrentEngineRpm}; Engine Max RPM: {data.EngineMaxRpm}; Engine Idle RPM: {data.EngineIdleRpm}"));
-				}
-
-				p.instructions = new Instruction[] { LightBar };
 
 				//Send the commands to DualSenseX
 				Send(p);
@@ -426,9 +439,17 @@ namespace ForzaDSX
 
             return input;
         }
+        static float EWMA(float input, float last, float alpha)
+        {
+            return (alpha * input) + (1 - alpha) * last;
+        }
+        static int EWMA(int input, int last, float alpha)
+        {
+            return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
+        }
 
-		// input( 0.0 ~ 1.0)
-		public float Lerp(float min, float max, float input)
+        // input( 0.0 ~ 1.0)
+        public float Lerp(float min, float max, float input)
 		{
 			return min * (1 - input) + max * input;
 		}
@@ -439,7 +460,7 @@ namespace ForzaDSX
 			x = Clamp(x, in_min, in_max);
 			x = (x - in_min) / (in_max - in_min);
 
-			return Lerp(x, out_min, out_max);
+			return Lerp(out_min, out_max, x);
  			//return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 		}
 
@@ -665,15 +686,6 @@ namespace ForzaDSX
 			{
 				progressReporter.Report(new ForzaDSXReportStruct($"Cleanup Finished. Exiting..."));
 			}
-		}
-
-		static float EWMA(float input, float last, float alpha)
-		{
-			return (alpha * input) + (1 - alpha) * last;
-		}
-		static int EWMA(int input, int last, float alpha)
-		{
-			return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
 		}
 
         //Parses data from Forza into a DataPacket
