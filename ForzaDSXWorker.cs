@@ -311,23 +311,23 @@ namespace ForzaDSX
 					if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}, FrontTireSlip: {combinedFrontTireSlip}, RearTireSlip: {combinedRearTireSlip}" ));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq.ToString("F2")}, Resistance: {filteredResistance.ToString("F2")}, FrontTireSlip: {combinedFrontTireSlip.ToString("F2")}, RearTireSlip: {combinedRearTireSlip.ToString("F2")}" ));
 					}
 				}
 				else
 				{
 					//It should probably always be uniformly stiff
-					resistance = (int)Math.Floor(Map(avgAccel, 0, settings.ACCELERATION_LIMIT, settings.MIN_THROTTLE_RESISTANCE, settings.MAX_THROTTLE_RESISTANCE));
+					resistance = (int)Math.Floor(Map(avgAccel, 0, settings.ACCELERATION_LIMIT, settings.MAX_THROTTLE_RESISTANCE, settings.MIN_THROTTLE_RESISTANCE));
 					filteredResistance = (int)Math.Floor(EWMA(resistance, lastThrottleResistance, settings.EWMA_ALPHA_THROTTLE) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
 
 					filteredFreq = 0;
-                    if (CurrentRPMRatio >= 0.8)
+                    if (currentRPM >= engineRange)
 					{
 						//freq = (int)Math.Floor(Map(CurrentRPMRatio, 0.8f, 1.0f, settings.MIN_ACCEL_GRIPLOSS_VIBRATION, settings.MAX_ACCEL_GRIPLOSS_VIBRATION));
-						freq = settings.MIN_ACCEL_GRIPLOSS_VIBRATION;
+						freq = Math.Max(10, Math.Min(settings.MIN_ACCEL_GRIPLOSS_VIBRATION, 20));
                         //filteredFreq = (int)Math.Floor(EWMA(freq, lastThrottleFreq, settings.EWMA_ALPHA_THROTTLE_FREQ) * settings.RIGHT_TRIGGER_EFFECT_INTENSITY);
                         //lastThrottleFreq = filteredFreq;
-                        RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, freq, filteredResistance, settings.THROTTLE_VIBRATION_MODE_START, 0, 0, 0, 0 };
+                        RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, freq, filteredResistance, 0, 0, 0, 0, 0 };
                     } else
 					{
 						RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, freq, filteredResistance };
@@ -338,7 +338,7 @@ namespace ForzaDSX
                     if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"CurrentRPMRatio : {CurrentRPMRatio}, freq: {freq};"));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"CurrentRPMRatio : {CurrentRPMRatio.ToString("F2")}, freq: {freq};"));
 
                     }
 				}
@@ -346,7 +346,7 @@ namespace ForzaDSX
 				if (settings.Verbose > 0
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE, $"Average Acceleration: {avgAccel}; Throttle Resistance: {filteredResistance}; Accelerator: {data.Accelerator}" ));
+					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE, $"Average Acceleration: {avgAccel}; Throttle Resistance: {filteredResistance.ToString("F2")}; Accelerator: {data.Accelerator}" ));
 				}
 
 				p.instructions = new Instruction[] { RightTrigger };
@@ -357,21 +357,21 @@ namespace ForzaDSX
 				#region Left Trigger
 				//Update the left(Brake) trigger
 
-				if ((combinedTireSlip > settings.GRIP_LOSS_VAL) && (data.Brake > settings.BRAKE_VIBRATION_START))
+				if ((combinedTireSlip > settings.GRIP_LOSS_VAL) && data.Brake > 0)
 				{
-					freq = (int)Math.Floor(Map(combinedTireSlip, settings.GRIP_LOSS_VAL, 1, 0, settings.MAX_BRAKE_VIBRATION));
+					freq = (int)Math.Floor(Map(combinedTireSlip, settings.GRIP_LOSS_VAL, 1, settings.MIN_BRAKE_VIBRATION, settings.MAX_BRAKE_VIBRATION));
                     filteredFreq = (int)Math.Floor(EWMA(freq, lastBrakeFreq, settings.EWMA_ALPHA_BRAKE_FREQ) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
                     lastBrakeFreq = filteredFreq;
 
                     //resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_STIFFNESS, settings.MAX_BRAKE_STIFFNESS));
-                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_RESISTANCE, settings.MAX_BRAKE_RESISTANCE));
+                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MAX_BRAKE_RESISTANCE, settings.MIN_BRAKE_RESISTANCE));
                     filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
                     lastBrakeResistance = filteredResistance;
 
-					if (filteredFreq <= settings.MIN_BRAKE_VIBRATION)
+					if (data.Brake < settings.BRAKE_VIBRATION_START)
 					{
-                        LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance };
-                    }
+						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance };
+					}
 					else
 					{
 						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq, filteredResistance, settings.BRAKE_VIBRATION__MODE_START, 0, 0, 0, 0 };
@@ -380,29 +380,29 @@ namespace ForzaDSX
 					if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"Setting Brake to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"Setting Brake to vibration mode with freq: {filteredFreq.ToString("F2")}, Resistance: {filteredResistance.ToString("F2")}" ));
 					}
 				}
 				else
 				{
-					//By default, Increasingly resistant to force
-					resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MIN_BRAKE_RESISTANCE, settings.MAX_BRAKE_RESISTANCE));
-					filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
-					lastBrakeResistance = filteredResistance;
+                    //By default, Increasingly resistant to force
+                    resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings.MAX_BRAKE_RESISTANCE, settings.MIN_BRAKE_RESISTANCE));
+                    filteredResistance = (int)Math.Floor(EWMA(resistance, lastBrakeResistance, settings.EWMA_ALPHA_BRAKE) * settings.LEFT_TRIGGER_EFFECT_INTENSITY);
+                    lastBrakeResistance = filteredResistance;
 
-					LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance };
+                    LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance };
 
 					if (settings.Verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, String.Empty ));
-					}
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"None tireSlip - combinedTireSlip: {combinedTireSlip.ToString("F2")}, Resistance: {filteredResistance.ToString("F2")}"));
+                    }
 				}
 
 				if (settings.Verbose > 0
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance}; Tire Slip: {combinedTireSlip}, Engine RPM: {data.CurrentEngineRpm}; Max RPM: {data.EngineMaxRpm}; Idle RPM: {data.EngineIdleRpm}" ));
+					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance.ToString("F2")}; Tire Slip: {combinedTireSlip.ToString("F2")}, Engine RPM: {data.CurrentEngineRpm.ToString("F2")}; Max RPM: {data.EngineMaxRpm.ToString("F2")}; Idle RPM: {data.EngineIdleRpm.ToString("F2")}" ));
 				}
 
 				p.instructions = new Instruction[] { LeftTrigger};

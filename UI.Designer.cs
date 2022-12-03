@@ -287,7 +287,7 @@ namespace ForzaDSX
             this.forzaPortNumericUpDown.AutoSize = true;
             this.forzaPortNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.forzaPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.forzaPortNumericUpDown.Location = new System.Drawing.Point(120, 103);
+            this.forzaPortNumericUpDown.Location = new System.Drawing.Point(124, 103);
             this.forzaPortNumericUpDown.Maximum = new decimal(new int[] {
             65353,
             0,
@@ -306,7 +306,7 @@ namespace ForzaDSX
             this.forzaPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.forzaPortLabel.Location = new System.Drawing.Point(3, 100);
             this.forzaPortLabel.Name = "forzaPortLabel";
-            this.forzaPortLabel.Size = new System.Drawing.Size(111, 29);
+            this.forzaPortLabel.Size = new System.Drawing.Size(115, 29);
             this.forzaPortLabel.TabIndex = 6;
             this.forzaPortLabel.Text = "Forza Port";
             this.forzaPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -318,7 +318,7 @@ namespace ForzaDSX
             this.dsxPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dsxPortLabel.Location = new System.Drawing.Point(3, 71);
             this.dsxPortLabel.Name = "dsxPortLabel";
-            this.dsxPortLabel.Size = new System.Drawing.Size(111, 29);
+            this.dsxPortLabel.Size = new System.Drawing.Size(115, 29);
             this.dsxPortLabel.TabIndex = 4;
             this.dsxPortLabel.Text = "DSX Port";
             this.dsxPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -330,7 +330,7 @@ namespace ForzaDSX
             this.appCheckLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appCheckLabel.Location = new System.Drawing.Point(3, 51);
             this.appCheckLabel.Name = "appCheckLabel";
-            this.appCheckLabel.Size = new System.Drawing.Size(111, 20);
+            this.appCheckLabel.Size = new System.Drawing.Size(115, 20);
             this.appCheckLabel.TabIndex = 2;
             this.appCheckLabel.Text = "Disable App Check?";
             this.appCheckLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -343,7 +343,7 @@ namespace ForzaDSX
             this.rpmLabel.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
             this.rpmLabel.Location = new System.Drawing.Point(3, 0);
             this.rpmLabel.Name = "rpmLabel";
-            this.rpmLabel.Size = new System.Drawing.Size(111, 51);
+            this.rpmLabel.Size = new System.Drawing.Size(115, 51);
             this.rpmLabel.TabIndex = 0;
             this.rpmLabel.Text = "RPM Redline Ratio";
             this.rpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -355,7 +355,7 @@ namespace ForzaDSX
             this.rpmTrackBar.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
             this.rpmTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpmTrackBar.LargeChange = 50;
-            this.rpmTrackBar.Location = new System.Drawing.Point(120, 3);
+            this.rpmTrackBar.Location = new System.Drawing.Point(124, 3);
             this.rpmTrackBar.Maximum = 100;
             this.rpmTrackBar.Name = "rpmTrackBar";
             this.rpmTrackBar.Size = new System.Drawing.Size(415, 45);
@@ -369,7 +369,7 @@ namespace ForzaDSX
             // 
             this.appCheckBox.AutoSize = true;
             this.appCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appCheckBox.Location = new System.Drawing.Point(120, 54);
+            this.appCheckBox.Location = new System.Drawing.Point(124, 54);
             this.appCheckBox.Name = "appCheckBox";
             this.appCheckBox.Size = new System.Drawing.Size(415, 14);
             this.appCheckBox.TabIndex = 3;
@@ -382,7 +382,7 @@ namespace ForzaDSX
             this.dsxNumericUpDown.AutoSize = true;
             this.dsxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dsxNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dsxNumericUpDown.Location = new System.Drawing.Point(120, 74);
+            this.dsxNumericUpDown.Location = new System.Drawing.Point(124, 74);
             this.dsxNumericUpDown.Maximum = new decimal(new int[] {
             65353,
             0,
@@ -400,9 +400,9 @@ namespace ForzaDSX
             this.rpmValueNumericUpDown.AutoSize = true;
             this.rpmValueNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.rpmValueNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rpmValueNumericUpDown.Location = new System.Drawing.Point(541, 3);
+            this.rpmValueNumericUpDown.Location = new System.Drawing.Point(545, 3);
             this.rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-            this.rpmValueNumericUpDown.Size = new System.Drawing.Size(163, 23);
+            this.rpmValueNumericUpDown.Size = new System.Drawing.Size(159, 23);
             this.rpmValueNumericUpDown.TabIndex = 8;
             this.toolTip.SetToolTip(this.rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             this.rpmValueNumericUpDown.ValueChanged += new System.EventHandler(this.rpmValueNumericUpDown_ValueChanged);
@@ -410,7 +410,7 @@ namespace ForzaDSX
             // buttonApplyMisc
             // 
             this.buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonApplyMisc.Location = new System.Drawing.Point(120, 132);
+            this.buttonApplyMisc.Location = new System.Drawing.Point(124, 132);
             this.buttonApplyMisc.MaximumSize = new System.Drawing.Size(300, 30);
             this.buttonApplyMisc.MinimumSize = new System.Drawing.Size(200, 25);
             this.buttonApplyMisc.Name = "buttonApplyMisc";
@@ -504,7 +504,7 @@ namespace ForzaDSX
             this.brakeResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.brakeResistanceSmoothNumericUpDown.AutoSize = true;
             this.brakeResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(541, 575);
+            this.brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(543, 575);
             this.brakeResistanceSmoothNumericUpDown.Maximum = new decimal(new int[] {
             500,
             0,
@@ -516,7 +516,7 @@ namespace ForzaDSX
             0,
             0});
             this.brakeResistanceSmoothNumericUpDown.Name = "brakeResistanceSmoothNumericUpDown";
-            this.brakeResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.brakeResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.brakeResistanceSmoothNumericUpDown.TabIndex = 36;
             this.toolTip.SetToolTip(this.brakeResistanceSmoothNumericUpDown, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
             this.brakeResistanceSmoothNumericUpDown.Value = new decimal(new int[] {
@@ -531,14 +531,9 @@ namespace ForzaDSX
             this.maxBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.maxBrakeResistanceNumericUpDown.AutoSize = true;
             this.maxBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 524);
-            this.maxBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(543, 524);
             this.maxBrakeResistanceNumericUpDown.Name = "maxBrakeResistanceNumericUpDown";
-            this.maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+            this.maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.maxBrakeResistanceNumericUpDown.TabIndex = 35;
             this.toolTip.SetToolTip(this.maxBrakeResistanceNumericUpDown, "The Maximum resistance on the Brake (0-7)");
             this.maxBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeResistanceNumericUpDown_ValueChanged);
@@ -548,14 +543,9 @@ namespace ForzaDSX
             this.minBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.minBrakeResistanceNumericUpDown.AutoSize = true;
             this.minBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 473);
-            this.minBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(543, 473);
             this.minBrakeResistanceNumericUpDown.Name = "minBrakeResistanceNumericUpDown";
-            this.minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+            this.minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.minBrakeResistanceNumericUpDown.TabIndex = 34;
             this.toolTip.SetToolTip(this.minBrakeResistanceNumericUpDown, "The Minimum resistance on the Brake (0-7)");
             this.minBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.minBrakeResistanceNumericUpDown_ValueChanged);
@@ -565,7 +555,7 @@ namespace ForzaDSX
             this.maxBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.maxBrakeStifnessNumericUpDown.AutoSize = true;
             this.maxBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 422);
+            this.maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(543, 422);
             this.maxBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -577,7 +567,7 @@ namespace ForzaDSX
             0,
             0});
             this.maxBrakeStifnessNumericUpDown.Name = "maxBrakeStifnessNumericUpDown";
-            this.maxBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.maxBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.maxBrakeStifnessNumericUpDown.TabIndex = 33;
             this.toolTip.SetToolTip(this.maxBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
             this.maxBrakeStifnessNumericUpDown.Value = new decimal(new int[] {
@@ -592,7 +582,7 @@ namespace ForzaDSX
             this.minBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.minBrakeStifnessNumericUpDown.AutoSize = true;
             this.minBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 371);
+            this.minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(543, 371);
             this.minBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -604,7 +594,7 @@ namespace ForzaDSX
             0,
             0});
             this.minBrakeStifnessNumericUpDown.Name = "minBrakeStifnessNumericUpDown";
-            this.minBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.minBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.minBrakeStifnessNumericUpDown.TabIndex = 32;
             this.toolTip.SetToolTip(this.minBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
             this.minBrakeStifnessNumericUpDown.Value = new decimal(new int[] {
@@ -619,7 +609,7 @@ namespace ForzaDSX
             this.brakeVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.brakeVibrationSmoothNumericUpDown.AutoSize = true;
             this.brakeVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(541, 320);
+            this.brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(543, 320);
             this.brakeVibrationSmoothNumericUpDown.Maximum = new decimal(new int[] {
             500,
             0,
@@ -631,7 +621,7 @@ namespace ForzaDSX
             0,
             0});
             this.brakeVibrationSmoothNumericUpDown.Name = "brakeVibrationSmoothNumericUpDown";
-            this.brakeVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.brakeVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.brakeVibrationSmoothNumericUpDown.TabIndex = 31;
             this.toolTip.SetToolTip(this.brakeVibrationSmoothNumericUpDown, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
             this.brakeVibrationSmoothNumericUpDown.Value = new decimal(new int[] {
@@ -646,9 +636,9 @@ namespace ForzaDSX
             this.maxBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.maxBrakeVibrationNumericUpDown.AutoSize = true;
             this.maxBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 269);
+            this.maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(543, 269);
             this.maxBrakeVibrationNumericUpDown.Name = "maxBrakeVibrationNumericUpDown";
-            this.maxBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.maxBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.maxBrakeVibrationNumericUpDown.TabIndex = 30;
             this.toolTip.SetToolTip(this.maxBrakeVibrationNumericUpDown, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
             this.maxBrakeVibrationNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeVibrationNumericUpDown_ValueChanged);
@@ -658,9 +648,9 @@ namespace ForzaDSX
             this.minBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.minBrakeVibrationNumericUpDown.AutoSize = true;
             this.minBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 218);
+            this.minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(543, 218);
             this.minBrakeVibrationNumericUpDown.Name = "minBrakeVibrationNumericUpDown";
-            this.minBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.minBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.minBrakeVibrationNumericUpDown.TabIndex = 29;
             this.toolTip.SetToolTip(this.minBrakeVibrationNumericUpDown, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in contro" +
         "ller");
@@ -671,14 +661,14 @@ namespace ForzaDSX
             this.brakeVibrationModeNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.brakeVibrationModeNumericUpDown.AutoSize = true;
             this.brakeVibrationModeNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(541, 167);
+            this.brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(543, 167);
             this.brakeVibrationModeNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.brakeVibrationModeNumericUpDown.Name = "brakeVibrationModeNumericUpDown";
-            this.brakeVibrationModeNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.brakeVibrationModeNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.brakeVibrationModeNumericUpDown.TabIndex = 28;
             this.toolTip.SetToolTip(this.brakeVibrationModeNumericUpDown, "The depression of the brake lever at which the program should switch to vibration" +
         " mode rather than smooth resistance. This helps to avoid clicking as vibration m" +
@@ -690,14 +680,14 @@ namespace ForzaDSX
             this.brakeVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.brakeVibrationStartNumericUpDown.AutoSize = true;
             this.brakeVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(541, 116);
+            this.brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(543, 116);
             this.brakeVibrationStartNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.brakeVibrationStartNumericUpDown.Name = "brakeVibrationStartNumericUpDown";
-            this.brakeVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.brakeVibrationStartNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.brakeVibrationStartNumericUpDown.TabIndex = 27;
             this.toolTip.SetToolTip(this.brakeVibrationStartNumericUpDown, "The position in the Trigger (0-255) at which the brake should feel engaged with l" +
         "ow grip surfaces");
@@ -708,9 +698,9 @@ namespace ForzaDSX
             this.gripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.gripLossNumericUpDown.AutoSize = true;
             this.gripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gripLossNumericUpDown.Location = new System.Drawing.Point(541, 65);
+            this.gripLossNumericUpDown.Location = new System.Drawing.Point(543, 65);
             this.gripLossNumericUpDown.Name = "gripLossNumericUpDown";
-            this.gripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.gripLossNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.gripLossNumericUpDown.TabIndex = 26;
             this.toolTip.SetToolTip(this.gripLossNumericUpDown, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no" +
         " grip)");
@@ -721,9 +711,9 @@ namespace ForzaDSX
             this.brakeEffectNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.brakeEffectNumericUpDown.AutoSize = true;
             this.brakeEffectNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.brakeEffectNumericUpDown.Location = new System.Drawing.Point(541, 14);
+            this.brakeEffectNumericUpDown.Location = new System.Drawing.Point(543, 14);
             this.brakeEffectNumericUpDown.Name = "brakeEffectNumericUpDown";
-            this.brakeEffectNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.brakeEffectNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.brakeEffectNumericUpDown.TabIndex = 2;
             this.toolTip.SetToolTip(this.brakeEffectNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             this.brakeEffectNumericUpDown.ValueChanged += new System.EventHandler(this.brakeEffectNumericUpDown_ValueChanged);
@@ -733,7 +723,7 @@ namespace ForzaDSX
             this.brakeResistanceSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.brakeResistanceSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeResistanceSmoothingTrackBar.LargeChange = 50;
-            this.brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(133, 564);
+            this.brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(135, 564);
             this.brakeResistanceSmoothingTrackBar.Maximum = 500;
             this.brakeResistanceSmoothingTrackBar.Minimum = 1;
             this.brakeResistanceSmoothingTrackBar.Name = "brakeResistanceSmoothingTrackBar";
@@ -751,7 +741,7 @@ namespace ForzaDSX
             this.brakeResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 561);
             this.brakeResistanceSmoothingLabel.Name = "brakeResistanceSmoothingLabel";
-            this.brakeResistanceSmoothingLabel.Size = new System.Drawing.Size(124, 51);
+            this.brakeResistanceSmoothingLabel.Size = new System.Drawing.Size(126, 51);
             this.brakeResistanceSmoothingLabel.TabIndex = 22;
             this.brakeResistanceSmoothingLabel.Text = "Resistance Smoothing";
             this.brakeResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -761,9 +751,9 @@ namespace ForzaDSX
             // 
             this.maxBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.maxBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maxBrakeResistanceTrackBar.LargeChange = 50;
-            this.maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 513);
-            this.maxBrakeResistanceTrackBar.Maximum = 7;
+            this.maxBrakeResistanceTrackBar.LargeChange = 10;
+            this.maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(135, 513);
+            this.maxBrakeResistanceTrackBar.Maximum = 100;
             this.maxBrakeResistanceTrackBar.Name = "maxBrakeResistanceTrackBar";
             this.maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.maxBrakeResistanceTrackBar.TabIndex = 21;
@@ -777,7 +767,7 @@ namespace ForzaDSX
             this.maxBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxBrakeResistanceLabel.Location = new System.Drawing.Point(3, 510);
             this.maxBrakeResistanceLabel.Name = "maxBrakeResistanceLabel";
-            this.maxBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
+            this.maxBrakeResistanceLabel.Size = new System.Drawing.Size(126, 51);
             this.maxBrakeResistanceLabel.TabIndex = 20;
             this.maxBrakeResistanceLabel.Text = "Max Resistance";
             this.maxBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -787,9 +777,9 @@ namespace ForzaDSX
             // 
             this.minBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.minBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minBrakeResistanceTrackBar.LargeChange = 50;
-            this.minBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 462);
-            this.minBrakeResistanceTrackBar.Maximum = 7;
+            this.minBrakeResistanceTrackBar.LargeChange = 10;
+            this.minBrakeResistanceTrackBar.Location = new System.Drawing.Point(135, 462);
+            this.minBrakeResistanceTrackBar.Maximum = 100;
             this.minBrakeResistanceTrackBar.Name = "minBrakeResistanceTrackBar";
             this.minBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.minBrakeResistanceTrackBar.TabIndex = 19;
@@ -803,7 +793,7 @@ namespace ForzaDSX
             this.minBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minBrakeResistanceLabel.Location = new System.Drawing.Point(3, 459);
             this.minBrakeResistanceLabel.Name = "minBrakeResistanceLabel";
-            this.minBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
+            this.minBrakeResistanceLabel.Size = new System.Drawing.Size(126, 51);
             this.minBrakeResistanceLabel.TabIndex = 18;
             this.minBrakeResistanceLabel.Text = "Min Resistance";
             this.minBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -814,7 +804,7 @@ namespace ForzaDSX
             this.maxBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.maxBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxBrakeStiffnessTrackBar.LargeChange = 50;
-            this.maxBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 411);
+            this.maxBrakeStiffnessTrackBar.Location = new System.Drawing.Point(135, 411);
             this.maxBrakeStiffnessTrackBar.Maximum = 255;
             this.maxBrakeStiffnessTrackBar.Minimum = 1;
             this.maxBrakeStiffnessTrackBar.Name = "maxBrakeStiffnessTrackBar";
@@ -832,7 +822,7 @@ namespace ForzaDSX
             this.maxBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 408);
             this.maxBrakeStiffnessLabel.Name = "maxBrakeStiffnessLabel";
-            this.maxBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
+            this.maxBrakeStiffnessLabel.Size = new System.Drawing.Size(126, 51);
             this.maxBrakeStiffnessLabel.TabIndex = 16;
             this.maxBrakeStiffnessLabel.Text = "Max Stiffness";
             this.maxBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -843,7 +833,7 @@ namespace ForzaDSX
             this.minBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.minBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minBrakeStiffnessTrackBar.LargeChange = 50;
-            this.minBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 360);
+            this.minBrakeStiffnessTrackBar.Location = new System.Drawing.Point(135, 360);
             this.minBrakeStiffnessTrackBar.Maximum = 255;
             this.minBrakeStiffnessTrackBar.Minimum = 1;
             this.minBrakeStiffnessTrackBar.Name = "minBrakeStiffnessTrackBar";
@@ -861,7 +851,7 @@ namespace ForzaDSX
             this.minBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 357);
             this.minBrakeStiffnessLabel.Name = "minBrakeStiffnessLabel";
-            this.minBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
+            this.minBrakeStiffnessLabel.Size = new System.Drawing.Size(126, 51);
             this.minBrakeStiffnessLabel.TabIndex = 14;
             this.minBrakeStiffnessLabel.Text = "Min Stifness";
             this.minBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -872,7 +862,7 @@ namespace ForzaDSX
             this.vibrationSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.vibrationSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vibrationSmoothingTrackBar.LargeChange = 50;
-            this.vibrationSmoothingTrackBar.Location = new System.Drawing.Point(133, 309);
+            this.vibrationSmoothingTrackBar.Location = new System.Drawing.Point(135, 309);
             this.vibrationSmoothingTrackBar.Maximum = 500;
             this.vibrationSmoothingTrackBar.Minimum = 1;
             this.vibrationSmoothingTrackBar.Name = "vibrationSmoothingTrackBar";
@@ -890,7 +880,7 @@ namespace ForzaDSX
             this.vibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.vibrationSmoothingLabel.Location = new System.Drawing.Point(3, 306);
             this.vibrationSmoothingLabel.Name = "vibrationSmoothingLabel";
-            this.vibrationSmoothingLabel.Size = new System.Drawing.Size(124, 51);
+            this.vibrationSmoothingLabel.Size = new System.Drawing.Size(126, 51);
             this.vibrationSmoothingLabel.TabIndex = 12;
             this.vibrationSmoothingLabel.Text = "Vibration Smoothing";
             this.vibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -901,7 +891,7 @@ namespace ForzaDSX
             this.maxBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.maxBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxBrakeVibrationTrackBar.LargeChange = 50;
-            this.maxBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 258);
+            this.maxBrakeVibrationTrackBar.Location = new System.Drawing.Point(135, 258);
             this.maxBrakeVibrationTrackBar.Maximum = 100;
             this.maxBrakeVibrationTrackBar.Name = "maxBrakeVibrationTrackBar";
             this.maxBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -917,7 +907,7 @@ namespace ForzaDSX
             this.maxBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxBrakeVibrationLabel.Location = new System.Drawing.Point(3, 255);
             this.maxBrakeVibrationLabel.Name = "maxBrakeVibrationLabel";
-            this.maxBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
+            this.maxBrakeVibrationLabel.Size = new System.Drawing.Size(126, 51);
             this.maxBrakeVibrationLabel.TabIndex = 10;
             this.maxBrakeVibrationLabel.Text = "Max Brake Vibration";
             this.maxBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -928,7 +918,7 @@ namespace ForzaDSX
             this.minBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.minBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minBrakeVibrationTrackBar.LargeChange = 50;
-            this.minBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 207);
+            this.minBrakeVibrationTrackBar.Location = new System.Drawing.Point(135, 207);
             this.minBrakeVibrationTrackBar.Maximum = 100;
             this.minBrakeVibrationTrackBar.Name = "minBrakeVibrationTrackBar";
             this.minBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -945,7 +935,7 @@ namespace ForzaDSX
             this.minBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minBrakeVibrationLabel.Location = new System.Drawing.Point(3, 204);
             this.minBrakeVibrationLabel.Name = "minBrakeVibrationLabel";
-            this.minBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
+            this.minBrakeVibrationLabel.Size = new System.Drawing.Size(126, 51);
             this.minBrakeVibrationLabel.TabIndex = 8;
             this.minBrakeVibrationLabel.Text = "Min Brake Vibration";
             this.minBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -957,7 +947,7 @@ namespace ForzaDSX
             this.brakeVibrationModeTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.brakeVibrationModeTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeVibrationModeTrackBar.LargeChange = 50;
-            this.brakeVibrationModeTrackBar.Location = new System.Drawing.Point(133, 156);
+            this.brakeVibrationModeTrackBar.Location = new System.Drawing.Point(135, 156);
             this.brakeVibrationModeTrackBar.Maximum = 255;
             this.brakeVibrationModeTrackBar.Name = "brakeVibrationModeTrackBar";
             this.brakeVibrationModeTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -975,7 +965,7 @@ namespace ForzaDSX
             this.brakeVibrationModeStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeVibrationModeStartLabel.Location = new System.Drawing.Point(3, 153);
             this.brakeVibrationModeStartLabel.Name = "brakeVibrationModeStartLabel";
-            this.brakeVibrationModeStartLabel.Size = new System.Drawing.Size(124, 51);
+            this.brakeVibrationModeStartLabel.Size = new System.Drawing.Size(126, 51);
             this.brakeVibrationModeStartLabel.TabIndex = 6;
             this.brakeVibrationModeStartLabel.Text = "Vibration Mode Start";
             this.brakeVibrationModeStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -988,7 +978,7 @@ namespace ForzaDSX
             this.brakeVibrationStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.brakeVibrationStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeVibrationStartTrackBar.LargeChange = 50;
-            this.brakeVibrationStartTrackBar.Location = new System.Drawing.Point(133, 105);
+            this.brakeVibrationStartTrackBar.Location = new System.Drawing.Point(135, 105);
             this.brakeVibrationStartTrackBar.Maximum = 255;
             this.brakeVibrationStartTrackBar.Name = "brakeVibrationStartTrackBar";
             this.brakeVibrationStartTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1005,7 +995,7 @@ namespace ForzaDSX
             this.brakeVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeVibrationStartLabel.Location = new System.Drawing.Point(3, 102);
             this.brakeVibrationStartLabel.Name = "brakeVibrationStartLabel";
-            this.brakeVibrationStartLabel.Size = new System.Drawing.Size(124, 51);
+            this.brakeVibrationStartLabel.Size = new System.Drawing.Size(126, 51);
             this.brakeVibrationStartLabel.TabIndex = 4;
             this.brakeVibrationStartLabel.Text = "Vibration Start";
             this.brakeVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1016,7 +1006,7 @@ namespace ForzaDSX
             // 
             this.gripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.gripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gripLossTrackBar.Location = new System.Drawing.Point(133, 54);
+            this.gripLossTrackBar.Location = new System.Drawing.Point(135, 54);
             this.gripLossTrackBar.Maximum = 100;
             this.gripLossTrackBar.Name = "gripLossTrackBar";
             this.gripLossTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1034,7 +1024,7 @@ namespace ForzaDSX
             this.gripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gripLossLabel.Location = new System.Drawing.Point(3, 51);
             this.gripLossLabel.Name = "gripLossLabel";
-            this.gripLossLabel.Size = new System.Drawing.Size(124, 51);
+            this.gripLossLabel.Size = new System.Drawing.Size(126, 51);
             this.gripLossLabel.TabIndex = 2;
             this.gripLossLabel.Text = "Grip Loss Value";
             this.gripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1047,7 +1037,7 @@ namespace ForzaDSX
             this.brakeEffectIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeEffectIntensityLabel.Location = new System.Drawing.Point(3, 0);
             this.brakeEffectIntensityLabel.Name = "brakeEffectIntensityLabel";
-            this.brakeEffectIntensityLabel.Size = new System.Drawing.Size(124, 51);
+            this.brakeEffectIntensityLabel.Size = new System.Drawing.Size(126, 51);
             this.brakeEffectIntensityLabel.TabIndex = 0;
             this.brakeEffectIntensityLabel.Text = "Effect Intensity";
             this.brakeEffectIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1058,7 +1048,7 @@ namespace ForzaDSX
             this.brakeEffectIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.brakeEffectIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brakeEffectIntensityTrackBar.LargeChange = 10;
-            this.brakeEffectIntensityTrackBar.Location = new System.Drawing.Point(133, 3);
+            this.brakeEffectIntensityTrackBar.Location = new System.Drawing.Point(135, 3);
             this.brakeEffectIntensityTrackBar.Maximum = 100;
             this.brakeEffectIntensityTrackBar.Name = "brakeEffectIntensityTrackBar";
             this.brakeEffectIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1073,7 +1063,7 @@ namespace ForzaDSX
             // 
             this.buttonApply_Brake.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonApply_Brake.Location = new System.Drawing.Point(133, 615);
+            this.buttonApply_Brake.Location = new System.Drawing.Point(135, 615);
             this.buttonApply_Brake.Name = "buttonApply_Brake";
             this.buttonApply_Brake.Size = new System.Drawing.Size(402, 22);
             this.buttonApply_Brake.TabIndex = 37;
@@ -1169,14 +1159,14 @@ namespace ForzaDSX
             this.throttleResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleResistanceSmoothNumericUpDown.AutoSize = true;
             this.throttleResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(549, 677);
+            this.throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(551, 677);
             this.throttleResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.throttleResistanceSmoothNumericUpDown.Name = "throttleResistanceSmoothNumericUpDown";
-            this.throttleResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleResistanceSmoothNumericUpDown.TabIndex = 42;
             this.toolTip.SetToolTip(this.throttleResistanceSmoothNumericUpDown, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than " +
         "0");
@@ -1192,14 +1182,9 @@ namespace ForzaDSX
             this.throttleMaxResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMaxResistanceNumericUpDown.AutoSize = true;
             this.throttleMaxResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(549, 626);
-            this.throttleMaxResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(551, 626);
             this.throttleMaxResistanceNumericUpDown.Name = "throttleMaxResistanceNumericUpDown";
-            this.throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+            this.throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMaxResistanceNumericUpDown.TabIndex = 41;
             this.toolTip.SetToolTip(this.throttleMaxResistanceNumericUpDown, "The Maximum resistance on the throttle (0-7)");
             this.throttleMaxResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMaxResistanceNumericUpDown_ValueChanged);
@@ -1209,14 +1194,9 @@ namespace ForzaDSX
             this.throttleMinResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMinResistanceNumericUpDown.AutoSize = true;
             this.throttleMinResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(549, 575);
-            this.throttleMinResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
+            this.throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(551, 575);
             this.throttleMinResistanceNumericUpDown.Name = "throttleMinResistanceNumericUpDown";
-            this.throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+            this.throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMinResistanceNumericUpDown.TabIndex = 40;
             this.toolTip.SetToolTip(this.throttleMinResistanceNumericUpDown, "The Minimum resistance on the throttle (0-7)");
             this.throttleMinResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMinResistanceNumericUpDown_ValueChanged);
@@ -1226,7 +1206,7 @@ namespace ForzaDSX
             this.throttleMaxStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMaxStiffnessNumericUpDown.AutoSize = true;
             this.throttleMaxStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 524);
+            this.throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(551, 524);
             this.throttleMaxStiffnessNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1238,7 +1218,7 @@ namespace ForzaDSX
             0,
             0});
             this.throttleMaxStiffnessNumericUpDown.Name = "throttleMaxStiffnessNumericUpDown";
-            this.throttleMaxStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleMaxStiffnessNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMaxStiffnessNumericUpDown.TabIndex = 39;
             this.toolTip.SetToolTip(this.throttleMaxStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
             this.throttleMaxStiffnessNumericUpDown.Value = new decimal(new int[] {
@@ -1253,7 +1233,7 @@ namespace ForzaDSX
             this.throttleMinStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMinStiffnessNumericUpDown.AutoSize = true;
             this.throttleMinStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 473);
+            this.throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(551, 473);
             this.throttleMinStiffnessNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1265,7 +1245,7 @@ namespace ForzaDSX
             0,
             0});
             this.throttleMinStiffnessNumericUpDown.Name = "throttleMinStiffnessNumericUpDown";
-            this.throttleMinStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleMinStiffnessNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMinStiffnessNumericUpDown.TabIndex = 38;
             this.toolTip.SetToolTip(this.throttleMinStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
             this.throttleMinStiffnessNumericUpDown.Value = new decimal(new int[] {
@@ -1280,14 +1260,14 @@ namespace ForzaDSX
             this.throttleVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleVibrationSmoothNumericUpDown.AutoSize = true;
             this.throttleVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(549, 422);
+            this.throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(551, 422);
             this.throttleVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.throttleVibrationSmoothNumericUpDown.Name = "throttleVibrationSmoothNumericUpDown";
-            this.throttleVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleVibrationSmoothNumericUpDown.TabIndex = 37;
             this.toolTip.SetToolTip(this.throttleVibrationSmoothNumericUpDown, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0" +
         "");
@@ -1303,9 +1283,9 @@ namespace ForzaDSX
             this.throttleMaxVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMaxVibrationNumericUpDown.AutoSize = true;
             this.throttleMaxVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(549, 371);
+            this.throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(551, 371);
             this.throttleMaxVibrationNumericUpDown.Name = "throttleMaxVibrationNumericUpDown";
-            this.throttleMaxVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleMaxVibrationNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMaxVibrationNumericUpDown.TabIndex = 36;
             this.toolTip.SetToolTip(this.throttleMaxVibrationNumericUpDown, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better gr" +
         "ip");
@@ -1316,9 +1296,9 @@ namespace ForzaDSX
             this.throttleMinVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleMinVibrationNumericUpDown.AutoSize = true;
             this.throttleMinVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(549, 320);
+            this.throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(551, 320);
             this.throttleMinVibrationNumericUpDown.Name = "throttleMinVibrationNumericUpDown";
-            this.throttleMinVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleMinVibrationNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleMinVibrationNumericUpDown.TabIndex = 35;
             this.toolTip.SetToolTip(this.throttleMinVibrationNumericUpDown, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in" +
         " controller");
@@ -1329,14 +1309,14 @@ namespace ForzaDSX
             this.throttleVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleVibrationStartNumericUpDown.AutoSize = true;
             this.throttleVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(549, 269);
+            this.throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(551, 269);
             this.throttleVibrationStartNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.throttleVibrationStartNumericUpDown.Name = "throttleVibrationStartNumericUpDown";
-            this.throttleVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleVibrationStartNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleVibrationStartNumericUpDown.TabIndex = 34;
             this.toolTip.SetToolTip(this.throttleVibrationStartNumericUpDown, "The depression of the throttle lever at which the program should switch to vibrat" +
         "ion mode rather than smooth resistance. This helps to avoid clicking as vibratio" +
@@ -1348,14 +1328,14 @@ namespace ForzaDSX
             this.throttleAccelLimitNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleAccelLimitNumericUpDown.AutoSize = true;
             this.throttleAccelLimitNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(549, 218);
+            this.throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(551, 218);
             this.throttleAccelLimitNumericUpDown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.throttleAccelLimitNumericUpDown.Name = "throttleAccelLimitNumericUpDown";
-            this.throttleAccelLimitNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleAccelLimitNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleAccelLimitNumericUpDown.TabIndex = 33;
             this.toolTip.SetToolTip(this.throttleAccelLimitNumericUpDown, "The upper end acceleration when calculating the throttle resistance. Any accelera" +
         "tion above this will be counted as this value when determining the throttle resi" +
@@ -1367,9 +1347,9 @@ namespace ForzaDSX
             this.throttleForwardAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleForwardAccelScaleNumericUpDown.AutoSize = true;
             this.throttleForwardAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 167);
+            this.throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(551, 167);
             this.throttleForwardAccelScaleNumericUpDown.Name = "throttleForwardAccelScaleNumericUpDown";
-            this.throttleForwardAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleForwardAccelScaleNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleForwardAccelScaleNumericUpDown.TabIndex = 32;
             this.toolTip.SetToolTip(this.throttleForwardAccelScaleNumericUpDown, "How to scale Forward acceleration in determining throttle stiffness.");
             this.throttleForwardAccelScaleNumericUpDown.ValueChanged += new System.EventHandler(this.throttleForwardAccelScaleNumericUpDown_ValueChanged);
@@ -1379,9 +1359,9 @@ namespace ForzaDSX
             this.throttleTurnAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleTurnAccelScaleNumericUpDown.AutoSize = true;
             this.throttleTurnAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 116);
+            this.throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(551, 116);
             this.throttleTurnAccelScaleNumericUpDown.Name = "throttleTurnAccelScaleNumericUpDown";
-            this.throttleTurnAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleTurnAccelScaleNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleTurnAccelScaleNumericUpDown.TabIndex = 31;
             this.toolTip.SetToolTip(this.throttleTurnAccelScaleNumericUpDown, "How to scale turning acceleration in determining throttle stiffness.");
             this.throttleTurnAccelScaleNumericUpDown.ValueChanged += new System.EventHandler(this.throttleTurnAccelScaleNumericUpDown_ValueChanged);
@@ -1391,9 +1371,9 @@ namespace ForzaDSX
             this.throttleGripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleGripLossNumericUpDown.AutoSize = true;
             this.throttleGripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleGripLossNumericUpDown.Location = new System.Drawing.Point(549, 65);
+            this.throttleGripLossNumericUpDown.Location = new System.Drawing.Point(551, 65);
             this.throttleGripLossNumericUpDown.Name = "throttleGripLossNumericUpDown";
-            this.throttleGripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleGripLossNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleGripLossNumericUpDown.TabIndex = 30;
             this.toolTip.SetToolTip(this.throttleGripLossNumericUpDown, "The point at which the throttle will begin to become choppy (0 = full grip, 100 =" +
         " no grip)");
@@ -1404,9 +1384,9 @@ namespace ForzaDSX
             this.throttleIntensityNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.throttleIntensityNumericUpDown.AutoSize = true;
             this.throttleIntensityNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.throttleIntensityNumericUpDown.Location = new System.Drawing.Point(549, 14);
+            this.throttleIntensityNumericUpDown.Location = new System.Drawing.Point(551, 14);
             this.throttleIntensityNumericUpDown.Name = "throttleIntensityNumericUpDown";
-            this.throttleIntensityNumericUpDown.Size = new System.Drawing.Size(41, 23);
+            this.throttleIntensityNumericUpDown.Size = new System.Drawing.Size(44, 23);
             this.throttleIntensityNumericUpDown.TabIndex = 29;
             this.toolTip.SetToolTip(this.throttleIntensityNumericUpDown, "The percentage of the trigger effects");
             this.throttleIntensityNumericUpDown.ValueChanged += new System.EventHandler(this.throttleIntensityNumericUpDown_ValueChanged);
@@ -1416,7 +1396,7 @@ namespace ForzaDSX
             this.throttleResistanceSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleResistanceSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleResistanceSmoothTrackBar.LargeChange = 50;
-            this.throttleResistanceSmoothTrackBar.Location = new System.Drawing.Point(141, 666);
+            this.throttleResistanceSmoothTrackBar.Location = new System.Drawing.Point(143, 666);
             this.throttleResistanceSmoothTrackBar.Maximum = 100;
             this.throttleResistanceSmoothTrackBar.Minimum = 1;
             this.throttleResistanceSmoothTrackBar.Name = "throttleResistanceSmoothTrackBar";
@@ -1433,9 +1413,9 @@ namespace ForzaDSX
             // 
             this.throttleMaxResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMaxResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleMaxResistanceTrackBar.LargeChange = 50;
-            this.throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(141, 615);
-            this.throttleMaxResistanceTrackBar.Maximum = 7;
+            this.throttleMaxResistanceTrackBar.LargeChange = 10;
+            this.throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(143, 615);
+            this.throttleMaxResistanceTrackBar.Maximum = 100;
             this.throttleMaxResistanceTrackBar.Name = "throttleMaxResistanceTrackBar";
             this.throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.throttleMaxResistanceTrackBar.TabIndex = 27;
@@ -1447,9 +1427,9 @@ namespace ForzaDSX
             // 
             this.throttleMinResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMinResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleMinResistanceTrackBar.LargeChange = 50;
-            this.throttleMinResistanceTrackBar.Location = new System.Drawing.Point(141, 564);
-            this.throttleMinResistanceTrackBar.Maximum = 7;
+            this.throttleMinResistanceTrackBar.LargeChange = 10;
+            this.throttleMinResistanceTrackBar.Location = new System.Drawing.Point(143, 564);
+            this.throttleMinResistanceTrackBar.Maximum = 100;
             this.throttleMinResistanceTrackBar.Name = "throttleMinResistanceTrackBar";
             this.throttleMinResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.throttleMinResistanceTrackBar.TabIndex = 26;
@@ -1462,7 +1442,7 @@ namespace ForzaDSX
             this.throttleMaxStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMaxStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleMaxStiffnessTrackBar.LargeChange = 50;
-            this.throttleMaxStiffnessTrackBar.Location = new System.Drawing.Point(141, 513);
+            this.throttleMaxStiffnessTrackBar.Location = new System.Drawing.Point(143, 513);
             this.throttleMaxStiffnessTrackBar.Maximum = 255;
             this.throttleMaxStiffnessTrackBar.Minimum = 1;
             this.throttleMaxStiffnessTrackBar.Name = "throttleMaxStiffnessTrackBar";
@@ -1479,7 +1459,7 @@ namespace ForzaDSX
             this.throttleMinStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMinStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleMinStiffnessTrackBar.LargeChange = 50;
-            this.throttleMinStiffnessTrackBar.Location = new System.Drawing.Point(141, 462);
+            this.throttleMinStiffnessTrackBar.Location = new System.Drawing.Point(143, 462);
             this.throttleMinStiffnessTrackBar.Maximum = 255;
             this.throttleMinStiffnessTrackBar.Minimum = 1;
             this.throttleMinStiffnessTrackBar.Name = "throttleMinStiffnessTrackBar";
@@ -1496,7 +1476,7 @@ namespace ForzaDSX
             this.throttleVibrationSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleVibrationSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleVibrationSmoothTrackBar.LargeChange = 50;
-            this.throttleVibrationSmoothTrackBar.Location = new System.Drawing.Point(141, 411);
+            this.throttleVibrationSmoothTrackBar.Location = new System.Drawing.Point(143, 411);
             this.throttleVibrationSmoothTrackBar.Maximum = 100;
             this.throttleVibrationSmoothTrackBar.Minimum = 1;
             this.throttleVibrationSmoothTrackBar.Name = "throttleVibrationSmoothTrackBar";
@@ -1514,7 +1494,7 @@ namespace ForzaDSX
             this.throttleMaxVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMaxVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleMaxVibrationTrackBar.LargeChange = 50;
-            this.throttleMaxVibrationTrackBar.Location = new System.Drawing.Point(141, 360);
+            this.throttleMaxVibrationTrackBar.Location = new System.Drawing.Point(143, 360);
             this.throttleMaxVibrationTrackBar.Maximum = 100;
             this.throttleMaxVibrationTrackBar.Name = "throttleMaxVibrationTrackBar";
             this.throttleMaxVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1530,7 +1510,7 @@ namespace ForzaDSX
             this.throttleMinVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMinVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleMinVibrationTrackBar.LargeChange = 50;
-            this.throttleMinVibrationTrackBar.Location = new System.Drawing.Point(141, 309);
+            this.throttleMinVibrationTrackBar.Location = new System.Drawing.Point(143, 309);
             this.throttleMinVibrationTrackBar.Maximum = 100;
             this.throttleMinVibrationTrackBar.Name = "throttleMinVibrationTrackBar";
             this.throttleMinVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1546,7 +1526,7 @@ namespace ForzaDSX
             this.throttleVibrationModeStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleVibrationModeStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleVibrationModeStartTrackBar.LargeChange = 50;
-            this.throttleVibrationModeStartTrackBar.Location = new System.Drawing.Point(141, 258);
+            this.throttleVibrationModeStartTrackBar.Location = new System.Drawing.Point(143, 258);
             this.throttleVibrationModeStartTrackBar.Maximum = 255;
             this.throttleVibrationModeStartTrackBar.Name = "throttleVibrationModeStartTrackBar";
             this.throttleVibrationModeStartTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1563,7 +1543,7 @@ namespace ForzaDSX
             this.throttleAccelLimitTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleAccelLimitTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleAccelLimitTrackBar.LargeChange = 50;
-            this.throttleAccelLimitTrackBar.Location = new System.Drawing.Point(141, 207);
+            this.throttleAccelLimitTrackBar.Location = new System.Drawing.Point(143, 207);
             this.throttleAccelLimitTrackBar.Maximum = 255;
             this.throttleAccelLimitTrackBar.Name = "throttleAccelLimitTrackBar";
             this.throttleAccelLimitTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1579,7 +1559,7 @@ namespace ForzaDSX
             // 
             this.throttleForwardAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleForwardAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleForwardAccelScaleTrackBar.Location = new System.Drawing.Point(141, 156);
+            this.throttleForwardAccelScaleTrackBar.Location = new System.Drawing.Point(143, 156);
             this.throttleForwardAccelScaleTrackBar.Maximum = 100;
             this.throttleForwardAccelScaleTrackBar.Name = "throttleForwardAccelScaleTrackBar";
             this.throttleForwardAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1594,7 +1574,7 @@ namespace ForzaDSX
             // 
             this.throttleTurnAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleTurnAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleTurnAccelScaleTrackBar.Location = new System.Drawing.Point(141, 105);
+            this.throttleTurnAccelScaleTrackBar.Location = new System.Drawing.Point(143, 105);
             this.throttleTurnAccelScaleTrackBar.Maximum = 100;
             this.throttleTurnAccelScaleTrackBar.Name = "throttleTurnAccelScaleTrackBar";
             this.throttleTurnAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1610,7 +1590,7 @@ namespace ForzaDSX
             this.throttleGripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleGripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleGripLossTrackBar.LargeChange = 50;
-            this.throttleGripLossTrackBar.Location = new System.Drawing.Point(141, 54);
+            this.throttleGripLossTrackBar.Location = new System.Drawing.Point(143, 54);
             this.throttleGripLossTrackBar.Maximum = 100;
             this.throttleGripLossTrackBar.Name = "throttleGripLossTrackBar";
             this.throttleGripLossTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1626,7 +1606,7 @@ namespace ForzaDSX
             this.throttleIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleIntensityTrackBar.LargeChange = 10;
-            this.throttleIntensityTrackBar.Location = new System.Drawing.Point(141, 3);
+            this.throttleIntensityTrackBar.Location = new System.Drawing.Point(143, 3);
             this.throttleIntensityTrackBar.Maximum = 100;
             this.throttleIntensityTrackBar.Name = "throttleIntensityTrackBar";
             this.throttleIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
@@ -1643,7 +1623,7 @@ namespace ForzaDSX
             this.throttleResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 663);
             this.throttleResistanceSmoothingLabel.Name = "throttleResistanceSmoothingLabel";
-            this.throttleResistanceSmoothingLabel.Size = new System.Drawing.Size(132, 51);
+            this.throttleResistanceSmoothingLabel.Size = new System.Drawing.Size(134, 51);
             this.throttleResistanceSmoothingLabel.TabIndex = 15;
             this.throttleResistanceSmoothingLabel.Text = "Resistance Smoothing";
             this.throttleResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1656,7 +1636,7 @@ namespace ForzaDSX
             this.maxThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxThrottleResistanceLabel.Location = new System.Drawing.Point(3, 612);
             this.maxThrottleResistanceLabel.Name = "maxThrottleResistanceLabel";
-            this.maxThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
+            this.maxThrottleResistanceLabel.Size = new System.Drawing.Size(134, 51);
             this.maxThrottleResistanceLabel.TabIndex = 14;
             this.maxThrottleResistanceLabel.Text = "Max Throttle Resistance";
             this.maxThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1668,7 +1648,7 @@ namespace ForzaDSX
             this.minThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minThrottleResistanceLabel.Location = new System.Drawing.Point(3, 561);
             this.minThrottleResistanceLabel.Name = "minThrottleResistanceLabel";
-            this.minThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
+            this.minThrottleResistanceLabel.Size = new System.Drawing.Size(134, 51);
             this.minThrottleResistanceLabel.TabIndex = 13;
             this.minThrottleResistanceLabel.Text = "Min Throttle Resistance";
             this.minThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1680,7 +1660,7 @@ namespace ForzaDSX
             this.maxThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 510);
             this.maxThrottleStiffnessLabel.Name = "maxThrottleStiffnessLabel";
-            this.maxThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
+            this.maxThrottleStiffnessLabel.Size = new System.Drawing.Size(134, 51);
             this.maxThrottleStiffnessLabel.TabIndex = 12;
             this.maxThrottleStiffnessLabel.Text = "Max Throttle Stiffness";
             this.maxThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1692,7 +1672,7 @@ namespace ForzaDSX
             this.minThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 459);
             this.minThrottleStiffnessLabel.Name = "minThrottleStiffnessLabel";
-            this.minThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
+            this.minThrottleStiffnessLabel.Size = new System.Drawing.Size(134, 51);
             this.minThrottleStiffnessLabel.TabIndex = 11;
             this.minThrottleStiffnessLabel.Text = "Min Throttle Stiffness";
             this.minThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1704,7 +1684,7 @@ namespace ForzaDSX
             this.throttleVibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleVibrationSmoothingLabel.Location = new System.Drawing.Point(3, 408);
             this.throttleVibrationSmoothingLabel.Name = "throttleVibrationSmoothingLabel";
-            this.throttleVibrationSmoothingLabel.Size = new System.Drawing.Size(132, 51);
+            this.throttleVibrationSmoothingLabel.Size = new System.Drawing.Size(134, 51);
             this.throttleVibrationSmoothingLabel.TabIndex = 10;
             this.throttleVibrationSmoothingLabel.Text = "Vibration Smoothing";
             this.throttleVibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1717,7 +1697,7 @@ namespace ForzaDSX
             this.maxThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maxThrottleVibrationLabel.Location = new System.Drawing.Point(3, 357);
             this.maxThrottleVibrationLabel.Name = "maxThrottleVibrationLabel";
-            this.maxThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
+            this.maxThrottleVibrationLabel.Size = new System.Drawing.Size(134, 51);
             this.maxThrottleVibrationLabel.TabIndex = 9;
             this.maxThrottleVibrationLabel.Text = "Max Throttle Vibration";
             this.maxThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1730,7 +1710,7 @@ namespace ForzaDSX
             this.minThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.minThrottleVibrationLabel.Location = new System.Drawing.Point(3, 306);
             this.minThrottleVibrationLabel.Name = "minThrottleVibrationLabel";
-            this.minThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
+            this.minThrottleVibrationLabel.Size = new System.Drawing.Size(134, 51);
             this.minThrottleVibrationLabel.TabIndex = 8;
             this.minThrottleVibrationLabel.Text = "Min Throttle Vibration";
             this.minThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1743,7 +1723,7 @@ namespace ForzaDSX
             this.throttleVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleVibrationStartLabel.Location = new System.Drawing.Point(3, 255);
             this.throttleVibrationStartLabel.Name = "throttleVibrationStartLabel";
-            this.throttleVibrationStartLabel.Size = new System.Drawing.Size(132, 51);
+            this.throttleVibrationStartLabel.Size = new System.Drawing.Size(134, 51);
             this.throttleVibrationStartLabel.TabIndex = 7;
             this.throttleVibrationStartLabel.Text = "Vibration Mode Start";
             this.throttleVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1757,7 +1737,7 @@ namespace ForzaDSX
             this.accelerationLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accelerationLimitLabel.Location = new System.Drawing.Point(3, 204);
             this.accelerationLimitLabel.Name = "accelerationLimitLabel";
-            this.accelerationLimitLabel.Size = new System.Drawing.Size(132, 51);
+            this.accelerationLimitLabel.Size = new System.Drawing.Size(134, 51);
             this.accelerationLimitLabel.TabIndex = 5;
             this.accelerationLimitLabel.Text = "Accel Limit";
             this.accelerationLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1771,7 +1751,7 @@ namespace ForzaDSX
             this.forwardAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.forwardAccelLabel.Location = new System.Drawing.Point(3, 153);
             this.forwardAccelLabel.Name = "forwardAccelLabel";
-            this.forwardAccelLabel.Size = new System.Drawing.Size(132, 51);
+            this.forwardAccelLabel.Size = new System.Drawing.Size(134, 51);
             this.forwardAccelLabel.TabIndex = 6;
             this.forwardAccelLabel.Text = "Forward Accel Scale";
             this.forwardAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1783,7 +1763,7 @@ namespace ForzaDSX
             this.turnAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.turnAccelLabel.Location = new System.Drawing.Point(3, 102);
             this.turnAccelLabel.Name = "turnAccelLabel";
-            this.turnAccelLabel.Size = new System.Drawing.Size(132, 51);
+            this.turnAccelLabel.Size = new System.Drawing.Size(134, 51);
             this.turnAccelLabel.TabIndex = 4;
             this.turnAccelLabel.Text = "Turn Accel Scale";
             this.turnAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1795,7 +1775,7 @@ namespace ForzaDSX
             this.throttleGripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleGripLossLabel.Location = new System.Drawing.Point(3, 51);
             this.throttleGripLossLabel.Name = "throttleGripLossLabel";
-            this.throttleGripLossLabel.Size = new System.Drawing.Size(132, 51);
+            this.throttleGripLossLabel.Size = new System.Drawing.Size(134, 51);
             this.throttleGripLossLabel.TabIndex = 3;
             this.throttleGripLossLabel.Text = "Grip Loss Value";
             this.throttleGripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1808,7 +1788,7 @@ namespace ForzaDSX
             this.throttleIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.throttleIntensityLabel.Location = new System.Drawing.Point(3, 0);
             this.throttleIntensityLabel.Name = "throttleIntensityLabel";
-            this.throttleIntensityLabel.Size = new System.Drawing.Size(132, 51);
+            this.throttleIntensityLabel.Size = new System.Drawing.Size(134, 51);
             this.throttleIntensityLabel.TabIndex = 1;
             this.throttleIntensityLabel.Text = "Effect Intensity";
             this.throttleIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1818,7 +1798,7 @@ namespace ForzaDSX
             // 
             this.buttonApply_Throttle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonApply_Throttle.Location = new System.Drawing.Point(141, 717);
+            this.buttonApply_Throttle.Location = new System.Drawing.Point(143, 717);
             this.buttonApply_Throttle.Name = "buttonApply_Throttle";
             this.buttonApply_Throttle.Size = new System.Drawing.Size(402, 23);
             this.buttonApply_Throttle.TabIndex = 43;
@@ -1875,7 +1855,7 @@ namespace ForzaDSX
             this.brakeMsg.AutoSize = true;
             this.brakeMsg.Location = new System.Drawing.Point(3, 45);
             this.brakeMsg.Name = "brakeMsg";
-            this.brakeMsg.Size = new System.Drawing.Size(38, 15);
+            this.brakeMsg.Size = new System.Drawing.Size(39, 15);
             this.brakeMsg.TabIndex = 3;
             this.brakeMsg.Text = "label1";
             // 
@@ -1884,7 +1864,7 @@ namespace ForzaDSX
             this.brakeVibrationMsg.AutoSize = true;
             this.brakeVibrationMsg.Location = new System.Drawing.Point(3, 30);
             this.brakeVibrationMsg.Name = "brakeVibrationMsg";
-            this.brakeVibrationMsg.Size = new System.Drawing.Size(38, 15);
+            this.brakeVibrationMsg.Size = new System.Drawing.Size(39, 15);
             this.brakeVibrationMsg.TabIndex = 2;
             this.brakeVibrationMsg.Text = "label1";
             // 
@@ -1893,7 +1873,7 @@ namespace ForzaDSX
             this.throttleMsg.AutoSize = true;
             this.throttleMsg.Location = new System.Drawing.Point(3, 15);
             this.throttleMsg.Name = "throttleMsg";
-            this.throttleMsg.Size = new System.Drawing.Size(38, 15);
+            this.throttleMsg.Size = new System.Drawing.Size(39, 15);
             this.throttleMsg.TabIndex = 1;
             this.throttleMsg.Text = "label1";
             // 
@@ -1902,7 +1882,7 @@ namespace ForzaDSX
             this.throttleVibrationMsg.AutoSize = true;
             this.throttleVibrationMsg.Location = new System.Drawing.Point(3, 0);
             this.throttleVibrationMsg.Name = "throttleVibrationMsg";
-            this.throttleVibrationMsg.Size = new System.Drawing.Size(38, 15);
+            this.throttleVibrationMsg.Size = new System.Drawing.Size(39, 15);
             this.throttleVibrationMsg.TabIndex = 0;
             this.throttleVibrationMsg.Text = "label1";
             // 
@@ -1923,7 +1903,7 @@ namespace ForzaDSX
             this.noRaceText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.noRaceText.Location = new System.Drawing.Point(3, 19);
             this.noRaceText.Name = "noRaceText";
-            this.noRaceText.Size = new System.Drawing.Size(38, 15);
+            this.noRaceText.Size = new System.Drawing.Size(39, 15);
             this.noRaceText.TabIndex = 1;
             this.noRaceText.Text = "label1";
             // 
@@ -1941,7 +1921,7 @@ namespace ForzaDSX
             // 
             this.toolStripStatusDSX.Image = global::ForzaDSX.Properties.Resources.redBtn;
             this.toolStripStatusDSX.Name = "toolStripStatusDSX";
-            this.toolStripStatusDSX.Size = new System.Drawing.Size(112, 17);
+            this.toolStripStatusDSX.Size = new System.Drawing.Size(115, 17);
             this.toolStripStatusDSX.Text = "DSX Connection:";
             this.toolStripStatusDSX.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
@@ -1949,7 +1929,7 @@ namespace ForzaDSX
             // 
             this.toolStripStatusForza.Image = global::ForzaDSX.Properties.Resources.redBtn;
             this.toolStripStatusForza.Name = "toolStripStatusForza";
-            this.toolStripStatusForza.Size = new System.Drawing.Size(119, 17);
+            this.toolStripStatusForza.Size = new System.Drawing.Size(121, 17);
             this.toolStripStatusForza.Text = "Forza Connection:";
             this.toolStripStatusForza.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
@@ -1962,14 +1942,14 @@ namespace ForzaDSX
             this.verboseModeFullToolStripMenuItem});
             this.toolStripVerboseMode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripVerboseMode.Name = "toolStripVerboseMode";
-            this.toolStripVerboseMode.Size = new System.Drawing.Size(95, 20);
+            this.toolStripVerboseMode.Size = new System.Drawing.Size(98, 20);
             this.toolStripVerboseMode.Text = "Verbose Mode";
             // 
             // verboseModeOffToolStripMenuItem
             // 
             this.verboseModeOffToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.verboseModeOffToolStripMenuItem.Name = "verboseModeOffToolStripMenuItem";
-            this.verboseModeOffToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.verboseModeOffToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.verboseModeOffToolStripMenuItem.Text = "Off";
             this.verboseModeOffToolStripMenuItem.Click += new System.EventHandler(this.verboseModeOffToolStripMenuItem_Click);
             // 
@@ -1977,7 +1957,7 @@ namespace ForzaDSX
             // 
             this.verboseModeLowToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.verboseModeLowToolStripMenuItem.Name = "verboseModeLowToolStripMenuItem";
-            this.verboseModeLowToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.verboseModeLowToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.verboseModeLowToolStripMenuItem.Text = "Low Verbose";
             this.verboseModeLowToolStripMenuItem.Click += new System.EventHandler(this.verboseModeLowToolStripMenuItem_Click);
             // 
@@ -1985,7 +1965,7 @@ namespace ForzaDSX
             // 
             this.verboseModeFullToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.verboseModeFullToolStripMenuItem.Name = "verboseModeFullToolStripMenuItem";
-            this.verboseModeFullToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.verboseModeFullToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.verboseModeFullToolStripMenuItem.Text = "Full Verbose";
             this.verboseModeFullToolStripMenuItem.Click += new System.EventHandler(this.verboseModeFullToolStripMenuItem_Click);
             // 

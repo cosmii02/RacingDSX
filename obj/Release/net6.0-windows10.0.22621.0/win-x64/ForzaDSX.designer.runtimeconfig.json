@@ -4,17 +4,16 @@
     "frameworks": [
       {
         "name": "Microsoft.NETCore.App",
-        "version": "6.0.9"
+        "version": "6.0.11"
       },
       {
         "name": "Microsoft.WindowsDesktop.App",
-        "version": "6.0.9"
+        "version": "6.0.11"
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\apple\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\apple\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\sinwo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sinwo\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
