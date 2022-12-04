@@ -532,8 +532,13 @@ namespace ForzaDSX
             this.maxBrakeResistanceNumericUpDown.AutoSize = true;
             this.maxBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(543, 524);
+            this.maxBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             this.maxBrakeResistanceNumericUpDown.Name = "maxBrakeResistanceNumericUpDown";
-            this.maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
+            this.maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(30, 23);
             this.maxBrakeResistanceNumericUpDown.TabIndex = 35;
             this.toolTip.SetToolTip(this.maxBrakeResistanceNumericUpDown, "The Maximum resistance on the Brake (0-7)");
             this.maxBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeResistanceNumericUpDown_ValueChanged);
@@ -544,8 +549,13 @@ namespace ForzaDSX
             this.minBrakeResistanceNumericUpDown.AutoSize = true;
             this.minBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(543, 473);
+            this.minBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             this.minBrakeResistanceNumericUpDown.Name = "minBrakeResistanceNumericUpDown";
-            this.minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
+            this.minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(30, 23);
             this.minBrakeResistanceNumericUpDown.TabIndex = 34;
             this.toolTip.SetToolTip(this.minBrakeResistanceNumericUpDown, "The Minimum resistance on the Brake (0-7)");
             this.minBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.minBrakeResistanceNumericUpDown_ValueChanged);
@@ -751,9 +761,9 @@ namespace ForzaDSX
             // 
             this.maxBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.maxBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maxBrakeResistanceTrackBar.LargeChange = 10;
+            this.maxBrakeResistanceTrackBar.LargeChange = 2;
             this.maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(135, 513);
-            this.maxBrakeResistanceTrackBar.Maximum = 100;
+            this.maxBrakeResistanceTrackBar.Maximum = 8;
             this.maxBrakeResistanceTrackBar.Name = "maxBrakeResistanceTrackBar";
             this.maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.maxBrakeResistanceTrackBar.TabIndex = 21;
@@ -777,9 +787,9 @@ namespace ForzaDSX
             // 
             this.minBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.minBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minBrakeResistanceTrackBar.LargeChange = 10;
+            this.minBrakeResistanceTrackBar.LargeChange = 2;
             this.minBrakeResistanceTrackBar.Location = new System.Drawing.Point(135, 462);
-            this.minBrakeResistanceTrackBar.Maximum = 100;
+            this.minBrakeResistanceTrackBar.Maximum = 8;
             this.minBrakeResistanceTrackBar.Name = "minBrakeResistanceTrackBar";
             this.minBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.minBrakeResistanceTrackBar.TabIndex = 19;
@@ -1183,8 +1193,13 @@ namespace ForzaDSX
             this.throttleMaxResistanceNumericUpDown.AutoSize = true;
             this.throttleMaxResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(551, 626);
+            this.throttleMaxResistanceNumericUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             this.throttleMaxResistanceNumericUpDown.Name = "throttleMaxResistanceNumericUpDown";
-            this.throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
+            this.throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(30, 23);
             this.throttleMaxResistanceNumericUpDown.TabIndex = 41;
             this.toolTip.SetToolTip(this.throttleMaxResistanceNumericUpDown, "The Maximum resistance on the throttle (0-7)");
             this.throttleMaxResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMaxResistanceNumericUpDown_ValueChanged);
@@ -1195,8 +1210,13 @@ namespace ForzaDSX
             this.throttleMinResistanceNumericUpDown.AutoSize = true;
             this.throttleMinResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(551, 575);
+            this.throttleMinResistanceNumericUpDown.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             this.throttleMinResistanceNumericUpDown.Name = "throttleMinResistanceNumericUpDown";
-            this.throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(44, 23);
+            this.throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(30, 23);
             this.throttleMinResistanceNumericUpDown.TabIndex = 40;
             this.toolTip.SetToolTip(this.throttleMinResistanceNumericUpDown, "The Minimum resistance on the throttle (0-7)");
             this.throttleMinResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMinResistanceNumericUpDown_ValueChanged);
@@ -1413,9 +1433,9 @@ namespace ForzaDSX
             // 
             this.throttleMaxResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMaxResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleMaxResistanceTrackBar.LargeChange = 10;
+            this.throttleMaxResistanceTrackBar.LargeChange = 2;
             this.throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(143, 615);
-            this.throttleMaxResistanceTrackBar.Maximum = 100;
+            this.throttleMaxResistanceTrackBar.Maximum = 8;
             this.throttleMaxResistanceTrackBar.Name = "throttleMaxResistanceTrackBar";
             this.throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.throttleMaxResistanceTrackBar.TabIndex = 27;
@@ -1427,9 +1447,9 @@ namespace ForzaDSX
             // 
             this.throttleMinResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.throttleMinResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.throttleMinResistanceTrackBar.LargeChange = 10;
+            this.throttleMinResistanceTrackBar.LargeChange = 2;
             this.throttleMinResistanceTrackBar.Location = new System.Drawing.Point(143, 564);
-            this.throttleMinResistanceTrackBar.Maximum = 100;
+            this.throttleMinResistanceTrackBar.Maximum = 8;
             this.throttleMinResistanceTrackBar.Name = "throttleMinResistanceTrackBar";
             this.throttleMinResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
             this.throttleMinResistanceTrackBar.TabIndex = 26;
