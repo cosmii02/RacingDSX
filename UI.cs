@@ -474,8 +474,8 @@ namespace ForzaDSX
 
 		private void minBrakeStifnessNumericUpDown_ValueChanged(object sender, EventArgs e)
 		{
-			currentSettings.MIN_BRAKE_STIFFNESS = (int)Math.Floor(minBrakeVibrationNumericUpDown.Value);
-			minBrakeVibrationTrackBar.Value = currentSettings.MIN_BRAKE_STIFFNESS;
+			currentSettings.MIN_BRAKE_STIFFNESS = (int)Math.Floor(minBrakeStifnessNumericUpDown.Value);
+			minBrakeStiffnessTrackBar.Value = currentSettings.MIN_BRAKE_STIFFNESS;
 		}
 
 		private void maxBrakeStiffnessTrackBar_Scroll(object sender, EventArgs e)
@@ -486,8 +486,8 @@ namespace ForzaDSX
 
 		private void maxBrakeStifnessNumericUpDown_ValueChanged(object sender, EventArgs e)
 		{
-			currentSettings.MAX_BRAKE_STIFFNESS = (int)Math.Floor(maxBrakeVibrationNumericUpDown.Value);
-			maxBrakeVibrationTrackBar.Value = currentSettings.MAX_BRAKE_STIFFNESS;
+			currentSettings.MAX_BRAKE_STIFFNESS = (int)Math.Floor(maxBrakeStifnessNumericUpDown.Value);
+			maxBrakeStiffnessTrackBar.Value = currentSettings.MAX_BRAKE_STIFFNESS;
 		}
 
 		private void minBrakeResistanceTrackBar_Scroll(object sender, EventArgs e)
