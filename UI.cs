@@ -790,5 +790,36 @@ namespace ForzaDSX
 				StartForzaDSXThread();
 			}
 		}
+
+		private void miscDefaultsButton_Click(object sender, EventArgs e)
+		{
+			FullResetValues();
+		}
+
+		private void brakeDefaultsButton_Click(object sender, EventArgs e)
+		{
+			FullResetValues();
+		}
+
+		private void throttleDefaultsButton_Click(object sender, EventArgs e)
+		{
+			FullResetValues();
+		}
+
+		protected void FullResetValues()
+		{
+			CurrentSettings.Reset();
+
+			SetupUI();
+
+			if (forzaDSXWorker != null)
+			{
+				CurrentSettings.Save();
+
+				forzaDSXWorker.SetSettings(CurrentSettings);
+
+				StartForzaDSXThread();
+			}
+		}
 	}
 }

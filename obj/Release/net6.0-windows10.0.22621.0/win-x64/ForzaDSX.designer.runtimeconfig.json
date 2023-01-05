@@ -4,16 +4,16 @@
     "frameworks": [
       {
         "name": "Microsoft.NETCore.App",
-        "version": "6.0.9"
+        "version": "6.0.12"
       },
       {
         "name": "Microsoft.WindowsDesktop.App",
-        "version": "6.0.9"
+        "version": "6.0.12"
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\apple\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\apple\\.nuget\\packages",
+      "C:\\Users\\Guilherme\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Guilherme\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
