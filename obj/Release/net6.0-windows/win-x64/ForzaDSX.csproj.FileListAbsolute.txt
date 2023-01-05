@@ -527,3 +527,5 @@ C:\Users\apple\Source\Repos\cosmii02\ForzaDSX\obj\Release\net6.0-windows\win-x64
 C:\Users\apple\Source\Repos\cosmii02\ForzaDSX\obj\Release\net6.0-windows\win-x64\refint\ForzaDSX.dll
 C:\Users\apple\Source\Repos\cosmii02\ForzaDSX\obj\Release\net6.0-windows\win-x64\ForzaDSX.genruntimeconfig.cache
 C:\Users\apple\Source\Repos\cosmii02\ForzaDSX\obj\Release\net6.0-windows\win-x64\ref\ForzaDSX.dll
+D:\Development\Projects\ForzaDSX\obj\Release\net6.0-windows\win-x64\ForzaDSX.dll
+D:\Development\Projects\ForzaDSX\obj\Release\net6.0-windows\win-x64\refint\ForzaDSX.dll

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\apple\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj": {}
+    "D:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\apple\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj": {
+    "D:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\apple\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj",
+        "projectUniqueName": "D:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj",
         "projectName": "ForzaDSX",
-        "projectPath": "C:\\Users\\apple\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj",
-        "packagesPath": "C:\\Users\\apple\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\apple\\Source\\Repos\\cosmii02\\ForzaDSX\\obj\\",
+        "projectPath": "D:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj",
+        "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
+        "outputPath": "D:\\Development\\Projects\\ForzaDSX\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\apple\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -79,23 +79,23 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[6.0.9, 6.0.9]"
+              "version": "[6.0.12, 6.0.12]"
             },
             {
               "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[6.0.9, 6.0.9]"
+              "version": "[6.0.12, 6.0.12]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[6.0.9, 6.0.9]"
+              "version": "[6.0.12, 6.0.12]"
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.22621.27, 10.0.22621.27]"
+              "version": "[10.0.22621.28, 10.0.22621.28]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[6.0.9, 6.0.9]"
+              "version": "[6.0.12, 6.0.12]"
             }
           ],
           "frameworkReferences": {
@@ -109,7 +109,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
