@@ -422,7 +422,7 @@ namespace ForzaDSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
-			var portNumber = File.ReadAllText(@"C:\Temp\DualSenseX\DualSenseX_PortNumber.txt");
+			int portNumber = 6969;
 			
 			if (progressReporter != null)
 			{

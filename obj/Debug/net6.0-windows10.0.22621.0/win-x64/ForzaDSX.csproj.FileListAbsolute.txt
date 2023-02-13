@@ -283,7 +283,6 @@ C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\hostfxr.dll
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\hostpolicy.dll
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\mscordaccore.dll
-C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\mscordaccore_amd64_amd64_6.0.1122.52304.dll
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\mscordbi.dll
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\mscorrc.dll
 C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\msquic.dll
@@ -529,3 +528,4 @@ C:\Users\apple\RiderProjects\ForzaDSX\obj\Debug\net6.0-windows10.0.22621.0\win-x
 C:\Users\apple\RiderProjects\ForzaDSX\obj\Debug\net6.0-windows10.0.22621.0\win-x64\refint\ForzaDSX.dll
 C:\Users\apple\RiderProjects\ForzaDSX\obj\Debug\net6.0-windows10.0.22621.0\win-x64\ForzaDSX.genruntimeconfig.cache
 C:\Users\apple\RiderProjects\ForzaDSX\obj\Debug\net6.0-windows10.0.22621.0\win-x64\ref\ForzaDSX.dll
+C:\Users\apple\RiderProjects\ForzaDSX\bin\Debug\net6.0-windows10.0.22621.0\win-x64\mscordaccore_amd64_amd64_6.0.1222.56807.dll
