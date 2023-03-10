@@ -422,7 +422,7 @@ namespace ForzaDSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
-			int portNumber = 6969;
+			int portNumber = settings.DSX_PORT;
 			
 			if (progressReporter != null)
 			{
