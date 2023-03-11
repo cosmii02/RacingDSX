@@ -422,8 +422,8 @@ namespace ForzaDSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
-			int portNumber = settings.DSX_PORT;
-			
+			var portNumber = settings.DSX_PORT;
+			portNumber = Convert.ToInt32(portNumber);
 			if (progressReporter != null)
 			{
 				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.." ));
