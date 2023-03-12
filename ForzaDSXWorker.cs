@@ -418,27 +418,33 @@ namespace ForzaDSX
 		static UdpClient senderClient;
 		static IPEndPoint endPoint;
 
-		//Connect to DSX
+		// Connect to DSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
 			var portNumber = settings.DSX_PORT;
+
 			if (progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.." ));
+				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.."));
 			}
 
 			int portNum;
-			if (!int.TryParse(portNumber, out portNum))
+
+			if (!int.TryParse(portNumber.ToString(), out portNum))
+			{
+				// handle parse failure
+			}
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non numerical Port! Using configured default({settings.DSX_PORT})." ));
+					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings.DSX_PORT})."));
 				}
 				portNum = settings.DSX_PORT;
 			}
 
 			endPoint = new IPEndPoint(Triggers.localhost, portNum);
+
 			try
 			{
 				senderClient.Connect(endPoint);
@@ -447,23 +453,24 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct("Error Connecting: " + e.Message));
+					progressReporter.Report(new ForzaDSXReportStruct("Error connecting: " + e.Message));
 
 					if (e is SocketException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Couldn't Access Port. " + e.Message ));
+						progressReporter.Report(new ForzaDSXReportStruct("Couldn't access port. " + e.Message));
 					}
 					else if (e is ObjectDisposedException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Connection Object Closed. Restart the Application." ));
+						progressReporter.Report(new ForzaDSXReportStruct("Connection object closed. Restart the application."));
 					}
 					else
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Unknown Error: " + e.Message));
+						progressReporter.Report(new ForzaDSXReportStruct("Unknown error: " + e.Message));
 					}
 				}
 			}
 		}
+
 
 
 		//Send Data to DSX
