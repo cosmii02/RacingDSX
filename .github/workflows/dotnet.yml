@@ -39,3 +39,25 @@ jobs:
         
         # Duration after which artifact will expire in days. 0 means using default retention.
         retention-days: 4
+
+    - name: Create Draft Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: latest-candidate
+        draft: true
+
+    - name: Upload Release Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ForzaDSX-RC
+        path: ./forza/devrel
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get Release ID
+      id: get_release_id
+      run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
+      shell: bash
