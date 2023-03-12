@@ -471,8 +471,7 @@ namespace ForzaDSX
 			}
 		}
 
-
-
+		
 		//Send Data to DSX
 		void Send(Packet data)
 		{
