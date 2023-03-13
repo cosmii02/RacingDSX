@@ -44,16 +44,13 @@ jobs:
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
-      - name: Fix DNS
-        run: |
-          netsh interface ipv4 add dnsservers "Ethernet 3" 1.1.1.1 index=10
-          nslookup github.com
       - name: Upload Artifact
+        uses: ncipollo/release-action@v1
+        with:
+          name: ForzaDSX-RC.zip
+          path: ./forza/devrel/ForzaDSX-RC.zip
+          tag: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
+          prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          $release_id=${{ steps.get_release_id.outputs.id }}
-          $upload_url=$(curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://140.82.114.3/repos/cosmii02/ForzaDSX/releases/${release_id}/uploads" | jq -r '.upload_url')
-          $artifact_path="./forza/devrel/ForzaDSX-RC.zip"
-          curl --progress-bar --upload-file "${artifact_path}" -H "Content-Type: application/octet-stream" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "${upload_url}?name=$(basename "${artifact_path}")"
         continue-on-error: true
