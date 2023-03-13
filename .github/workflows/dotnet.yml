@@ -46,19 +46,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          const { Octokit } = require('@octokit/rest');
-          const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          const github = require('@actions/github');
+          const fs = require('fs');
           const release_id = ${{ steps.get_release_id.outputs.id }};
           const artifact_path = './forza/devrel/ForzaDSX-RC';
+          const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
           const { data: upload } = await octokit.repos.uploadReleaseAsset({
             owner: process.env.GITHUB_REPOSITORY_OWNER,
             repo: process.env.GITHUB_REPOSITORY,
             release_id: release_id,
             name: 'ForzaDSX-RC',
-            data: require('fs').readFileSync(artifact_path)),
+            data: fs.readFileSync(artifact_path),
             headers: {
               'content-type': 'application/octet-stream',
-              'content-length': require('fs').statSync(artifact_path).size
+              'content-length': fs.statSync(artifact_path).size
             }
           });
         continue-on-error: true
