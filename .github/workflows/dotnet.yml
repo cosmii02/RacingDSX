@@ -1,5 +1,5 @@
 name: Release Candidate
-# this is just a test line2
+
 on:
   push:
     #branches: [ "main" ]
@@ -27,9 +27,6 @@ jobs:
       - name: Delete Previous Release
         uses: cosmii02/delete-previous-release@main
         with:
-          tag_name: latest-candidate
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pre-Release
         id: create_release
