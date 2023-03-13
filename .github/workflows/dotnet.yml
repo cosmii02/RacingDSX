@@ -25,11 +25,12 @@ jobs:
           name: ForzaDSX-RC
           path: ./forza/devrel
       - name: Delete Previous Release
-        uses: release-drafter/delete-previous-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-delete-previous-release@v1
         with:
-          release_name: "release-candidate"
+          tag_name: latest-candidate
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pre-Release
         id: create_release
         uses: actions/create-release@v1.0.0
