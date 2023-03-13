@@ -16,14 +16,12 @@ jobs:
         uses: cosmii02/create-release@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ replace(format('{0}', ${{ github.ref }}), ' ', '-') }}
+          NAME: ${{ replace(format('{0}', ${{ github.ref }}), ' ', '-') }}
         with:
           tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }} 
           name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
           prerelease: true
-        # Replace spaces in tag_name and name with hyphens
-        env:
-          TAG_NAME: ${{ replace(format('{0}', ${{ github.ref }}), ' ', '-') }}
-          NAME: ${{ replace(format('{0}', ${{ github.ref }}), ' ', '-') }}
 
   delete_previous_release:
     runs-on: ubuntu-latest
