@@ -48,7 +48,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           name: ForzaDSX-RC.zip
-          asset_path: artifacts
+          asset_path: ./forza/devrel/ForzaDSX-RC.zip
           tag: latest-candidate
           prerelease: true
           allowUpdates: true
