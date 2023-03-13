@@ -48,6 +48,7 @@ jobs:
         run: |
           git config --global --unset http.proxy
           git config --global --unset https.proxy
+        shell: powershell
       - name: Upload Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
