@@ -44,11 +44,6 @@ jobs:
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
-      - name: Unset git proxies
-        run: |
-          git config --global --unset http.proxy
-          git config --global --unset https.proxy
-        shell: powershell
       - name: Upload Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
