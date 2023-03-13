@@ -242,7 +242,7 @@ namespace ForzaDSX
 
 				p.instructions = new Instruction[] { LightBar, LeftTrigger, RightTrigger };
 
-				//Send the commands to DualSenseX
+				//Send the commands to DSX
 				Send(p);
 			}
 			else
@@ -311,7 +311,7 @@ namespace ForzaDSX
 
 				p.instructions = new Instruction[] { RightTrigger };
 
-				//Send the commands to DualSenseX
+				//Send the commands to DSX
 				Send(p);
 				#endregion
 				#region Left Trigger
@@ -367,7 +367,7 @@ namespace ForzaDSX
 
 				p.instructions = new Instruction[] { LeftTrigger};
 
-				//Send the commands to DualSenseX
+				//Send the commands to DSX
 				Send(p);
 				#endregion
 
@@ -394,7 +394,7 @@ namespace ForzaDSX
 
 				p.instructions = new Instruction[] { LightBar };
 
-				//Send the commands to DualSenseX
+				//Send the commands to DSX
 				Send(p);
 				#endregion
 			}
@@ -418,42 +418,33 @@ namespace ForzaDSX
 		static UdpClient senderClient;
 		static IPEndPoint endPoint;
 
-		//Connect to DualSenseX
+		// Connect to DSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
-			int portNumber = 6969;
-			
+			var portNumber = settings.DSX_PORT;
+
 			if (progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.." ));
+				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.."));
 			}
 
-			int portNum = settings.DSX_PORT;
-			if (portNumber != null)
+			int portNum;
+
+			if (!int.TryParse(portNumber.ToString(), out portNum))
 			{
-				try
-				{
-					portNum = Convert.ToInt32(portNumber);
-				}
-				catch (FormatException e)
-				{
-					if (progressReporter != null)
-					{
-						progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non numerical Port! Using configured default({settings.DSX_PORT})." ));
-					}
-					portNum = settings.DSX_PORT;
-				}
+				// handle parse failure
 			}
-			else
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"DSX did not provided a port value. Using configured default({settings.DSX_PORT})" ));
+					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings.DSX_PORT})."));
 				}
+				portNum = settings.DSX_PORT;
 			}
 
-			endPoint = new IPEndPoint(Triggers.localhost, Convert.ToInt32(portNumber));
+			endPoint = new IPEndPoint(Triggers.localhost, portNum);
+
 			try
 			{
 				senderClient.Connect(endPoint);
@@ -462,25 +453,26 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct("Error Connecting: "));
+					progressReporter.Report(new ForzaDSXReportStruct("Error connecting: " + e.Message));
 
 					if (e is SocketException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Couldn't Access Port. " + e.Message ));
+						progressReporter.Report(new ForzaDSXReportStruct("Couldn't access port. " + e.Message));
 					}
 					else if (e is ObjectDisposedException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Connection Object Closed. Restart the Application." ));
+						progressReporter.Report(new ForzaDSXReportStruct("Connection object closed. Restart the application."));
 					}
 					else
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Unknown Error: " + e.Message));
+						progressReporter.Report(new ForzaDSXReportStruct("Unknown error: " + e.Message));
 					}
 				}
 			}
 		}
 
-		//Send Data to DualSenseX
+		
+		//Send Data to DSX
 		void Send(Packet data)
 		{
 			if (settings.Verbose > 1
@@ -594,7 +586,7 @@ namespace ForzaDSX
 						progressReporter.Report(new ForzaDSXReportStruct("Data Parsed"));
 					}
 
-					//Process and send data to DualSenseX
+					//Process and send data to DSX
 					SendData(data);
 				}
 			}
