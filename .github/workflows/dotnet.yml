@@ -1,5 +1,5 @@
 name: Release Candidate
-# this is just a test line1
+# this is just a test line2
 on:
   push:
     #branches: [ "main" ]
