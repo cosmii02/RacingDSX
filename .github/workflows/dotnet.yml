@@ -24,6 +24,7 @@ jobs:
         with:
           name: ForzaDSX-RC
           path: ./forza/devrel
+        continue-on-error: true
       - name: Delete Previous Release
         uses: cosmii02/delete-previous-release@main
         with:
@@ -42,11 +43,21 @@ jobs:
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: ForzaDSX-RC
-          path: ./forza/devrel
-          # Use the release ID to upload the artifact to the release
-          url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.get_release_id.outputs.id }}/assets{?name,label}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          const { Octokit } = require('@octokit/rest');
+          const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+          const release_id = ${{ steps.get_release_id.outputs.id }};
+          const artifact_path = './forza/devrel/ForzaDSX-RC';
+          const { data: upload } = await octokit.repos.uploadReleaseAsset({
+            owner: process.env.GITHUB_REPOSITORY_OWNER,
+            repo: process.env.GITHUB_REPOSITORY,
+            release_id: release_id,
+            name: 'ForzaDSX-RC',
+            data: require('fs').readFileSync(artifact_path),
+            headers: {
+              'content-type': 'application/octet-stream',
+              'content-length': require('fs').statSync(artifact_path).size
+            }
+          });
