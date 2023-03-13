@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create Pre-Release
         id: create_release
-        uses: actions/create-release@v1.0.0
+        uses: cosmii02/create-release@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
