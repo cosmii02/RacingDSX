@@ -25,7 +25,7 @@ jobs:
           name: ForzaDSX-RC
           path: ./forza/devrel
       - name: Delete Previous Release
-        uses: softprops/action-delete-previous-release@v1
+        uses: cosmii02/delete-previous-release@v1
         with:
           tag_name: latest-candidate
           owner: ${{ github.repository_owner }}
