@@ -4,25 +4,8 @@ on:
   release:
   
 jobs:
-  create_pre_release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Create Pre-Release
-        id: create_release
-        uses: cosmii02/create-release@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
-          NAME: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
-        with:
-          tag_name: ${{ env.TAG_NAME }}
-          name: ${{ env.NAME }}
-          prerelease: true
-
   delete_previous_release:
     runs-on: ubuntu-latest
-    needs: create_pre_release
     steps:
       - uses: actions/checkout@v2
       - name: Delete Previous Release
