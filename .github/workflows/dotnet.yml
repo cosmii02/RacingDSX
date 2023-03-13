@@ -34,8 +34,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: latest-candidate
-          release_name: Release Candidate
+          tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
+          name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
           prerelease: true
           artifacts: ForzaDSX-RC
       - name: Get Release ID
