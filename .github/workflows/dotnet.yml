@@ -55,7 +55,7 @@ jobs:
             repo: process.env.GITHUB_REPOSITORY,
             release_id: release_id,
             name: 'ForzaDSX-RC',
-            data: require('fs').readFileSync(artifact_path),
+            data: require('fs').readFileSync(artifact_path)),
             headers: {
               'content-type': 'application/octet-stream',
               'content-length': require('fs').statSync(artifact_path).size
