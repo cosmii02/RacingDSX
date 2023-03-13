@@ -42,24 +42,13 @@ jobs:
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
-      - name: Upload Artifact
+      - name: Upload Windows Artifact
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          const github = require('@actions/github');
-          const fs = require('fs');
-          const release_id = ${{ steps.get_release_id.outputs.id }};
-          const artifact_path = './forza/devrel/ForzaDSX-RC';
-          const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
-          const { data: upload } = await octokit.repos.uploadReleaseAsset({
-            owner: process.env.GITHUB_REPOSITORY_OWNER,
-            repo: process.env.GITHUB_REPOSITORY,
-            release_id: release_id,
-            name: 'ForzaDSX-RC',
-            data: fs.readFileSync(artifact_path),
-            headers: {
-              'content-type': 'application/octet-stream',
-              'content-length': fs.statSync(artifact_path).size
-            }
-          });
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./forza/devrel/ForzaDSX-RC
+          asset_name: ForzaDSX-RC
+          asset_content_type: application/octet-stream
         continue-on-error: true
