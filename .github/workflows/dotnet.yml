@@ -18,7 +18,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Package
-        run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
+        run: dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -37,8 +37,14 @@ jobs:
           tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
           name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
           prerelease: true
-          artifacts: ForzaDSX-RC
       - name: Get Release ID
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./forza/devrel
+          asset_name: ForzaDSX-RC
+          asset_content_type: application/octet-stream
