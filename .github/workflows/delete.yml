@@ -18,7 +18,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: latest-candidate
-          release_name: Release Candidate
+          name: Release Candidate
           prerelease: true
 
   delete_previous_release:
