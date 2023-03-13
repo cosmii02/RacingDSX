@@ -47,7 +47,7 @@ jobs:
       - name: Upload Artifact
         uses: ncipollo/release-action@v1
         with:
-          name: ForzaDSX-RC.zip
+          name: ForzaDSX-RC
           artifacts: ForzaDSX-RC
           tag: latest-candidate
           prerelease: true
