@@ -24,22 +24,22 @@ jobs:
         with:
           name: ForzaDSX-RC
           path: ./forza/devrel
-      - name: Create Draft Release
+      - name: Delete Previous Release
+        uses: release-drafter/delete-previous-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: "release-candidate"
+      - name: Create Pre-Release
         id: create_release
         uses: actions/create-release@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: latest-candidate
-          release_name: Release Candidate
-          draft: true
-      - name: Upload Release Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: ForzaDSX-RC
-          path: ./forza/devrel
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Release Candidate
+          prerelease: true
+          artifacts: ForzaDSX-RC
       - name: Get Release ID
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
