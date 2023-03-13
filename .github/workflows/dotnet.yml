@@ -61,3 +61,4 @@ jobs:
               'content-length': require('fs').statSync(artifact_path).size
             }
           });
+        continue-on-error: true
