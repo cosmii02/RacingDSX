@@ -27,8 +27,6 @@ jobs:
     needs: create_pre_release
     steps:
       - uses: actions/checkout@v2
-      - name: Install npm stuff
-        run: npm install
       - name: Delete Previous Release
         uses: cosmii02/delete-previous-release@main
         with:
