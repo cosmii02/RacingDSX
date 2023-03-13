@@ -46,7 +46,7 @@ jobs:
         shell: bash
       - name: Fix DNS
         run: |
-          netsh interface ipv4 add dns index=1 address="1.1.1.1"
+          netsh add dnsservers "Ethernet 3" 1.1.1.1
       - name: Upload Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
