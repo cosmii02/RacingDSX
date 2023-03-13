@@ -1,0 +1,26 @@
+name: Release Candidate
+
+on:
+  push:
+    #branches: [ "main" ]
+  pull_request:
+    #branches: [ "main" ]
+
+jobs:
+  delete_previous_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete Previous Release
+        uses: cosmii02/delete-previous-release@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pre-Release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: latest-candidate
+          name: Release Candidate
+          prerelease: true
