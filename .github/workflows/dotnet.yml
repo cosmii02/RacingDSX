@@ -41,23 +41,15 @@ jobs:
         id: get_release_id
         run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
-      - name: Get Upload URL
-        id: get_upload_url
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { data: release } = await github.repos.getReleaseByTag({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag: '${{ steps.create_release.outputs.tag }}'
-            });
-            return release.upload_url;
+      - name: Get Release Upload URL
+        run: |
+          echo "::set-output name=upload_url::$(curl -s -X GET -H \"Authorization: Bearer ${GITHUB_TOKEN}\" https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/${{ steps.create_release.outputs.tag }} | jq -r '.upload_url' | cut -d'{' -f1)"
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: ForzaDSX-RC
           path: ./forza/devrel
-          url: ${{ steps.get_upload_url.outputs.result }}
+          url: ${{ steps.get_release_upload_url.outputs.upload_url }}
