@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
-          name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
+          tag_name: latest-candidate
+          name: Release-Candidate
           prerelease: true
       - name: Get Release ID
         id: get_release_id
@@ -48,9 +48,10 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           name: ForzaDSX-RC.zip
-          asset_path: ./forza/devrel/ForzaDSX-RC.zip
-          tag: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
+          asset_path: artifacts
+          tag: latest-candidate
           prerelease: true
+          allowUpdates: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
