@@ -25,8 +25,8 @@ jobs:
   install_uuid:
     runs-on: ubuntu-latest
     steps:
-      - name: Install uuid
-        run: npm install uuid
+      - name: Install npm stuff
+        run: npm install
 
   delete_previous_release:
     runs-on: ubuntu-latest
