@@ -47,8 +47,8 @@ jobs:
       - name: Fix DNS
         run: |
           netsh interface show interface
-          netsh interface ipv4 add dns "Ethernet" address="1.1.1.1" index=1
-          netsh interface ipv6 add dns "Ethernet" address="2606:4700:4700::1111" index=1
+          netsh interface ipv4 add dns "Ethernet 3" address="1.1.1.1" index=1
+          netsh interface ipv6 add dns "Ethernet 3" address="2606:4700:4700::1111" index=1
       - name: Upload Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
