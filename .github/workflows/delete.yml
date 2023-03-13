@@ -1,4 +1,4 @@
-name: Release Candidate
+name: deleteTEST
 
 on:
   push:
