@@ -4,6 +4,7 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  
 
 jobs:
   create_pre_release:
@@ -15,11 +16,11 @@ jobs:
         uses: cosmii02/create-release@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref.replace(' ', '-') }}
-          NAME: ${{ github.ref.replace(' ', '-') }}
+          TAG_NAME: latest-candidate-${{ github.run_number }}-${{ github.run_id }}-${{ github.ref/refs/heads/replace(' ', '-') }}
+          NAME: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}-${{ github.ref/refs/heads/replace(' ', '-') }}
         with:
-          tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }} 
-          name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
+          tag_name: ${{ env.TAG_NAME }}
+          name: ${{ env.NAME }}
           prerelease: true
 
   delete_previous_release:
