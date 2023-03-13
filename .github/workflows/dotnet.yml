@@ -47,7 +47,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $release_id=${{ steps.get_release_id.outputs.id }}
-          upload_url=$(curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/releases/${release_id}/uploads | jq -r '.upload_url')
+          upload_url=$(curl -s -X POST -H "Authorization: token ***" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/cosmii02/ForzaDSX/releases/$release_id/uploads | jq -r '.upload_url')
           artifact_path=./forza/devrel/ForzaDSX-RC
           curl -X POST -H "Content-Type: application/octet-stream" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "${upload_url}?name=$(basename "${artifact_path}")" --data-binary "@${artifact_path}"
         continue-on-error: true
