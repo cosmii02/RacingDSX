@@ -16,8 +16,8 @@ jobs:
         uses: cosmii02/create-release@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.ref.replace(' ', '-') }}
-          NAME: ${{ github.ref.replace(' ', '-') }}
+          TAG_NAME: ${{ format('{0}', replace(github.ref, ' ', '-')) }}
+          NAME: ${{ format('{0}', replace(github.ref, ' ', '-')) }}
         with:
           tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }} 
           name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
