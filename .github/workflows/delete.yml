@@ -4,7 +4,6 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  
 
 jobs:
   create_pre_release:
@@ -28,6 +27,8 @@ jobs:
     needs: create_pre_release
     steps:
       - uses: actions/checkout@v2
+      - name: Install uuid
+        run: npm install uuid
       - name: Delete Previous Release
         uses: cosmii02/delete-previous-release@main
         with:
