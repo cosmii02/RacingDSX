@@ -19,6 +19,7 @@ jobs:
         with:
           tag_name: latest-candidate
           release_name: Release Candidate
+          prerelease: true
 
   delete_previous_release:
     runs-on: ubuntu-latest
