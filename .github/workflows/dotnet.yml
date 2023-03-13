@@ -21,17 +21,11 @@ jobs:
         run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
       - name: Compress Artifact
         run: Compress-Archive -Path ./forza/devrel -DestinationPath ./forza/devrel/ForzaDSX-RC.zip
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: ForzaDSX-RC
-          path: ./forza/devrel/ForzaDSX-RC.zip
-        continue-on-error: true
-      - name: Upload Artifact
+      - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
           name: ForzaDSX-RC
-          artifacts: ForzaDSX-RC
+          artifacts: ./forza/devrel/ForzaDSX-RC.zip
           tag: latest-candidate
           prerelease: true
           allowUpdates: true
