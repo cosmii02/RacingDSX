@@ -38,19 +38,23 @@ jobs:
           tag_name: latest-candidate-${{ github.run_number }}-${{ github.run_id }}
           name: Release-Candidate-${{ github.run_number }}-${{ github.run_id }}
           prerelease: true
-      - name: Get Release ID and Upload URL
-        id: get_release_id_and_upload_url
-        run: |
-          echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
-          echo "::set-output name=upload_url::$(echo '${{ steps.create_release.outputs.upload_url }}')"
+      - name: Get Release ID
+        id: get_release_id
+        run: echo "::set-output name=id::$(echo '${{ steps.create_release.outputs.id }}')"
         shell: bash
-      - name: Upload Windows Artifact
-        uses: actions/upload-release-asset@v1
+      - name: Upload Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./forza/devrel/ForzaDSX-RC
-          asset_name: ForzaDSX-RC
-          asset_content_type: application/octet-stream
+        run: |
+          release_id=${{ steps.get_release_id.outputs.id }}
+          artifact_path="./forza/devrel/ForzaDSX-RC"
+          upload_url=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/releases/${release_id} | jq -r '.upload_url')
+          upload_url=${upload_url%\{*}
+          echo "upload_url=${upload_url}"
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/octet-stream" \
+            --data-binary "@${artifact_path}" \
+            "${upload_url}?name=$(basename ${artifact_path})" \
+            -vvv
         continue-on-error: true
