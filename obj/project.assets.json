@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows10.0.22621": {
+    "net7.0-windows7.0": {
       "CsvHelper/27.2.1": {
         "type": "package",
         "compile": {
@@ -225,7 +225,7 @@
         }
       }
     },
-    "net6.0-windows10.0.22621/win-x64": {
+    "net7.0-windows7.0/win-x64": {
       "CsvHelper/27.2.1": {
         "type": "package",
         "compile": {
@@ -737,7 +737,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows10.0.22621": [
+    "net7.0-windows7.0": [
       "CsvHelper >= 27.2.1",
       "Microsoft.Extensions.Configuration.Binder >= 6.0.0",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 6.0.0",
@@ -751,24 +751,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apple\\RiderProjects\\ForzaDSX\\ForzaDSX.csproj",
+      "projectUniqueName": "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
       "projectName": "ForzaDSX",
-      "projectPath": "C:\\Users\\apple\\RiderProjects\\ForzaDSX\\ForzaDSX.csproj",
+      "projectPath": "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
       "packagesPath": "C:\\Users\\apple\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apple\\RiderProjects\\ForzaDSX\\obj\\",
+      "outputPath": "C:\\Users\\apple\\ForzaDSX\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\apple\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows10.0.22621.0"
+        "net7.0-windows"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows10.0.22621": {
-          "targetAlias": "net6.0-windows10.0.22621.0",
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
           "projectReferences": {}
         }
       },
@@ -779,8 +779,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows10.0.22621": {
-        "targetAlias": "net6.0-windows10.0.22621.0",
+      "net7.0-windows7.0": {
+        "targetAlias": "net7.0-windows",
         "dependencies": {
           "CsvHelper": {
             "target": "Package",
@@ -816,54 +816,31 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[6.0.12, 6.0.12]"
+            "version": "[7.0.4, 7.0.4]"
           },
           {
             "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
+            "version": "[7.0.4, 7.0.4]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
-            "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.22621.28, 10.0.22621.28]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
+            "version": "[7.0.4, 7.0.4]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[6.0.12, 6.0.12]"
+            "version": "[7.0.4, 7.0.4]"
           }
         ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.Windows.SDK.NET.Ref": {
-            "privateAssets": "all"
-          },
           "Microsoft.WindowsDesktop.App": {
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\apple\\.dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
