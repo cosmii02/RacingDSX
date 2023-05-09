@@ -35,7 +35,6 @@ Note for Forza Motorsport 7
 
 
 
-
 ## Thanks and Credits
 
 [DualSenseX](https://github.com/Paliverse/DualSenseX)
