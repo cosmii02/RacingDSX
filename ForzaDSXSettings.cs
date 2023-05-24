@@ -34,6 +34,8 @@ namespace ForzaDSX
 			_forza_PORT = 5300;
 			_left_Trigger_Eeffect_Intensity = 1.0f;
 			_right_Trigger_Eeffect_Intensity = 1.0f;
+			_left_Trigger_ABS_Effect_Intensity = 1.0f;
+            _right_Trigger_ABS_Effect_Intensity = 1.0f;
 			_verbose = 0;
 		}
 
