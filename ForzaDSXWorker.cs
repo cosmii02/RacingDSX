@@ -121,11 +121,6 @@ namespace ForzaDSX
 			bool bInRace = data.IsRaceOn;
 
 			float currentRPM = data.CurrentEngineRpm;
-    		if (data.ABS > 0)
-    		{
-    	    	p.AddCommand(Command.SetLeftTriggerEffect, (byte)(data.ABS * settings._left_Trigger_ABS_Effect_Intensity * 255));
-    			p.AddCommand(Command.SetRightTriggerEffect, (byte)(data.ABS * settings._right_Trigger_ABS_Effect_Intensity * 255));
-    		}
 			// FH does not always correctly set IsRaceOn, so we must also check if the RPM info is the same for a certain ammount of time
 			// Also check if Power <= 0 (car is really stopped)
 			if (currentRPM == LastEngineRPM
