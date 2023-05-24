@@ -29,7 +29,7 @@ jobs:
         run: dotnet restore
 
       - name: Package
-        run: dotnet enable-wintargeting publish -r win-x64 --self-contained true -c Release --output ./forza/devrel
+        run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
 
       - name: Compress Artifact
         run: zip -r ./forza/devrel/ForzaDSX-RC.zip ./forza/devrel
