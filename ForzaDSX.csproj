@@ -21,8 +21,12 @@
     <IncludeSymbols>False</IncludeSymbols>
     <UseWPF>True</UseWPF>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <Company>CosmiiDev</Company>
+    <Company>Paliverse Apps LLC</Company>
   </PropertyGroup>
+
+<PropertyGroup>
+  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+</PropertyGroup>
 
 <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<PlatformTarget>AnyCPU</PlatformTarget>
