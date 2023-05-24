@@ -28,9 +28,6 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Install EnableWindowsTargeting.Tool
-        run: dotnet tool install --global EnableWindowsTargeting.Tool
-
       - name: Package
         run: dotnet enable-wintargeting publish -r win-x64 --self-contained true -c Release --output ./forza/devrel
 
