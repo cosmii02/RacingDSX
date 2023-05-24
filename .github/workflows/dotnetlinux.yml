@@ -21,11 +21,12 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
 
-      - name: Restore dependencies
-        run: dotnet restore
-
       - name: Set EnableWindowsTargeting
         run: dotnet new tool-manifest
+
+          
+      - name: Restore dependencies
+        run: dotnet restore
 
       - name: Install EnableWindowsTargeting.Tool
         run: dotnet tool install --global EnableWindowsTargeting.Tool
