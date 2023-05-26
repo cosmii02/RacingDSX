@@ -24,7 +24,7 @@ jobs:
       - name: Set EnableWindowsTargeting
         run: dotnet new tool-manifest
 
-          
+        
       - name: Restore dependencies
         run: dotnet restore
 
