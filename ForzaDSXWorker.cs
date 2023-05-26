@@ -121,7 +121,6 @@ namespace ForzaDSX
 			bool bInRace = data.IsRaceOn;
 
 			float currentRPM = data.CurrentEngineRpm;
-
 			// FH does not always correctly set IsRaceOn, so we must also check if the RPM info is the same for a certain ammount of time
 			// Also check if Power <= 0 (car is really stopped)
 			if (currentRPM == LastEngineRPM

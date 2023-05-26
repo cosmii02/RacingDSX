@@ -1,0 +1,47 @@
+name: Release Candidate
+
+on:
+  push:
+    # branches: [ "main" ]
+  pull_request:
+    # branches: [ "main" ]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-version: ["7.0.x"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Set EnableWindowsTargeting
+        run: dotnet new tool-manifest
+
+          
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Package
+        run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
+
+      - name: Compress Artifact
+        run: zip -r ./forza/devrel/ForzaDSX-RC.zip ./forza/devrel
+
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          name: ForzaDSX-RC
+          artifacts: ./forza/devrel/ForzaDSX-RC.zip
+          tag: latest-candidate
+          prerelease: true
+          allowUpdates: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
