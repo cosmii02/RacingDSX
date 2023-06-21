@@ -8,7 +8,7 @@ namespace ForzaDSX
 
     public class Program
     {
-        public const String VERSION = "0.5.6";
+        public const String VERSION = "0.5.6-DB1";
 
 		[STAThread]
 		static void Main(string[] args)
