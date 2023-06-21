@@ -8,7 +8,7 @@ namespace ForzaDSX
 
     public class Program
     {
-        public const String VERSION = "0.5.6-DB1";
+        public const String VERSION = "0.5.6-DB2";
 
 		[STAThread]
 		static void Main(string[] args)
@@ -21,7 +21,7 @@ namespace ForzaDSX
 				{
 					case "-v":
 						{
-							Console.WriteLine($"ForzaDSX Version {VERSION}");
+							//Console.WriteLine($"ForzaDSX Version {VERSION}");
 							return;
 						}
 					//case "--Program.verbose":
