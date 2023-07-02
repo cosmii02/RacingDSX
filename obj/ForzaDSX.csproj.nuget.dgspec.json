@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj": {}
+    "C:\\Users\\cosmii02\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj": {
+    "C:\\Users\\cosmii02\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
+        "projectUniqueName": "C:\\Users\\cosmii02\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj",
         "projectName": "ForzaDSX",
-        "projectPath": "C:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
-        "packagesPath": "C:\\Users\\apple\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\apple\\ForzaDSX\\obj\\",
+        "projectPath": "C:\\Users\\cosmii02\\Source\\Repos\\cosmii02\\ForzaDSX\\ForzaDSX.csproj",
+        "packagesPath": "C:\\Users\\cosmii02\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cosmii02\\Source\\Repos\\cosmii02\\ForzaDSX\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\apple\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\cosmii02\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,19 +75,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[7.0.4, 7.0.4]"
+              "version": "[7.0.7, 7.0.7]"
             },
             {
               "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[7.0.4, 7.0.4]"
+              "version": "[7.0.7, 7.0.7]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.4, 7.0.4]"
+              "version": "[7.0.7, 7.0.7]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[7.0.4, 7.0.4]"
+              "version": "[7.0.7, 7.0.7]"
             }
           ],
           "frameworkReferences": {
@@ -96,7 +98,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

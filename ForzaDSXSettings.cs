@@ -4,7 +4,7 @@ namespace ForzaDSX
 	{
 		public ForzaDSXSettings()
 		{
-			_grip_Loss_Val = 0.5f;
+			_grip_Loss_Val = 0.35f;
 			_throttle_Grip_Loss_Val = 0.2f;
 			_max_Brake_Vibration = 35;
 			_min_Brake_Vibration = 3;
@@ -16,15 +16,15 @@ namespace ForzaDSX
 			_forward_Accel_Mod = 1.0f;
 			_max_Accel_Griploss_Vibration = 35;
 			_min_Accel_Griploss_Vibration = 3;
-			_min_Accel_Griploss_Stiffness = 200;
-			_max_Accel_Griploss_Stiffness = 75;
-			_min_Brake_Stiffness = 200;
-			_max_Brake_Stiffness = 1;
+			_min_Accel_Griploss_Stiffness = 255;
+			_max_Accel_Griploss_Stiffness = 180;
+			_min_Brake_Stiffness = 210;
+			_max_Brake_Stiffness = 140;
 			_brake_Vibration_Start = 20;
 			_brake_Vibration_Mode_Start = 10;
 			_throttle_Vibration_Mode_Start = 5;
-			_max_Throttle_Resistance = 6;
-			_max_Brake_Resistance = 6;
+			_max_Throttle_Resistance = 4;
+			_max_Brake_Resistance = 4;
 			_min_Throttle_Resistance = 1;
 			_min_Brake_Resistance = 1;
 			_acceleration_Limit = 10;
