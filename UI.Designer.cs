@@ -3,2138 +3,2013 @@ using System.ComponentModel;
 
 namespace ForzaDSX
 {
-    partial class UI
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class UI
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-			this.components = new System.ComponentModel.Container();
-			this.mainPanel = new System.Windows.Forms.Panel();
-			this.mainTabControl = new System.Windows.Forms.TabControl();
-			this.miscTabPage = new System.Windows.Forms.TabPage();
-			this.miscTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.forzaPortNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.forzaPortLabel = new System.Windows.Forms.Label();
-			this.dsxPortLabel = new System.Windows.Forms.Label();
-			this.appCheckLabel = new System.Windows.Forms.Label();
-			this.rpmLabel = new System.Windows.Forms.Label();
-			this.rpmTrackBar = new System.Windows.Forms.TrackBar();
-			this.appCheckBox = new System.Windows.Forms.CheckBox();
-			this.dsxNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.rpmValueNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.buttonApplyMisc = new System.Windows.Forms.Button();
-			this.miscDefaultsButton = new System.Windows.Forms.Button();
-			this.brakeConfigTabPage = new System.Windows.Forms.TabPage();
-			this.brakeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.brakeResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.maxBrakeResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.minBrakeResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.maxBrakeStifnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.minBrakeStifnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.brakeVibrationSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.maxBrakeVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.minBrakeVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.brakeVibrationModeNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.brakeVibrationStartNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.gripLossNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.brakeEffectNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.brakeResistanceSmoothingTrackBar = new System.Windows.Forms.TrackBar();
-			this.brakeResistanceSmoothingLabel = new System.Windows.Forms.Label();
-			this.maxBrakeResistanceTrackBar = new System.Windows.Forms.TrackBar();
-			this.maxBrakeResistanceLabel = new System.Windows.Forms.Label();
-			this.minBrakeResistanceTrackBar = new System.Windows.Forms.TrackBar();
-			this.minBrakeResistanceLabel = new System.Windows.Forms.Label();
-			this.maxBrakeStiffnessTrackBar = new System.Windows.Forms.TrackBar();
-			this.maxBrakeStiffnessLabel = new System.Windows.Forms.Label();
-			this.minBrakeStiffnessTrackBar = new System.Windows.Forms.TrackBar();
-			this.minBrakeStiffnessLabel = new System.Windows.Forms.Label();
-			this.vibrationSmoothingTrackBar = new System.Windows.Forms.TrackBar();
-			this.vibrationSmoothingLabel = new System.Windows.Forms.Label();
-			this.maxBrakeVibrationTrackBar = new System.Windows.Forms.TrackBar();
-			this.maxBrakeVibrationLabel = new System.Windows.Forms.Label();
-			this.minBrakeVibrationTrackBar = new System.Windows.Forms.TrackBar();
-			this.minBrakeVibrationLabel = new System.Windows.Forms.Label();
-			this.brakeVibrationModeTrackBar = new System.Windows.Forms.TrackBar();
-			this.brakeVibrationModeStartLabel = new System.Windows.Forms.Label();
-			this.brakeVibrationStartTrackBar = new System.Windows.Forms.TrackBar();
-			this.brakeVibrationStartLabel = new System.Windows.Forms.Label();
-			this.gripLossTrackBar = new System.Windows.Forms.TrackBar();
-			this.gripLossLabel = new System.Windows.Forms.Label();
-			this.brakeEffectIntensityLabel = new System.Windows.Forms.Label();
-			this.brakeEffectIntensityTrackBar = new System.Windows.Forms.TrackBar();
-			this.buttonApply_Brake = new System.Windows.Forms.Button();
-			this.brakeDefaultsButton = new System.Windows.Forms.Button();
-			this.throttleConfigTabPage = new System.Windows.Forms.TabPage();
-			this.throttleTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.throttleResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMaxResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMinResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMaxStiffnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMinStiffnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleVibrationSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMaxVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleMinVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleVibrationStartNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleAccelLimitNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleForwardAccelScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleTurnAccelScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleGripLossNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleIntensityNumericUpDown = new System.Windows.Forms.NumericUpDown();
-			this.throttleResistanceSmoothTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMaxResistanceTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMinResistanceTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMaxStiffnessTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMinStiffnessTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleVibrationSmoothTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMaxVibrationTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleMinVibrationTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleVibrationModeStartTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleAccelLimitTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleForwardAccelScaleTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleTurnAccelScaleTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleGripLossTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleIntensityTrackBar = new System.Windows.Forms.TrackBar();
-			this.throttleResistanceSmoothingLabel = new System.Windows.Forms.Label();
-			this.maxThrottleResistanceLabel = new System.Windows.Forms.Label();
-			this.minThrottleResistanceLabel = new System.Windows.Forms.Label();
-			this.maxThrottleStiffnessLabel = new System.Windows.Forms.Label();
-			this.minThrottleStiffnessLabel = new System.Windows.Forms.Label();
-			this.throttleVibrationSmoothingLabel = new System.Windows.Forms.Label();
-			this.maxThrottleVibrationLabel = new System.Windows.Forms.Label();
-			this.minThrottleVibrationLabel = new System.Windows.Forms.Label();
-			this.throttleVibrationStartLabel = new System.Windows.Forms.Label();
-			this.accelerationLimitLabel = new System.Windows.Forms.Label();
-			this.forwardAccelLabel = new System.Windows.Forms.Label();
-			this.turnAccelLabel = new System.Windows.Forms.Label();
-			this.throttleGripLossLabel = new System.Windows.Forms.Label();
-			this.throttleIntensityLabel = new System.Windows.Forms.Label();
-			this.buttonApply_Throttle = new System.Windows.Forms.Button();
-			this.throttleDefaultsButton = new System.Windows.Forms.Button();
-			this.outputTabPage = new System.Windows.Forms.TabPage();
-			this.raceGroupBox = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.brakeMsg = new System.Windows.Forms.Label();
-			this.brakeVibrationMsg = new System.Windows.Forms.Label();
-			this.throttleMsg = new System.Windows.Forms.Label();
-			this.throttleVibrationMsg = new System.Windows.Forms.Label();
-			this.noRaceGroupBox = new System.Windows.Forms.GroupBox();
-			this.noRaceText = new System.Windows.Forms.Label();
-			this.outputListBox = new System.Windows.Forms.ListBox();
-			this.toolStripStatusDSX = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusForza = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripVerboseMode = new System.Windows.Forms.ToolStripDropDownButton();
-			this.verboseModeOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.verboseModeLowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.verboseModeFullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.mainPanel.SuspendLayout();
-			this.mainTabControl.SuspendLayout();
-			this.miscTabPage.SuspendLayout();
-			this.miscTableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.forzaPortNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.rpmTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dsxNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.rpmValueNumericUpDown)).BeginInit();
-			this.brakeConfigTabPage.SuspendLayout();
-			this.brakeTableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.brakeResistanceSmoothNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeResistanceNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeResistanceNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeStifnessNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeStifnessNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationSmoothNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeVibrationNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeVibrationNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationModeNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationStartNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.gripLossNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeEffectNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeResistanceSmoothingTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeResistanceTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeResistanceTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeStiffnessTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeStiffnessTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.vibrationSmoothingTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeVibrationTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeVibrationTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationModeTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationStartTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.gripLossTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeEffectIntensityTrackBar)).BeginInit();
-			this.throttleConfigTabPage.SuspendLayout();
-			this.throttleTableLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.throttleResistanceSmoothNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxResistanceNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinResistanceNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxStiffnessNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinStiffnessNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationSmoothNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxVibrationNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinVibrationNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationStartNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleAccelLimitNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleForwardAccelScaleNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleTurnAccelScaleNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleGripLossNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleIntensityNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleResistanceSmoothTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxResistanceTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinResistanceTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxStiffnessTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinStiffnessTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationSmoothTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxVibrationTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinVibrationTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationModeStartTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleAccelLimitTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleForwardAccelScaleTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleTurnAccelScaleTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleGripLossTrackBar)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleIntensityTrackBar)).BeginInit();
-			this.outputTabPage.SuspendLayout();
-			this.raceGroupBox.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
-			this.noRaceGroupBox.SuspendLayout();
-			this.statusStrip1.SuspendLayout();
-			this.SuspendLayout();
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			components = new Container();
+			mainPanel = new System.Windows.Forms.Panel();
+			mainTabControl = new System.Windows.Forms.TabControl();
+			miscTabPage = new System.Windows.Forms.TabPage();
+			miscTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			forzaPortNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			forzaPortLabel = new System.Windows.Forms.Label();
+			dsxPortLabel = new System.Windows.Forms.Label();
+			appCheckLabel = new System.Windows.Forms.Label();
+			rpmLabel = new System.Windows.Forms.Label();
+			rpmTrackBar = new System.Windows.Forms.TrackBar();
+			appCheckBox = new System.Windows.Forms.CheckBox();
+			dsxNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			rpmValueNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			buttonApplyMisc = new System.Windows.Forms.Button();
+			miscDefaultsButton = new System.Windows.Forms.Button();
+			brakeConfigTabPage = new System.Windows.Forms.TabPage();
+			brakeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			brakeResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			maxBrakeResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			minBrakeResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			maxBrakeStifnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			minBrakeStifnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			brakeVibrationSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			maxBrakeVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			minBrakeVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			brakeVibrationModeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			brakeVibrationStartNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			gripLossNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			brakeEffectNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			brakeResistanceSmoothingTrackBar = new System.Windows.Forms.TrackBar();
+			brakeResistanceSmoothingLabel = new System.Windows.Forms.Label();
+			maxBrakeResistanceTrackBar = new System.Windows.Forms.TrackBar();
+			maxBrakeResistanceLabel = new System.Windows.Forms.Label();
+			minBrakeResistanceTrackBar = new System.Windows.Forms.TrackBar();
+			minBrakeResistanceLabel = new System.Windows.Forms.Label();
+			maxBrakeStiffnessTrackBar = new System.Windows.Forms.TrackBar();
+			maxBrakeStiffnessLabel = new System.Windows.Forms.Label();
+			minBrakeStiffnessTrackBar = new System.Windows.Forms.TrackBar();
+			minBrakeStiffnessLabel = new System.Windows.Forms.Label();
+			vibrationSmoothingTrackBar = new System.Windows.Forms.TrackBar();
+			vibrationSmoothingLabel = new System.Windows.Forms.Label();
+			maxBrakeVibrationTrackBar = new System.Windows.Forms.TrackBar();
+			maxBrakeVibrationLabel = new System.Windows.Forms.Label();
+			minBrakeVibrationTrackBar = new System.Windows.Forms.TrackBar();
+			minBrakeVibrationLabel = new System.Windows.Forms.Label();
+			brakeVibrationModeTrackBar = new System.Windows.Forms.TrackBar();
+			brakeVibrationModeStartLabel = new System.Windows.Forms.Label();
+			brakeVibrationStartTrackBar = new System.Windows.Forms.TrackBar();
+			brakeVibrationStartLabel = new System.Windows.Forms.Label();
+			gripLossTrackBar = new System.Windows.Forms.TrackBar();
+			gripLossLabel = new System.Windows.Forms.Label();
+			brakeEffectIntensityLabel = new System.Windows.Forms.Label();
+			brakeEffectIntensityTrackBar = new System.Windows.Forms.TrackBar();
+			buttonApply_Brake = new System.Windows.Forms.Button();
+			brakeDefaultsButton = new System.Windows.Forms.Button();
+			brakeTriggerMode = new System.Windows.Forms.Label();
+			brakeTriggerModeComboBox = new System.Windows.Forms.ComboBox();
+			throttleConfigTabPage = new System.Windows.Forms.TabPage();
+			throttleTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			throttleTriggerModeComboBox = new System.Windows.Forms.ComboBox();
+			throttleTriggerMode = new System.Windows.Forms.Label();
+			throttleResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMaxResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMinResistanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMaxStiffnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMinStiffnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleVibrationSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMaxVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleMinVibrationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleVibrationStartNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleAccelLimitNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleForwardAccelScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleTurnAccelScaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleGripLossNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleIntensityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+			throttleResistanceSmoothTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMaxResistanceTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMinResistanceTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMaxStiffnessTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMinStiffnessTrackBar = new System.Windows.Forms.TrackBar();
+			throttleVibrationSmoothTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMaxVibrationTrackBar = new System.Windows.Forms.TrackBar();
+			throttleMinVibrationTrackBar = new System.Windows.Forms.TrackBar();
+			throttleVibrationModeStartTrackBar = new System.Windows.Forms.TrackBar();
+			throttleAccelLimitTrackBar = new System.Windows.Forms.TrackBar();
+			throttleForwardAccelScaleTrackBar = new System.Windows.Forms.TrackBar();
+			throttleTurnAccelScaleTrackBar = new System.Windows.Forms.TrackBar();
+			throttleGripLossTrackBar = new System.Windows.Forms.TrackBar();
+			throttleIntensityTrackBar = new System.Windows.Forms.TrackBar();
+			throttleResistanceSmoothingLabel = new System.Windows.Forms.Label();
+			maxThrottleResistanceLabel = new System.Windows.Forms.Label();
+			minThrottleResistanceLabel = new System.Windows.Forms.Label();
+			maxThrottleStiffnessLabel = new System.Windows.Forms.Label();
+			minThrottleStiffnessLabel = new System.Windows.Forms.Label();
+			throttleVibrationSmoothingLabel = new System.Windows.Forms.Label();
+			maxThrottleVibrationLabel = new System.Windows.Forms.Label();
+			minThrottleVibrationLabel = new System.Windows.Forms.Label();
+			throttleVibrationStartLabel = new System.Windows.Forms.Label();
+			accelerationLimitLabel = new System.Windows.Forms.Label();
+			forwardAccelLabel = new System.Windows.Forms.Label();
+			turnAccelLabel = new System.Windows.Forms.Label();
+			throttleGripLossLabel = new System.Windows.Forms.Label();
+			throttleIntensityLabel = new System.Windows.Forms.Label();
+			buttonApply_Throttle = new System.Windows.Forms.Button();
+			throttleDefaultsButton = new System.Windows.Forms.Button();
+			outputTabPage = new System.Windows.Forms.TabPage();
+			raceGroupBox = new System.Windows.Forms.GroupBox();
+			tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			brakeMsg = new System.Windows.Forms.Label();
+			brakeVibrationMsg = new System.Windows.Forms.Label();
+			throttleMsg = new System.Windows.Forms.Label();
+			throttleVibrationMsg = new System.Windows.Forms.Label();
+			noRaceGroupBox = new System.Windows.Forms.GroupBox();
+			noRaceText = new System.Windows.Forms.Label();
+			outputListBox = new System.Windows.Forms.ListBox();
+			toolStripStatusDSX = new System.Windows.Forms.ToolStripStatusLabel();
+			toolStripStatusForza = new System.Windows.Forms.ToolStripStatusLabel();
+			toolStripVerboseMode = new System.Windows.Forms.ToolStripDropDownButton();
+			verboseModeOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			verboseModeLowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			verboseModeFullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			statusStrip1 = new System.Windows.Forms.StatusStrip();
+			toolTip = new System.Windows.Forms.ToolTip(components);
+			mainPanel.SuspendLayout();
+			mainTabControl.SuspendLayout();
+			miscTabPage.SuspendLayout();
+			miscTableLayoutPanel.SuspendLayout();
+			((ISupportInitialize)forzaPortNumericUpDown).BeginInit();
+			((ISupportInitialize)rpmTrackBar).BeginInit();
+			((ISupportInitialize)dsxNumericUpDown).BeginInit();
+			((ISupportInitialize)rpmValueNumericUpDown).BeginInit();
+			brakeConfigTabPage.SuspendLayout();
+			brakeTableLayoutPanel.SuspendLayout();
+			((ISupportInitialize)brakeResistanceSmoothNumericUpDown).BeginInit();
+			((ISupportInitialize)maxBrakeResistanceNumericUpDown).BeginInit();
+			((ISupportInitialize)minBrakeResistanceNumericUpDown).BeginInit();
+			((ISupportInitialize)maxBrakeStifnessNumericUpDown).BeginInit();
+			((ISupportInitialize)minBrakeStifnessNumericUpDown).BeginInit();
+			((ISupportInitialize)brakeVibrationSmoothNumericUpDown).BeginInit();
+			((ISupportInitialize)maxBrakeVibrationNumericUpDown).BeginInit();
+			((ISupportInitialize)minBrakeVibrationNumericUpDown).BeginInit();
+			((ISupportInitialize)brakeVibrationModeNumericUpDown).BeginInit();
+			((ISupportInitialize)brakeVibrationStartNumericUpDown).BeginInit();
+			((ISupportInitialize)gripLossNumericUpDown).BeginInit();
+			((ISupportInitialize)brakeEffectNumericUpDown).BeginInit();
+			((ISupportInitialize)brakeResistanceSmoothingTrackBar).BeginInit();
+			((ISupportInitialize)maxBrakeResistanceTrackBar).BeginInit();
+			((ISupportInitialize)minBrakeResistanceTrackBar).BeginInit();
+			((ISupportInitialize)maxBrakeStiffnessTrackBar).BeginInit();
+			((ISupportInitialize)minBrakeStiffnessTrackBar).BeginInit();
+			((ISupportInitialize)vibrationSmoothingTrackBar).BeginInit();
+			((ISupportInitialize)maxBrakeVibrationTrackBar).BeginInit();
+			((ISupportInitialize)minBrakeVibrationTrackBar).BeginInit();
+			((ISupportInitialize)brakeVibrationModeTrackBar).BeginInit();
+			((ISupportInitialize)brakeVibrationStartTrackBar).BeginInit();
+			((ISupportInitialize)gripLossTrackBar).BeginInit();
+			((ISupportInitialize)brakeEffectIntensityTrackBar).BeginInit();
+			throttleConfigTabPage.SuspendLayout();
+			throttleTableLayoutPanel.SuspendLayout();
+			((ISupportInitialize)throttleResistanceSmoothNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMaxResistanceNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMinResistanceNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMaxStiffnessNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMinStiffnessNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleVibrationSmoothNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMaxVibrationNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleMinVibrationNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleVibrationStartNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleAccelLimitNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleForwardAccelScaleNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleTurnAccelScaleNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleGripLossNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleIntensityNumericUpDown).BeginInit();
+			((ISupportInitialize)throttleResistanceSmoothTrackBar).BeginInit();
+			((ISupportInitialize)throttleMaxResistanceTrackBar).BeginInit();
+			((ISupportInitialize)throttleMinResistanceTrackBar).BeginInit();
+			((ISupportInitialize)throttleMaxStiffnessTrackBar).BeginInit();
+			((ISupportInitialize)throttleMinStiffnessTrackBar).BeginInit();
+			((ISupportInitialize)throttleVibrationSmoothTrackBar).BeginInit();
+			((ISupportInitialize)throttleMaxVibrationTrackBar).BeginInit();
+			((ISupportInitialize)throttleMinVibrationTrackBar).BeginInit();
+			((ISupportInitialize)throttleVibrationModeStartTrackBar).BeginInit();
+			((ISupportInitialize)throttleAccelLimitTrackBar).BeginInit();
+			((ISupportInitialize)throttleForwardAccelScaleTrackBar).BeginInit();
+			((ISupportInitialize)throttleTurnAccelScaleTrackBar).BeginInit();
+			((ISupportInitialize)throttleGripLossTrackBar).BeginInit();
+			((ISupportInitialize)throttleIntensityTrackBar).BeginInit();
+			outputTabPage.SuspendLayout();
+			raceGroupBox.SuspendLayout();
+			tableLayoutPanel1.SuspendLayout();
+			noRaceGroupBox.SuspendLayout();
+			statusStrip1.SuspendLayout();
+			SuspendLayout();
 			// 
 			// mainPanel
 			// 
-			this.mainPanel.Controls.Add(this.mainTabControl);
-			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPanel.Location = new System.Drawing.Point(0, 0);
-			this.mainPanel.Name = "mainPanel";
-			this.mainPanel.Size = new System.Drawing.Size(721, 761);
-			this.mainPanel.TabIndex = 0;
+			mainPanel.Controls.Add(mainTabControl);
+			mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainPanel.Location = new System.Drawing.Point(0, 0);
+			mainPanel.Name = "mainPanel";
+			mainPanel.Size = new System.Drawing.Size(721, 761);
+			mainPanel.TabIndex = 0;
 			// 
 			// mainTabControl
 			// 
-			this.mainTabControl.Controls.Add(this.miscTabPage);
-			this.mainTabControl.Controls.Add(this.brakeConfigTabPage);
-			this.mainTabControl.Controls.Add(this.throttleConfigTabPage);
-			this.mainTabControl.Controls.Add(this.outputTabPage);
-			this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainTabControl.Location = new System.Drawing.Point(0, 0);
-			this.mainTabControl.Name = "mainTabControl";
-			this.mainTabControl.SelectedIndex = 0;
-			this.mainTabControl.Size = new System.Drawing.Size(721, 761);
-			this.mainTabControl.TabIndex = 0;
+			mainTabControl.Controls.Add(miscTabPage);
+			mainTabControl.Controls.Add(brakeConfigTabPage);
+			mainTabControl.Controls.Add(throttleConfigTabPage);
+			mainTabControl.Controls.Add(outputTabPage);
+			mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			mainTabControl.Location = new System.Drawing.Point(0, 0);
+			mainTabControl.Name = "mainTabControl";
+			mainTabControl.SelectedIndex = 0;
+			mainTabControl.Size = new System.Drawing.Size(721, 761);
+			mainTabControl.TabIndex = 0;
 			// 
 			// miscTabPage
 			// 
-			this.miscTabPage.Controls.Add(this.miscTableLayoutPanel);
-			this.miscTabPage.Location = new System.Drawing.Point(4, 24);
-			this.miscTabPage.Name = "miscTabPage";
-			this.miscTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.miscTabPage.Size = new System.Drawing.Size(713, 733);
-			this.miscTabPage.TabIndex = 3;
-			this.miscTabPage.Text = "Misc";
-			this.miscTabPage.UseVisualStyleBackColor = true;
+			miscTabPage.Controls.Add(miscTableLayoutPanel);
+			miscTabPage.Location = new System.Drawing.Point(4, 24);
+			miscTabPage.Name = "miscTabPage";
+			miscTabPage.Padding = new System.Windows.Forms.Padding(3);
+			miscTabPage.Size = new System.Drawing.Size(713, 733);
+			miscTabPage.TabIndex = 3;
+			miscTabPage.Text = "Misc";
+			miscTabPage.UseVisualStyleBackColor = true;
 			// 
 			// miscTableLayoutPanel
 			// 
-			this.miscTableLayoutPanel.AutoScroll = true;
-			this.miscTableLayoutPanel.AutoSize = true;
-			this.miscTableLayoutPanel.ColumnCount = 3;
-			this.miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.miscTableLayoutPanel.Controls.Add(this.forzaPortNumericUpDown, 1, 3);
-			this.miscTableLayoutPanel.Controls.Add(this.forzaPortLabel, 0, 3);
-			this.miscTableLayoutPanel.Controls.Add(this.dsxPortLabel, 0, 2);
-			this.miscTableLayoutPanel.Controls.Add(this.appCheckLabel, 0, 1);
-			this.miscTableLayoutPanel.Controls.Add(this.rpmLabel, 0, 0);
-			this.miscTableLayoutPanel.Controls.Add(this.rpmTrackBar, 1, 0);
-			this.miscTableLayoutPanel.Controls.Add(this.appCheckBox, 1, 1);
-			this.miscTableLayoutPanel.Controls.Add(this.dsxNumericUpDown, 1, 2);
-			this.miscTableLayoutPanel.Controls.Add(this.rpmValueNumericUpDown, 2, 0);
-			this.miscTableLayoutPanel.Controls.Add(this.buttonApplyMisc, 1, 4);
-			this.miscTableLayoutPanel.Controls.Add(this.miscDefaultsButton, 2, 4);
-			this.miscTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.miscTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
-			this.miscTableLayoutPanel.Name = "miscTableLayoutPanel";
-			this.miscTableLayoutPanel.RowCount = 5;
-			this.miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.miscTableLayoutPanel.Size = new System.Drawing.Size(707, 727);
-			this.miscTableLayoutPanel.TabIndex = 0;
+			miscTableLayoutPanel.AutoScroll = true;
+			miscTableLayoutPanel.AutoSize = true;
+			miscTableLayoutPanel.ColumnCount = 3;
+			miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			miscTableLayoutPanel.Controls.Add(forzaPortNumericUpDown, 1, 3);
+			miscTableLayoutPanel.Controls.Add(forzaPortLabel, 0, 3);
+			miscTableLayoutPanel.Controls.Add(dsxPortLabel, 0, 2);
+			miscTableLayoutPanel.Controls.Add(appCheckLabel, 0, 1);
+			miscTableLayoutPanel.Controls.Add(rpmLabel, 0, 0);
+			miscTableLayoutPanel.Controls.Add(rpmTrackBar, 1, 0);
+			miscTableLayoutPanel.Controls.Add(appCheckBox, 1, 1);
+			miscTableLayoutPanel.Controls.Add(dsxNumericUpDown, 1, 2);
+			miscTableLayoutPanel.Controls.Add(rpmValueNumericUpDown, 2, 0);
+			miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 4);
+			miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 4);
+			miscTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			miscTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+			miscTableLayoutPanel.Name = "miscTableLayoutPanel";
+			miscTableLayoutPanel.RowCount = 5;
+			miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			miscTableLayoutPanel.Size = new System.Drawing.Size(707, 727);
+			miscTableLayoutPanel.TabIndex = 0;
 			// 
 			// forzaPortNumericUpDown
 			// 
-			this.forzaPortNumericUpDown.AutoSize = true;
-			this.forzaPortNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.forzaPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.forzaPortNumericUpDown.Location = new System.Drawing.Point(120, 103);
-			this.forzaPortNumericUpDown.Maximum = new decimal(new int[] {
-            65353,
-            0,
-            0,
-            0});
-			this.forzaPortNumericUpDown.MaximumSize = new System.Drawing.Size(100, 0);
-			this.forzaPortNumericUpDown.Name = "forzaPortNumericUpDown";
-			this.forzaPortNumericUpDown.Size = new System.Drawing.Size(100, 23);
-			this.forzaPortNumericUpDown.TabIndex = 7;
-			this.toolTip.SetToolTip(this.forzaPortNumericUpDown, "Port for Forza UDP server");
-			this.forzaPortNumericUpDown.ValueChanged += new System.EventHandler(this.forzaPortNumericUpDown_ValueChanged);
+			forzaPortNumericUpDown.AutoSize = true;
+			forzaPortNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			forzaPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+			forzaPortNumericUpDown.Location = new System.Drawing.Point(120, 103);
+			forzaPortNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
+			forzaPortNumericUpDown.MaximumSize = new System.Drawing.Size(100, 0);
+			forzaPortNumericUpDown.Name = "forzaPortNumericUpDown";
+			forzaPortNumericUpDown.Size = new System.Drawing.Size(100, 23);
+			forzaPortNumericUpDown.TabIndex = 7;
+			toolTip.SetToolTip(forzaPortNumericUpDown, "Port for Forza UDP server");
+			forzaPortNumericUpDown.ValueChanged += forzaPortNumericUpDown_ValueChanged;
 			// 
 			// forzaPortLabel
 			// 
-			this.forzaPortLabel.AutoSize = true;
-			this.forzaPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.forzaPortLabel.Location = new System.Drawing.Point(3, 100);
-			this.forzaPortLabel.Name = "forzaPortLabel";
-			this.forzaPortLabel.Size = new System.Drawing.Size(111, 29);
-			this.forzaPortLabel.TabIndex = 6;
-			this.forzaPortLabel.Text = "Forza Port";
-			this.forzaPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.forzaPortLabel, "Port for Forza UDP server");
+			forzaPortLabel.AutoSize = true;
+			forzaPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			forzaPortLabel.Location = new System.Drawing.Point(3, 100);
+			forzaPortLabel.Name = "forzaPortLabel";
+			forzaPortLabel.Size = new System.Drawing.Size(111, 29);
+			forzaPortLabel.TabIndex = 6;
+			forzaPortLabel.Text = "Forza Port";
+			forzaPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(forzaPortLabel, "Port for Forza UDP server");
 			// 
 			// dsxPortLabel
 			// 
-			this.dsxPortLabel.AutoSize = true;
-			this.dsxPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dsxPortLabel.Location = new System.Drawing.Point(3, 71);
-			this.dsxPortLabel.Name = "dsxPortLabel";
-			this.dsxPortLabel.Size = new System.Drawing.Size(111, 29);
-			this.dsxPortLabel.TabIndex = 4;
-			this.dsxPortLabel.Text = "DSX Port";
-			this.dsxPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.dsxPortLabel, "Port for DSX Port Listener");
+			dsxPortLabel.AutoSize = true;
+			dsxPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			dsxPortLabel.Location = new System.Drawing.Point(3, 71);
+			dsxPortLabel.Name = "dsxPortLabel";
+			dsxPortLabel.Size = new System.Drawing.Size(111, 29);
+			dsxPortLabel.TabIndex = 4;
+			dsxPortLabel.Text = "DSX Port";
+			dsxPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(dsxPortLabel, "Port for DSX Port Listener");
 			// 
 			// appCheckLabel
 			// 
-			this.appCheckLabel.AutoSize = true;
-			this.appCheckLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.appCheckLabel.Location = new System.Drawing.Point(3, 51);
-			this.appCheckLabel.Name = "appCheckLabel";
-			this.appCheckLabel.Size = new System.Drawing.Size(111, 20);
-			this.appCheckLabel.TabIndex = 2;
-			this.appCheckLabel.Text = "Disable App Check?";
-			this.appCheckLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.appCheckLabel, "Should we disable the check for running applications?");
+			appCheckLabel.AutoSize = true;
+			appCheckLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			appCheckLabel.Location = new System.Drawing.Point(3, 51);
+			appCheckLabel.Name = "appCheckLabel";
+			appCheckLabel.Size = new System.Drawing.Size(111, 20);
+			appCheckLabel.TabIndex = 2;
+			appCheckLabel.Text = "Disable App Check?";
+			appCheckLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(appCheckLabel, "Should we disable the check for running applications?");
 			// 
 			// rpmLabel
 			// 
-			this.rpmLabel.AutoSize = true;
-			this.rpmLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rpmLabel.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
-			this.rpmLabel.Location = new System.Drawing.Point(3, 0);
-			this.rpmLabel.Name = "rpmLabel";
-			this.rpmLabel.Size = new System.Drawing.Size(111, 51);
-			this.rpmLabel.TabIndex = 0;
-			this.rpmLabel.Text = "RPM Redline Ratio";
-			this.rpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.rpmLabel, "The percentage of the current RPM when we are in the \"redline\" of the engine");
+			rpmLabel.AutoSize = true;
+			rpmLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			rpmLabel.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Polite;
+			rpmLabel.Location = new System.Drawing.Point(3, 0);
+			rpmLabel.Name = "rpmLabel";
+			rpmLabel.Size = new System.Drawing.Size(111, 51);
+			rpmLabel.TabIndex = 0;
+			rpmLabel.Text = "RPM Redline Ratio";
+			rpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(rpmLabel, "The percentage of the current RPM when we are in the \"redline\" of the engine");
 			// 
 			// rpmTrackBar
 			// 
-			this.rpmTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.rpmTrackBar.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
-			this.rpmTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rpmTrackBar.LargeChange = 50;
-			this.rpmTrackBar.Location = new System.Drawing.Point(120, 3);
-			this.rpmTrackBar.Maximum = 100;
-			this.rpmTrackBar.Name = "rpmTrackBar";
-			this.rpmTrackBar.Size = new System.Drawing.Size(415, 45);
-			this.rpmTrackBar.TabIndex = 1;
-			this.rpmTrackBar.TickFrequency = 5;
-			this.rpmTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.rpmTrackBar, "The percentage of the current RPM when we are in the \"redline\" of the engine");
-			this.rpmTrackBar.Scroll += new System.EventHandler(this.rpmTrackBar_Scroll);
+			rpmTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			rpmTrackBar.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
+			rpmTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			rpmTrackBar.LargeChange = 50;
+			rpmTrackBar.Location = new System.Drawing.Point(120, 3);
+			rpmTrackBar.Maximum = 100;
+			rpmTrackBar.Name = "rpmTrackBar";
+			rpmTrackBar.Size = new System.Drawing.Size(415, 45);
+			rpmTrackBar.TabIndex = 1;
+			rpmTrackBar.TickFrequency = 5;
+			rpmTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(rpmTrackBar, "The percentage of the current RPM when we are in the \"redline\" of the engine");
+			rpmTrackBar.Scroll += rpmTrackBar_Scroll;
 			// 
 			// appCheckBox
 			// 
-			this.appCheckBox.AutoSize = true;
-			this.appCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.appCheckBox.Location = new System.Drawing.Point(120, 54);
-			this.appCheckBox.Name = "appCheckBox";
-			this.appCheckBox.Size = new System.Drawing.Size(415, 14);
-			this.appCheckBox.TabIndex = 3;
-			this.toolTip.SetToolTip(this.appCheckBox, "Should we disable the check for running applications?");
-			this.appCheckBox.UseVisualStyleBackColor = true;
-			this.appCheckBox.CheckedChanged += new System.EventHandler(this.appCheckBox_CheckedChanged);
+			appCheckBox.AutoSize = true;
+			appCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			appCheckBox.Location = new System.Drawing.Point(120, 54);
+			appCheckBox.Name = "appCheckBox";
+			appCheckBox.Size = new System.Drawing.Size(415, 14);
+			appCheckBox.TabIndex = 3;
+			toolTip.SetToolTip(appCheckBox, "Should we disable the check for running applications?");
+			appCheckBox.UseVisualStyleBackColor = true;
+			appCheckBox.CheckedChanged += appCheckBox_CheckedChanged;
 			// 
 			// dsxNumericUpDown
 			// 
-			this.dsxNumericUpDown.AutoSize = true;
-			this.dsxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.dsxNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dsxNumericUpDown.Location = new System.Drawing.Point(120, 74);
-			this.dsxNumericUpDown.Maximum = new decimal(new int[] {
-            65353,
-            0,
-            0,
-            0});
-			this.dsxNumericUpDown.MaximumSize = new System.Drawing.Size(100, 0);
-			this.dsxNumericUpDown.Name = "dsxNumericUpDown";
-			this.dsxNumericUpDown.Size = new System.Drawing.Size(100, 23);
-			this.dsxNumericUpDown.TabIndex = 5;
-			this.toolTip.SetToolTip(this.dsxNumericUpDown, "Port for DSX Port Listener");
-			this.dsxNumericUpDown.ValueChanged += new System.EventHandler(this.dsxNumericUpDown_ValueChanged);
+			dsxNumericUpDown.AutoSize = true;
+			dsxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			dsxNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+			dsxNumericUpDown.Location = new System.Drawing.Point(120, 74);
+			dsxNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
+			dsxNumericUpDown.MaximumSize = new System.Drawing.Size(100, 0);
+			dsxNumericUpDown.Name = "dsxNumericUpDown";
+			dsxNumericUpDown.Size = new System.Drawing.Size(100, 23);
+			dsxNumericUpDown.TabIndex = 5;
+			toolTip.SetToolTip(dsxNumericUpDown, "Port for DSX Port Listener");
+			dsxNumericUpDown.ValueChanged += dsxNumericUpDown_ValueChanged;
 			// 
 			// rpmValueNumericUpDown
 			// 
-			this.rpmValueNumericUpDown.AutoSize = true;
-			this.rpmValueNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.rpmValueNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.rpmValueNumericUpDown.Location = new System.Drawing.Point(541, 3);
-			this.rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-			this.rpmValueNumericUpDown.Size = new System.Drawing.Size(163, 23);
-			this.rpmValueNumericUpDown.TabIndex = 8;
-			this.toolTip.SetToolTip(this.rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
-			this.rpmValueNumericUpDown.ValueChanged += new System.EventHandler(this.rpmValueNumericUpDown_ValueChanged);
+			rpmValueNumericUpDown.AutoSize = true;
+			rpmValueNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			rpmValueNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+			rpmValueNumericUpDown.Location = new System.Drawing.Point(541, 3);
+			rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
+			rpmValueNumericUpDown.Size = new System.Drawing.Size(163, 23);
+			rpmValueNumericUpDown.TabIndex = 8;
+			toolTip.SetToolTip(rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
+			rpmValueNumericUpDown.ValueChanged += rpmValueNumericUpDown_ValueChanged;
 			// 
 			// buttonApplyMisc
 			// 
-			this.buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
-			this.buttonApplyMisc.Location = new System.Drawing.Point(120, 132);
-			this.buttonApplyMisc.MaximumSize = new System.Drawing.Size(300, 30);
-			this.buttonApplyMisc.MinimumSize = new System.Drawing.Size(200, 25);
-			this.buttonApplyMisc.Name = "buttonApplyMisc";
-			this.buttonApplyMisc.Size = new System.Drawing.Size(300, 25);
-			this.buttonApplyMisc.TabIndex = 9;
-			this.buttonApplyMisc.Text = "Apply";
-			this.buttonApplyMisc.UseVisualStyleBackColor = true;
-			this.buttonApplyMisc.Click += new System.EventHandler(this.buttonApplyMisc_Click);
+			buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
+			buttonApplyMisc.Location = new System.Drawing.Point(120, 132);
+			buttonApplyMisc.MaximumSize = new System.Drawing.Size(300, 30);
+			buttonApplyMisc.MinimumSize = new System.Drawing.Size(200, 25);
+			buttonApplyMisc.Name = "buttonApplyMisc";
+			buttonApplyMisc.Size = new System.Drawing.Size(300, 25);
+			buttonApplyMisc.TabIndex = 9;
+			buttonApplyMisc.Text = "Apply";
+			buttonApplyMisc.UseVisualStyleBackColor = true;
+			buttonApplyMisc.Click += buttonApplyMisc_Click;
 			// 
 			// miscDefaultsButton
 			// 
-			this.miscDefaultsButton.Location = new System.Drawing.Point(541, 132);
-			this.miscDefaultsButton.Name = "miscDefaultsButton";
-			this.miscDefaultsButton.Size = new System.Drawing.Size(75, 23);
-			this.miscDefaultsButton.TabIndex = 39;
-			this.miscDefaultsButton.Text = "Defaults";
-			this.miscDefaultsButton.UseVisualStyleBackColor = true;
-			this.miscDefaultsButton.Click += new System.EventHandler(this.miscDefaultsButton_Click);
+			miscDefaultsButton.Location = new System.Drawing.Point(541, 132);
+			miscDefaultsButton.Name = "miscDefaultsButton";
+			miscDefaultsButton.Size = new System.Drawing.Size(75, 23);
+			miscDefaultsButton.TabIndex = 39;
+			miscDefaultsButton.Text = "Defaults";
+			miscDefaultsButton.UseVisualStyleBackColor = true;
+			miscDefaultsButton.Click += miscDefaultsButton_Click;
 			// 
 			// brakeConfigTabPage
 			// 
-			this.brakeConfigTabPage.Controls.Add(this.brakeTableLayoutPanel);
-			this.brakeConfigTabPage.Location = new System.Drawing.Point(4, 24);
-			this.brakeConfigTabPage.Name = "brakeConfigTabPage";
-			this.brakeConfigTabPage.Size = new System.Drawing.Size(713, 733);
-			this.brakeConfigTabPage.TabIndex = 4;
-			this.brakeConfigTabPage.Text = "Brake Trigger";
+			brakeConfigTabPage.Controls.Add(brakeTableLayoutPanel);
+			brakeConfigTabPage.Location = new System.Drawing.Point(4, 24);
+			brakeConfigTabPage.Name = "brakeConfigTabPage";
+			brakeConfigTabPage.Size = new System.Drawing.Size(713, 733);
+			brakeConfigTabPage.TabIndex = 4;
+			brakeConfigTabPage.Text = "Brake Trigger";
 			// 
 			// brakeTableLayoutPanel
 			// 
-			this.brakeTableLayoutPanel.AutoScroll = true;
-			this.brakeTableLayoutPanel.AutoSize = true;
-			this.brakeTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.brakeTableLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.brakeTableLayoutPanel.ColumnCount = 3;
-			this.brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeResistanceSmoothNumericUpDown, 2, 11);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeResistanceNumericUpDown, 2, 10);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeResistanceNumericUpDown, 2, 9);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeStifnessNumericUpDown, 2, 8);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeStifnessNumericUpDown, 2, 7);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationSmoothNumericUpDown, 2, 6);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeVibrationNumericUpDown, 2, 5);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeVibrationNumericUpDown, 2, 4);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationModeNumericUpDown, 2, 3);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationStartNumericUpDown, 2, 2);
-			this.brakeTableLayoutPanel.Controls.Add(this.gripLossNumericUpDown, 2, 1);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeEffectNumericUpDown, 2, 0);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeResistanceSmoothingTrackBar, 1, 11);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeResistanceSmoothingLabel, 0, 11);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeResistanceTrackBar, 1, 10);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeResistanceLabel, 0, 10);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeResistanceTrackBar, 1, 9);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeResistanceLabel, 0, 9);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeStiffnessTrackBar, 1, 8);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeStiffnessLabel, 0, 8);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeStiffnessTrackBar, 1, 7);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeStiffnessLabel, 0, 7);
-			this.brakeTableLayoutPanel.Controls.Add(this.vibrationSmoothingTrackBar, 1, 6);
-			this.brakeTableLayoutPanel.Controls.Add(this.vibrationSmoothingLabel, 0, 6);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeVibrationTrackBar, 1, 5);
-			this.brakeTableLayoutPanel.Controls.Add(this.maxBrakeVibrationLabel, 0, 5);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeVibrationTrackBar, 1, 4);
-			this.brakeTableLayoutPanel.Controls.Add(this.minBrakeVibrationLabel, 0, 4);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationModeTrackBar, 1, 3);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationModeStartLabel, 0, 3);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationStartTrackBar, 1, 2);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeVibrationStartLabel, 0, 2);
-			this.brakeTableLayoutPanel.Controls.Add(this.gripLossTrackBar, 1, 1);
-			this.brakeTableLayoutPanel.Controls.Add(this.gripLossLabel, 0, 1);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeEffectIntensityLabel, 0, 0);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeEffectIntensityTrackBar, 1, 0);
-			this.brakeTableLayoutPanel.Controls.Add(this.buttonApply_Brake, 1, 12);
-			this.brakeTableLayoutPanel.Controls.Add(this.brakeDefaultsButton, 2, 12);
-			this.brakeTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-			this.brakeTableLayoutPanel.Name = "brakeTableLayoutPanel";
-			this.brakeTableLayoutPanel.RowCount = 13;
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.brakeTableLayoutPanel.Size = new System.Drawing.Size(713, 733);
-			this.brakeTableLayoutPanel.TabIndex = 0;
+			brakeTableLayoutPanel.AutoScroll = true;
+			brakeTableLayoutPanel.AutoSize = true;
+			brakeTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			brakeTableLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			brakeTableLayoutPanel.ColumnCount = 3;
+			brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			brakeTableLayoutPanel.Controls.Add(brakeResistanceSmoothNumericUpDown, 2, 12);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeResistanceNumericUpDown, 2, 11);
+			brakeTableLayoutPanel.Controls.Add(minBrakeResistanceNumericUpDown, 2, 10);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeStifnessNumericUpDown, 2, 9);
+			brakeTableLayoutPanel.Controls.Add(minBrakeStifnessNumericUpDown, 2, 8);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationSmoothNumericUpDown, 2, 7);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeVibrationNumericUpDown, 2, 6);
+			brakeTableLayoutPanel.Controls.Add(minBrakeVibrationNumericUpDown, 2, 5);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationModeNumericUpDown, 2, 4);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationStartNumericUpDown, 2, 3);
+			brakeTableLayoutPanel.Controls.Add(gripLossNumericUpDown, 2, 2);
+			brakeTableLayoutPanel.Controls.Add(brakeEffectNumericUpDown, 2, 1);
+			brakeTableLayoutPanel.Controls.Add(brakeResistanceSmoothingTrackBar, 1, 12);
+			brakeTableLayoutPanel.Controls.Add(brakeResistanceSmoothingLabel, 0, 12);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeResistanceTrackBar, 1, 11);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeResistanceLabel, 0, 11);
+			brakeTableLayoutPanel.Controls.Add(minBrakeResistanceTrackBar, 1, 10);
+			brakeTableLayoutPanel.Controls.Add(minBrakeResistanceLabel, 0, 10);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeStiffnessTrackBar, 1, 9);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeStiffnessLabel, 0, 9);
+			brakeTableLayoutPanel.Controls.Add(minBrakeStiffnessTrackBar, 1, 8);
+			brakeTableLayoutPanel.Controls.Add(minBrakeStiffnessLabel, 0, 8);
+			brakeTableLayoutPanel.Controls.Add(vibrationSmoothingTrackBar, 1, 7);
+			brakeTableLayoutPanel.Controls.Add(vibrationSmoothingLabel, 0, 7);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeVibrationTrackBar, 1, 6);
+			brakeTableLayoutPanel.Controls.Add(maxBrakeVibrationLabel, 0, 6);
+			brakeTableLayoutPanel.Controls.Add(minBrakeVibrationTrackBar, 1, 5);
+			brakeTableLayoutPanel.Controls.Add(minBrakeVibrationLabel, 0, 5);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationModeTrackBar, 1, 4);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationModeStartLabel, 0, 4);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationStartTrackBar, 1, 3);
+			brakeTableLayoutPanel.Controls.Add(brakeVibrationStartLabel, 0, 3);
+			brakeTableLayoutPanel.Controls.Add(gripLossTrackBar, 1, 2);
+			brakeTableLayoutPanel.Controls.Add(gripLossLabel, 0, 2);
+			brakeTableLayoutPanel.Controls.Add(brakeEffectIntensityLabel, 0, 1);
+			brakeTableLayoutPanel.Controls.Add(brakeEffectIntensityTrackBar, 1, 1);
+			brakeTableLayoutPanel.Controls.Add(buttonApply_Brake, 1, 13);
+			brakeTableLayoutPanel.Controls.Add(brakeDefaultsButton, 2, 13);
+			brakeTableLayoutPanel.Controls.Add(brakeTriggerMode, 0, 0);
+			brakeTableLayoutPanel.Controls.Add(brakeTriggerModeComboBox, 1, 0);
+			brakeTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+			brakeTableLayoutPanel.Name = "brakeTableLayoutPanel";
+			brakeTableLayoutPanel.RowCount = 15;
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+			brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+			brakeTableLayoutPanel.Size = new System.Drawing.Size(713, 733);
+			brakeTableLayoutPanel.TabIndex = 0;
 			// 
 			// brakeResistanceSmoothNumericUpDown
 			// 
-			this.brakeResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.brakeResistanceSmoothNumericUpDown.AutoSize = true;
-			this.brakeResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(541, 575);
-			this.brakeResistanceSmoothNumericUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-			this.brakeResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.brakeResistanceSmoothNumericUpDown.Name = "brakeResistanceSmoothNumericUpDown";
-			this.brakeResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.brakeResistanceSmoothNumericUpDown.TabIndex = 36;
-			this.toolTip.SetToolTip(this.brakeResistanceSmoothNumericUpDown, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
-			this.brakeResistanceSmoothNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.brakeResistanceSmoothNumericUpDown.ValueChanged += new System.EventHandler(this.brakeResistanceSmoothNumericUpDown_ValueChanged);
+			brakeResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			brakeResistanceSmoothNumericUpDown.AutoSize = true;
+			brakeResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(541, 604);
+			brakeResistanceSmoothNumericUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+			brakeResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			brakeResistanceSmoothNumericUpDown.Name = "brakeResistanceSmoothNumericUpDown";
+			brakeResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			brakeResistanceSmoothNumericUpDown.TabIndex = 36;
+			toolTip.SetToolTip(brakeResistanceSmoothNumericUpDown, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
+			brakeResistanceSmoothNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			brakeResistanceSmoothNumericUpDown.ValueChanged += brakeResistanceSmoothNumericUpDown_ValueChanged;
 			// 
 			// maxBrakeResistanceNumericUpDown
 			// 
-			this.maxBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.maxBrakeResistanceNumericUpDown.AutoSize = true;
-			this.maxBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 524);
-			this.maxBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-			this.maxBrakeResistanceNumericUpDown.Name = "maxBrakeResistanceNumericUpDown";
-			this.maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
-			this.maxBrakeResistanceNumericUpDown.TabIndex = 35;
-			this.toolTip.SetToolTip(this.maxBrakeResistanceNumericUpDown, "The Maximum resistance on the Brake (0-7)");
-			this.maxBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeResistanceNumericUpDown_ValueChanged);
+			maxBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			maxBrakeResistanceNumericUpDown.AutoSize = true;
+			maxBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 553);
+			maxBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
+			maxBrakeResistanceNumericUpDown.Name = "maxBrakeResistanceNumericUpDown";
+			maxBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+			maxBrakeResistanceNumericUpDown.TabIndex = 35;
+			toolTip.SetToolTip(maxBrakeResistanceNumericUpDown, "The Maximum resistance on the Brake (0-7)");
+			maxBrakeResistanceNumericUpDown.ValueChanged += maxBrakeResistanceNumericUpDown_ValueChanged;
 			// 
 			// minBrakeResistanceNumericUpDown
 			// 
-			this.minBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.minBrakeResistanceNumericUpDown.AutoSize = true;
-			this.minBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 473);
-			this.minBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-			this.minBrakeResistanceNumericUpDown.Name = "minBrakeResistanceNumericUpDown";
-			this.minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
-			this.minBrakeResistanceNumericUpDown.TabIndex = 34;
-			this.toolTip.SetToolTip(this.minBrakeResistanceNumericUpDown, "The Minimum resistance on the Brake (0-7)");
-			this.minBrakeResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.minBrakeResistanceNumericUpDown_ValueChanged);
+			minBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			minBrakeResistanceNumericUpDown.AutoSize = true;
+			minBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(541, 502);
+			minBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
+			minBrakeResistanceNumericUpDown.Name = "minBrakeResistanceNumericUpDown";
+			minBrakeResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+			minBrakeResistanceNumericUpDown.TabIndex = 34;
+			toolTip.SetToolTip(minBrakeResistanceNumericUpDown, "The Minimum resistance on the Brake (0-7)");
+			minBrakeResistanceNumericUpDown.ValueChanged += minBrakeResistanceNumericUpDown_ValueChanged;
 			// 
 			// maxBrakeStifnessNumericUpDown
 			// 
-			this.maxBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.maxBrakeStifnessNumericUpDown.AutoSize = true;
-			this.maxBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 422);
-			this.maxBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.maxBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.maxBrakeStifnessNumericUpDown.Name = "maxBrakeStifnessNumericUpDown";
-			this.maxBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.maxBrakeStifnessNumericUpDown.TabIndex = 33;
-			this.toolTip.SetToolTip(this.maxBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
-			this.maxBrakeStifnessNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.maxBrakeStifnessNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeStifnessNumericUpDown_ValueChanged);
+			maxBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			maxBrakeStifnessNumericUpDown.AutoSize = true;
+			maxBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 451);
+			maxBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			maxBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			maxBrakeStifnessNumericUpDown.Name = "maxBrakeStifnessNumericUpDown";
+			maxBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			maxBrakeStifnessNumericUpDown.TabIndex = 33;
+			toolTip.SetToolTip(maxBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
+			maxBrakeStifnessNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			maxBrakeStifnessNumericUpDown.ValueChanged += maxBrakeStifnessNumericUpDown_ValueChanged;
 			// 
 			// minBrakeStifnessNumericUpDown
 			// 
-			this.minBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.minBrakeStifnessNumericUpDown.AutoSize = true;
-			this.minBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 371);
-			this.minBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.minBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.minBrakeStifnessNumericUpDown.Name = "minBrakeStifnessNumericUpDown";
-			this.minBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.minBrakeStifnessNumericUpDown.TabIndex = 32;
-			this.toolTip.SetToolTip(this.minBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
-			this.minBrakeStifnessNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.minBrakeStifnessNumericUpDown.ValueChanged += new System.EventHandler(this.minBrakeStifnessNumericUpDown_ValueChanged);
+			minBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			minBrakeStifnessNumericUpDown.AutoSize = true;
+			minBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(541, 400);
+			minBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			minBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			minBrakeStifnessNumericUpDown.Name = "minBrakeStifnessNumericUpDown";
+			minBrakeStifnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			minBrakeStifnessNumericUpDown.TabIndex = 32;
+			toolTip.SetToolTip(minBrakeStifnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
+			minBrakeStifnessNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			minBrakeStifnessNumericUpDown.ValueChanged += minBrakeStifnessNumericUpDown_ValueChanged;
 			// 
 			// brakeVibrationSmoothNumericUpDown
 			// 
-			this.brakeVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.brakeVibrationSmoothNumericUpDown.AutoSize = true;
-			this.brakeVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(541, 320);
-			this.brakeVibrationSmoothNumericUpDown.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-			this.brakeVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.brakeVibrationSmoothNumericUpDown.Name = "brakeVibrationSmoothNumericUpDown";
-			this.brakeVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.brakeVibrationSmoothNumericUpDown.TabIndex = 31;
-			this.toolTip.SetToolTip(this.brakeVibrationSmoothNumericUpDown, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
-			this.brakeVibrationSmoothNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.brakeVibrationSmoothNumericUpDown.ValueChanged += new System.EventHandler(this.brakeVibrationSmoothNumericUpDown_ValueChanged);
+			brakeVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			brakeVibrationSmoothNumericUpDown.AutoSize = true;
+			brakeVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(541, 349);
+			brakeVibrationSmoothNumericUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+			brakeVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			brakeVibrationSmoothNumericUpDown.Name = "brakeVibrationSmoothNumericUpDown";
+			brakeVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			brakeVibrationSmoothNumericUpDown.TabIndex = 31;
+			toolTip.SetToolTip(brakeVibrationSmoothNumericUpDown, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
+			brakeVibrationSmoothNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			brakeVibrationSmoothNumericUpDown.ValueChanged += brakeVibrationSmoothNumericUpDown_ValueChanged;
 			// 
 			// maxBrakeVibrationNumericUpDown
 			// 
-			this.maxBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.maxBrakeVibrationNumericUpDown.AutoSize = true;
-			this.maxBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 269);
-			this.maxBrakeVibrationNumericUpDown.Name = "maxBrakeVibrationNumericUpDown";
-			this.maxBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.maxBrakeVibrationNumericUpDown.TabIndex = 30;
-			this.toolTip.SetToolTip(this.maxBrakeVibrationNumericUpDown, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
-			this.maxBrakeVibrationNumericUpDown.ValueChanged += new System.EventHandler(this.maxBrakeVibrationNumericUpDown_ValueChanged);
+			maxBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			maxBrakeVibrationNumericUpDown.AutoSize = true;
+			maxBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 298);
+			maxBrakeVibrationNumericUpDown.Name = "maxBrakeVibrationNumericUpDown";
+			maxBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			maxBrakeVibrationNumericUpDown.TabIndex = 30;
+			toolTip.SetToolTip(maxBrakeVibrationNumericUpDown, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
+			maxBrakeVibrationNumericUpDown.ValueChanged += maxBrakeVibrationNumericUpDown_ValueChanged;
 			// 
 			// minBrakeVibrationNumericUpDown
 			// 
-			this.minBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.minBrakeVibrationNumericUpDown.AutoSize = true;
-			this.minBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 218);
-			this.minBrakeVibrationNumericUpDown.Name = "minBrakeVibrationNumericUpDown";
-			this.minBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.minBrakeVibrationNumericUpDown.TabIndex = 29;
-			this.toolTip.SetToolTip(this.minBrakeVibrationNumericUpDown, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in contro" +
-        "ller");
-			this.minBrakeVibrationNumericUpDown.ValueChanged += new System.EventHandler(this.minBrakeVibrationNumericUpDown_ValueChanged);
+			minBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			minBrakeVibrationNumericUpDown.AutoSize = true;
+			minBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(541, 247);
+			minBrakeVibrationNumericUpDown.Name = "minBrakeVibrationNumericUpDown";
+			minBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			minBrakeVibrationNumericUpDown.TabIndex = 29;
+			toolTip.SetToolTip(minBrakeVibrationNumericUpDown, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in controller");
+			minBrakeVibrationNumericUpDown.ValueChanged += minBrakeVibrationNumericUpDown_ValueChanged;
 			// 
 			// brakeVibrationModeNumericUpDown
 			// 
-			this.brakeVibrationModeNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.brakeVibrationModeNumericUpDown.AutoSize = true;
-			this.brakeVibrationModeNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(541, 167);
-			this.brakeVibrationModeNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.brakeVibrationModeNumericUpDown.Name = "brakeVibrationModeNumericUpDown";
-			this.brakeVibrationModeNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.brakeVibrationModeNumericUpDown.TabIndex = 28;
-			this.toolTip.SetToolTip(this.brakeVibrationModeNumericUpDown, "The depression of the brake lever at which the program should switch to vibration" +
-        " mode rather than smooth resistance. This helps to avoid clicking as vibration m" +
-        "ode clicks when no force is applied. ");
-			this.brakeVibrationModeNumericUpDown.ValueChanged += new System.EventHandler(this.brakeVibrationModeNumericUpDown_ValueChanged);
+			brakeVibrationModeNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			brakeVibrationModeNumericUpDown.AutoSize = true;
+			brakeVibrationModeNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(541, 196);
+			brakeVibrationModeNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			brakeVibrationModeNumericUpDown.Name = "brakeVibrationModeNumericUpDown";
+			brakeVibrationModeNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			brakeVibrationModeNumericUpDown.TabIndex = 28;
+			toolTip.SetToolTip(brakeVibrationModeNumericUpDown, "The depression of the brake lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied. ");
+			brakeVibrationModeNumericUpDown.ValueChanged += brakeVibrationModeNumericUpDown_ValueChanged;
 			// 
 			// brakeVibrationStartNumericUpDown
 			// 
-			this.brakeVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.brakeVibrationStartNumericUpDown.AutoSize = true;
-			this.brakeVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(541, 116);
-			this.brakeVibrationStartNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.brakeVibrationStartNumericUpDown.Name = "brakeVibrationStartNumericUpDown";
-			this.brakeVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.brakeVibrationStartNumericUpDown.TabIndex = 27;
-			this.toolTip.SetToolTip(this.brakeVibrationStartNumericUpDown, "The position in the Trigger (0-255) at which the brake should feel engaged with l" +
-        "ow grip surfaces");
-			this.brakeVibrationStartNumericUpDown.ValueChanged += new System.EventHandler(this.brakeVibrationStartNumericUpDown_ValueChanged);
+			brakeVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			brakeVibrationStartNumericUpDown.AutoSize = true;
+			brakeVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(541, 145);
+			brakeVibrationStartNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			brakeVibrationStartNumericUpDown.Name = "brakeVibrationStartNumericUpDown";
+			brakeVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			brakeVibrationStartNumericUpDown.TabIndex = 27;
+			toolTip.SetToolTip(brakeVibrationStartNumericUpDown, "The position in the Trigger (0-255) at which the brake should feel engaged with low grip surfaces");
+			brakeVibrationStartNumericUpDown.ValueChanged += brakeVibrationStartNumericUpDown_ValueChanged;
 			// 
 			// gripLossNumericUpDown
 			// 
-			this.gripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.gripLossNumericUpDown.AutoSize = true;
-			this.gripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.gripLossNumericUpDown.Location = new System.Drawing.Point(541, 65);
-			this.gripLossNumericUpDown.Name = "gripLossNumericUpDown";
-			this.gripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.gripLossNumericUpDown.TabIndex = 26;
-			this.toolTip.SetToolTip(this.gripLossNumericUpDown, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no" +
-        " grip)");
-			this.gripLossNumericUpDown.ValueChanged += new System.EventHandler(this.gripLossNumericUpDown_ValueChanged);
+			gripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			gripLossNumericUpDown.AutoSize = true;
+			gripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			gripLossNumericUpDown.Location = new System.Drawing.Point(541, 94);
+			gripLossNumericUpDown.Name = "gripLossNumericUpDown";
+			gripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			gripLossNumericUpDown.TabIndex = 26;
+			toolTip.SetToolTip(gripLossNumericUpDown, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no grip)");
+			gripLossNumericUpDown.ValueChanged += gripLossNumericUpDown_ValueChanged;
 			// 
 			// brakeEffectNumericUpDown
 			// 
-			this.brakeEffectNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.brakeEffectNumericUpDown.AutoSize = true;
-			this.brakeEffectNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.brakeEffectNumericUpDown.Location = new System.Drawing.Point(541, 14);
-			this.brakeEffectNumericUpDown.Name = "brakeEffectNumericUpDown";
-			this.brakeEffectNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.brakeEffectNumericUpDown.TabIndex = 2;
-			this.toolTip.SetToolTip(this.brakeEffectNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
-			this.brakeEffectNumericUpDown.ValueChanged += new System.EventHandler(this.brakeEffectNumericUpDown_ValueChanged);
+			brakeEffectNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			brakeEffectNumericUpDown.AutoSize = true;
+			brakeEffectNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			brakeEffectNumericUpDown.Location = new System.Drawing.Point(541, 43);
+			brakeEffectNumericUpDown.Name = "brakeEffectNumericUpDown";
+			brakeEffectNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			brakeEffectNumericUpDown.TabIndex = 2;
+			toolTip.SetToolTip(brakeEffectNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
+			brakeEffectNumericUpDown.ValueChanged += brakeEffectNumericUpDown_ValueChanged;
 			// 
 			// brakeResistanceSmoothingTrackBar
 			// 
-			this.brakeResistanceSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.brakeResistanceSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeResistanceSmoothingTrackBar.LargeChange = 50;
-			this.brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(133, 564);
-			this.brakeResistanceSmoothingTrackBar.Maximum = 500;
-			this.brakeResistanceSmoothingTrackBar.Minimum = 1;
-			this.brakeResistanceSmoothingTrackBar.Name = "brakeResistanceSmoothingTrackBar";
-			this.brakeResistanceSmoothingTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.brakeResistanceSmoothingTrackBar.TabIndex = 23;
-			this.brakeResistanceSmoothingTrackBar.TickFrequency = 10;
-			this.brakeResistanceSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.brakeResistanceSmoothingTrackBar, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
-			this.brakeResistanceSmoothingTrackBar.Value = 1;
-			this.brakeResistanceSmoothingTrackBar.Scroll += new System.EventHandler(this.brakeResistanceSmoothingTrackBar_Scroll);
+			brakeResistanceSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			brakeResistanceSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeResistanceSmoothingTrackBar.LargeChange = 50;
+			brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(133, 593);
+			brakeResistanceSmoothingTrackBar.Maximum = 500;
+			brakeResistanceSmoothingTrackBar.Minimum = 1;
+			brakeResistanceSmoothingTrackBar.Name = "brakeResistanceSmoothingTrackBar";
+			brakeResistanceSmoothingTrackBar.Size = new System.Drawing.Size(402, 45);
+			brakeResistanceSmoothingTrackBar.TabIndex = 23;
+			brakeResistanceSmoothingTrackBar.TickFrequency = 10;
+			brakeResistanceSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(brakeResistanceSmoothingTrackBar, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
+			brakeResistanceSmoothingTrackBar.Value = 1;
+			brakeResistanceSmoothingTrackBar.Scroll += brakeResistanceSmoothingTrackBar_Scroll;
 			// 
 			// brakeResistanceSmoothingLabel
 			// 
-			this.brakeResistanceSmoothingLabel.AutoSize = true;
-			this.brakeResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 561);
-			this.brakeResistanceSmoothingLabel.Name = "brakeResistanceSmoothingLabel";
-			this.brakeResistanceSmoothingLabel.Size = new System.Drawing.Size(124, 51);
-			this.brakeResistanceSmoothingLabel.TabIndex = 22;
-			this.brakeResistanceSmoothingLabel.Text = "Resistance Smoothing";
-			this.brakeResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.brakeResistanceSmoothingLabel, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
+			brakeResistanceSmoothingLabel.AutoSize = true;
+			brakeResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 590);
+			brakeResistanceSmoothingLabel.Name = "brakeResistanceSmoothingLabel";
+			brakeResistanceSmoothingLabel.Size = new System.Drawing.Size(124, 51);
+			brakeResistanceSmoothingLabel.TabIndex = 22;
+			brakeResistanceSmoothingLabel.Text = "Resistance Smoothing";
+			brakeResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(brakeResistanceSmoothingLabel, "Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0");
 			// 
 			// maxBrakeResistanceTrackBar
 			// 
-			this.maxBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.maxBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeResistanceTrackBar.LargeChange = 50;
-			this.maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 513);
-			this.maxBrakeResistanceTrackBar.Maximum = 7;
-			this.maxBrakeResistanceTrackBar.Name = "maxBrakeResistanceTrackBar";
-			this.maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.maxBrakeResistanceTrackBar.TabIndex = 21;
-			this.maxBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.maxBrakeResistanceTrackBar, "The Maximum resistance on the Brake (0-7)");
-			this.maxBrakeResistanceTrackBar.Scroll += new System.EventHandler(this.maxBrakeResistanceTrackBar_Scroll);
+			maxBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			maxBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeResistanceTrackBar.LargeChange = 50;
+			maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 542);
+			maxBrakeResistanceTrackBar.Maximum = 7;
+			maxBrakeResistanceTrackBar.Name = "maxBrakeResistanceTrackBar";
+			maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
+			maxBrakeResistanceTrackBar.TabIndex = 21;
+			maxBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(maxBrakeResistanceTrackBar, "The Maximum resistance on the Brake (0-7)");
+			maxBrakeResistanceTrackBar.Scroll += maxBrakeResistanceTrackBar_Scroll;
 			// 
 			// maxBrakeResistanceLabel
 			// 
-			this.maxBrakeResistanceLabel.AutoSize = true;
-			this.maxBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeResistanceLabel.Location = new System.Drawing.Point(3, 510);
-			this.maxBrakeResistanceLabel.Name = "maxBrakeResistanceLabel";
-			this.maxBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
-			this.maxBrakeResistanceLabel.TabIndex = 20;
-			this.maxBrakeResistanceLabel.Text = "Max Resistance";
-			this.maxBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxBrakeResistanceLabel, "The Maximum resistance on the Brake (0-7)");
+			maxBrakeResistanceLabel.AutoSize = true;
+			maxBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeResistanceLabel.Location = new System.Drawing.Point(3, 539);
+			maxBrakeResistanceLabel.Name = "maxBrakeResistanceLabel";
+			maxBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
+			maxBrakeResistanceLabel.TabIndex = 20;
+			maxBrakeResistanceLabel.Text = "Max Resistance";
+			maxBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxBrakeResistanceLabel, "The Maximum resistance on the Brake (0-7)");
 			// 
 			// minBrakeResistanceTrackBar
 			// 
-			this.minBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.minBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeResistanceTrackBar.LargeChange = 50;
-			this.minBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 462);
-			this.minBrakeResistanceTrackBar.Maximum = 7;
-			this.minBrakeResistanceTrackBar.Name = "minBrakeResistanceTrackBar";
-			this.minBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.minBrakeResistanceTrackBar.TabIndex = 19;
-			this.minBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.minBrakeResistanceTrackBar, "The Minimum resistance on the Brake (0-7)");
-			this.minBrakeResistanceTrackBar.Scroll += new System.EventHandler(this.minBrakeResistanceTrackBar_Scroll);
+			minBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			minBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeResistanceTrackBar.LargeChange = 50;
+			minBrakeResistanceTrackBar.Location = new System.Drawing.Point(133, 491);
+			minBrakeResistanceTrackBar.Maximum = 7;
+			minBrakeResistanceTrackBar.Name = "minBrakeResistanceTrackBar";
+			minBrakeResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
+			minBrakeResistanceTrackBar.TabIndex = 19;
+			minBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(minBrakeResistanceTrackBar, "The Minimum resistance on the Brake (0-7)");
+			minBrakeResistanceTrackBar.Scroll += minBrakeResistanceTrackBar_Scroll;
 			// 
 			// minBrakeResistanceLabel
 			// 
-			this.minBrakeResistanceLabel.AutoSize = true;
-			this.minBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeResistanceLabel.Location = new System.Drawing.Point(3, 459);
-			this.minBrakeResistanceLabel.Name = "minBrakeResistanceLabel";
-			this.minBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
-			this.minBrakeResistanceLabel.TabIndex = 18;
-			this.minBrakeResistanceLabel.Text = "Min Resistance";
-			this.minBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minBrakeResistanceLabel, "The Minimum resistance on the Brake (0-7)");
+			minBrakeResistanceLabel.AutoSize = true;
+			minBrakeResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeResistanceLabel.Location = new System.Drawing.Point(3, 488);
+			minBrakeResistanceLabel.Name = "minBrakeResistanceLabel";
+			minBrakeResistanceLabel.Size = new System.Drawing.Size(124, 51);
+			minBrakeResistanceLabel.TabIndex = 18;
+			minBrakeResistanceLabel.Text = "Min Resistance";
+			minBrakeResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minBrakeResistanceLabel, "The Minimum resistance on the Brake (0-7)");
 			// 
 			// maxBrakeStiffnessTrackBar
 			// 
-			this.maxBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.maxBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeStiffnessTrackBar.LargeChange = 50;
-			this.maxBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 411);
-			this.maxBrakeStiffnessTrackBar.Maximum = 255;
-			this.maxBrakeStiffnessTrackBar.Minimum = 1;
-			this.maxBrakeStiffnessTrackBar.Name = "maxBrakeStiffnessTrackBar";
-			this.maxBrakeStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.maxBrakeStiffnessTrackBar.TabIndex = 17;
-			this.maxBrakeStiffnessTrackBar.TickFrequency = 5;
-			this.maxBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.maxBrakeStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
-			this.maxBrakeStiffnessTrackBar.Value = 1;
-			this.maxBrakeStiffnessTrackBar.Scroll += new System.EventHandler(this.maxBrakeStiffnessTrackBar_Scroll);
+			maxBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			maxBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeStiffnessTrackBar.LargeChange = 50;
+			maxBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 440);
+			maxBrakeStiffnessTrackBar.Maximum = 255;
+			maxBrakeStiffnessTrackBar.Minimum = 1;
+			maxBrakeStiffnessTrackBar.Name = "maxBrakeStiffnessTrackBar";
+			maxBrakeStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
+			maxBrakeStiffnessTrackBar.TabIndex = 17;
+			maxBrakeStiffnessTrackBar.TickFrequency = 5;
+			maxBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(maxBrakeStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
+			maxBrakeStiffnessTrackBar.Value = 1;
+			maxBrakeStiffnessTrackBar.Scroll += maxBrakeStiffnessTrackBar_Scroll;
 			// 
 			// maxBrakeStiffnessLabel
 			// 
-			this.maxBrakeStiffnessLabel.AutoSize = true;
-			this.maxBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 408);
-			this.maxBrakeStiffnessLabel.Name = "maxBrakeStiffnessLabel";
-			this.maxBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
-			this.maxBrakeStiffnessLabel.TabIndex = 16;
-			this.maxBrakeStiffnessLabel.Text = "Max Stiffness";
-			this.maxBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxBrakeStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
+			maxBrakeStiffnessLabel.AutoSize = true;
+			maxBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 437);
+			maxBrakeStiffnessLabel.Name = "maxBrakeStiffnessLabel";
+			maxBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
+			maxBrakeStiffnessLabel.TabIndex = 16;
+			maxBrakeStiffnessLabel.Text = "Max Stiffness";
+			maxBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxBrakeStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
 			// 
 			// minBrakeStiffnessTrackBar
 			// 
-			this.minBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.minBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeStiffnessTrackBar.LargeChange = 50;
-			this.minBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 360);
-			this.minBrakeStiffnessTrackBar.Maximum = 255;
-			this.minBrakeStiffnessTrackBar.Minimum = 1;
-			this.minBrakeStiffnessTrackBar.Name = "minBrakeStiffnessTrackBar";
-			this.minBrakeStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.minBrakeStiffnessTrackBar.TabIndex = 15;
-			this.minBrakeStiffnessTrackBar.TickFrequency = 5;
-			this.minBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.minBrakeStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
-			this.minBrakeStiffnessTrackBar.Value = 1;
-			this.minBrakeStiffnessTrackBar.Scroll += new System.EventHandler(this.minBrakeStiffnessTrackBar_Scroll);
+			minBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			minBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeStiffnessTrackBar.LargeChange = 50;
+			minBrakeStiffnessTrackBar.Location = new System.Drawing.Point(133, 389);
+			minBrakeStiffnessTrackBar.Maximum = 255;
+			minBrakeStiffnessTrackBar.Minimum = 1;
+			minBrakeStiffnessTrackBar.Name = "minBrakeStiffnessTrackBar";
+			minBrakeStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
+			minBrakeStiffnessTrackBar.TabIndex = 15;
+			minBrakeStiffnessTrackBar.TickFrequency = 5;
+			minBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(minBrakeStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
+			minBrakeStiffnessTrackBar.Value = 1;
+			minBrakeStiffnessTrackBar.Scroll += minBrakeStiffnessTrackBar_Scroll;
 			// 
 			// minBrakeStiffnessLabel
 			// 
-			this.minBrakeStiffnessLabel.AutoSize = true;
-			this.minBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 357);
-			this.minBrakeStiffnessLabel.Name = "minBrakeStiffnessLabel";
-			this.minBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
-			this.minBrakeStiffnessLabel.TabIndex = 14;
-			this.minBrakeStiffnessLabel.Text = "Min Stifness";
-			this.minBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minBrakeStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
+			minBrakeStiffnessLabel.AutoSize = true;
+			minBrakeStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeStiffnessLabel.Location = new System.Drawing.Point(3, 386);
+			minBrakeStiffnessLabel.Name = "minBrakeStiffnessLabel";
+			minBrakeStiffnessLabel.Size = new System.Drawing.Size(124, 51);
+			minBrakeStiffnessLabel.TabIndex = 14;
+			minBrakeStiffnessLabel.Text = "Min Stifness";
+			minBrakeStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minBrakeStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
 			// 
 			// vibrationSmoothingTrackBar
 			// 
-			this.vibrationSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.vibrationSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.vibrationSmoothingTrackBar.LargeChange = 50;
-			this.vibrationSmoothingTrackBar.Location = new System.Drawing.Point(133, 309);
-			this.vibrationSmoothingTrackBar.Maximum = 500;
-			this.vibrationSmoothingTrackBar.Minimum = 1;
-			this.vibrationSmoothingTrackBar.Name = "vibrationSmoothingTrackBar";
-			this.vibrationSmoothingTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.vibrationSmoothingTrackBar.TabIndex = 13;
-			this.vibrationSmoothingTrackBar.TickFrequency = 10;
-			this.vibrationSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.vibrationSmoothingTrackBar, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
-			this.vibrationSmoothingTrackBar.Value = 1;
-			this.vibrationSmoothingTrackBar.Scroll += new System.EventHandler(this.vibrationSmoothingTrackBar_Scroll);
+			vibrationSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			vibrationSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			vibrationSmoothingTrackBar.LargeChange = 50;
+			vibrationSmoothingTrackBar.Location = new System.Drawing.Point(133, 338);
+			vibrationSmoothingTrackBar.Maximum = 500;
+			vibrationSmoothingTrackBar.Minimum = 1;
+			vibrationSmoothingTrackBar.Name = "vibrationSmoothingTrackBar";
+			vibrationSmoothingTrackBar.Size = new System.Drawing.Size(402, 45);
+			vibrationSmoothingTrackBar.TabIndex = 13;
+			vibrationSmoothingTrackBar.TickFrequency = 10;
+			vibrationSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(vibrationSmoothingTrackBar, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
+			vibrationSmoothingTrackBar.Value = 1;
+			vibrationSmoothingTrackBar.Scroll += vibrationSmoothingTrackBar_Scroll;
 			// 
 			// vibrationSmoothingLabel
 			// 
-			this.vibrationSmoothingLabel.AutoSize = true;
-			this.vibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.vibrationSmoothingLabel.Location = new System.Drawing.Point(3, 306);
-			this.vibrationSmoothingLabel.Name = "vibrationSmoothingLabel";
-			this.vibrationSmoothingLabel.Size = new System.Drawing.Size(124, 51);
-			this.vibrationSmoothingLabel.TabIndex = 12;
-			this.vibrationSmoothingLabel.Text = "Vibration Smoothing";
-			this.vibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.vibrationSmoothingLabel, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
+			vibrationSmoothingLabel.AutoSize = true;
+			vibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			vibrationSmoothingLabel.Location = new System.Drawing.Point(3, 335);
+			vibrationSmoothingLabel.Name = "vibrationSmoothingLabel";
+			vibrationSmoothingLabel.Size = new System.Drawing.Size(124, 51);
+			vibrationSmoothingLabel.TabIndex = 12;
+			vibrationSmoothingLabel.Text = "Vibration Smoothing";
+			vibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(vibrationSmoothingLabel, "Smoothing for Brake Frequency output. Lower = smoother. Must be greater than 0");
 			// 
 			// maxBrakeVibrationTrackBar
 			// 
-			this.maxBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.maxBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeVibrationTrackBar.LargeChange = 50;
-			this.maxBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 258);
-			this.maxBrakeVibrationTrackBar.Maximum = 100;
-			this.maxBrakeVibrationTrackBar.Name = "maxBrakeVibrationTrackBar";
-			this.maxBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.maxBrakeVibrationTrackBar.TabIndex = 11;
-			this.maxBrakeVibrationTrackBar.TickFrequency = 5;
-			this.maxBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.maxBrakeVibrationTrackBar, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
-			this.maxBrakeVibrationTrackBar.Scroll += new System.EventHandler(this.maxBrakeVibrationTrackBar_Scroll);
+			maxBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			maxBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeVibrationTrackBar.LargeChange = 50;
+			maxBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 287);
+			maxBrakeVibrationTrackBar.Maximum = 100;
+			maxBrakeVibrationTrackBar.Name = "maxBrakeVibrationTrackBar";
+			maxBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
+			maxBrakeVibrationTrackBar.TabIndex = 11;
+			maxBrakeVibrationTrackBar.TickFrequency = 5;
+			maxBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(maxBrakeVibrationTrackBar, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
+			maxBrakeVibrationTrackBar.Scroll += maxBrakeVibrationTrackBar_Scroll;
 			// 
 			// maxBrakeVibrationLabel
 			// 
-			this.maxBrakeVibrationLabel.AutoSize = true;
-			this.maxBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxBrakeVibrationLabel.Location = new System.Drawing.Point(3, 255);
-			this.maxBrakeVibrationLabel.Name = "maxBrakeVibrationLabel";
-			this.maxBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
-			this.maxBrakeVibrationLabel.TabIndex = 10;
-			this.maxBrakeVibrationLabel.Text = "Max Brake Vibration";
-			this.maxBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxBrakeVibrationLabel, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
+			maxBrakeVibrationLabel.AutoSize = true;
+			maxBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxBrakeVibrationLabel.Location = new System.Drawing.Point(3, 284);
+			maxBrakeVibrationLabel.Name = "maxBrakeVibrationLabel";
+			maxBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
+			maxBrakeVibrationLabel.TabIndex = 10;
+			maxBrakeVibrationLabel.Text = "Max Brake Vibration";
+			maxBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxBrakeVibrationLabel, "The maximum brake frequency in Hz (avoid over 40). Correlates to better grip");
 			// 
 			// minBrakeVibrationTrackBar
 			// 
-			this.minBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.minBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeVibrationTrackBar.LargeChange = 50;
-			this.minBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 207);
-			this.minBrakeVibrationTrackBar.Maximum = 100;
-			this.minBrakeVibrationTrackBar.Name = "minBrakeVibrationTrackBar";
-			this.minBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.minBrakeVibrationTrackBar.TabIndex = 9;
-			this.minBrakeVibrationTrackBar.TickFrequency = 5;
-			this.minBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.minBrakeVibrationTrackBar, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in contro" +
-        "ller");
-			this.minBrakeVibrationTrackBar.Scroll += new System.EventHandler(this.minBrakeVibrationTrackBar_Scroll);
+			minBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			minBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeVibrationTrackBar.LargeChange = 50;
+			minBrakeVibrationTrackBar.Location = new System.Drawing.Point(133, 236);
+			minBrakeVibrationTrackBar.Maximum = 100;
+			minBrakeVibrationTrackBar.Name = "minBrakeVibrationTrackBar";
+			minBrakeVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
+			minBrakeVibrationTrackBar.TabIndex = 9;
+			minBrakeVibrationTrackBar.TickFrequency = 5;
+			minBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(minBrakeVibrationTrackBar, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in controller");
+			minBrakeVibrationTrackBar.Scroll += minBrakeVibrationTrackBar_Scroll;
 			// 
 			// minBrakeVibrationLabel
 			// 
-			this.minBrakeVibrationLabel.AutoSize = true;
-			this.minBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minBrakeVibrationLabel.Location = new System.Drawing.Point(3, 204);
-			this.minBrakeVibrationLabel.Name = "minBrakeVibrationLabel";
-			this.minBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
-			this.minBrakeVibrationLabel.TabIndex = 8;
-			this.minBrakeVibrationLabel.Text = "Min Brake Vibration";
-			this.minBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minBrakeVibrationLabel, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in contro" +
-        "ller");
+			minBrakeVibrationLabel.AutoSize = true;
+			minBrakeVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minBrakeVibrationLabel.Location = new System.Drawing.Point(3, 233);
+			minBrakeVibrationLabel.Name = "minBrakeVibrationLabel";
+			minBrakeVibrationLabel.Size = new System.Drawing.Size(124, 51);
+			minBrakeVibrationLabel.TabIndex = 8;
+			minBrakeVibrationLabel.Text = "Min Brake Vibration";
+			minBrakeVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minBrakeVibrationLabel, "The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in controller");
 			// 
 			// brakeVibrationModeTrackBar
 			// 
-			this.brakeVibrationModeTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.brakeVibrationModeTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeVibrationModeTrackBar.LargeChange = 50;
-			this.brakeVibrationModeTrackBar.Location = new System.Drawing.Point(133, 156);
-			this.brakeVibrationModeTrackBar.Maximum = 255;
-			this.brakeVibrationModeTrackBar.Name = "brakeVibrationModeTrackBar";
-			this.brakeVibrationModeTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.brakeVibrationModeTrackBar.TabIndex = 7;
-			this.brakeVibrationModeTrackBar.TickFrequency = 5;
-			this.brakeVibrationModeTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.brakeVibrationModeTrackBar, "The depression of the brake lever at which the program should switch to vibration" +
-        " mode rather than smooth resistance. This helps to avoid clicking as vibration m" +
-        "ode clicks when no force is applied. ");
-			this.brakeVibrationModeTrackBar.Scroll += new System.EventHandler(this.brakeVibrationModeTrackBar_Scroll);
+			brakeVibrationModeTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			brakeVibrationModeTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeVibrationModeTrackBar.LargeChange = 50;
+			brakeVibrationModeTrackBar.Location = new System.Drawing.Point(133, 185);
+			brakeVibrationModeTrackBar.Maximum = 255;
+			brakeVibrationModeTrackBar.Name = "brakeVibrationModeTrackBar";
+			brakeVibrationModeTrackBar.Size = new System.Drawing.Size(402, 45);
+			brakeVibrationModeTrackBar.TabIndex = 7;
+			brakeVibrationModeTrackBar.TickFrequency = 5;
+			brakeVibrationModeTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(brakeVibrationModeTrackBar, "The depression of the brake lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied. ");
+			brakeVibrationModeTrackBar.Scroll += brakeVibrationModeTrackBar_Scroll;
 			// 
 			// brakeVibrationModeStartLabel
 			// 
-			this.brakeVibrationModeStartLabel.AutoSize = true;
-			this.brakeVibrationModeStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeVibrationModeStartLabel.Location = new System.Drawing.Point(3, 153);
-			this.brakeVibrationModeStartLabel.Name = "brakeVibrationModeStartLabel";
-			this.brakeVibrationModeStartLabel.Size = new System.Drawing.Size(124, 51);
-			this.brakeVibrationModeStartLabel.TabIndex = 6;
-			this.brakeVibrationModeStartLabel.Text = "Vibration Mode Start";
-			this.brakeVibrationModeStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.brakeVibrationModeStartLabel, "The depression of the brake lever at which the program should switch to vibration" +
-        " mode rather than smooth resistance. This helps to avoid clicking as vibration m" +
-        "ode clicks when no force is applied. ");
+			brakeVibrationModeStartLabel.AutoSize = true;
+			brakeVibrationModeStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeVibrationModeStartLabel.Location = new System.Drawing.Point(3, 182);
+			brakeVibrationModeStartLabel.Name = "brakeVibrationModeStartLabel";
+			brakeVibrationModeStartLabel.Size = new System.Drawing.Size(124, 51);
+			brakeVibrationModeStartLabel.TabIndex = 6;
+			brakeVibrationModeStartLabel.Text = "Vibration Mode Start";
+			brakeVibrationModeStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(brakeVibrationModeStartLabel, "The depression of the brake lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied. ");
 			// 
 			// brakeVibrationStartTrackBar
 			// 
-			this.brakeVibrationStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.brakeVibrationStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeVibrationStartTrackBar.LargeChange = 50;
-			this.brakeVibrationStartTrackBar.Location = new System.Drawing.Point(133, 105);
-			this.brakeVibrationStartTrackBar.Maximum = 255;
-			this.brakeVibrationStartTrackBar.Name = "brakeVibrationStartTrackBar";
-			this.brakeVibrationStartTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.brakeVibrationStartTrackBar.TabIndex = 5;
-			this.brakeVibrationStartTrackBar.TickFrequency = 5;
-			this.brakeVibrationStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.brakeVibrationStartTrackBar, "The position in the Trigger (0-255) at which the brake should feel engaged with l" +
-        "ow grip surfaces");
-			this.brakeVibrationStartTrackBar.Scroll += new System.EventHandler(this.brakeVibrationStartTrackBar_Scroll);
+			brakeVibrationStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			brakeVibrationStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeVibrationStartTrackBar.LargeChange = 50;
+			brakeVibrationStartTrackBar.Location = new System.Drawing.Point(133, 134);
+			brakeVibrationStartTrackBar.Maximum = 255;
+			brakeVibrationStartTrackBar.Name = "brakeVibrationStartTrackBar";
+			brakeVibrationStartTrackBar.Size = new System.Drawing.Size(402, 45);
+			brakeVibrationStartTrackBar.TabIndex = 5;
+			brakeVibrationStartTrackBar.TickFrequency = 5;
+			brakeVibrationStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(brakeVibrationStartTrackBar, "The position in the Trigger (0-255) at which the brake should feel engaged with low grip surfaces");
+			brakeVibrationStartTrackBar.Scroll += brakeVibrationStartTrackBar_Scroll;
 			// 
 			// brakeVibrationStartLabel
 			// 
-			this.brakeVibrationStartLabel.AutoSize = true;
-			this.brakeVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeVibrationStartLabel.Location = new System.Drawing.Point(3, 102);
-			this.brakeVibrationStartLabel.Name = "brakeVibrationStartLabel";
-			this.brakeVibrationStartLabel.Size = new System.Drawing.Size(124, 51);
-			this.brakeVibrationStartLabel.TabIndex = 4;
-			this.brakeVibrationStartLabel.Text = "Vibration Start";
-			this.brakeVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.brakeVibrationStartLabel, "The position in the Trigger (0-255) at which the brake should feel engaged with l" +
-        "ow grip surfaces");
+			brakeVibrationStartLabel.AutoSize = true;
+			brakeVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeVibrationStartLabel.Location = new System.Drawing.Point(3, 131);
+			brakeVibrationStartLabel.Name = "brakeVibrationStartLabel";
+			brakeVibrationStartLabel.Size = new System.Drawing.Size(124, 51);
+			brakeVibrationStartLabel.TabIndex = 4;
+			brakeVibrationStartLabel.Text = "Vibration Start";
+			brakeVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(brakeVibrationStartLabel, "The position in the Trigger (0-255) at which the brake should feel engaged with low grip surfaces");
 			// 
 			// gripLossTrackBar
 			// 
-			this.gripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.gripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gripLossTrackBar.Location = new System.Drawing.Point(133, 54);
-			this.gripLossTrackBar.Maximum = 100;
-			this.gripLossTrackBar.Name = "gripLossTrackBar";
-			this.gripLossTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.gripLossTrackBar.TabIndex = 3;
-			this.gripLossTrackBar.TickFrequency = 5;
-			this.gripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.gripLossTrackBar, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no" +
-        " grip)");
-			this.gripLossTrackBar.Value = 50;
-			this.gripLossTrackBar.Scroll += new System.EventHandler(this.gripLossTrackBar_Scroll);
+			gripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			gripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			gripLossTrackBar.Location = new System.Drawing.Point(133, 83);
+			gripLossTrackBar.Maximum = 100;
+			gripLossTrackBar.Name = "gripLossTrackBar";
+			gripLossTrackBar.Size = new System.Drawing.Size(402, 45);
+			gripLossTrackBar.TabIndex = 3;
+			gripLossTrackBar.TickFrequency = 5;
+			gripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(gripLossTrackBar, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no grip)");
+			gripLossTrackBar.Value = 50;
+			gripLossTrackBar.Scroll += gripLossTrackBar_Scroll;
 			// 
 			// gripLossLabel
 			// 
-			this.gripLossLabel.AutoSize = true;
-			this.gripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gripLossLabel.Location = new System.Drawing.Point(3, 51);
-			this.gripLossLabel.Name = "gripLossLabel";
-			this.gripLossLabel.Size = new System.Drawing.Size(124, 51);
-			this.gripLossLabel.TabIndex = 2;
-			this.gripLossLabel.Text = "Grip Loss Value";
-			this.gripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.gripLossLabel, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no" +
-        " grip)");
+			gripLossLabel.AutoSize = true;
+			gripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			gripLossLabel.Location = new System.Drawing.Point(3, 80);
+			gripLossLabel.Name = "gripLossLabel";
+			gripLossLabel.Size = new System.Drawing.Size(124, 51);
+			gripLossLabel.TabIndex = 2;
+			gripLossLabel.Text = "Grip Loss Value";
+			gripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(gripLossLabel, "The point at which the brake will begin to become choppy (0 = full grip, 100 = no grip)");
 			// 
 			// brakeEffectIntensityLabel
 			// 
-			this.brakeEffectIntensityLabel.AutoSize = true;
-			this.brakeEffectIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeEffectIntensityLabel.Location = new System.Drawing.Point(3, 0);
-			this.brakeEffectIntensityLabel.Name = "brakeEffectIntensityLabel";
-			this.brakeEffectIntensityLabel.Size = new System.Drawing.Size(124, 51);
-			this.brakeEffectIntensityLabel.TabIndex = 0;
-			this.brakeEffectIntensityLabel.Text = "Effect Intensity";
-			this.brakeEffectIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.brakeEffectIntensityLabel, "The percentage of the trigger effects");
+			brakeEffectIntensityLabel.AutoSize = true;
+			brakeEffectIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeEffectIntensityLabel.Location = new System.Drawing.Point(3, 29);
+			brakeEffectIntensityLabel.Name = "brakeEffectIntensityLabel";
+			brakeEffectIntensityLabel.Size = new System.Drawing.Size(124, 51);
+			brakeEffectIntensityLabel.TabIndex = 0;
+			brakeEffectIntensityLabel.Text = "Effect Intensity";
+			brakeEffectIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(brakeEffectIntensityLabel, "The percentage of the trigger effects");
 			// 
 			// brakeEffectIntensityTrackBar
 			// 
-			this.brakeEffectIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.brakeEffectIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.brakeEffectIntensityTrackBar.LargeChange = 10;
-			this.brakeEffectIntensityTrackBar.Location = new System.Drawing.Point(133, 3);
-			this.brakeEffectIntensityTrackBar.Maximum = 100;
-			this.brakeEffectIntensityTrackBar.Name = "brakeEffectIntensityTrackBar";
-			this.brakeEffectIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.brakeEffectIntensityTrackBar.TabIndex = 1;
-			this.brakeEffectIntensityTrackBar.TickFrequency = 5;
-			this.brakeEffectIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.brakeEffectIntensityTrackBar, "The percentage of the trigger effects");
-			this.brakeEffectIntensityTrackBar.Value = 100;
-			this.brakeEffectIntensityTrackBar.Scroll += new System.EventHandler(this.brakeEffectIntensityTrackBar_Scroll);
+			brakeEffectIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			brakeEffectIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			brakeEffectIntensityTrackBar.LargeChange = 10;
+			brakeEffectIntensityTrackBar.Location = new System.Drawing.Point(133, 32);
+			brakeEffectIntensityTrackBar.Maximum = 100;
+			brakeEffectIntensityTrackBar.Name = "brakeEffectIntensityTrackBar";
+			brakeEffectIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
+			brakeEffectIntensityTrackBar.TabIndex = 1;
+			brakeEffectIntensityTrackBar.TickFrequency = 5;
+			brakeEffectIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(brakeEffectIntensityTrackBar, "The percentage of the trigger effects");
+			brakeEffectIntensityTrackBar.Value = 100;
+			brakeEffectIntensityTrackBar.Scroll += brakeEffectIntensityTrackBar_Scroll;
 			// 
 			// buttonApply_Brake
 			// 
-			this.buttonApply_Brake.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonApply_Brake.Location = new System.Drawing.Point(133, 615);
-			this.buttonApply_Brake.Name = "buttonApply_Brake";
-			this.buttonApply_Brake.Size = new System.Drawing.Size(402, 22);
-			this.buttonApply_Brake.TabIndex = 37;
-			this.buttonApply_Brake.Text = "Apply";
-			this.buttonApply_Brake.UseVisualStyleBackColor = true;
-			this.buttonApply_Brake.Click += new System.EventHandler(this.buttonApply_Brake_Click);
+			buttonApply_Brake.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+			buttonApply_Brake.AutoSize = true;
+			buttonApply_Brake.Location = new System.Drawing.Point(133, 644);
+			buttonApply_Brake.Name = "buttonApply_Brake";
+			buttonApply_Brake.Size = new System.Drawing.Size(402, 25);
+			buttonApply_Brake.TabIndex = 37;
+			buttonApply_Brake.Text = "Apply";
+			buttonApply_Brake.UseVisualStyleBackColor = true;
+			buttonApply_Brake.Click += buttonApply_Brake_Click;
 			// 
 			// brakeDefaultsButton
 			// 
-			this.brakeDefaultsButton.Location = new System.Drawing.Point(541, 615);
-			this.brakeDefaultsButton.Name = "brakeDefaultsButton";
-			this.brakeDefaultsButton.Size = new System.Drawing.Size(75, 23);
-			this.brakeDefaultsButton.TabIndex = 38;
-			this.brakeDefaultsButton.Text = "Defaults";
-			this.brakeDefaultsButton.UseVisualStyleBackColor = true;
-			this.brakeDefaultsButton.Click += new System.EventHandler(this.brakeDefaultsButton_Click);
+			brakeDefaultsButton.AutoSize = true;
+			brakeDefaultsButton.Location = new System.Drawing.Point(541, 644);
+			brakeDefaultsButton.Name = "brakeDefaultsButton";
+			brakeDefaultsButton.Size = new System.Drawing.Size(75, 25);
+			brakeDefaultsButton.TabIndex = 38;
+			brakeDefaultsButton.Text = "Defaults";
+			brakeDefaultsButton.UseVisualStyleBackColor = true;
+			brakeDefaultsButton.Click += brakeDefaultsButton_Click;
+			// 
+			// brakeTriggerMode
+			// 
+			brakeTriggerMode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+			brakeTriggerMode.AutoSize = true;
+			brakeTriggerMode.Location = new System.Drawing.Point(18, 0);
+			brakeTriggerMode.Name = "brakeTriggerMode";
+			brakeTriggerMode.Size = new System.Drawing.Size(109, 29);
+			brakeTriggerMode.TabIndex = 39;
+			brakeTriggerMode.Text = "Brake Trigger Mode";
+			brakeTriggerMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// brakeTriggerModeComboBox
+			// 
+			brakeTriggerModeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+			brakeTriggerModeComboBox.FormattingEnabled = true;
+			brakeTriggerModeComboBox.Items.AddRange(new object[] { "Off", "Resistance", "Vibration" });
+			brakeTriggerModeComboBox.Location = new System.Drawing.Point(133, 3);
+			brakeTriggerModeComboBox.Name = "brakeTriggerModeComboBox";
+			brakeTriggerModeComboBox.Size = new System.Drawing.Size(402, 23);
+			brakeTriggerModeComboBox.TabIndex = 40;
+			brakeTriggerModeComboBox.SelectedIndexChanged += brakeTriggerModeComboBox_SelectedIndexChanged;
 			// 
 			// throttleConfigTabPage
 			// 
-			this.throttleConfigTabPage.Controls.Add(this.throttleTableLayoutPanel);
-			this.throttleConfigTabPage.Location = new System.Drawing.Point(4, 24);
-			this.throttleConfigTabPage.Name = "throttleConfigTabPage";
-			this.throttleConfigTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.throttleConfigTabPage.Size = new System.Drawing.Size(713, 733);
-			this.throttleConfigTabPage.TabIndex = 2;
-			this.throttleConfigTabPage.Text = "Throttle Trigger";
-			this.throttleConfigTabPage.UseVisualStyleBackColor = true;
+			throttleConfigTabPage.Controls.Add(throttleTableLayoutPanel);
+			throttleConfigTabPage.Location = new System.Drawing.Point(4, 24);
+			throttleConfigTabPage.Name = "throttleConfigTabPage";
+			throttleConfigTabPage.Padding = new System.Windows.Forms.Padding(3);
+			throttleConfigTabPage.Size = new System.Drawing.Size(713, 733);
+			throttleConfigTabPage.TabIndex = 2;
+			throttleConfigTabPage.Text = "Throttle Trigger";
+			throttleConfigTabPage.UseVisualStyleBackColor = true;
 			// 
 			// throttleTableLayoutPanel
 			// 
-			this.throttleTableLayoutPanel.AutoScroll = true;
-			this.throttleTableLayoutPanel.ColumnCount = 3;
-			this.throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleResistanceSmoothNumericUpDown, 2, 13);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxResistanceNumericUpDown, 2, 12);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinResistanceNumericUpDown, 2, 11);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxStiffnessNumericUpDown, 2, 10);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinStiffnessNumericUpDown, 2, 9);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationSmoothNumericUpDown, 2, 8);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxVibrationNumericUpDown, 2, 7);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinVibrationNumericUpDown, 2, 6);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationStartNumericUpDown, 2, 5);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleAccelLimitNumericUpDown, 2, 4);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleForwardAccelScaleNumericUpDown, 2, 3);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleTurnAccelScaleNumericUpDown, 2, 2);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleGripLossNumericUpDown, 2, 1);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleIntensityNumericUpDown, 2, 0);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleResistanceSmoothTrackBar, 1, 13);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxResistanceTrackBar, 1, 12);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinResistanceTrackBar, 1, 11);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxStiffnessTrackBar, 1, 10);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinStiffnessTrackBar, 1, 9);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationSmoothTrackBar, 1, 8);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMaxVibrationTrackBar, 1, 7);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleMinVibrationTrackBar, 1, 6);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationModeStartTrackBar, 1, 5);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleAccelLimitTrackBar, 1, 4);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleForwardAccelScaleTrackBar, 1, 3);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleTurnAccelScaleTrackBar, 1, 2);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleGripLossTrackBar, 1, 1);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleIntensityTrackBar, 1, 0);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleResistanceSmoothingLabel, 0, 13);
-			this.throttleTableLayoutPanel.Controls.Add(this.maxThrottleResistanceLabel, 0, 12);
-			this.throttleTableLayoutPanel.Controls.Add(this.minThrottleResistanceLabel, 0, 11);
-			this.throttleTableLayoutPanel.Controls.Add(this.maxThrottleStiffnessLabel, 0, 10);
-			this.throttleTableLayoutPanel.Controls.Add(this.minThrottleStiffnessLabel, 0, 9);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationSmoothingLabel, 0, 8);
-			this.throttleTableLayoutPanel.Controls.Add(this.maxThrottleVibrationLabel, 0, 7);
-			this.throttleTableLayoutPanel.Controls.Add(this.minThrottleVibrationLabel, 0, 6);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleVibrationStartLabel, 0, 5);
-			this.throttleTableLayoutPanel.Controls.Add(this.accelerationLimitLabel, 0, 4);
-			this.throttleTableLayoutPanel.Controls.Add(this.forwardAccelLabel, 0, 3);
-			this.throttleTableLayoutPanel.Controls.Add(this.turnAccelLabel, 0, 2);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleGripLossLabel, 0, 1);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleIntensityLabel, 0, 0);
-			this.throttleTableLayoutPanel.Controls.Add(this.buttonApply_Throttle, 1, 14);
-			this.throttleTableLayoutPanel.Controls.Add(this.throttleDefaultsButton, 2, 14);
-			this.throttleTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
-			this.throttleTableLayoutPanel.Name = "throttleTableLayoutPanel";
-			this.throttleTableLayoutPanel.RowCount = 15;
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.throttleTableLayoutPanel.Size = new System.Drawing.Size(707, 727);
-			this.throttleTableLayoutPanel.TabIndex = 0;
+			throttleTableLayoutPanel.AutoScroll = true;
+			throttleTableLayoutPanel.ColumnCount = 3;
+			throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			throttleTableLayoutPanel.Controls.Add(throttleTriggerModeComboBox, 1, 0);
+			throttleTableLayoutPanel.Controls.Add(throttleTriggerMode, 0, 0);
+			throttleTableLayoutPanel.Controls.Add(throttleResistanceSmoothNumericUpDown, 2, 14);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxResistanceNumericUpDown, 2, 13);
+			throttleTableLayoutPanel.Controls.Add(throttleMinResistanceNumericUpDown, 2, 12);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxStiffnessNumericUpDown, 2, 11);
+			throttleTableLayoutPanel.Controls.Add(throttleMinStiffnessNumericUpDown, 2, 10);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationSmoothNumericUpDown, 2, 9);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxVibrationNumericUpDown, 2, 8);
+			throttleTableLayoutPanel.Controls.Add(throttleMinVibrationNumericUpDown, 2, 7);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationStartNumericUpDown, 2, 6);
+			throttleTableLayoutPanel.Controls.Add(throttleAccelLimitNumericUpDown, 2, 5);
+			throttleTableLayoutPanel.Controls.Add(throttleForwardAccelScaleNumericUpDown, 2, 4);
+			throttleTableLayoutPanel.Controls.Add(throttleTurnAccelScaleNumericUpDown, 2, 3);
+			throttleTableLayoutPanel.Controls.Add(throttleGripLossNumericUpDown, 2, 2);
+			throttleTableLayoutPanel.Controls.Add(throttleIntensityNumericUpDown, 2, 1);
+			throttleTableLayoutPanel.Controls.Add(throttleResistanceSmoothTrackBar, 1, 14);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxResistanceTrackBar, 1, 13);
+			throttleTableLayoutPanel.Controls.Add(throttleMinResistanceTrackBar, 1, 12);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxStiffnessTrackBar, 1, 11);
+			throttleTableLayoutPanel.Controls.Add(throttleMinStiffnessTrackBar, 1, 10);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationSmoothTrackBar, 1, 9);
+			throttleTableLayoutPanel.Controls.Add(throttleMaxVibrationTrackBar, 1, 8);
+			throttleTableLayoutPanel.Controls.Add(throttleMinVibrationTrackBar, 1, 7);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationModeStartTrackBar, 1, 6);
+			throttleTableLayoutPanel.Controls.Add(throttleAccelLimitTrackBar, 1, 5);
+			throttleTableLayoutPanel.Controls.Add(throttleForwardAccelScaleTrackBar, 1, 4);
+			throttleTableLayoutPanel.Controls.Add(throttleTurnAccelScaleTrackBar, 1, 3);
+			throttleTableLayoutPanel.Controls.Add(throttleGripLossTrackBar, 1, 2);
+			throttleTableLayoutPanel.Controls.Add(throttleIntensityTrackBar, 1, 1);
+			throttleTableLayoutPanel.Controls.Add(throttleResistanceSmoothingLabel, 0, 14);
+			throttleTableLayoutPanel.Controls.Add(maxThrottleResistanceLabel, 0, 13);
+			throttleTableLayoutPanel.Controls.Add(minThrottleResistanceLabel, 0, 12);
+			throttleTableLayoutPanel.Controls.Add(maxThrottleStiffnessLabel, 0, 11);
+			throttleTableLayoutPanel.Controls.Add(minThrottleStiffnessLabel, 0, 10);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationSmoothingLabel, 0, 9);
+			throttleTableLayoutPanel.Controls.Add(maxThrottleVibrationLabel, 0, 8);
+			throttleTableLayoutPanel.Controls.Add(minThrottleVibrationLabel, 0, 7);
+			throttleTableLayoutPanel.Controls.Add(throttleVibrationStartLabel, 0, 6);
+			throttleTableLayoutPanel.Controls.Add(accelerationLimitLabel, 0, 5);
+			throttleTableLayoutPanel.Controls.Add(forwardAccelLabel, 0, 4);
+			throttleTableLayoutPanel.Controls.Add(turnAccelLabel, 0, 3);
+			throttleTableLayoutPanel.Controls.Add(throttleGripLossLabel, 0, 2);
+			throttleTableLayoutPanel.Controls.Add(throttleIntensityLabel, 0, 1);
+			throttleTableLayoutPanel.Controls.Add(buttonApply_Throttle, 1, 15);
+			throttleTableLayoutPanel.Controls.Add(throttleDefaultsButton, 2, 15);
+			throttleTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+			throttleTableLayoutPanel.Name = "throttleTableLayoutPanel";
+			throttleTableLayoutPanel.RowCount = 16;
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			throttleTableLayoutPanel.Size = new System.Drawing.Size(707, 727);
+			throttleTableLayoutPanel.TabIndex = 0;
+			// 
+			// throttleTriggerModeComboBox
+			// 
+			throttleTriggerModeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+			throttleTriggerModeComboBox.FormattingEnabled = true;
+			throttleTriggerModeComboBox.Items.AddRange(new object[] { "Off", "Resistance", "Vibration" });
+			throttleTriggerModeComboBox.Location = new System.Drawing.Point(141, 3);
+			throttleTriggerModeComboBox.Name = "throttleTriggerModeComboBox";
+			throttleTriggerModeComboBox.Size = new System.Drawing.Size(402, 23);
+			throttleTriggerModeComboBox.TabIndex = 46;
+			throttleTriggerModeComboBox.SelectedIndexChanged += throttleTriggerModeComboBox_SelectedIndexChanged;
+			// 
+			// throttleTriggerMode
+			// 
+			throttleTriggerMode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+			throttleTriggerMode.AutoSize = true;
+			throttleTriggerMode.Location = new System.Drawing.Point(14, 0);
+			throttleTriggerMode.Name = "throttleTriggerMode";
+			throttleTriggerMode.Size = new System.Drawing.Size(121, 29);
+			throttleTriggerMode.TabIndex = 45;
+			throttleTriggerMode.Text = "Throttle Trigger Mode";
+			throttleTriggerMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// throttleResistanceSmoothNumericUpDown
 			// 
-			this.throttleResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleResistanceSmoothNumericUpDown.AutoSize = true;
-			this.throttleResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(549, 677);
-			this.throttleResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleResistanceSmoothNumericUpDown.Name = "throttleResistanceSmoothNumericUpDown";
-			this.throttleResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleResistanceSmoothNumericUpDown.TabIndex = 42;
-			this.toolTip.SetToolTip(this.throttleResistanceSmoothNumericUpDown, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than " +
-        "0");
-			this.throttleResistanceSmoothNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleResistanceSmoothNumericUpDown.ValueChanged += new System.EventHandler(this.throttleResistanceSmoothNumericUpDown_ValueChanged);
+			throttleResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleResistanceSmoothNumericUpDown.AutoSize = true;
+			throttleResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(549, 706);
+			throttleResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleResistanceSmoothNumericUpDown.Name = "throttleResistanceSmoothNumericUpDown";
+			throttleResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleResistanceSmoothNumericUpDown.TabIndex = 42;
+			toolTip.SetToolTip(throttleResistanceSmoothNumericUpDown, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than 0");
+			throttleResistanceSmoothNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleResistanceSmoothNumericUpDown.ValueChanged += throttleResistanceSmoothNumericUpDown_ValueChanged;
 			// 
 			// throttleMaxResistanceNumericUpDown
 			// 
-			this.throttleMaxResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMaxResistanceNumericUpDown.AutoSize = true;
-			this.throttleMaxResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(549, 626);
-			this.throttleMaxResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-			this.throttleMaxResistanceNumericUpDown.Name = "throttleMaxResistanceNumericUpDown";
-			this.throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
-			this.throttleMaxResistanceNumericUpDown.TabIndex = 41;
-			this.toolTip.SetToolTip(this.throttleMaxResistanceNumericUpDown, "The Maximum resistance on the throttle (0-7)");
-			this.throttleMaxResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMaxResistanceNumericUpDown_ValueChanged);
+			throttleMaxResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMaxResistanceNumericUpDown.AutoSize = true;
+			throttleMaxResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(549, 655);
+			throttleMaxResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
+			throttleMaxResistanceNumericUpDown.Name = "throttleMaxResistanceNumericUpDown";
+			throttleMaxResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+			throttleMaxResistanceNumericUpDown.TabIndex = 41;
+			toolTip.SetToolTip(throttleMaxResistanceNumericUpDown, "The Maximum resistance on the throttle (0-7)");
+			throttleMaxResistanceNumericUpDown.ValueChanged += throttleMaxResistanceNumericUpDown_ValueChanged;
 			// 
 			// throttleMinResistanceNumericUpDown
 			// 
-			this.throttleMinResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMinResistanceNumericUpDown.AutoSize = true;
-			this.throttleMinResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(549, 575);
-			this.throttleMinResistanceNumericUpDown.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-			this.throttleMinResistanceNumericUpDown.Name = "throttleMinResistanceNumericUpDown";
-			this.throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
-			this.throttleMinResistanceNumericUpDown.TabIndex = 40;
-			this.toolTip.SetToolTip(this.throttleMinResistanceNumericUpDown, "The Minimum resistance on the throttle (0-7)");
-			this.throttleMinResistanceNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMinResistanceNumericUpDown_ValueChanged);
+			throttleMinResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMinResistanceNumericUpDown.AutoSize = true;
+			throttleMinResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(549, 604);
+			throttleMinResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
+			throttleMinResistanceNumericUpDown.Name = "throttleMinResistanceNumericUpDown";
+			throttleMinResistanceNumericUpDown.Size = new System.Drawing.Size(29, 23);
+			throttleMinResistanceNumericUpDown.TabIndex = 40;
+			toolTip.SetToolTip(throttleMinResistanceNumericUpDown, "The Minimum resistance on the throttle (0-7)");
+			throttleMinResistanceNumericUpDown.ValueChanged += throttleMinResistanceNumericUpDown_ValueChanged;
 			// 
 			// throttleMaxStiffnessNumericUpDown
 			// 
-			this.throttleMaxStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMaxStiffnessNumericUpDown.AutoSize = true;
-			this.throttleMaxStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 524);
-			this.throttleMaxStiffnessNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.throttleMaxStiffnessNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleMaxStiffnessNumericUpDown.Name = "throttleMaxStiffnessNumericUpDown";
-			this.throttleMaxStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleMaxStiffnessNumericUpDown.TabIndex = 39;
-			this.toolTip.SetToolTip(this.throttleMaxStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
-			this.throttleMaxStiffnessNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleMaxStiffnessNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMaxStiffnessNumericUpDown_ValueChanged);
+			throttleMaxStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMaxStiffnessNumericUpDown.AutoSize = true;
+			throttleMaxStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 553);
+			throttleMaxStiffnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			throttleMaxStiffnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleMaxStiffnessNumericUpDown.Name = "throttleMaxStiffnessNumericUpDown";
+			throttleMaxStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleMaxStiffnessNumericUpDown.TabIndex = 39;
+			toolTip.SetToolTip(throttleMaxStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
+			throttleMaxStiffnessNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleMaxStiffnessNumericUpDown.ValueChanged += throttleMaxStiffnessNumericUpDown_ValueChanged;
 			// 
 			// throttleMinStiffnessNumericUpDown
 			// 
-			this.throttleMinStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMinStiffnessNumericUpDown.AutoSize = true;
-			this.throttleMinStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 473);
-			this.throttleMinStiffnessNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.throttleMinStiffnessNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleMinStiffnessNumericUpDown.Name = "throttleMinStiffnessNumericUpDown";
-			this.throttleMinStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleMinStiffnessNumericUpDown.TabIndex = 38;
-			this.toolTip.SetToolTip(this.throttleMinStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
-			this.throttleMinStiffnessNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleMinStiffnessNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMinStiffnessNumericUpDown_ValueChanged);
+			throttleMinStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMinStiffnessNumericUpDown.AutoSize = true;
+			throttleMinStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(549, 502);
+			throttleMinStiffnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			throttleMinStiffnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleMinStiffnessNumericUpDown.Name = "throttleMinStiffnessNumericUpDown";
+			throttleMinStiffnessNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleMinStiffnessNumericUpDown.TabIndex = 38;
+			toolTip.SetToolTip(throttleMinStiffnessNumericUpDown, "On a scale of 1-255 with 1 being most stiff");
+			throttleMinStiffnessNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleMinStiffnessNumericUpDown.ValueChanged += throttleMinStiffnessNumericUpDown_ValueChanged;
 			// 
 			// throttleVibrationSmoothNumericUpDown
 			// 
-			this.throttleVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleVibrationSmoothNumericUpDown.AutoSize = true;
-			this.throttleVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(549, 422);
-			this.throttleVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleVibrationSmoothNumericUpDown.Name = "throttleVibrationSmoothNumericUpDown";
-			this.throttleVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleVibrationSmoothNumericUpDown.TabIndex = 37;
-			this.toolTip.SetToolTip(this.throttleVibrationSmoothNumericUpDown, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0" +
-        "");
-			this.throttleVibrationSmoothNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.throttleVibrationSmoothNumericUpDown.ValueChanged += new System.EventHandler(this.throttleVibrationSmoothNumericUpDown_ValueChanged);
+			throttleVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleVibrationSmoothNumericUpDown.AutoSize = true;
+			throttleVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(549, 451);
+			throttleVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleVibrationSmoothNumericUpDown.Name = "throttleVibrationSmoothNumericUpDown";
+			throttleVibrationSmoothNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleVibrationSmoothNumericUpDown.TabIndex = 37;
+			toolTip.SetToolTip(throttleVibrationSmoothNumericUpDown, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0");
+			throttleVibrationSmoothNumericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+			throttleVibrationSmoothNumericUpDown.ValueChanged += throttleVibrationSmoothNumericUpDown_ValueChanged;
 			// 
 			// throttleMaxVibrationNumericUpDown
 			// 
-			this.throttleMaxVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMaxVibrationNumericUpDown.AutoSize = true;
-			this.throttleMaxVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(549, 371);
-			this.throttleMaxVibrationNumericUpDown.Name = "throttleMaxVibrationNumericUpDown";
-			this.throttleMaxVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleMaxVibrationNumericUpDown.TabIndex = 36;
-			this.toolTip.SetToolTip(this.throttleMaxVibrationNumericUpDown, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better gr" +
-        "ip");
-			this.throttleMaxVibrationNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMaxVibrationNumericUpDown_ValueChanged);
+			throttleMaxVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMaxVibrationNumericUpDown.AutoSize = true;
+			throttleMaxVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(549, 400);
+			throttleMaxVibrationNumericUpDown.Name = "throttleMaxVibrationNumericUpDown";
+			throttleMaxVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleMaxVibrationNumericUpDown.TabIndex = 36;
+			toolTip.SetToolTip(throttleMaxVibrationNumericUpDown, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better grip");
+			throttleMaxVibrationNumericUpDown.ValueChanged += throttleMaxVibrationNumericUpDown_ValueChanged;
 			// 
 			// throttleMinVibrationNumericUpDown
 			// 
-			this.throttleMinVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleMinVibrationNumericUpDown.AutoSize = true;
-			this.throttleMinVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(549, 320);
-			this.throttleMinVibrationNumericUpDown.Name = "throttleMinVibrationNumericUpDown";
-			this.throttleMinVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleMinVibrationNumericUpDown.TabIndex = 35;
-			this.toolTip.SetToolTip(this.throttleMinVibrationNumericUpDown, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in" +
-        " controller");
-			this.throttleMinVibrationNumericUpDown.ValueChanged += new System.EventHandler(this.throttleMinVibrationNumericUpDown_ValueChanged);
+			throttleMinVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleMinVibrationNumericUpDown.AutoSize = true;
+			throttleMinVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(549, 349);
+			throttleMinVibrationNumericUpDown.Name = "throttleMinVibrationNumericUpDown";
+			throttleMinVibrationNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleMinVibrationNumericUpDown.TabIndex = 35;
+			toolTip.SetToolTip(throttleMinVibrationNumericUpDown, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in controller");
+			throttleMinVibrationNumericUpDown.ValueChanged += throttleMinVibrationNumericUpDown_ValueChanged;
 			// 
 			// throttleVibrationStartNumericUpDown
 			// 
-			this.throttleVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleVibrationStartNumericUpDown.AutoSize = true;
-			this.throttleVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(549, 269);
-			this.throttleVibrationStartNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.throttleVibrationStartNumericUpDown.Name = "throttleVibrationStartNumericUpDown";
-			this.throttleVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleVibrationStartNumericUpDown.TabIndex = 34;
-			this.toolTip.SetToolTip(this.throttleVibrationStartNumericUpDown, "The depression of the throttle lever at which the program should switch to vibrat" +
-        "ion mode rather than smooth resistance. This helps to avoid clicking as vibratio" +
-        "n mode clicks when no force is applied.");
-			this.throttleVibrationStartNumericUpDown.ValueChanged += new System.EventHandler(this.throttleVibrationStartNumericUpDown_ValueChanged);
+			throttleVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleVibrationStartNumericUpDown.AutoSize = true;
+			throttleVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(549, 298);
+			throttleVibrationStartNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			throttleVibrationStartNumericUpDown.Name = "throttleVibrationStartNumericUpDown";
+			throttleVibrationStartNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleVibrationStartNumericUpDown.TabIndex = 34;
+			toolTip.SetToolTip(throttleVibrationStartNumericUpDown, "The depression of the throttle lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied.");
+			throttleVibrationStartNumericUpDown.ValueChanged += throttleVibrationStartNumericUpDown_ValueChanged;
 			// 
 			// throttleAccelLimitNumericUpDown
 			// 
-			this.throttleAccelLimitNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleAccelLimitNumericUpDown.AutoSize = true;
-			this.throttleAccelLimitNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(549, 218);
-			this.throttleAccelLimitNumericUpDown.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-			this.throttleAccelLimitNumericUpDown.Name = "throttleAccelLimitNumericUpDown";
-			this.throttleAccelLimitNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleAccelLimitNumericUpDown.TabIndex = 33;
-			this.toolTip.SetToolTip(this.throttleAccelLimitNumericUpDown, "The upper end acceleration when calculating the throttle resistance. Any accelera" +
-        "tion above this will be counted as this value when determining the throttle resi" +
-        "stance.");
-			this.throttleAccelLimitNumericUpDown.ValueChanged += new System.EventHandler(this.throttleAccelLimitNumericUpDown_ValueChanged);
+			throttleAccelLimitNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleAccelLimitNumericUpDown.AutoSize = true;
+			throttleAccelLimitNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(549, 247);
+			throttleAccelLimitNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+			throttleAccelLimitNumericUpDown.Name = "throttleAccelLimitNumericUpDown";
+			throttleAccelLimitNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleAccelLimitNumericUpDown.TabIndex = 33;
+			toolTip.SetToolTip(throttleAccelLimitNumericUpDown, "The upper end acceleration when calculating the throttle resistance. Any acceleration above this will be counted as this value when determining the throttle resistance.");
+			throttleAccelLimitNumericUpDown.ValueChanged += throttleAccelLimitNumericUpDown_ValueChanged;
 			// 
 			// throttleForwardAccelScaleNumericUpDown
 			// 
-			this.throttleForwardAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleForwardAccelScaleNumericUpDown.AutoSize = true;
-			this.throttleForwardAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 167);
-			this.throttleForwardAccelScaleNumericUpDown.Name = "throttleForwardAccelScaleNumericUpDown";
-			this.throttleForwardAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleForwardAccelScaleNumericUpDown.TabIndex = 32;
-			this.toolTip.SetToolTip(this.throttleForwardAccelScaleNumericUpDown, "How to scale Forward acceleration in determining throttle stiffness.");
-			this.throttleForwardAccelScaleNumericUpDown.ValueChanged += new System.EventHandler(this.throttleForwardAccelScaleNumericUpDown_ValueChanged);
+			throttleForwardAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleForwardAccelScaleNumericUpDown.AutoSize = true;
+			throttleForwardAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 196);
+			throttleForwardAccelScaleNumericUpDown.Name = "throttleForwardAccelScaleNumericUpDown";
+			throttleForwardAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleForwardAccelScaleNumericUpDown.TabIndex = 32;
+			toolTip.SetToolTip(throttleForwardAccelScaleNumericUpDown, "How to scale Forward acceleration in determining throttle stiffness.");
+			throttleForwardAccelScaleNumericUpDown.ValueChanged += throttleForwardAccelScaleNumericUpDown_ValueChanged;
 			// 
 			// throttleTurnAccelScaleNumericUpDown
 			// 
-			this.throttleTurnAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleTurnAccelScaleNumericUpDown.AutoSize = true;
-			this.throttleTurnAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 116);
-			this.throttleTurnAccelScaleNumericUpDown.Name = "throttleTurnAccelScaleNumericUpDown";
-			this.throttleTurnAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleTurnAccelScaleNumericUpDown.TabIndex = 31;
-			this.toolTip.SetToolTip(this.throttleTurnAccelScaleNumericUpDown, "How to scale turning acceleration in determining throttle stiffness.");
-			this.throttleTurnAccelScaleNumericUpDown.ValueChanged += new System.EventHandler(this.throttleTurnAccelScaleNumericUpDown_ValueChanged);
+			throttleTurnAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleTurnAccelScaleNumericUpDown.AutoSize = true;
+			throttleTurnAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(549, 145);
+			throttleTurnAccelScaleNumericUpDown.Name = "throttleTurnAccelScaleNumericUpDown";
+			throttleTurnAccelScaleNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleTurnAccelScaleNumericUpDown.TabIndex = 31;
+			toolTip.SetToolTip(throttleTurnAccelScaleNumericUpDown, "How to scale turning acceleration in determining throttle stiffness.");
+			throttleTurnAccelScaleNumericUpDown.ValueChanged += throttleTurnAccelScaleNumericUpDown_ValueChanged;
 			// 
 			// throttleGripLossNumericUpDown
 			// 
-			this.throttleGripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleGripLossNumericUpDown.AutoSize = true;
-			this.throttleGripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleGripLossNumericUpDown.Location = new System.Drawing.Point(549, 65);
-			this.throttleGripLossNumericUpDown.Name = "throttleGripLossNumericUpDown";
-			this.throttleGripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleGripLossNumericUpDown.TabIndex = 30;
-			this.toolTip.SetToolTip(this.throttleGripLossNumericUpDown, "The point at which the throttle will begin to become choppy (0 = full grip, 100 =" +
-        " no grip)");
-			this.throttleGripLossNumericUpDown.ValueChanged += new System.EventHandler(this.throttleGripLossNumericUpDown_ValueChanged);
+			throttleGripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleGripLossNumericUpDown.AutoSize = true;
+			throttleGripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleGripLossNumericUpDown.Location = new System.Drawing.Point(549, 94);
+			throttleGripLossNumericUpDown.Name = "throttleGripLossNumericUpDown";
+			throttleGripLossNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleGripLossNumericUpDown.TabIndex = 30;
+			toolTip.SetToolTip(throttleGripLossNumericUpDown, "The point at which the throttle will begin to become choppy (0 = full grip, 100 = no grip)");
+			throttleGripLossNumericUpDown.ValueChanged += throttleGripLossNumericUpDown_ValueChanged;
 			// 
 			// throttleIntensityNumericUpDown
 			// 
-			this.throttleIntensityNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.throttleIntensityNumericUpDown.AutoSize = true;
-			this.throttleIntensityNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.throttleIntensityNumericUpDown.Location = new System.Drawing.Point(549, 14);
-			this.throttleIntensityNumericUpDown.Name = "throttleIntensityNumericUpDown";
-			this.throttleIntensityNumericUpDown.Size = new System.Drawing.Size(41, 23);
-			this.throttleIntensityNumericUpDown.TabIndex = 29;
-			this.toolTip.SetToolTip(this.throttleIntensityNumericUpDown, "The percentage of the trigger effects");
-			this.throttleIntensityNumericUpDown.ValueChanged += new System.EventHandler(this.throttleIntensityNumericUpDown_ValueChanged);
+			throttleIntensityNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			throttleIntensityNumericUpDown.AutoSize = true;
+			throttleIntensityNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			throttleIntensityNumericUpDown.Location = new System.Drawing.Point(549, 43);
+			throttleIntensityNumericUpDown.Name = "throttleIntensityNumericUpDown";
+			throttleIntensityNumericUpDown.Size = new System.Drawing.Size(41, 23);
+			throttleIntensityNumericUpDown.TabIndex = 29;
+			toolTip.SetToolTip(throttleIntensityNumericUpDown, "The percentage of the trigger effects");
+			throttleIntensityNumericUpDown.ValueChanged += throttleIntensityNumericUpDown_ValueChanged;
 			// 
 			// throttleResistanceSmoothTrackBar
 			// 
-			this.throttleResistanceSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleResistanceSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleResistanceSmoothTrackBar.LargeChange = 50;
-			this.throttleResistanceSmoothTrackBar.Location = new System.Drawing.Point(141, 666);
-			this.throttleResistanceSmoothTrackBar.Maximum = 100;
-			this.throttleResistanceSmoothTrackBar.Minimum = 1;
-			this.throttleResistanceSmoothTrackBar.Name = "throttleResistanceSmoothTrackBar";
-			this.throttleResistanceSmoothTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleResistanceSmoothTrackBar.TabIndex = 28;
-			this.throttleResistanceSmoothTrackBar.TickFrequency = 10;
-			this.throttleResistanceSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleResistanceSmoothTrackBar, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than " +
-        "0");
-			this.throttleResistanceSmoothTrackBar.Value = 1;
-			this.throttleResistanceSmoothTrackBar.Scroll += new System.EventHandler(this.throttleResistanceSmoothTrackBar_Scroll);
+			throttleResistanceSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleResistanceSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleResistanceSmoothTrackBar.LargeChange = 50;
+			throttleResistanceSmoothTrackBar.Location = new System.Drawing.Point(141, 695);
+			throttleResistanceSmoothTrackBar.Maximum = 100;
+			throttleResistanceSmoothTrackBar.Minimum = 1;
+			throttleResistanceSmoothTrackBar.Name = "throttleResistanceSmoothTrackBar";
+			throttleResistanceSmoothTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleResistanceSmoothTrackBar.TabIndex = 28;
+			throttleResistanceSmoothTrackBar.TickFrequency = 10;
+			throttleResistanceSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleResistanceSmoothTrackBar, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than 0");
+			throttleResistanceSmoothTrackBar.Value = 1;
+			throttleResistanceSmoothTrackBar.Scroll += throttleResistanceSmoothTrackBar_Scroll;
 			// 
 			// throttleMaxResistanceTrackBar
 			// 
-			this.throttleMaxResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMaxResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMaxResistanceTrackBar.LargeChange = 50;
-			this.throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(141, 615);
-			this.throttleMaxResistanceTrackBar.Maximum = 7;
-			this.throttleMaxResistanceTrackBar.Name = "throttleMaxResistanceTrackBar";
-			this.throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMaxResistanceTrackBar.TabIndex = 27;
-			this.throttleMaxResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMaxResistanceTrackBar, "The Maximum resistance on the throttle (0-7)");
-			this.throttleMaxResistanceTrackBar.Scroll += new System.EventHandler(this.throttleMaxResistanceTrackBar_Scroll);
+			throttleMaxResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMaxResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMaxResistanceTrackBar.LargeChange = 50;
+			throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(141, 644);
+			throttleMaxResistanceTrackBar.Maximum = 7;
+			throttleMaxResistanceTrackBar.Name = "throttleMaxResistanceTrackBar";
+			throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMaxResistanceTrackBar.TabIndex = 27;
+			throttleMaxResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMaxResistanceTrackBar, "The Maximum resistance on the throttle (0-7)");
+			throttleMaxResistanceTrackBar.Scroll += throttleMaxResistanceTrackBar_Scroll;
 			// 
 			// throttleMinResistanceTrackBar
 			// 
-			this.throttleMinResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMinResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMinResistanceTrackBar.LargeChange = 50;
-			this.throttleMinResistanceTrackBar.Location = new System.Drawing.Point(141, 564);
-			this.throttleMinResistanceTrackBar.Maximum = 7;
-			this.throttleMinResistanceTrackBar.Name = "throttleMinResistanceTrackBar";
-			this.throttleMinResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMinResistanceTrackBar.TabIndex = 26;
-			this.throttleMinResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMinResistanceTrackBar, "The Minimum resistance on the throttle (0-7)");
-			this.throttleMinResistanceTrackBar.Scroll += new System.EventHandler(this.throttleMinResistanceTrackBar_Scroll);
+			throttleMinResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMinResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMinResistanceTrackBar.LargeChange = 50;
+			throttleMinResistanceTrackBar.Location = new System.Drawing.Point(141, 593);
+			throttleMinResistanceTrackBar.Maximum = 7;
+			throttleMinResistanceTrackBar.Name = "throttleMinResistanceTrackBar";
+			throttleMinResistanceTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMinResistanceTrackBar.TabIndex = 26;
+			throttleMinResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMinResistanceTrackBar, "The Minimum resistance on the throttle (0-7)");
+			throttleMinResistanceTrackBar.Scroll += throttleMinResistanceTrackBar_Scroll;
 			// 
 			// throttleMaxStiffnessTrackBar
 			// 
-			this.throttleMaxStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMaxStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMaxStiffnessTrackBar.LargeChange = 50;
-			this.throttleMaxStiffnessTrackBar.Location = new System.Drawing.Point(141, 513);
-			this.throttleMaxStiffnessTrackBar.Maximum = 255;
-			this.throttleMaxStiffnessTrackBar.Minimum = 1;
-			this.throttleMaxStiffnessTrackBar.Name = "throttleMaxStiffnessTrackBar";
-			this.throttleMaxStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMaxStiffnessTrackBar.TabIndex = 25;
-			this.throttleMaxStiffnessTrackBar.TickFrequency = 5;
-			this.throttleMaxStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMaxStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
-			this.throttleMaxStiffnessTrackBar.Value = 1;
-			this.throttleMaxStiffnessTrackBar.Scroll += new System.EventHandler(this.throttleMaxStiffnessTrackBar_Scroll);
+			throttleMaxStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMaxStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMaxStiffnessTrackBar.LargeChange = 50;
+			throttleMaxStiffnessTrackBar.Location = new System.Drawing.Point(141, 542);
+			throttleMaxStiffnessTrackBar.Maximum = 255;
+			throttleMaxStiffnessTrackBar.Minimum = 1;
+			throttleMaxStiffnessTrackBar.Name = "throttleMaxStiffnessTrackBar";
+			throttleMaxStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMaxStiffnessTrackBar.TabIndex = 25;
+			throttleMaxStiffnessTrackBar.TickFrequency = 5;
+			throttleMaxStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMaxStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
+			throttleMaxStiffnessTrackBar.Value = 1;
+			throttleMaxStiffnessTrackBar.Scroll += throttleMaxStiffnessTrackBar_Scroll;
 			// 
 			// throttleMinStiffnessTrackBar
 			// 
-			this.throttleMinStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMinStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMinStiffnessTrackBar.LargeChange = 50;
-			this.throttleMinStiffnessTrackBar.Location = new System.Drawing.Point(141, 462);
-			this.throttleMinStiffnessTrackBar.Maximum = 255;
-			this.throttleMinStiffnessTrackBar.Minimum = 1;
-			this.throttleMinStiffnessTrackBar.Name = "throttleMinStiffnessTrackBar";
-			this.throttleMinStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMinStiffnessTrackBar.TabIndex = 24;
-			this.throttleMinStiffnessTrackBar.TickFrequency = 5;
-			this.throttleMinStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMinStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
-			this.throttleMinStiffnessTrackBar.Value = 1;
-			this.throttleMinStiffnessTrackBar.Scroll += new System.EventHandler(this.throttleMinStiffnessTrackBar_Scroll);
+			throttleMinStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMinStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMinStiffnessTrackBar.LargeChange = 50;
+			throttleMinStiffnessTrackBar.Location = new System.Drawing.Point(141, 491);
+			throttleMinStiffnessTrackBar.Maximum = 255;
+			throttleMinStiffnessTrackBar.Minimum = 1;
+			throttleMinStiffnessTrackBar.Name = "throttleMinStiffnessTrackBar";
+			throttleMinStiffnessTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMinStiffnessTrackBar.TabIndex = 24;
+			throttleMinStiffnessTrackBar.TickFrequency = 5;
+			throttleMinStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMinStiffnessTrackBar, "On a scale of 1-255 with 1 being most stiff");
+			throttleMinStiffnessTrackBar.Value = 1;
+			throttleMinStiffnessTrackBar.Scroll += throttleMinStiffnessTrackBar_Scroll;
 			// 
 			// throttleVibrationSmoothTrackBar
 			// 
-			this.throttleVibrationSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleVibrationSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleVibrationSmoothTrackBar.LargeChange = 50;
-			this.throttleVibrationSmoothTrackBar.Location = new System.Drawing.Point(141, 411);
-			this.throttleVibrationSmoothTrackBar.Maximum = 100;
-			this.throttleVibrationSmoothTrackBar.Minimum = 1;
-			this.throttleVibrationSmoothTrackBar.Name = "throttleVibrationSmoothTrackBar";
-			this.throttleVibrationSmoothTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleVibrationSmoothTrackBar.TabIndex = 23;
-			this.throttleVibrationSmoothTrackBar.TickFrequency = 10;
-			this.throttleVibrationSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleVibrationSmoothTrackBar, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0" +
-        "");
-			this.throttleVibrationSmoothTrackBar.Value = 1;
-			this.throttleVibrationSmoothTrackBar.Scroll += new System.EventHandler(this.throttleVibrationSmoothTrackBar_Scroll);
+			throttleVibrationSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleVibrationSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleVibrationSmoothTrackBar.LargeChange = 50;
+			throttleVibrationSmoothTrackBar.Location = new System.Drawing.Point(141, 440);
+			throttleVibrationSmoothTrackBar.Maximum = 100;
+			throttleVibrationSmoothTrackBar.Minimum = 1;
+			throttleVibrationSmoothTrackBar.Name = "throttleVibrationSmoothTrackBar";
+			throttleVibrationSmoothTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleVibrationSmoothTrackBar.TabIndex = 23;
+			throttleVibrationSmoothTrackBar.TickFrequency = 10;
+			throttleVibrationSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleVibrationSmoothTrackBar, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0");
+			throttleVibrationSmoothTrackBar.Value = 1;
+			throttleVibrationSmoothTrackBar.Scroll += throttleVibrationSmoothTrackBar_Scroll;
 			// 
 			// throttleMaxVibrationTrackBar
 			// 
-			this.throttleMaxVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMaxVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMaxVibrationTrackBar.LargeChange = 50;
-			this.throttleMaxVibrationTrackBar.Location = new System.Drawing.Point(141, 360);
-			this.throttleMaxVibrationTrackBar.Maximum = 100;
-			this.throttleMaxVibrationTrackBar.Name = "throttleMaxVibrationTrackBar";
-			this.throttleMaxVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMaxVibrationTrackBar.TabIndex = 22;
-			this.throttleMaxVibrationTrackBar.TickFrequency = 5;
-			this.throttleMaxVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMaxVibrationTrackBar, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better gr" +
-        "ip");
-			this.throttleMaxVibrationTrackBar.Scroll += new System.EventHandler(this.throttleMaxVibrationTrackBar_Scroll);
+			throttleMaxVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMaxVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMaxVibrationTrackBar.LargeChange = 50;
+			throttleMaxVibrationTrackBar.Location = new System.Drawing.Point(141, 389);
+			throttleMaxVibrationTrackBar.Maximum = 100;
+			throttleMaxVibrationTrackBar.Name = "throttleMaxVibrationTrackBar";
+			throttleMaxVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMaxVibrationTrackBar.TabIndex = 22;
+			throttleMaxVibrationTrackBar.TickFrequency = 5;
+			throttleMaxVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMaxVibrationTrackBar, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better grip");
+			throttleMaxVibrationTrackBar.Scroll += throttleMaxVibrationTrackBar_Scroll;
 			// 
 			// throttleMinVibrationTrackBar
 			// 
-			this.throttleMinVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleMinVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleMinVibrationTrackBar.LargeChange = 50;
-			this.throttleMinVibrationTrackBar.Location = new System.Drawing.Point(141, 309);
-			this.throttleMinVibrationTrackBar.Maximum = 100;
-			this.throttleMinVibrationTrackBar.Name = "throttleMinVibrationTrackBar";
-			this.throttleMinVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleMinVibrationTrackBar.TabIndex = 21;
-			this.throttleMinVibrationTrackBar.TickFrequency = 5;
-			this.throttleMinVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleMinVibrationTrackBar, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in" +
-        " controller");
-			this.throttleMinVibrationTrackBar.Scroll += new System.EventHandler(this.throttleMinVibrationTrackBar_Scroll);
+			throttleMinVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleMinVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleMinVibrationTrackBar.LargeChange = 50;
+			throttleMinVibrationTrackBar.Location = new System.Drawing.Point(141, 338);
+			throttleMinVibrationTrackBar.Maximum = 100;
+			throttleMinVibrationTrackBar.Name = "throttleMinVibrationTrackBar";
+			throttleMinVibrationTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleMinVibrationTrackBar.TabIndex = 21;
+			throttleMinVibrationTrackBar.TickFrequency = 5;
+			throttleMinVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleMinVibrationTrackBar, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in controller");
+			throttleMinVibrationTrackBar.Scroll += throttleMinVibrationTrackBar_Scroll;
 			// 
 			// throttleVibrationModeStartTrackBar
 			// 
-			this.throttleVibrationModeStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleVibrationModeStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleVibrationModeStartTrackBar.LargeChange = 50;
-			this.throttleVibrationModeStartTrackBar.Location = new System.Drawing.Point(141, 258);
-			this.throttleVibrationModeStartTrackBar.Maximum = 255;
-			this.throttleVibrationModeStartTrackBar.Name = "throttleVibrationModeStartTrackBar";
-			this.throttleVibrationModeStartTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleVibrationModeStartTrackBar.TabIndex = 20;
-			this.throttleVibrationModeStartTrackBar.TickFrequency = 5;
-			this.throttleVibrationModeStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleVibrationModeStartTrackBar, "The depression of the throttle lever at which the program should switch to vibrat" +
-        "ion mode rather than smooth resistance. This helps to avoid clicking as vibratio" +
-        "n mode clicks when no force is applied.");
-			this.throttleVibrationModeStartTrackBar.Scroll += new System.EventHandler(this.throttleVibrationModeStartTrackBar_Scroll);
+			throttleVibrationModeStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleVibrationModeStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleVibrationModeStartTrackBar.LargeChange = 50;
+			throttleVibrationModeStartTrackBar.Location = new System.Drawing.Point(141, 287);
+			throttleVibrationModeStartTrackBar.Maximum = 255;
+			throttleVibrationModeStartTrackBar.Name = "throttleVibrationModeStartTrackBar";
+			throttleVibrationModeStartTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleVibrationModeStartTrackBar.TabIndex = 20;
+			throttleVibrationModeStartTrackBar.TickFrequency = 5;
+			throttleVibrationModeStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleVibrationModeStartTrackBar, "The depression of the throttle lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied.");
+			throttleVibrationModeStartTrackBar.Scroll += throttleVibrationModeStartTrackBar_Scroll;
 			// 
 			// throttleAccelLimitTrackBar
 			// 
-			this.throttleAccelLimitTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleAccelLimitTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleAccelLimitTrackBar.LargeChange = 50;
-			this.throttleAccelLimitTrackBar.Location = new System.Drawing.Point(141, 207);
-			this.throttleAccelLimitTrackBar.Maximum = 255;
-			this.throttleAccelLimitTrackBar.Name = "throttleAccelLimitTrackBar";
-			this.throttleAccelLimitTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleAccelLimitTrackBar.TabIndex = 19;
-			this.throttleAccelLimitTrackBar.TickFrequency = 5;
-			this.throttleAccelLimitTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleAccelLimitTrackBar, "The upper end acceleration when calculating the throttle resistance. Any accelera" +
-        "tion above this will be counted as this value when determining the throttle resi" +
-        "stance.");
-			this.throttleAccelLimitTrackBar.Scroll += new System.EventHandler(this.throttleAccelLimitTrackBar_Scroll);
+			throttleAccelLimitTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleAccelLimitTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleAccelLimitTrackBar.LargeChange = 50;
+			throttleAccelLimitTrackBar.Location = new System.Drawing.Point(141, 236);
+			throttleAccelLimitTrackBar.Maximum = 255;
+			throttleAccelLimitTrackBar.Name = "throttleAccelLimitTrackBar";
+			throttleAccelLimitTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleAccelLimitTrackBar.TabIndex = 19;
+			throttleAccelLimitTrackBar.TickFrequency = 5;
+			throttleAccelLimitTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleAccelLimitTrackBar, "The upper end acceleration when calculating the throttle resistance. Any acceleration above this will be counted as this value when determining the throttle resistance.");
+			throttleAccelLimitTrackBar.Scroll += throttleAccelLimitTrackBar_Scroll;
 			// 
 			// throttleForwardAccelScaleTrackBar
 			// 
-			this.throttleForwardAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleForwardAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleForwardAccelScaleTrackBar.Location = new System.Drawing.Point(141, 156);
-			this.throttleForwardAccelScaleTrackBar.Maximum = 100;
-			this.throttleForwardAccelScaleTrackBar.Name = "throttleForwardAccelScaleTrackBar";
-			this.throttleForwardAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleForwardAccelScaleTrackBar.TabIndex = 18;
-			this.throttleForwardAccelScaleTrackBar.TickFrequency = 5;
-			this.throttleForwardAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleForwardAccelScaleTrackBar, "How to scale Forward acceleration in determining throttle stiffness.");
-			this.throttleForwardAccelScaleTrackBar.Value = 50;
-			this.throttleForwardAccelScaleTrackBar.Scroll += new System.EventHandler(this.throttleForwardAccelScaleTrackBar_Scroll);
+			throttleForwardAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleForwardAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleForwardAccelScaleTrackBar.Location = new System.Drawing.Point(141, 185);
+			throttleForwardAccelScaleTrackBar.Maximum = 100;
+			throttleForwardAccelScaleTrackBar.Name = "throttleForwardAccelScaleTrackBar";
+			throttleForwardAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleForwardAccelScaleTrackBar.TabIndex = 18;
+			throttleForwardAccelScaleTrackBar.TickFrequency = 5;
+			throttleForwardAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleForwardAccelScaleTrackBar, "How to scale Forward acceleration in determining throttle stiffness.");
+			throttleForwardAccelScaleTrackBar.Value = 50;
+			throttleForwardAccelScaleTrackBar.Scroll += throttleForwardAccelScaleTrackBar_Scroll;
 			// 
 			// throttleTurnAccelScaleTrackBar
 			// 
-			this.throttleTurnAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleTurnAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleTurnAccelScaleTrackBar.Location = new System.Drawing.Point(141, 105);
-			this.throttleTurnAccelScaleTrackBar.Maximum = 100;
-			this.throttleTurnAccelScaleTrackBar.Name = "throttleTurnAccelScaleTrackBar";
-			this.throttleTurnAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleTurnAccelScaleTrackBar.TabIndex = 17;
-			this.throttleTurnAccelScaleTrackBar.TickFrequency = 5;
-			this.throttleTurnAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleTurnAccelScaleTrackBar, "How to scale turning acceleration in determining throttle stiffness.");
-			this.throttleTurnAccelScaleTrackBar.Value = 50;
-			this.throttleTurnAccelScaleTrackBar.Scroll += new System.EventHandler(this.throttleTurnAccelScaleTrackBar_Scroll);
+			throttleTurnAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleTurnAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleTurnAccelScaleTrackBar.Location = new System.Drawing.Point(141, 134);
+			throttleTurnAccelScaleTrackBar.Maximum = 100;
+			throttleTurnAccelScaleTrackBar.Name = "throttleTurnAccelScaleTrackBar";
+			throttleTurnAccelScaleTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleTurnAccelScaleTrackBar.TabIndex = 17;
+			throttleTurnAccelScaleTrackBar.TickFrequency = 5;
+			throttleTurnAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleTurnAccelScaleTrackBar, "How to scale turning acceleration in determining throttle stiffness.");
+			throttleTurnAccelScaleTrackBar.Value = 50;
+			throttleTurnAccelScaleTrackBar.Scroll += throttleTurnAccelScaleTrackBar_Scroll;
 			// 
 			// throttleGripLossTrackBar
 			// 
-			this.throttleGripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleGripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleGripLossTrackBar.LargeChange = 50;
-			this.throttleGripLossTrackBar.Location = new System.Drawing.Point(141, 54);
-			this.throttleGripLossTrackBar.Maximum = 100;
-			this.throttleGripLossTrackBar.Name = "throttleGripLossTrackBar";
-			this.throttleGripLossTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleGripLossTrackBar.TabIndex = 16;
-			this.throttleGripLossTrackBar.TickFrequency = 5;
-			this.throttleGripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleGripLossTrackBar, "The point at which the throttle will begin to become choppy (0 = full grip, 100 =" +
-        " no grip)");
-			this.throttleGripLossTrackBar.Scroll += new System.EventHandler(this.throttleGripLossTrackBar_Scroll);
+			throttleGripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleGripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleGripLossTrackBar.LargeChange = 50;
+			throttleGripLossTrackBar.Location = new System.Drawing.Point(141, 83);
+			throttleGripLossTrackBar.Maximum = 100;
+			throttleGripLossTrackBar.Name = "throttleGripLossTrackBar";
+			throttleGripLossTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleGripLossTrackBar.TabIndex = 16;
+			throttleGripLossTrackBar.TickFrequency = 5;
+			throttleGripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleGripLossTrackBar, "The point at which the throttle will begin to become choppy (0 = full grip, 100 = no grip)");
+			throttleGripLossTrackBar.Scroll += throttleGripLossTrackBar_Scroll;
 			// 
 			// throttleIntensityTrackBar
 			// 
-			this.throttleIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.throttleIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleIntensityTrackBar.LargeChange = 10;
-			this.throttleIntensityTrackBar.Location = new System.Drawing.Point(141, 3);
-			this.throttleIntensityTrackBar.Maximum = 100;
-			this.throttleIntensityTrackBar.Name = "throttleIntensityTrackBar";
-			this.throttleIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
-			this.throttleIntensityTrackBar.TabIndex = 2;
-			this.throttleIntensityTrackBar.TickFrequency = 5;
-			this.throttleIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-			this.toolTip.SetToolTip(this.throttleIntensityTrackBar, "The percentage of the trigger effects");
-			this.throttleIntensityTrackBar.Value = 100;
-			this.throttleIntensityTrackBar.Scroll += new System.EventHandler(this.throttleIntensityTrackBar_Scroll);
+			throttleIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			throttleIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleIntensityTrackBar.LargeChange = 10;
+			throttleIntensityTrackBar.Location = new System.Drawing.Point(141, 32);
+			throttleIntensityTrackBar.Maximum = 100;
+			throttleIntensityTrackBar.Name = "throttleIntensityTrackBar";
+			throttleIntensityTrackBar.Size = new System.Drawing.Size(402, 45);
+			throttleIntensityTrackBar.TabIndex = 2;
+			throttleIntensityTrackBar.TickFrequency = 5;
+			throttleIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+			toolTip.SetToolTip(throttleIntensityTrackBar, "The percentage of the trigger effects");
+			throttleIntensityTrackBar.Value = 100;
+			throttleIntensityTrackBar.Scroll += throttleIntensityTrackBar_Scroll;
 			// 
 			// throttleResistanceSmoothingLabel
 			// 
-			this.throttleResistanceSmoothingLabel.AutoSize = true;
-			this.throttleResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 663);
-			this.throttleResistanceSmoothingLabel.Name = "throttleResistanceSmoothingLabel";
-			this.throttleResistanceSmoothingLabel.Size = new System.Drawing.Size(132, 51);
-			this.throttleResistanceSmoothingLabel.TabIndex = 15;
-			this.throttleResistanceSmoothingLabel.Text = "Resistance Smoothing";
-			this.throttleResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.throttleResistanceSmoothingLabel, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than " +
-        "0");
+			throttleResistanceSmoothingLabel.AutoSize = true;
+			throttleResistanceSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleResistanceSmoothingLabel.Location = new System.Drawing.Point(3, 692);
+			throttleResistanceSmoothingLabel.Name = "throttleResistanceSmoothingLabel";
+			throttleResistanceSmoothingLabel.Size = new System.Drawing.Size(132, 51);
+			throttleResistanceSmoothingLabel.TabIndex = 15;
+			throttleResistanceSmoothingLabel.Text = "Resistance Smoothing";
+			throttleResistanceSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(throttleResistanceSmoothingLabel, "Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than 0");
 			// 
 			// maxThrottleResistanceLabel
 			// 
-			this.maxThrottleResistanceLabel.AutoSize = true;
-			this.maxThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxThrottleResistanceLabel.Location = new System.Drawing.Point(3, 612);
-			this.maxThrottleResistanceLabel.Name = "maxThrottleResistanceLabel";
-			this.maxThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
-			this.maxThrottleResistanceLabel.TabIndex = 14;
-			this.maxThrottleResistanceLabel.Text = "Max Throttle Resistance";
-			this.maxThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxThrottleResistanceLabel, "The Maximum resistance on the throttle (0-7)");
+			maxThrottleResistanceLabel.AutoSize = true;
+			maxThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxThrottleResistanceLabel.Location = new System.Drawing.Point(3, 641);
+			maxThrottleResistanceLabel.Name = "maxThrottleResistanceLabel";
+			maxThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
+			maxThrottleResistanceLabel.TabIndex = 14;
+			maxThrottleResistanceLabel.Text = "Max Throttle Resistance";
+			maxThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxThrottleResistanceLabel, "The Maximum resistance on the throttle (0-7)");
 			// 
 			// minThrottleResistanceLabel
 			// 
-			this.minThrottleResistanceLabel.AutoSize = true;
-			this.minThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minThrottleResistanceLabel.Location = new System.Drawing.Point(3, 561);
-			this.minThrottleResistanceLabel.Name = "minThrottleResistanceLabel";
-			this.minThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
-			this.minThrottleResistanceLabel.TabIndex = 13;
-			this.minThrottleResistanceLabel.Text = "Min Throttle Resistance";
-			this.minThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minThrottleResistanceLabel, "The Minimum resistance on the throttle (0-7)");
+			minThrottleResistanceLabel.AutoSize = true;
+			minThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minThrottleResistanceLabel.Location = new System.Drawing.Point(3, 590);
+			minThrottleResistanceLabel.Name = "minThrottleResistanceLabel";
+			minThrottleResistanceLabel.Size = new System.Drawing.Size(132, 51);
+			minThrottleResistanceLabel.TabIndex = 13;
+			minThrottleResistanceLabel.Text = "Min Throttle Resistance";
+			minThrottleResistanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minThrottleResistanceLabel, "The Minimum resistance on the throttle (0-7)");
 			// 
 			// maxThrottleStiffnessLabel
 			// 
-			this.maxThrottleStiffnessLabel.AutoSize = true;
-			this.maxThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 510);
-			this.maxThrottleStiffnessLabel.Name = "maxThrottleStiffnessLabel";
-			this.maxThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
-			this.maxThrottleStiffnessLabel.TabIndex = 12;
-			this.maxThrottleStiffnessLabel.Text = "Max Throttle Stiffness";
-			this.maxThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxThrottleStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
+			maxThrottleStiffnessLabel.AutoSize = true;
+			maxThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 539);
+			maxThrottleStiffnessLabel.Name = "maxThrottleStiffnessLabel";
+			maxThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
+			maxThrottleStiffnessLabel.TabIndex = 12;
+			maxThrottleStiffnessLabel.Text = "Max Throttle Stiffness";
+			maxThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxThrottleStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
 			// 
 			// minThrottleStiffnessLabel
 			// 
-			this.minThrottleStiffnessLabel.AutoSize = true;
-			this.minThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 459);
-			this.minThrottleStiffnessLabel.Name = "minThrottleStiffnessLabel";
-			this.minThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
-			this.minThrottleStiffnessLabel.TabIndex = 11;
-			this.minThrottleStiffnessLabel.Text = "Min Throttle Stiffness";
-			this.minThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minThrottleStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
+			minThrottleStiffnessLabel.AutoSize = true;
+			minThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 488);
+			minThrottleStiffnessLabel.Name = "minThrottleStiffnessLabel";
+			minThrottleStiffnessLabel.Size = new System.Drawing.Size(132, 51);
+			minThrottleStiffnessLabel.TabIndex = 11;
+			minThrottleStiffnessLabel.Text = "Min Throttle Stiffness";
+			minThrottleStiffnessLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minThrottleStiffnessLabel, "On a scale of 1-255 with 1 being most stiff");
 			// 
 			// throttleVibrationSmoothingLabel
 			// 
-			this.throttleVibrationSmoothingLabel.AutoSize = true;
-			this.throttleVibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleVibrationSmoothingLabel.Location = new System.Drawing.Point(3, 408);
-			this.throttleVibrationSmoothingLabel.Name = "throttleVibrationSmoothingLabel";
-			this.throttleVibrationSmoothingLabel.Size = new System.Drawing.Size(132, 51);
-			this.throttleVibrationSmoothingLabel.TabIndex = 10;
-			this.throttleVibrationSmoothingLabel.Text = "Vibration Smoothing";
-			this.throttleVibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.throttleVibrationSmoothingLabel, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0" +
-        "");
+			throttleVibrationSmoothingLabel.AutoSize = true;
+			throttleVibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleVibrationSmoothingLabel.Location = new System.Drawing.Point(3, 437);
+			throttleVibrationSmoothingLabel.Name = "throttleVibrationSmoothingLabel";
+			throttleVibrationSmoothingLabel.Size = new System.Drawing.Size(132, 51);
+			throttleVibrationSmoothingLabel.TabIndex = 10;
+			throttleVibrationSmoothingLabel.Text = "Vibration Smoothing";
+			throttleVibrationSmoothingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(throttleVibrationSmoothingLabel, "Smoothing for Throttle Vibration output. Lower = smoother. Must be greater than 0");
 			// 
 			// maxThrottleVibrationLabel
 			// 
-			this.maxThrottleVibrationLabel.AutoSize = true;
-			this.maxThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.maxThrottleVibrationLabel.Location = new System.Drawing.Point(3, 357);
-			this.maxThrottleVibrationLabel.Name = "maxThrottleVibrationLabel";
-			this.maxThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
-			this.maxThrottleVibrationLabel.TabIndex = 9;
-			this.maxThrottleVibrationLabel.Text = "Max Throttle Vibration";
-			this.maxThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.maxThrottleVibrationLabel, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better gr" +
-        "ip");
+			maxThrottleVibrationLabel.AutoSize = true;
+			maxThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			maxThrottleVibrationLabel.Location = new System.Drawing.Point(3, 386);
+			maxThrottleVibrationLabel.Name = "maxThrottleVibrationLabel";
+			maxThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
+			maxThrottleVibrationLabel.TabIndex = 9;
+			maxThrottleVibrationLabel.Text = "Max Throttle Vibration";
+			maxThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(maxThrottleVibrationLabel, "The maximum acceleration frequency in Hz (avoid over 40). Correlates to better grip");
 			// 
 			// minThrottleVibrationLabel
 			// 
-			this.minThrottleVibrationLabel.AutoSize = true;
-			this.minThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.minThrottleVibrationLabel.Location = new System.Drawing.Point(3, 306);
-			this.minThrottleVibrationLabel.Name = "minThrottleVibrationLabel";
-			this.minThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
-			this.minThrottleVibrationLabel.TabIndex = 8;
-			this.minThrottleVibrationLabel.Text = "Min Throttle Vibration";
-			this.minThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.minThrottleVibrationLabel, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in" +
-        " controller");
+			minThrottleVibrationLabel.AutoSize = true;
+			minThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			minThrottleVibrationLabel.Location = new System.Drawing.Point(3, 335);
+			minThrottleVibrationLabel.Name = "minThrottleVibrationLabel";
+			minThrottleVibrationLabel.Size = new System.Drawing.Size(132, 51);
+			minThrottleVibrationLabel.TabIndex = 8;
+			minThrottleVibrationLabel.Text = "Min Throttle Vibration";
+			minThrottleVibrationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(minThrottleVibrationLabel, "The minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in controller");
 			// 
 			// throttleVibrationStartLabel
 			// 
-			this.throttleVibrationStartLabel.AutoSize = true;
-			this.throttleVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleVibrationStartLabel.Location = new System.Drawing.Point(3, 255);
-			this.throttleVibrationStartLabel.Name = "throttleVibrationStartLabel";
-			this.throttleVibrationStartLabel.Size = new System.Drawing.Size(132, 51);
-			this.throttleVibrationStartLabel.TabIndex = 7;
-			this.throttleVibrationStartLabel.Text = "Vibration Mode Start";
-			this.throttleVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.throttleVibrationStartLabel, "The depression of the throttle lever at which the program should switch to vibrat" +
-        "ion mode rather than smooth resistance. This helps to avoid clicking as vibratio" +
-        "n mode clicks when no force is applied.");
+			throttleVibrationStartLabel.AutoSize = true;
+			throttleVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleVibrationStartLabel.Location = new System.Drawing.Point(3, 284);
+			throttleVibrationStartLabel.Name = "throttleVibrationStartLabel";
+			throttleVibrationStartLabel.Size = new System.Drawing.Size(132, 51);
+			throttleVibrationStartLabel.TabIndex = 7;
+			throttleVibrationStartLabel.Text = "Vibration Mode Start";
+			throttleVibrationStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(throttleVibrationStartLabel, "The depression of the throttle lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied.");
 			// 
 			// accelerationLimitLabel
 			// 
-			this.accelerationLimitLabel.AutoSize = true;
-			this.accelerationLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.accelerationLimitLabel.Location = new System.Drawing.Point(3, 204);
-			this.accelerationLimitLabel.Name = "accelerationLimitLabel";
-			this.accelerationLimitLabel.Size = new System.Drawing.Size(132, 51);
-			this.accelerationLimitLabel.TabIndex = 5;
-			this.accelerationLimitLabel.Text = "Accel Limit";
-			this.accelerationLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.accelerationLimitLabel, "The upper end acceleration when calculating the throttle resistance. Any accelera" +
-        "tion above this will be counted as this value when determining the throttle resi" +
-        "stance.");
+			accelerationLimitLabel.AutoSize = true;
+			accelerationLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			accelerationLimitLabel.Location = new System.Drawing.Point(3, 233);
+			accelerationLimitLabel.Name = "accelerationLimitLabel";
+			accelerationLimitLabel.Size = new System.Drawing.Size(132, 51);
+			accelerationLimitLabel.TabIndex = 5;
+			accelerationLimitLabel.Text = "Accel Limit";
+			accelerationLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(accelerationLimitLabel, "The upper end acceleration when calculating the throttle resistance. Any acceleration above this will be counted as this value when determining the throttle resistance.");
 			// 
 			// forwardAccelLabel
 			// 
-			this.forwardAccelLabel.AutoSize = true;
-			this.forwardAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.forwardAccelLabel.Location = new System.Drawing.Point(3, 153);
-			this.forwardAccelLabel.Name = "forwardAccelLabel";
-			this.forwardAccelLabel.Size = new System.Drawing.Size(132, 51);
-			this.forwardAccelLabel.TabIndex = 6;
-			this.forwardAccelLabel.Text = "Forward Accel Scale";
-			this.forwardAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.forwardAccelLabel, "How to scale Forward acceleration in determining throttle stiffness.");
+			forwardAccelLabel.AutoSize = true;
+			forwardAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			forwardAccelLabel.Location = new System.Drawing.Point(3, 182);
+			forwardAccelLabel.Name = "forwardAccelLabel";
+			forwardAccelLabel.Size = new System.Drawing.Size(132, 51);
+			forwardAccelLabel.TabIndex = 6;
+			forwardAccelLabel.Text = "Forward Accel Scale";
+			forwardAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(forwardAccelLabel, "How to scale Forward acceleration in determining throttle stiffness.");
 			// 
 			// turnAccelLabel
 			// 
-			this.turnAccelLabel.AutoSize = true;
-			this.turnAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.turnAccelLabel.Location = new System.Drawing.Point(3, 102);
-			this.turnAccelLabel.Name = "turnAccelLabel";
-			this.turnAccelLabel.Size = new System.Drawing.Size(132, 51);
-			this.turnAccelLabel.TabIndex = 4;
-			this.turnAccelLabel.Text = "Turn Accel Scale";
-			this.turnAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.turnAccelLabel, "How to scale turning acceleration in determining throttle stiffness.");
+			turnAccelLabel.AutoSize = true;
+			turnAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			turnAccelLabel.Location = new System.Drawing.Point(3, 131);
+			turnAccelLabel.Name = "turnAccelLabel";
+			turnAccelLabel.Size = new System.Drawing.Size(132, 51);
+			turnAccelLabel.TabIndex = 4;
+			turnAccelLabel.Text = "Turn Accel Scale";
+			turnAccelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(turnAccelLabel, "How to scale turning acceleration in determining throttle stiffness.");
 			// 
 			// throttleGripLossLabel
 			// 
-			this.throttleGripLossLabel.AutoSize = true;
-			this.throttleGripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleGripLossLabel.Location = new System.Drawing.Point(3, 51);
-			this.throttleGripLossLabel.Name = "throttleGripLossLabel";
-			this.throttleGripLossLabel.Size = new System.Drawing.Size(132, 51);
-			this.throttleGripLossLabel.TabIndex = 3;
-			this.throttleGripLossLabel.Text = "Grip Loss Value";
-			this.throttleGripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.throttleGripLossLabel, "The point at which the throttle will begin to become choppy (0 = full grip, 100 =" +
-        " no grip)");
+			throttleGripLossLabel.AutoSize = true;
+			throttleGripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleGripLossLabel.Location = new System.Drawing.Point(3, 80);
+			throttleGripLossLabel.Name = "throttleGripLossLabel";
+			throttleGripLossLabel.Size = new System.Drawing.Size(132, 51);
+			throttleGripLossLabel.TabIndex = 3;
+			throttleGripLossLabel.Text = "Grip Loss Value";
+			throttleGripLossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(throttleGripLossLabel, "The point at which the throttle will begin to become choppy (0 = full grip, 100 = no grip)");
 			// 
 			// throttleIntensityLabel
 			// 
-			this.throttleIntensityLabel.AutoSize = true;
-			this.throttleIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.throttleIntensityLabel.Location = new System.Drawing.Point(3, 0);
-			this.throttleIntensityLabel.Name = "throttleIntensityLabel";
-			this.throttleIntensityLabel.Size = new System.Drawing.Size(132, 51);
-			this.throttleIntensityLabel.TabIndex = 1;
-			this.throttleIntensityLabel.Text = "Effect Intensity";
-			this.throttleIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.toolTip.SetToolTip(this.throttleIntensityLabel, "The percentage of the trigger effects");
+			throttleIntensityLabel.AutoSize = true;
+			throttleIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+			throttleIntensityLabel.Location = new System.Drawing.Point(3, 29);
+			throttleIntensityLabel.Name = "throttleIntensityLabel";
+			throttleIntensityLabel.Size = new System.Drawing.Size(132, 51);
+			throttleIntensityLabel.TabIndex = 1;
+			throttleIntensityLabel.Text = "Effect Intensity";
+			throttleIntensityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			toolTip.SetToolTip(throttleIntensityLabel, "The percentage of the trigger effects");
 			// 
 			// buttonApply_Throttle
 			// 
-			this.buttonApply_Throttle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonApply_Throttle.Location = new System.Drawing.Point(141, 717);
-			this.buttonApply_Throttle.Name = "buttonApply_Throttle";
-			this.buttonApply_Throttle.Size = new System.Drawing.Size(402, 23);
-			this.buttonApply_Throttle.TabIndex = 43;
-			this.buttonApply_Throttle.Text = "Apply";
-			this.buttonApply_Throttle.UseVisualStyleBackColor = true;
-			this.buttonApply_Throttle.Click += new System.EventHandler(this.buttonApply_Throttle_Click);
+			buttonApply_Throttle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+			buttonApply_Throttle.Location = new System.Drawing.Point(141, 746);
+			buttonApply_Throttle.Name = "buttonApply_Throttle";
+			buttonApply_Throttle.Size = new System.Drawing.Size(402, 23);
+			buttonApply_Throttle.TabIndex = 43;
+			buttonApply_Throttle.Text = "Apply";
+			buttonApply_Throttle.UseVisualStyleBackColor = true;
+			buttonApply_Throttle.Click += buttonApply_Throttle_Click;
 			// 
 			// throttleDefaultsButton
 			// 
-			this.throttleDefaultsButton.Location = new System.Drawing.Point(549, 717);
-			this.throttleDefaultsButton.Name = "throttleDefaultsButton";
-			this.throttleDefaultsButton.Size = new System.Drawing.Size(75, 23);
-			this.throttleDefaultsButton.TabIndex = 44;
-			this.throttleDefaultsButton.Text = "Defaults";
-			this.throttleDefaultsButton.UseVisualStyleBackColor = true;
-			this.throttleDefaultsButton.Click += new System.EventHandler(this.throttleDefaultsButton_Click);
+			throttleDefaultsButton.Location = new System.Drawing.Point(549, 746);
+			throttleDefaultsButton.Name = "throttleDefaultsButton";
+			throttleDefaultsButton.Size = new System.Drawing.Size(75, 23);
+			throttleDefaultsButton.TabIndex = 44;
+			throttleDefaultsButton.Text = "Defaults";
+			throttleDefaultsButton.UseVisualStyleBackColor = true;
+			throttleDefaultsButton.Click += throttleDefaultsButton_Click;
 			// 
 			// outputTabPage
 			// 
-			this.outputTabPage.Controls.Add(this.raceGroupBox);
-			this.outputTabPage.Controls.Add(this.noRaceGroupBox);
-			this.outputTabPage.Controls.Add(this.outputListBox);
-			this.outputTabPage.Location = new System.Drawing.Point(4, 24);
-			this.outputTabPage.Name = "outputTabPage";
-			this.outputTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.outputTabPage.Size = new System.Drawing.Size(713, 733);
-			this.outputTabPage.TabIndex = 1;
-			this.outputTabPage.Text = "Output";
-			this.outputTabPage.UseVisualStyleBackColor = true;
+			outputTabPage.Controls.Add(raceGroupBox);
+			outputTabPage.Controls.Add(noRaceGroupBox);
+			outputTabPage.Controls.Add(outputListBox);
+			outputTabPage.Location = new System.Drawing.Point(4, 24);
+			outputTabPage.Name = "outputTabPage";
+			outputTabPage.Padding = new System.Windows.Forms.Padding(3);
+			outputTabPage.Size = new System.Drawing.Size(713, 733);
+			outputTabPage.TabIndex = 1;
+			outputTabPage.Text = "Output";
+			outputTabPage.UseVisualStyleBackColor = true;
 			// 
 			// raceGroupBox
 			// 
-			this.raceGroupBox.Controls.Add(this.tableLayoutPanel1);
-			this.raceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.raceGroupBox.Location = new System.Drawing.Point(3, 530);
-			this.raceGroupBox.Name = "raceGroupBox";
-			this.raceGroupBox.Size = new System.Drawing.Size(707, 100);
-			this.raceGroupBox.TabIndex = 3;
-			this.raceGroupBox.TabStop = false;
-			this.raceGroupBox.Text = "Racing";
+			raceGroupBox.Controls.Add(tableLayoutPanel1);
+			raceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+			raceGroupBox.Location = new System.Drawing.Point(3, 530);
+			raceGroupBox.Name = "raceGroupBox";
+			raceGroupBox.Size = new System.Drawing.Size(707, 100);
+			raceGroupBox.TabIndex = 3;
+			raceGroupBox.TabStop = false;
+			raceGroupBox.Text = "Racing";
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Controls.Add(this.brakeMsg, 0, 3);
-			this.tableLayoutPanel1.Controls.Add(this.brakeVibrationMsg, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.throttleMsg, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.throttleVibrationMsg, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 19);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 4;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(701, 78);
-			this.tableLayoutPanel1.TabIndex = 0;
+			tableLayoutPanel1.ColumnCount = 1;
+			tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			tableLayoutPanel1.Controls.Add(brakeMsg, 0, 3);
+			tableLayoutPanel1.Controls.Add(brakeVibrationMsg, 0, 2);
+			tableLayoutPanel1.Controls.Add(throttleMsg, 0, 1);
+			tableLayoutPanel1.Controls.Add(throttleVibrationMsg, 0, 0);
+			tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			tableLayoutPanel1.Location = new System.Drawing.Point(3, 19);
+			tableLayoutPanel1.Name = "tableLayoutPanel1";
+			tableLayoutPanel1.RowCount = 4;
+			tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			tableLayoutPanel1.Size = new System.Drawing.Size(701, 78);
+			tableLayoutPanel1.TabIndex = 0;
 			// 
 			// brakeMsg
 			// 
-			this.brakeMsg.AutoSize = true;
-			this.brakeMsg.Location = new System.Drawing.Point(3, 45);
-			this.brakeMsg.Name = "brakeMsg";
-			this.brakeMsg.Size = new System.Drawing.Size(38, 15);
-			this.brakeMsg.TabIndex = 3;
-			this.brakeMsg.Text = "label1";
+			brakeMsg.AutoSize = true;
+			brakeMsg.Location = new System.Drawing.Point(3, 45);
+			brakeMsg.Name = "brakeMsg";
+			brakeMsg.Size = new System.Drawing.Size(38, 15);
+			brakeMsg.TabIndex = 3;
+			brakeMsg.Text = "label1";
 			// 
 			// brakeVibrationMsg
 			// 
-			this.brakeVibrationMsg.AutoSize = true;
-			this.brakeVibrationMsg.Location = new System.Drawing.Point(3, 30);
-			this.brakeVibrationMsg.Name = "brakeVibrationMsg";
-			this.brakeVibrationMsg.Size = new System.Drawing.Size(38, 15);
-			this.brakeVibrationMsg.TabIndex = 2;
-			this.brakeVibrationMsg.Text = "label1";
+			brakeVibrationMsg.AutoSize = true;
+			brakeVibrationMsg.Location = new System.Drawing.Point(3, 30);
+			brakeVibrationMsg.Name = "brakeVibrationMsg";
+			brakeVibrationMsg.Size = new System.Drawing.Size(38, 15);
+			brakeVibrationMsg.TabIndex = 2;
+			brakeVibrationMsg.Text = "label1";
 			// 
 			// throttleMsg
 			// 
-			this.throttleMsg.AutoSize = true;
-			this.throttleMsg.Location = new System.Drawing.Point(3, 15);
-			this.throttleMsg.Name = "throttleMsg";
-			this.throttleMsg.Size = new System.Drawing.Size(38, 15);
-			this.throttleMsg.TabIndex = 1;
-			this.throttleMsg.Text = "label1";
+			throttleMsg.AutoSize = true;
+			throttleMsg.Location = new System.Drawing.Point(3, 15);
+			throttleMsg.Name = "throttleMsg";
+			throttleMsg.Size = new System.Drawing.Size(38, 15);
+			throttleMsg.TabIndex = 1;
+			throttleMsg.Text = "label1";
 			// 
 			// throttleVibrationMsg
 			// 
-			this.throttleVibrationMsg.AutoSize = true;
-			this.throttleVibrationMsg.Location = new System.Drawing.Point(3, 0);
-			this.throttleVibrationMsg.Name = "throttleVibrationMsg";
-			this.throttleVibrationMsg.Size = new System.Drawing.Size(38, 15);
-			this.throttleVibrationMsg.TabIndex = 0;
-			this.throttleVibrationMsg.Text = "label1";
+			throttleVibrationMsg.AutoSize = true;
+			throttleVibrationMsg.Location = new System.Drawing.Point(3, 0);
+			throttleVibrationMsg.Name = "throttleVibrationMsg";
+			throttleVibrationMsg.Size = new System.Drawing.Size(38, 15);
+			throttleVibrationMsg.TabIndex = 0;
+			throttleVibrationMsg.Text = "label1";
 			// 
 			// noRaceGroupBox
 			// 
-			this.noRaceGroupBox.Controls.Add(this.noRaceText);
-			this.noRaceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.noRaceGroupBox.Location = new System.Drawing.Point(3, 630);
-			this.noRaceGroupBox.Name = "noRaceGroupBox";
-			this.noRaceGroupBox.Size = new System.Drawing.Size(707, 100);
-			this.noRaceGroupBox.TabIndex = 2;
-			this.noRaceGroupBox.TabStop = false;
-			this.noRaceGroupBox.Text = "Menus";
+			noRaceGroupBox.Controls.Add(noRaceText);
+			noRaceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+			noRaceGroupBox.Location = new System.Drawing.Point(3, 630);
+			noRaceGroupBox.Name = "noRaceGroupBox";
+			noRaceGroupBox.Size = new System.Drawing.Size(707, 100);
+			noRaceGroupBox.TabIndex = 2;
+			noRaceGroupBox.TabStop = false;
+			noRaceGroupBox.Text = "Menus";
 			// 
 			// noRaceText
 			// 
-			this.noRaceText.AutoSize = true;
-			this.noRaceText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.noRaceText.Location = new System.Drawing.Point(3, 19);
-			this.noRaceText.Name = "noRaceText";
-			this.noRaceText.Size = new System.Drawing.Size(38, 15);
-			this.noRaceText.TabIndex = 1;
-			this.noRaceText.Text = "label1";
+			noRaceText.AutoSize = true;
+			noRaceText.Dock = System.Windows.Forms.DockStyle.Fill;
+			noRaceText.Location = new System.Drawing.Point(3, 19);
+			noRaceText.Name = "noRaceText";
+			noRaceText.Size = new System.Drawing.Size(38, 15);
+			noRaceText.TabIndex = 1;
+			noRaceText.Text = "label1";
 			// 
 			// outputListBox
 			// 
-			this.outputListBox.Dock = System.Windows.Forms.DockStyle.Top;
-			this.outputListBox.FormattingEnabled = true;
-			this.outputListBox.ItemHeight = 15;
-			this.outputListBox.Location = new System.Drawing.Point(3, 3);
-			this.outputListBox.Name = "outputListBox";
-			this.outputListBox.Size = new System.Drawing.Size(707, 634);
-			this.outputListBox.TabIndex = 0;
+			outputListBox.Dock = System.Windows.Forms.DockStyle.Top;
+			outputListBox.FormattingEnabled = true;
+			outputListBox.ItemHeight = 15;
+			outputListBox.Location = new System.Drawing.Point(3, 3);
+			outputListBox.Name = "outputListBox";
+			outputListBox.Size = new System.Drawing.Size(707, 634);
+			outputListBox.TabIndex = 0;
 			// 
 			// toolStripStatusDSX
 			// 
-			this.toolStripStatusDSX.Image = global::ForzaDSX.Properties.Resources.redBtn;
-			this.toolStripStatusDSX.Name = "toolStripStatusDSX";
-			this.toolStripStatusDSX.Size = new System.Drawing.Size(112, 17);
-			this.toolStripStatusDSX.Text = "DSX Connection:";
-			this.toolStripStatusDSX.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			toolStripStatusDSX.Image = Properties.Resources.redBtn;
+			toolStripStatusDSX.Name = "toolStripStatusDSX";
+			toolStripStatusDSX.Size = new System.Drawing.Size(112, 17);
+			toolStripStatusDSX.Text = "DSX Connection:";
+			toolStripStatusDSX.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			// 
 			// toolStripStatusForza
 			// 
-			this.toolStripStatusForza.Image = global::ForzaDSX.Properties.Resources.redBtn;
-			this.toolStripStatusForza.Name = "toolStripStatusForza";
-			this.toolStripStatusForza.Size = new System.Drawing.Size(119, 17);
-			this.toolStripStatusForza.Text = "Forza Connection:";
-			this.toolStripStatusForza.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+			toolStripStatusForza.Image = Properties.Resources.redBtn;
+			toolStripStatusForza.Name = "toolStripStatusForza";
+			toolStripStatusForza.Size = new System.Drawing.Size(119, 17);
+			toolStripStatusForza.Text = "Forza Connection:";
+			toolStripStatusForza.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			// 
 			// toolStripVerboseMode
 			// 
-			this.toolStripVerboseMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.toolStripVerboseMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verboseModeOffToolStripMenuItem,
-            this.verboseModeLowToolStripMenuItem,
-            this.verboseModeFullToolStripMenuItem});
-			this.toolStripVerboseMode.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripVerboseMode.Name = "toolStripVerboseMode";
-			this.toolStripVerboseMode.Size = new System.Drawing.Size(95, 20);
-			this.toolStripVerboseMode.Text = "Verbose Mode";
+			toolStripVerboseMode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			toolStripVerboseMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { verboseModeOffToolStripMenuItem, verboseModeLowToolStripMenuItem, verboseModeFullToolStripMenuItem });
+			toolStripVerboseMode.ImageTransparentColor = System.Drawing.Color.Magenta;
+			toolStripVerboseMode.Name = "toolStripVerboseMode";
+			toolStripVerboseMode.Size = new System.Drawing.Size(95, 20);
+			toolStripVerboseMode.Text = "Verbose Mode";
 			// 
 			// verboseModeOffToolStripMenuItem
 			// 
-			this.verboseModeOffToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.verboseModeOffToolStripMenuItem.Name = "verboseModeOffToolStripMenuItem";
-			this.verboseModeOffToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-			this.verboseModeOffToolStripMenuItem.Text = "Off";
-			this.verboseModeOffToolStripMenuItem.Click += new System.EventHandler(this.verboseModeOffToolStripMenuItem_Click);
+			verboseModeOffToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			verboseModeOffToolStripMenuItem.Name = "verboseModeOffToolStripMenuItem";
+			verboseModeOffToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			verboseModeOffToolStripMenuItem.Text = "Off";
+			verboseModeOffToolStripMenuItem.Click += verboseModeOffToolStripMenuItem_Click;
 			// 
 			// verboseModeLowToolStripMenuItem
 			// 
-			this.verboseModeLowToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.verboseModeLowToolStripMenuItem.Name = "verboseModeLowToolStripMenuItem";
-			this.verboseModeLowToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-			this.verboseModeLowToolStripMenuItem.Text = "Low Verbose";
-			this.verboseModeLowToolStripMenuItem.Click += new System.EventHandler(this.verboseModeLowToolStripMenuItem_Click);
+			verboseModeLowToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			verboseModeLowToolStripMenuItem.Name = "verboseModeLowToolStripMenuItem";
+			verboseModeLowToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			verboseModeLowToolStripMenuItem.Text = "Low Verbose";
+			verboseModeLowToolStripMenuItem.Click += verboseModeLowToolStripMenuItem_Click;
 			// 
 			// verboseModeFullToolStripMenuItem
 			// 
-			this.verboseModeFullToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.verboseModeFullToolStripMenuItem.Name = "verboseModeFullToolStripMenuItem";
-			this.verboseModeFullToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-			this.verboseModeFullToolStripMenuItem.Text = "Full Verbose";
-			this.verboseModeFullToolStripMenuItem.Click += new System.EventHandler(this.verboseModeFullToolStripMenuItem_Click);
+			verboseModeFullToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			verboseModeFullToolStripMenuItem.Name = "verboseModeFullToolStripMenuItem";
+			verboseModeFullToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			verboseModeFullToolStripMenuItem.Text = "Full Verbose";
+			verboseModeFullToolStripMenuItem.Click += verboseModeFullToolStripMenuItem_Click;
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusDSX,
-            this.toolStripStatusForza,
-            this.toolStripVerboseMode});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 761);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(721, 22);
-			this.statusStrip1.TabIndex = 0;
-			this.statusStrip1.Text = "statusStrip1";
+			statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusDSX, toolStripStatusForza, toolStripVerboseMode });
+			statusStrip1.Location = new System.Drawing.Point(0, 761);
+			statusStrip1.Name = "statusStrip1";
+			statusStrip1.Size = new System.Drawing.Size(721, 22);
+			statusStrip1.TabIndex = 0;
+			statusStrip1.Text = "statusStrip1";
 			// 
 			// UI
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(721, 783);
-			this.Controls.Add(this.mainPanel);
-			this.Controls.Add(this.statusStrip1);
-			this.DoubleBuffered = true;
-			this.MinimumSize = new System.Drawing.Size(350, 200);
-			this.Name = "UI";
-			this.Text = "UI";
-			this.Load += new System.EventHandler(this.UI_Load);
-			this.mainPanel.ResumeLayout(false);
-			this.mainTabControl.ResumeLayout(false);
-			this.miscTabPage.ResumeLayout(false);
-			this.miscTabPage.PerformLayout();
-			this.miscTableLayoutPanel.ResumeLayout(false);
-			this.miscTableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.forzaPortNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.rpmTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dsxNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.rpmValueNumericUpDown)).EndInit();
-			this.brakeConfigTabPage.ResumeLayout(false);
-			this.brakeConfigTabPage.PerformLayout();
-			this.brakeTableLayoutPanel.ResumeLayout(false);
-			this.brakeTableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.brakeResistanceSmoothNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeResistanceNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeResistanceNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeStifnessNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeStifnessNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationSmoothNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeVibrationNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeVibrationNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationModeNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationStartNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.gripLossNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeEffectNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeResistanceSmoothingTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeResistanceTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeResistanceTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeStiffnessTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeStiffnessTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.vibrationSmoothingTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.maxBrakeVibrationTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.minBrakeVibrationTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationModeTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeVibrationStartTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.gripLossTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.brakeEffectIntensityTrackBar)).EndInit();
-			this.throttleConfigTabPage.ResumeLayout(false);
-			this.throttleTableLayoutPanel.ResumeLayout(false);
-			this.throttleTableLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.throttleResistanceSmoothNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxResistanceNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinResistanceNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxStiffnessNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinStiffnessNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationSmoothNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxVibrationNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinVibrationNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationStartNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleAccelLimitNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleForwardAccelScaleNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleTurnAccelScaleNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleGripLossNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleIntensityNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleResistanceSmoothTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxResistanceTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinResistanceTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxStiffnessTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinStiffnessTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationSmoothTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMaxVibrationTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleMinVibrationTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleVibrationModeStartTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleAccelLimitTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleForwardAccelScaleTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleTurnAccelScaleTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleGripLossTrackBar)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.throttleIntensityTrackBar)).EndInit();
-			this.outputTabPage.ResumeLayout(false);
-			this.raceGroupBox.ResumeLayout(false);
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel1.PerformLayout();
-			this.noRaceGroupBox.ResumeLayout(false);
-			this.noRaceGroupBox.PerformLayout();
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
-
-        }
+			AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			ClientSize = new System.Drawing.Size(721, 783);
+			Controls.Add(mainPanel);
+			Controls.Add(statusStrip1);
+			DoubleBuffered = true;
+			MinimumSize = new System.Drawing.Size(350, 200);
+			Name = "UI";
+			Text = "UI";
+			Load += UI_Load;
+			mainPanel.ResumeLayout(false);
+			mainTabControl.ResumeLayout(false);
+			miscTabPage.ResumeLayout(false);
+			miscTabPage.PerformLayout();
+			miscTableLayoutPanel.ResumeLayout(false);
+			miscTableLayoutPanel.PerformLayout();
+			((ISupportInitialize)forzaPortNumericUpDown).EndInit();
+			((ISupportInitialize)rpmTrackBar).EndInit();
+			((ISupportInitialize)dsxNumericUpDown).EndInit();
+			((ISupportInitialize)rpmValueNumericUpDown).EndInit();
+			brakeConfigTabPage.ResumeLayout(false);
+			brakeConfigTabPage.PerformLayout();
+			brakeTableLayoutPanel.ResumeLayout(false);
+			brakeTableLayoutPanel.PerformLayout();
+			((ISupportInitialize)brakeResistanceSmoothNumericUpDown).EndInit();
+			((ISupportInitialize)maxBrakeResistanceNumericUpDown).EndInit();
+			((ISupportInitialize)minBrakeResistanceNumericUpDown).EndInit();
+			((ISupportInitialize)maxBrakeStifnessNumericUpDown).EndInit();
+			((ISupportInitialize)minBrakeStifnessNumericUpDown).EndInit();
+			((ISupportInitialize)brakeVibrationSmoothNumericUpDown).EndInit();
+			((ISupportInitialize)maxBrakeVibrationNumericUpDown).EndInit();
+			((ISupportInitialize)minBrakeVibrationNumericUpDown).EndInit();
+			((ISupportInitialize)brakeVibrationModeNumericUpDown).EndInit();
+			((ISupportInitialize)brakeVibrationStartNumericUpDown).EndInit();
+			((ISupportInitialize)gripLossNumericUpDown).EndInit();
+			((ISupportInitialize)brakeEffectNumericUpDown).EndInit();
+			((ISupportInitialize)brakeResistanceSmoothingTrackBar).EndInit();
+			((ISupportInitialize)maxBrakeResistanceTrackBar).EndInit();
+			((ISupportInitialize)minBrakeResistanceTrackBar).EndInit();
+			((ISupportInitialize)maxBrakeStiffnessTrackBar).EndInit();
+			((ISupportInitialize)minBrakeStiffnessTrackBar).EndInit();
+			((ISupportInitialize)vibrationSmoothingTrackBar).EndInit();
+			((ISupportInitialize)maxBrakeVibrationTrackBar).EndInit();
+			((ISupportInitialize)minBrakeVibrationTrackBar).EndInit();
+			((ISupportInitialize)brakeVibrationModeTrackBar).EndInit();
+			((ISupportInitialize)brakeVibrationStartTrackBar).EndInit();
+			((ISupportInitialize)gripLossTrackBar).EndInit();
+			((ISupportInitialize)brakeEffectIntensityTrackBar).EndInit();
+			throttleConfigTabPage.ResumeLayout(false);
+			throttleTableLayoutPanel.ResumeLayout(false);
+			throttleTableLayoutPanel.PerformLayout();
+			((ISupportInitialize)throttleResistanceSmoothNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMaxResistanceNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMinResistanceNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMaxStiffnessNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMinStiffnessNumericUpDown).EndInit();
+			((ISupportInitialize)throttleVibrationSmoothNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMaxVibrationNumericUpDown).EndInit();
+			((ISupportInitialize)throttleMinVibrationNumericUpDown).EndInit();
+			((ISupportInitialize)throttleVibrationStartNumericUpDown).EndInit();
+			((ISupportInitialize)throttleAccelLimitNumericUpDown).EndInit();
+			((ISupportInitialize)throttleForwardAccelScaleNumericUpDown).EndInit();
+			((ISupportInitialize)throttleTurnAccelScaleNumericUpDown).EndInit();
+			((ISupportInitialize)throttleGripLossNumericUpDown).EndInit();
+			((ISupportInitialize)throttleIntensityNumericUpDown).EndInit();
+			((ISupportInitialize)throttleResistanceSmoothTrackBar).EndInit();
+			((ISupportInitialize)throttleMaxResistanceTrackBar).EndInit();
+			((ISupportInitialize)throttleMinResistanceTrackBar).EndInit();
+			((ISupportInitialize)throttleMaxStiffnessTrackBar).EndInit();
+			((ISupportInitialize)throttleMinStiffnessTrackBar).EndInit();
+			((ISupportInitialize)throttleVibrationSmoothTrackBar).EndInit();
+			((ISupportInitialize)throttleMaxVibrationTrackBar).EndInit();
+			((ISupportInitialize)throttleMinVibrationTrackBar).EndInit();
+			((ISupportInitialize)throttleVibrationModeStartTrackBar).EndInit();
+			((ISupportInitialize)throttleAccelLimitTrackBar).EndInit();
+			((ISupportInitialize)throttleForwardAccelScaleTrackBar).EndInit();
+			((ISupportInitialize)throttleTurnAccelScaleTrackBar).EndInit();
+			((ISupportInitialize)throttleGripLossTrackBar).EndInit();
+			((ISupportInitialize)throttleIntensityTrackBar).EndInit();
+			outputTabPage.ResumeLayout(false);
+			raceGroupBox.ResumeLayout(false);
+			tableLayoutPanel1.ResumeLayout(false);
+			tableLayoutPanel1.PerformLayout();
+			noRaceGroupBox.ResumeLayout(false);
+			noRaceGroupBox.PerformLayout();
+			statusStrip1.ResumeLayout(false);
+			statusStrip1.PerformLayout();
+			ResumeLayout(false);
+			PerformLayout();
+		}
 
 		#endregion
 		//private System.ComponentModel.BackgroundWorker mainWorker;
 		//private System.ComponentModel.BackgroundWorker connectionWorker;
-        private System.Windows.Forms.Panel mainPanel;
+		private System.Windows.Forms.Panel mainPanel;
 		private System.Windows.Forms.TabControl mainTabControl;
 		private System.Windows.Forms.TabPage brakeConfigTabPage;
 		private System.Windows.Forms.TabPage outputTabPage;
@@ -2253,5 +2128,9 @@ namespace ForzaDSX
 		private System.Windows.Forms.Button miscDefaultsButton;
 		private System.Windows.Forms.Button brakeDefaultsButton;
 		private System.Windows.Forms.Button throttleDefaultsButton;
+		private System.Windows.Forms.Label brakeTriggerMode;
+		private System.Windows.Forms.ComboBox brakeTriggerModeComboBox;
+		private System.Windows.Forms.Label throttleTriggerMode;
+		private System.Windows.Forms.ComboBox throttleTriggerModeComboBox;
 	}
 }

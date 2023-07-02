@@ -12,7 +12,7 @@ namespace ForzaDSX.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -361,25 +361,25 @@ namespace ForzaDSX.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public float _left_Trigger_Eeffect_Intensity {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.7")]
+        public float _left_Trigger_Effect_Intensity {
             get {
-                return ((float)(this["_left_Trigger_Eeffect_Intensity"]));
+                return ((float)(this["_left_Trigger_Effect_Intensity"]));
             }
             set {
-                this["_left_Trigger_Eeffect_Intensity"] = value;
+                this["_left_Trigger_Effect_Intensity"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public float _right_Trigger_Eeffect_Intensity {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.7")]
+        public float _right_Trigger_Effect_Intensity {
             get {
-                return ((float)(this["_right_Trigger_Eeffect_Intensity"]));
+                return ((float)(this["_right_Trigger_Effect_Intensity"]));
             }
             set {
-                this["_right_Trigger_Eeffect_Intensity"] = value;
+                this["_right_Trigger_Effect_Intensity"] = value;
             }
         }
         
@@ -394,97 +394,29 @@ namespace ForzaDSX.Properties {
                 this["_verbose"] = value;
             }
         }
-
-		//The point at which the brake will begin to become choppy
-		public float GRIP_LOSS_VAL { get => _grip_Loss_Val; set => _grip_Loss_Val = value; }
-
-		// The point at which the throttle will begin to become choppy
-		public float THROTTLE_GRIP_LOSS_VAL { get => _throttle_Grip_Loss_Val; set => _throttle_Grip_Loss_Val = value; }
-
-		//The maximum brake frequency in Hz (avoid over 40). COrrelates to better grip
-		public int MAX_BRAKE_VIBRATION { get => _max_Brake_Vibration; set => _max_Brake_Vibration = value; }
-
-		//The Minimum brake frequency in Hz (avoid over 40). Helps avoid clicking in controller
-		public int MIN_BRAKE_VIBRATION { get => _min_Brake_Vibration; set => _min_Brake_Vibration = value; }
-
-		//How to scale turning acceleration in determining throttle stiffness.
-		public float TURN_ACCEL_MOD { get => _turn_Accel_Mod; set => _turn_Accel_Mod = value; }
-
-		//Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than 0
-		public float EWMA_ALPHA_THROTTLE { get => _ewma_Alpha_Throttle; set => _ewma_Alpha_Throttle = value; }
-
-		//Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0
-		public float EWMA_ALPHA_BRAKE { get => _ewma_Alpha_Brake; set => _ewma_Alpha_Brake = value; }
-
-		//Smoothing for Brake Resistance output. Lower = smoother. Must be greater than 0
-		public float EWMA_ALPHA_BRAKE_FREQ { get => _ewma_Alpha_Brake_Freq; set => _ewma_Alpha_Brake_Freq = value; }
-
-		//Smoothing for Throttle Resistance output. Lower = smoother. Must be greater than 0
-		public float EWMA_ALPHA_THROTTLE_FREQ { get => _ewma_Alpha_Throttle_Freq; set => _ewma_Alpha_Throttle_Freq = value; }
-
-		//How to scale Forward acceleration in determining throttle stiffness.
-		public float FORWARD_ACCEL_MOD { get => _forward_Accel_Mod; set => _forward_Accel_Mod = value; }
-
-		//The maximum acceleration frequency in Hz (avoid over 40). COrrelates to better grip
-		public int MAX_ACCEL_GRIPLOSS_VIBRATION { get => _max_Accel_Griploss_Vibration; set => _max_Accel_Griploss_Vibration = value; }
-
-		//The Minimum acceleration frequency in Hz (avoid over 40). Helps avoid clicking in controller
-		public int MIN_ACCEL_GRIPLOSS_VIBRATION { get => _min_Accel_Griploss_Vibration; set => _min_Accel_Griploss_Vibration = value; }
-
-		//On a scale of 1-200 with 1 being most stiff
-		public int MIN_ACCEL_GRIPLOSS_STIFFNESS { get => _min_Accel_Griploss_Stiffness; set => _min_Accel_Griploss_Stiffness = value; }
-
-		//On a scale of 1-200 with 1 being most stiff
-		public int MAX_ACCEL_GRIPLOSS_STIFFNESS { get => _max_Accel_Griploss_Stiffness; set => _max_Accel_Griploss_Stiffness = value; }
-
-		//On a scale of 1-200 with 1 being most stiff
-		public int MIN_BRAKE_STIFFNESS { get => _min_Brake_Stiffness; set => _min_Brake_Stiffness = value; }
-
-		//On a scale of 1-200 with 1 being most stiff
-		public int MAX_BRAKE_STIFFNESS { get => _max_Brake_Stiffness; set => _max_Brake_Stiffness = value; }
-
-		//The position (0-255) at which the brake should feel engaged with low grip surfaces
-		public int BRAKE_VIBRATION_START { get => _brake_Vibration_Start; set => _brake_Vibration_Start = value; }
-
-		//The depression of the brake lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied. 
-		public int BRAKE_VIBRATION__MODE_START { get => _brake_Vibration_Mode_Start; set => _brake_Vibration_Mode_Start = value; }
-
-		//The depression of the throttle lever at which the program should switch to vibration mode rather than smooth resistance. This helps to avoid clicking as vibration mode clicks when no force is applied. 
-		public int THROTTLE_VIBRATION_MODE_START { get => _throttle_Vibration_Mode_Start; set => _throttle_Vibration_Mode_Start = value; }
-
-		//The Maximum resistance on the throttle (0-7)
-		public int MAX_THROTTLE_RESISTANCE { get => _max_Throttle_Resistance; set => _max_Throttle_Resistance = value; }
-
-		//The Maximum resistance on the Brake (0-7)
-		public int MAX_BRAKE_RESISTANCE { get => _max_Brake_Resistance; set => _max_Brake_Resistance = value; }
-
-		//The Minimum resistance on the throttle (0-7)
-		public int MIN_THROTTLE_RESISTANCE { get => _min_Throttle_Resistance; set => _min_Throttle_Resistance = value; }
-
-		//The Minimum resistance on the Brake (0-7)
-		public int MIN_BRAKE_RESISTANCE { get => _min_Brake_Resistance; set => _min_Brake_Resistance = value; }
-
-		//The upper end acceleration when calculating the throttle resistance. Any acceleration above this will be counted as this value when determining the throttle resistance.
-		public int ACCELERATION_LIMIT { get => _acceleration_Limit; set => _acceleration_Limit = value; }
-
-		// The percentage of the current RPM when we are in the "redline" of the engine
-		public float RPM_REDLINE_RATIO { get => _rpm_Redline_Ratio; set => _rpm_Redline_Ratio = value; }
-
-		//Should we disable the check for running applications?
-		public bool DISABLE_APP_CHECK { get => _disable_App_Check; set => _disable_App_Check = value; }
-
-		//Port for DSX Port Listener
-		public int DSX_PORT { get => _dsx_PORT; set => _dsx_PORT = value; }
-
-		//Port for Forza UDP server
-		public int FORZA_PORT { get => _forza_PORT; set => _forza_PORT = value; }
-
-		// The percentage of the trigger effects. 1 = 100%, 0.5 = 50%, 0 = 0% (off)
-		public float LEFT_TRIGGER_EFFECT_INTENSITY { get => _left_Trigger_Eeffect_Intensity; set => _left_Trigger_Eeffect_Intensity = value; }
-
-		// The percentage of the trigger effects. 1 = 100%, 0.5 = 50%, 0 = 0% (off)
-		public float RIGHT_TRIGGER_EFFECT_INTENSITY { get => _right_Trigger_Eeffect_Intensity; set => _right_Trigger_Eeffect_Intensity = value; }
-
-		public uint Verbose { get => _verbose; set => _verbose = value; }
-	}
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public sbyte ThrottleTriggerMode {
+            get {
+                return ((sbyte)(this["ThrottleTriggerMode"]));
+            }
+            set {
+                this["ThrottleTriggerMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public sbyte BrakeTriggerMode {
+            get {
+                return ((sbyte)(this["BrakeTriggerMode"]));
+            }
+            set {
+                this["BrakeTriggerMode"] = value;
+            }
+        }
+    }
 }

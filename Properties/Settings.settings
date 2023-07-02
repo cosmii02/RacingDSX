@@ -80,20 +80,26 @@
     <Setting Name="_disable_App_Check" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="_dsx_PORT" Type="System.UInt32" Scope="User">
+    <Setting Name="_dsx_PORT" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">6969</Value>
     </Setting>
-    <Setting Name="_forza_PORT" Type="System.UInt32" Scope="User">
+    <Setting Name="_forza_PORT" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">5300</Value>
     </Setting>
-    <Setting Name="_left_Trigger_Eeffect_Intensity" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1</Value>
+    <Setting Name="_left_Trigger_Effect_Intensity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.7</Value>
     </Setting>
-    <Setting Name="_right_Trigger_Eeffect_Intensity" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">1</Value>
+    <Setting Name="_right_Trigger_Effect_Intensity" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.7</Value>
     </Setting>
     <Setting Name="_verbose" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ThrottleTriggerMode" Type="System.SByte" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="BrakeTriggerMode" Type="System.SByte" Scope="User">
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

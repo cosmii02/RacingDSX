@@ -5,7 +5,6 @@ using System.Windows.Forms;
 
 namespace ForzaDSX
 {
-
     public class Program
     {
         public const String VERSION = "0.5.6-DB3";
@@ -26,7 +25,7 @@ namespace ForzaDSX
 						}
 					//case "--Program.verbose":
 					//	{
-					//		Console.WriteLine("Verbose Mode Enabled!");
+					//		Console.WriteLine("_verbose Mode Enabled!");
 					//		verbose = true;
 					//		break;
 					//	}
