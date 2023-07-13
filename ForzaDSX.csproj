@@ -4,13 +4,13 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <!--<PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>-->
-	  <!--<SelfContained Condition="'$(Configuration)' == 'Release'">true</SelfContained>-->
+    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+	<SelfContained Condition="'$(Configuration)' == 'Release'">true</SelfContained>
+	 <PublishReadyToRun Condition="'$(Configuration)' == 'Release'">true</PublishReadyToRun>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-	  <!--<PublishReadyToRun Condition="'$(Configuration)' == 'Release'">true</PublishReadyToRun>-->
-	  <PublishSingleFile>true</PublishSingleFile>
+	  <!--<PublishSingleFile>true</PublishSingleFile>
 	  <SelfContained>true</SelfContained>
-	  <PublishReadyToRun>true</PublishReadyToRun>
+	  <PublishReadyToRun>true</PublishReadyToRun>-->
 	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platforms>AnyCPU</Platforms>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
@@ -18,8 +18,8 @@
     <StartupObject>ForzaDSX.Program</StartupObject>
     <IsPublishable>True</IsPublishable>
     <Title>ForzaDSX</Title>
-    <IncludeSymbols>False</IncludeSymbols>
-    <UseWPF>True</UseWPF>
+    <IncludeSymbols>True</IncludeSymbols>
+    <UseWPF>False</UseWPF>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <Company>Paliverse Apps LLC</Company>
   </PropertyGroup>
@@ -31,7 +31,7 @@
 <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<PlatformTarget>AnyCPU</PlatformTarget>
 	<DebugSymbols>true</DebugSymbols>
-	<DebugType>none</DebugType>
+	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>bin\Debug\</OutputPath>
 	<DefineConstants>DEBUG;TRACE</DefineConstants>

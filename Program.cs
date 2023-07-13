@@ -5,10 +5,9 @@ using System.Windows.Forms;
 
 namespace ForzaDSX
 {
-
     public class Program
     {
-        public const String VERSION = "0.5.5-DB2";
+        public const String VERSION = "0.5.6-RC1";
 
 		[STAThread]
 		static void Main(string[] args)
@@ -21,12 +20,12 @@ namespace ForzaDSX
 				{
 					case "-v":
 						{
-							Console.WriteLine($"ForzaDSX Version {VERSION}");
+							//Console.WriteLine($"ForzaDSX Version {VERSION}");
 							return;
 						}
 					//case "--Program.verbose":
 					//	{
-					//		Console.WriteLine("Verbose Mode Enabled!");
+					//		Console.WriteLine("_verbose Mode Enabled!");
 					//		verbose = true;
 					//		break;
 					//	}
