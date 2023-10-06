@@ -7,7 +7,7 @@ namespace ForzaDSX
 {
     public class Program
     {
-        public const String VERSION = "0.5.6-RC1";
+        public const String VERSION = "0.5.7";
 
 		[STAThread]
 		static void Main(string[] args)
