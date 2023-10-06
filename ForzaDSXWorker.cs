@@ -766,6 +766,9 @@ namespace ForzaDSX
 				case 311: // FM7 dash
 					FMData.BufferOffset = 0;
 					return true;
+				case 331: // FM8 dash
+					FMData.BufferOffset = 0;
+					return true;
 				case 324: // FH4
 					FMData.BufferOffset = 12;
 					return true;
