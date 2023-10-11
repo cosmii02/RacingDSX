@@ -77,6 +77,7 @@ namespace ForzaDSX
 					forzaProcesses += Process.GetProcessesByName("ForzaHorizon4").Length; //Guess at name
 					forzaProcesses += Process.GetProcessesByName("ForzaMotorsport7").Length; //Guess at name
 					forzaProcesses += Process.GetProcessesByName("forza_gaming.desktop.x64_release_final").Length; //Guess at name
+					forzaProcesses += Process.GetProcessesByName("forza_steamworks_release_final").Length; //Guess at name
 
 																								// DSX = "DSX" or "DualSenseX"
 					DSX = Process.GetProcessesByName("DSX");
