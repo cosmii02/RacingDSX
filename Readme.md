@@ -1,3 +1,5 @@
+💛Thank you for using ForzaDSX💛 💛Currently there are no plans to make it compatible with upcoming mod support on dsx v3, unless someone makes a PR for it💛
+
 🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
