@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj": {}
+    "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj": {}
   },
   "projects": {
-    "E:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj": {
+    "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj",
+        "projectUniqueName": "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj",
         "projectName": "ForzaDSX",
-        "projectPath": "E:\\Development\\Projects\\ForzaDSX\\ForzaDSX.csproj",
-        "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
-        "outputPath": "E:\\Development\\Projects\\ForzaDSX\\obj\\",
+        "projectPath": "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj",
+        "packagesPath": "C:\\Users\\patma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patma\\source\\repos\\RacingDSX\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\patma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,20 +74,32 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[7.0.5, 7.0.5]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
             },
             {
-              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[7.0.5, 7.0.5]"
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.5, 7.0.5]"
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[7.0.5, 7.0.5]"
+              "version": "[7.0.14, 7.0.14]"
             }
           ],
           "frameworkReferences": {
@@ -102,7 +110,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

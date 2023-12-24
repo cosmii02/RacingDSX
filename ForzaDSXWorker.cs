@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ForzaDSX
@@ -297,7 +298,7 @@ namespace ForzaDSX
 					if (settings._verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}\r\n Resistance: {filteredResistance}" ));
 					}
 				}
 				else
@@ -319,7 +320,7 @@ namespace ForzaDSX
 				if (settings._verbose > 0
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE, $"Average Acceleration: {avgAccel}; Throttle Resistance: {filteredResistance}; Accelerator: {data.Accelerator}" ));
+					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE, $"Average Acceleration: {avgAccel}\r\n Throttle Resistance: {filteredResistance}\r\n Accelerator: {data.Accelerator}" ));
 				}
 
 				p.instructions = new Instruction[] { RightTrigger };
@@ -360,7 +361,7 @@ namespace ForzaDSX
 					if (settings._verbose > 0
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"Setting Brake to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
+						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"Setting Brake to vibration mode with freq: {filteredFreq}\r\n Resistance: {filteredResistance}" ));
 					}
 				}
 				else
@@ -382,7 +383,7 @@ namespace ForzaDSX
 				if (settings._verbose > 0
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance}; Tire Slip: {combinedTireSlip}" ));
+					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}\r\n Brake Resistance: {filteredResistance}\r\n Tire Slip: {combinedTireSlip} \r\n FLCPS: {data.frontLeftContactPatchV} \r\n speed: {data.Speed}" ));
 				}
 
 				p.instructions = new Instruction[] { LeftTrigger};
@@ -599,7 +600,8 @@ namespace ForzaDSX
 					{
 						//  return;
 					}
-					data = ParseData(resultBuffer);
+					data = parseDirtData(resultBuffer);
+
 					if (settings._verbose > 1
 						&& progressReporter != null)
 					{
@@ -659,8 +661,48 @@ namespace ForzaDSX
 			return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
 		}
 
-		//Parses data from Forza into a DataPacket
-		DataPacket ParseData(byte[] packet)
+		DataPacket parseDirtData(byte[] packet)
+		{
+            DataPacket data = new DataPacket();
+			//data.AccelerationX
+
+			data.IsRaceOn = true;
+			data.Power = 1;
+			data.CurrentEngineRpm = PacketParse.GetSingle(packet, 148) * 10.0f;
+			data.Speed = PacketParse.GetSingle(packet, 28);
+			data.frontLeftContactPatchV = PacketParse.GetSingle(packet, 108);
+            data.TireCombinedSlipFrontLeft = calcTireSlip(PacketParse.GetSingle(packet, 108), data.Speed);
+			data.TireCombinedSlipFrontRight = calcTireSlip(PacketParse.GetSingle(packet, 112), data.Speed);
+			data.TireCombinedSlipRearLeft = calcTireSlip(PacketParse.GetSingle(packet, 100), data.Speed);
+			data.TireCombinedSlipRearRight = calcTireSlip(PacketParse.GetSingle(packet, 104), data.Speed);
+
+
+            data.CarClass = 0;
+
+			data.CarPerformanceIndex = 0;
+
+                data.AccelerationX = PacketParse.GetSingle(packet, 136);
+
+                data.AccelerationZ = PacketParse.GetSingle(packet, 140);
+
+                data.Accelerator = (uint)(PacketParse.GetSingle(packet, 116)* 255.0f);
+
+                data.Brake = (uint)(PacketParse.GetSingle(packet, 120) * 255.0f);
+
+			data.EngineMaxRpm = PacketParse.GetSingle(packet, 252) * 10.0f;
+			data.EngineIdleRpm = 0;
+            return data;
+        }
+		static float calcTireSlip(float contactPatchSpeed, float vehicleSpeed)
+		{
+			if (Math.Abs(vehicleSpeed) < 0.1f)
+			{
+                return 0;
+            }
+			return 3.0f * (Math.Abs(Math.Abs(contactPatchSpeed) - vehicleSpeed) / vehicleSpeed);
+		}
+        //Parses data from Forza into a DataPacket
+        DataPacket ParseData(byte[] packet)
 		{
 			DataPacket data = new DataPacket();
 

@@ -85,7 +85,8 @@ namespace ForzaDSX
 
 					dsxReport.value = (DSX.Length + DSX_2.Length) > 0;
 					forzaReport.value = forzaProcesses > 0;
-
+					forzaReport.value = true;
+					//TODO: CHANGE
 					if (progressReporter != null)
 					{
 						progressReporter.Report(dsxReport);

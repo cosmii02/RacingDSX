@@ -3,6 +3,8 @@
     public class DataPacket
     {
         // Sled
+
+        public float frontLeftContactPatchV { get; set; }
         public bool IsRaceOn { get; set; }
         public uint TimestampMS { get; set; } // Can overflow to 0 eventually
         public float EngineMaxRpm { get; set; }
