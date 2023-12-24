@@ -1,5 +1,15 @@
 💛Thank you for using ForzaDSX💛 💛Currently there are no plans to make it compatible with upcoming mod support on dsx v3, unless someone makes a PR for it💛
 
+## Notes for allowing multiple different games beyond forza to work:
+- Create multiple config files for each game type
+- Detect running game and set that profile to active
+- allow user to manually set active profile
+- Display list of profiles, allow editing and copying of profiles
+- Each profile has an associated expected packet format
+- Each profile has associated executable name to look for to auto set active
+- General app config that Maintains app wide settings(DSX IP/POrt, Whether to auto do app checks, etc)
+
+
 🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)

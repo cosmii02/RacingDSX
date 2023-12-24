@@ -32,7 +32,13 @@ namespace ForzaDSX
         private void InitializeComponent()
         {
             components = new Container();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("test2");
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(UI));
             mainPanel = new System.Windows.Forms.Panel();
+            mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            profilesGroupBox = new System.Windows.Forms.GroupBox();
+            profilesListView = new System.Windows.Forms.ListView();
             mainTabControl = new System.Windows.Forms.TabControl();
             miscTabPage = new System.Windows.Forms.TabPage();
             miscTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -154,8 +160,18 @@ namespace ForzaDSX
             verboseModeLowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             verboseModeFullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
+            toolStripDSXPortButton = new System.Windows.Forms.ToolStripDropDownButton();
+            toolStripDSXPortTextBox = new System.Windows.Forms.ToolStripTextBox();
+            toolStripAppCheckButton = new System.Windows.Forms.ToolStripDropDownButton();
+            toolStripAppCheckOffItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripAppCheckOnItem = new System.Windows.Forms.ToolStripMenuItem();
             toolTip = new System.Windows.Forms.ToolTip(components);
             mainPanel.SuspendLayout();
+            ((ISupportInitialize)mainSplitContainer).BeginInit();
+            mainSplitContainer.Panel1.SuspendLayout();
+            mainSplitContainer.Panel2.SuspendLayout();
+            mainSplitContainer.SuspendLayout();
+            profilesGroupBox.SuspendLayout();
             mainTabControl.SuspendLayout();
             miscTabPage.SuspendLayout();
             miscTableLayoutPanel.SuspendLayout();
@@ -228,13 +244,52 @@ namespace ForzaDSX
             // 
             // mainPanel
             // 
-            mainPanel.Controls.Add(mainTabControl);
+            mainPanel.Controls.Add(mainSplitContainer);
             mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             mainPanel.Location = new System.Drawing.Point(0, 0);
             mainPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new System.Drawing.Size(1030, 1273);
+            mainPanel.Size = new System.Drawing.Size(1848, 1228);
             mainPanel.TabIndex = 0;
+            // 
+            // mainSplitContainer
+            // 
+            mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            mainSplitContainer.Name = "mainSplitContainer";
+            // 
+            // mainSplitContainer.Panel1
+            // 
+            mainSplitContainer.Panel1.Controls.Add(profilesGroupBox);
+            // 
+            // mainSplitContainer.Panel2
+            // 
+            mainSplitContainer.Panel2.Controls.Add(mainTabControl);
+            mainSplitContainer.Size = new System.Drawing.Size(1848, 1228);
+            mainSplitContainer.SplitterDistance = 236;
+            mainSplitContainer.TabIndex = 1;
+            // 
+            // profilesGroupBox
+            // 
+            profilesGroupBox.Controls.Add(profilesListView);
+            profilesGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            profilesGroupBox.Location = new System.Drawing.Point(0, 0);
+            profilesGroupBox.Name = "profilesGroupBox";
+            profilesGroupBox.Size = new System.Drawing.Size(236, 1228);
+            profilesGroupBox.TabIndex = 3;
+            profilesGroupBox.TabStop = false;
+            profilesGroupBox.Text = "Profiles";
+            // 
+            // profilesListView
+            // 
+            profilesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            profilesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
+            profilesListView.Location = new System.Drawing.Point(3, 27);
+            profilesListView.Name = "profilesListView";
+            profilesListView.Size = new System.Drawing.Size(230, 1198);
+            profilesListView.TabIndex = 0;
+            profilesListView.UseCompatibleStateImageBehavior = false;
+            profilesListView.View = System.Windows.Forms.View.List;
             // 
             // mainTabControl
             // 
@@ -247,7 +302,7 @@ namespace ForzaDSX
             mainTabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
-            mainTabControl.Size = new System.Drawing.Size(1030, 1273);
+            mainTabControl.Size = new System.Drawing.Size(1608, 1228);
             mainTabControl.TabIndex = 0;
             // 
             // miscTabPage
@@ -257,7 +312,7 @@ namespace ForzaDSX
             miscTabPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscTabPage.Name = "miscTabPage";
             miscTabPage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            miscTabPage.Size = new System.Drawing.Size(1022, 1235);
+            miscTabPage.Size = new System.Drawing.Size(1600, 1190);
             miscTabPage.TabIndex = 3;
             miscTabPage.Text = "Misc";
             miscTabPage.UseVisualStyleBackColor = true;
@@ -291,7 +346,7 @@ namespace ForzaDSX
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            miscTableLayoutPanel.Size = new System.Drawing.Size(1014, 1225);
+            miscTableLayoutPanel.Size = new System.Drawing.Size(1592, 1180);
             miscTableLayoutPanel.TabIndex = 0;
             // 
             // forzaPortNumericUpDown
@@ -415,7 +470,7 @@ namespace ForzaDSX
             rpmValueNumericUpDown.Location = new System.Drawing.Point(782, 5);
             rpmValueNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-            rpmValueNumericUpDown.Size = new System.Drawing.Size(228, 31);
+            rpmValueNumericUpDown.Size = new System.Drawing.Size(806, 31);
             rpmValueNumericUpDown.TabIndex = 8;
             toolTip.SetToolTip(rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             rpmValueNumericUpDown.ValueChanged += rpmValueNumericUpDown_ValueChanged;
@@ -451,7 +506,7 @@ namespace ForzaDSX
             brakeConfigTabPage.Location = new System.Drawing.Point(4, 34);
             brakeConfigTabPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             brakeConfigTabPage.Name = "brakeConfigTabPage";
-            brakeConfigTabPage.Size = new System.Drawing.Size(1022, 1235);
+            brakeConfigTabPage.Size = new System.Drawing.Size(1600, 1190);
             brakeConfigTabPage.TabIndex = 4;
             brakeConfigTabPage.Text = "Brake Trigger";
             // 
@@ -525,7 +580,7 @@ namespace ForzaDSX
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            brakeTableLayoutPanel.Size = new System.Drawing.Size(1022, 1235);
+            brakeTableLayoutPanel.Size = new System.Drawing.Size(1600, 1190);
             brakeTableLayoutPanel.TabIndex = 0;
             // 
             // brakeResistanceSmoothNumericUpDown
@@ -1111,7 +1166,7 @@ namespace ForzaDSX
             throttleConfigTabPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             throttleConfigTabPage.Name = "throttleConfigTabPage";
             throttleConfigTabPage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            throttleConfigTabPage.Size = new System.Drawing.Size(1022, 1235);
+            throttleConfigTabPage.Size = new System.Drawing.Size(1600, 1190);
             throttleConfigTabPage.TabIndex = 2;
             throttleConfigTabPage.Text = "Throttle Trigger";
             throttleConfigTabPage.UseVisualStyleBackColor = true;
@@ -1190,7 +1245,7 @@ namespace ForzaDSX
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            throttleTableLayoutPanel.Size = new System.Drawing.Size(1014, 1225);
+            throttleTableLayoutPanel.Size = new System.Drawing.Size(1592, 1180);
             throttleTableLayoutPanel.TabIndex = 0;
             // 
             // throttleTriggerModeComboBox
@@ -1858,7 +1913,7 @@ namespace ForzaDSX
             outputTabPage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             outputTabPage.Name = "outputTabPage";
             outputTabPage.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            outputTabPage.Size = new System.Drawing.Size(1022, 1235);
+            outputTabPage.Size = new System.Drawing.Size(1600, 1190);
             outputTabPage.TabIndex = 1;
             outputTabPage.Text = "Output";
             outputTabPage.UseVisualStyleBackColor = true;
@@ -1867,11 +1922,11 @@ namespace ForzaDSX
             // 
             raceGroupBox.Controls.Add(tableLayoutPanel1);
             raceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            raceGroupBox.Location = new System.Drawing.Point(4, 609);
+            raceGroupBox.Location = new System.Drawing.Point(4, 564);
             raceGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             raceGroupBox.Name = "raceGroupBox";
             raceGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            raceGroupBox.Size = new System.Drawing.Size(1014, 454);
+            raceGroupBox.Size = new System.Drawing.Size(1592, 454);
             raceGroupBox.TabIndex = 3;
             raceGroupBox.TabStop = false;
             raceGroupBox.Text = "Racing";
@@ -1894,7 +1949,7 @@ namespace ForzaDSX
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.Size = new System.Drawing.Size(1006, 420);
+            tableLayoutPanel1.Size = new System.Drawing.Size(1584, 420);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // brakeMsg
@@ -1941,11 +1996,11 @@ namespace ForzaDSX
             // 
             noRaceGroupBox.Controls.Add(noRaceText);
             noRaceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            noRaceGroupBox.Location = new System.Drawing.Point(4, 1063);
+            noRaceGroupBox.Location = new System.Drawing.Point(4, 1018);
             noRaceGroupBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             noRaceGroupBox.Name = "noRaceGroupBox";
             noRaceGroupBox.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            noRaceGroupBox.Size = new System.Drawing.Size(1014, 167);
+            noRaceGroupBox.Size = new System.Drawing.Size(1592, 167);
             noRaceGroupBox.TabIndex = 2;
             noRaceGroupBox.TabStop = false;
             noRaceGroupBox.Text = "Menus";
@@ -1969,7 +2024,7 @@ namespace ForzaDSX
             outputListBox.Location = new System.Drawing.Point(4, 5);
             outputListBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             outputListBox.Name = "outputListBox";
-            outputListBox.Size = new System.Drawing.Size(1014, 1054);
+            outputListBox.Size = new System.Drawing.Size(1592, 1054);
             outputListBox.TabIndex = 0;
             // 
             // toolStripStatusDSX
@@ -1984,8 +2039,8 @@ namespace ForzaDSX
             // 
             toolStripStatusForza.Image = Properties.Resources.redBtn;
             toolStripStatusForza.Name = "toolStripStatusForza";
-            toolStripStatusForza.Size = new System.Drawing.Size(178, 25);
-            toolStripStatusForza.Text = "Forza Connection:";
+            toolStripStatusForza.Size = new System.Drawing.Size(181, 25);
+            toolStripStatusForza.Text = "Game Connection:";
             toolStripStatusForza.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // toolStripVerboseMode
@@ -2024,19 +2079,62 @@ namespace ForzaDSX
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusDSX, toolStripStatusForza, toolStripVerboseMode });
-            statusStrip1.Location = new System.Drawing.Point(0, 1273);
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusDSX, toolStripStatusForza, toolStripVerboseMode, toolStripDSXPortButton, toolStripAppCheckButton });
+            statusStrip1.Location = new System.Drawing.Point(0, 1228);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 20, 0);
-            statusStrip1.Size = new System.Drawing.Size(1030, 32);
+            statusStrip1.Size = new System.Drawing.Size(1848, 32);
             statusStrip1.TabIndex = 0;
             statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripDSXPortButton
+            // 
+            toolStripDSXPortButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripDSXPortButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripDSXPortTextBox });
+            toolStripDSXPortButton.Image = (System.Drawing.Image)resources.GetObject("toolStripDSXPortButton.Image");
+            toolStripDSXPortButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripDSXPortButton.Name = "toolStripDSXPortButton";
+            toolStripDSXPortButton.Size = new System.Drawing.Size(101, 29);
+            toolStripDSXPortButton.Text = "DSX Port";
+            toolStripDSXPortButton.Click += toolStripDSXPortButton_Click;
+            // 
+            // toolStripDSXPortTextBox
+            // 
+            toolStripDSXPortTextBox.MaxLength = 5;
+            toolStripDSXPortTextBox.Name = "toolStripDSXPortTextBox";
+            toolStripDSXPortTextBox.Size = new System.Drawing.Size(100, 31);
+            toolStripDSXPortTextBox.Text = "0";
+            toolStripDSXPortTextBox.KeyDown += toolStripDSXPortTextBox_KeyDown;
+            // 
+            // toolStripAppCheckButton
+            // 
+            toolStripAppCheckButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            toolStripAppCheckButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripAppCheckOffItem, toolStripAppCheckOnItem });
+            toolStripAppCheckButton.Image = (System.Drawing.Image)resources.GetObject("toolStripAppCheckButton.Image");
+            toolStripAppCheckButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripAppCheckButton.Name = "toolStripAppCheckButton";
+            toolStripAppCheckButton.Size = new System.Drawing.Size(184, 29);
+            toolStripAppCheckButton.Text = "App Check Enabled";
+            // 
+            // toolStripAppCheckOffItem
+            // 
+            toolStripAppCheckOffItem.Name = "toolStripAppCheckOffItem";
+            toolStripAppCheckOffItem.Size = new System.Drawing.Size(140, 34);
+            toolStripAppCheckOffItem.Text = "Off";
+            toolStripAppCheckOffItem.Click += toolStripAppCheckOffItem_Click;
+            // 
+            // toolStripAppCheckOnItem
+            // 
+            toolStripAppCheckOnItem.Name = "toolStripAppCheckOnItem";
+            toolStripAppCheckOnItem.Size = new System.Drawing.Size(140, 34);
+            toolStripAppCheckOnItem.Text = "On";
+            toolStripAppCheckOnItem.Click += toolStripAppCheckOnItem_Click;
             // 
             // UI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1030, 1305);
+            ClientSize = new System.Drawing.Size(1848, 1260);
             Controls.Add(mainPanel);
             Controls.Add(statusStrip1);
             DoubleBuffered = true;
@@ -2046,6 +2144,11 @@ namespace ForzaDSX
             Text = "UI";
             Load += UI_Load;
             mainPanel.ResumeLayout(false);
+            mainSplitContainer.Panel1.ResumeLayout(false);
+            mainSplitContainer.Panel2.ResumeLayout(false);
+            ((ISupportInitialize)mainSplitContainer).EndInit();
+            mainSplitContainer.ResumeLayout(false);
+            profilesGroupBox.ResumeLayout(false);
             mainTabControl.ResumeLayout(false);
             miscTabPage.ResumeLayout(false);
             miscTabPage.PerformLayout();
@@ -2252,5 +2355,13 @@ namespace ForzaDSX
 		private System.Windows.Forms.ComboBox brakeTriggerModeComboBox;
 		private System.Windows.Forms.Label throttleTriggerMode;
 		private System.Windows.Forms.ComboBox throttleTriggerModeComboBox;
-	}
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
+        private System.Windows.Forms.ListView profilesListView;
+        private System.Windows.Forms.GroupBox profilesGroupBox;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDSXPortButton;
+        private System.Windows.Forms.ToolStripTextBox toolStripDSXPortTextBox;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripAppCheckButton;
+        private System.Windows.Forms.ToolStripMenuItem toolStripAppCheckOffItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripAppCheckOnItem;
+    }
 }
