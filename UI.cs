@@ -1,6 +1,7 @@
 ﻿using ForzaDSX.Config;
 using ForzaDSX.Properties;
 using System;
+using System.ComponentModel;
 using System.Linq;
 
 //using System.Configuration;
@@ -14,8 +15,10 @@ namespace ForzaDSX
     public partial class UI : Form
     {
         protected ForzaDSXWorker forzaDSXWorker;
+        AppCheckThread appCheckWorker;
         protected ForzaDSX.Config.Config currentSettings;
         protected ForzaDSX.Config.Profile selectedProfile;
+        BindingList<String> executables = new BindingList<string>();
         int selectedIndex = 0;
         //protected Configuration config;
         public ForzaDSX.Config.Config CurrentSettings { get => currentSettings; set => currentSettings = value; }
@@ -84,18 +87,9 @@ namespace ForzaDSX
             // Starts the background Worker
             //this.connectionWorker.RunWorkerAsync();
 
-            var progressHandler = new Progress<AppCheckReportStruct>(AppCheckReporter);
 
-            AppCheckThread act = new AppCheckThread(ref currentSettings, progressHandler);
-            appCheckThreadCancellationToken = new CancellationTokenSource();
-            appCheckThreadToken = appCheckThreadCancellationToken.Token;
 
-            appCheckThreadToken.Register(() => act.Stop());
 
-            appCheckThread = new Thread(new ThreadStart(act.Run));
-            appCheckThread.IsBackground = true;
-
-            appCheckThread.Start();
 
             var forzaProgressHandler = new Progress<ForzaDSXReportStruct>(WorkerThreadReporter);
 
@@ -105,6 +99,33 @@ namespace ForzaDSX
             forzaThreadToken = forzaThreadCancellationToken.Token;
 
             forzaThreadToken.Register(() => forzaDSXWorker.Stop());
+            var progressHandler = new Progress<AppCheckReportStruct>(AppCheckReporter);
+            appCheckWorker = new AppCheckThread(ref currentSettings, progressHandler);
+            appCheckThreadCancellationToken = new CancellationTokenSource();
+            appCheckThreadToken = appCheckThreadCancellationToken.Token;
+
+            appCheckThreadToken.Register(() => appCheckWorker.Stop());
+            if (!currentSettings.DisableAppCheck)
+            {
+                startAppCheckThread();
+
+            }
+            else
+            {
+                UpdateDSXConnectionStatus(true);
+                UpdateForzaConnectionStatus(true);
+                StartForzaDSXThread();
+            }
+        }
+
+        protected void startAppCheckThread()
+        {
+
+
+            appCheckThread = new Thread(new ThreadStart(appCheckWorker.Run));
+            appCheckThread.IsBackground = true;
+
+            appCheckThread.Start();
         }
 
         protected void AppCheckReporter(AppCheckReportStruct value)
@@ -120,6 +141,13 @@ namespace ForzaDSX
             else
             {
                 UpdateForzaConnectionStatus(value.value);
+                if (value.value)
+                {
+                    SwitchActiveProfile(value.message);
+                } else
+                {
+                    SwitchActiveProfile(null);
+                }
             }
 
             if (forzaDsxThread == null)
@@ -138,12 +166,45 @@ namespace ForzaDSX
             }
         }
 
+        protected void SwitchActiveProfile(String profileName)
+        {
+            Profile profile = null;
+           
+            if (profileName == "")
+            {
+                //   profileName = selectedProfile.Name;
+                return;
+            }
+            if (currentSettings.ActiveProfile != null && currentSettings.ActiveProfile.Name == profileName)
+                return;
+
+            if (profileName != null && currentSettings.Profiles.ContainsKey(profileName))
+            {
+                profile = currentSettings.Profiles[profileName];
+               
+            }
+            currentSettings.ActiveProfile = profile;
+            ConfigHandler.SaveConfig();
+            loadProfilesIntoList();
+            SwitchDisplayedProfile(profileName);
+            StopForzaDSXThread();
+            StartForzaDSXThread();
+
+        }
+
+        protected void RestartAppCheckThread()
+        {
+            StopAppCheckThread();
+            startAppCheckThread();
+        }
+
         protected void StartForzaDSXThread()
         {
             if (forzaDsxThread != null
                 || forzaDSXWorker == null)
                 return;
-
+            if (currentSettings.ActiveProfile == null)
+                return;
             forzaDsxThread = new Thread(new ThreadStart(forzaDSXWorker.Run));
             forzaDsxThread.IsBackground = true;
 
@@ -167,6 +228,37 @@ namespace ForzaDSX
             }
 
             forzaDsxThread = null;
+        }
+        private void disableAppCheck()
+        {
+            currentSettings.DisableAppCheck = true;
+            toolStripAppCheckOnItem.Checked = false;
+            toolStripAppCheckOffItem.Checked = true;
+            toolStripAppCheckButton.Text = "App Check Disabled";
+            StopAppCheckThread();
+            SwitchActiveProfile(currentSettings.DefaultProfile);
+            UpdateDSXConnectionStatus(true);
+            UpdateForzaConnectionStatus(true);
+            StartForzaDSXThread();
+            ConfigHandler.SaveConfig();
+        }
+        protected void StopAppCheckThread()
+        {
+            try
+            {
+                if (appCheckThread != null
+                    && appCheckThreadCancellationToken != null)
+                {
+                    appCheckThreadCancellationToken.Cancel();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            appCheckThread = null;
         }
 
         protected void WorkerThreadReporter(ForzaDSXReportStruct value)
@@ -220,6 +312,8 @@ namespace ForzaDSX
             forzaThreadCancellationToken.Dispose();
         }
 
+
+
         public void LoadSettings()
         {
             //// Build a config object, using env vars and JSON providers.
@@ -234,6 +328,13 @@ namespace ForzaDSX
                 currentSettings = ConfigHandler.GetConfig();
                 selectedProfile = currentSettings.Profiles.Values.First();
 
+                if (currentSettings.DisableAppCheck && currentSettings.DefaultProfile != null)
+                {
+                    if (currentSettings.Profiles.ContainsKey(currentSettings.DefaultProfile))
+                    {
+                        currentSettings.ActiveProfile = currentSettings.Profiles[currentSettings.DefaultProfile];
+                    }
+                }
 
                 verboseModeOffToolStripMenuItem.Checked = currentSettings.VerboseLevel == VerboseLevel.Off;
                 verboseModeLowToolStripMenuItem.Checked = currentSettings.VerboseLevel == VerboseLevel.Limited;
@@ -272,7 +373,6 @@ namespace ForzaDSX
             toolStripDSXPortTextBox.Text = currentSettings.DSXPort.ToString();
 
 
-
             loadProfilesIntoList();
             SwitchDisplayedProfile();
 
@@ -285,6 +385,8 @@ namespace ForzaDSX
             foreach (Profile profile in currentSettings.Profiles.Values)
             {
                 String name = profile.Name;
+                ListViewItem item = new ListViewItem(name);
+
                 if (!profile.IsEnabled)
                 {
                     name += " (Disabled)";
@@ -292,8 +394,13 @@ namespace ForzaDSX
                 if (profile == currentSettings.ActiveProfile)
                 {
                     name += " (Active)";
+                    item.Selected = true;
                 }
-                ListViewItem item = new ListViewItem(name);
+                if (profile.Name == currentSettings.DefaultProfile)
+                {
+                    name += " (Default)";
+                }
+                item.Text = name;
                 item.Name = profile.Name;
                 profilesListView.Items.Add(item);
             }
@@ -301,14 +408,22 @@ namespace ForzaDSX
 
         void SwitchDisplayedProfile(String profileName = "")
         {
-            if (profileName == "")
+            
+            if (profileName == null || profileName == "" )
             {
+                if (selectedProfile == null)
+                {
+                    selectedProfile = currentSettings.Profiles.Values.First();
+                }
                 profileName = selectedProfile.Name;
             }
             if (currentSettings.Profiles.ContainsKey(profileName))
             {
                 selectedProfile = currentSettings.Profiles[profileName];
             }
+            executables = new BindingList<string>(selectedProfile.executableNames);
+            ExecutableListBox.DataSource = executables;
+
 
             BrakeSettings brakeSettings = selectedProfile.brakeSettings;
             ThrottleSettings throttleSettings = selectedProfile.throttleSettings;
@@ -938,9 +1053,11 @@ namespace ForzaDSX
         {
             if (forzaDSXWorker != null)
             {
-
+                selectedProfile.executableNames = executables.ToList();
                 forzaDSXWorker.SetSettings(CurrentSettings);
                 ConfigHandler.SaveConfig();
+                appCheckWorker.updateExecutables();
+                //RestartAppCheckThread();
 
             }
         }
@@ -1022,8 +1139,9 @@ namespace ForzaDSX
             toolStripAppCheckOffItem.Checked = false;
             toolStripAppCheckButton.Text = "App Check Enabled";
             ConfigHandler.SaveConfig();
-
+            RestartAppCheckThread();
         }
+
 
 
 
@@ -1031,11 +1149,7 @@ namespace ForzaDSX
 
         private void toolStripAppCheckOffItem_Click(object sender, EventArgs e)
         {
-            currentSettings.DisableAppCheck = true;
-            toolStripAppCheckOnItem.Checked = false;
-            toolStripAppCheckOffItem.Checked = true;
-            toolStripAppCheckButton.Text = "App Check Disabled";
-            ConfigHandler.SaveConfig();
+           disableAppCheck();
 
         }
 
@@ -1091,31 +1205,57 @@ namespace ForzaDSX
 
             if (e.Button == MouseButtons.Right)
             {
-if (HI.Item != null) { 
+                if (HI.Item != null)
+                {
                     profilesListView.FocusedItem = HI.Item;
-              
-                    ProfilesContextMenu.Items[1].Enabled = true;
-                    ProfilesContextMenu.Items[2].Enabled = true;
-                    ProfilesContextMenu.Items[3].Enabled = true;
-                    ProfilesContextMenu.Items[4].Enabled = false;
+                    newToolStripMenuItem.Enabled = true;
+                    renameToolStripMenuItem.Enabled = true;
+                    disableToolStripMenuItem.Enabled = true;
+                    deleteToolStripMenuItem.Enabled = true;
+                    copyToolStripMenuItem.Enabled = false;
+                    defaultToolStripMenuItem.Enabled = true;
+                    setActiveToolStripMenuItem.Enabled = true;
+
+
                     if (currentSettings.Profiles[HI.Item.Name].IsEnabled)
                     {
-                        ProfilesContextMenu.Items[2].Text = "Disable";
-                    } else
+                        disableToolStripMenuItem.Text = "Disable";
+                    }
+                    else
                     {
-                        ProfilesContextMenu.Items[2].Text = "Enable";
+                        disableToolStripMenuItem.Text = "Enable";
+                    }
+                    if (currentSettings.Profiles[HI.Item.Name] == currentSettings.ActiveProfile)
+                    {
+                        setActiveToolStripMenuItem.CheckState = CheckState.Checked;
+                    }
+                    else
+                    {
+                        setActiveToolStripMenuItem.CheckState = CheckState.Unchecked;
+                    }
+                    if (HI.Item.Name == currentSettings.DefaultProfile)
+                    {
+                        defaultToolStripMenuItem.CheckState = CheckState.Checked;
+                    }
+                    else
+                    {
+                        defaultToolStripMenuItem.CheckState = CheckState.Unchecked;
                     }
                     ProfilesContextMenu.Show(Cursor.Position);
-                } else
+                }
+                else
                 {
                     ProfilesContextMenu.Items[1].Enabled = false;
                     ProfilesContextMenu.Items[2].Enabled = false;
                     ProfilesContextMenu.Items[3].Enabled = false;
                     ProfilesContextMenu.Items[4].Enabled = false;
+                    ProfilesContextMenu.Items[5].Enabled = false;
+                    ProfilesContextMenu.Items[6].Enabled = false;
                     ProfilesContextMenu.Show(Cursor.Position);
 
                 }
-            } else if (e.Button == MouseButtons.Left)
+            }
+            else if (e.Button == MouseButtons.Left)
             {
                 if (HI.Item == null)
                 {
@@ -1123,14 +1263,14 @@ if (HI.Item != null) {
                 }
                 selectedIndex = HI.Item.Index;
                 String profileName = HI.Item.Name;
-               // HI.Item.Selected = true;
+                // HI.Item.Selected = true;
                 SwitchDisplayedProfile(profileName);
             }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String newProfileName = NameForm.ShowDialog("");
+            String newProfileName = NameForm.ShowDialog("", "Please enter the Profile Name");
             if (newProfileName != "")
             {
                 Profile newProfile = new Profile();
@@ -1145,7 +1285,7 @@ if (HI.Item != null) {
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String oldProfileName = profilesListView.FocusedItem.Name;
-            String newProfileName = NameForm.ShowDialog(oldProfileName);
+            String newProfileName = NameForm.ShowDialog(oldProfileName, "Please enter the Profile Name");
             if (newProfileName != "" && oldProfileName != newProfileName)
             {
                 Profile newProfile = currentSettings.Profiles[oldProfileName];
@@ -1168,6 +1308,7 @@ if (HI.Item != null) {
                 //profile.IsEnabled = false;
                 ConfigHandler.SaveConfig();
                 loadProfilesIntoList();
+                appCheckWorker.updateExecutables();
             }
 
         }
@@ -1187,6 +1328,82 @@ if (HI.Item != null) {
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String profileName = profilesListView.FocusedItem.Name;
+            if (currentSettings.Profiles.ContainsKey(profileName))
+            {
+                currentSettings.DefaultProfile = profileName;
+                ConfigHandler.SaveConfig();
+                loadProfilesIntoList();
+            }
+        }
+
+        private void setActiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String profileName = profilesListView.FocusedItem.Name;
+            if (currentSettings.Profiles.ContainsKey(profileName))
+            {
+                //currentSettings.ActiveProfile = currentSettings.Profiles[profileName];
+                disableAppCheck();
+                SwitchActiveProfile(profileName);
+
+            }
+        }
+
+        private void AddExecutableButton_Click(object sender, EventArgs e)
+        {
+            String newExecutableName = NameForm.ShowDialog("", "Please enter the Executable Name"); ;
+            if (newExecutableName != "")
+            {
+                executables.Add(newExecutableName);
+                // ExecutableListBox.Items.Add(newExecutableName);
+
+            }
+        }
+
+        private void EditExecutableButton_Click(object sender, EventArgs e)
+        {
+            String oldExecutableName = ExecutableListBox.SelectedItems[0].ToString();
+            String newExecutableName = NameForm.ShowDialog(oldExecutableName, "Please enter the Executable Name"); ;
+            if (newExecutableName != "")
+            {
+                int index = selectedProfile.executableNames.IndexOf(oldExecutableName);
+                executables[index] = newExecutableName;
+               // ExecutableListBox.SelectedIndex = -1;
+                // ExecutableListBox.Items.Add(newExecutableName);
+
+            }
+        }
+
+        private void RemoveExecutableButton_Click(object sender, EventArgs e)
+        {
+            String oldExecutableName = ExecutableListBox.SelectedItems[0].ToString();
+            
+                executables.Remove(oldExecutableName);
+
+        }
+
+        private void ExecutableListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ExecutableListBox.SelectedItems.Count > 1)
+            {
+                EditExecutableButton.Enabled = false;
+                RemoveExecutableButton.Enabled = true;
+                return;
+
+            } else if (ExecutableListBox.SelectedItems.Count == 0)
+            {
+                EditExecutableButton.Enabled = false;
+                RemoveExecutableButton.Enabled = false;
+            } else if (ExecutableListBox.SelectedItems.Count == 1)
+            {
+                EditExecutableButton.Enabled = true;
+                RemoveExecutableButton.Enabled = true;
+            }
         }
     }
 }

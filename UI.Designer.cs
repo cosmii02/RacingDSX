@@ -49,6 +49,12 @@ namespace ForzaDSX
             rpmValueNumericUpDown = new System.Windows.Forms.NumericUpDown();
             buttonApplyMisc = new System.Windows.Forms.Button();
             miscDefaultsButton = new System.Windows.Forms.Button();
+            ExecutableListLabel = new System.Windows.Forms.Label();
+            ExecutableListBox = new System.Windows.Forms.ListBox();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            AddExecutableButton = new System.Windows.Forms.Button();
+            EditExecutableButton = new System.Windows.Forms.Button();
+            RemoveExecutableButton = new System.Windows.Forms.Button();
             brakeConfigTabPage = new System.Windows.Forms.TabPage();
             brakeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             brakeResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -168,6 +174,8 @@ namespace ForzaDSX
             disableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            setActiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             mainPanel.SuspendLayout();
             ((ISupportInitialize)mainSplitContainer).BeginInit();
             mainSplitContainer.Panel1.SuspendLayout();
@@ -180,6 +188,7 @@ namespace ForzaDSX
             ((ISupportInitialize)forzaPortNumericUpDown).BeginInit();
             ((ISupportInitialize)rpmTrackBar).BeginInit();
             ((ISupportInitialize)rpmValueNumericUpDown).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             brakeConfigTabPage.SuspendLayout();
             brakeTableLayoutPanel.SuspendLayout();
             ((ISupportInitialize)brakeResistanceSmoothNumericUpDown).BeginInit();
@@ -330,18 +339,23 @@ namespace ForzaDSX
             miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            miscTableLayoutPanel.Controls.Add(forzaPortNumericUpDown, 1, 3);
-            miscTableLayoutPanel.Controls.Add(forzaPortLabel, 0, 3);
+            miscTableLayoutPanel.Controls.Add(forzaPortNumericUpDown, 1, 4);
+            miscTableLayoutPanel.Controls.Add(forzaPortLabel, 0, 4);
             miscTableLayoutPanel.Controls.Add(rpmLabel, 0, 0);
             miscTableLayoutPanel.Controls.Add(rpmTrackBar, 1, 0);
             miscTableLayoutPanel.Controls.Add(rpmValueNumericUpDown, 2, 0);
-            miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 4);
-            miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 4);
+            miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 6);
+            miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 6);
+            miscTableLayoutPanel.Controls.Add(ExecutableListLabel, 0, 5);
+            miscTableLayoutPanel.Controls.Add(ExecutableListBox, 1, 5);
+            miscTableLayoutPanel.Controls.Add(flowLayoutPanel1, 2, 5);
             miscTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             miscTableLayoutPanel.Location = new System.Drawing.Point(4, 5);
             miscTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscTableLayoutPanel.Name = "miscTableLayoutPanel";
-            miscTableLayoutPanel.RowCount = 5;
+            miscTableLayoutPanel.RowCount = 7;
+            miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -354,7 +368,7 @@ namespace ForzaDSX
             // 
             forzaPortNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             forzaPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            forzaPortNumericUpDown.Location = new System.Drawing.Point(169, 84);
+            forzaPortNumericUpDown.Location = new System.Drawing.Point(190, 84);
             forzaPortNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             forzaPortNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
             forzaPortNumericUpDown.MaximumSize = new System.Drawing.Size(143, 0);
@@ -372,7 +386,7 @@ namespace ForzaDSX
             forzaPortLabel.Location = new System.Drawing.Point(4, 79);
             forzaPortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             forzaPortLabel.Name = "forzaPortLabel";
-            forzaPortLabel.Size = new System.Drawing.Size(157, 41);
+            forzaPortLabel.Size = new System.Drawing.Size(178, 41);
             forzaPortLabel.TabIndex = 6;
             forzaPortLabel.Text = "Game Port";
             forzaPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -386,7 +400,7 @@ namespace ForzaDSX
             rpmLabel.Location = new System.Drawing.Point(4, 0);
             rpmLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             rpmLabel.Name = "rpmLabel";
-            rpmLabel.Size = new System.Drawing.Size(157, 79);
+            rpmLabel.Size = new System.Drawing.Size(178, 79);
             rpmLabel.TabIndex = 0;
             rpmLabel.Text = "RPM Redline Ratio";
             rpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -398,7 +412,7 @@ namespace ForzaDSX
             rpmTrackBar.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
             rpmTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             rpmTrackBar.LargeChange = 50;
-            rpmTrackBar.Location = new System.Drawing.Point(169, 5);
+            rpmTrackBar.Location = new System.Drawing.Point(190, 5);
             rpmTrackBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rpmTrackBar.Maximum = 100;
             rpmTrackBar.Name = "rpmTrackBar";
@@ -414,10 +428,10 @@ namespace ForzaDSX
             rpmValueNumericUpDown.AutoSize = true;
             rpmValueNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             rpmValueNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            rpmValueNumericUpDown.Location = new System.Drawing.Point(770, 5);
+            rpmValueNumericUpDown.Location = new System.Drawing.Point(791, 5);
             rpmValueNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-            rpmValueNumericUpDown.Size = new System.Drawing.Size(818, 31);
+            rpmValueNumericUpDown.Size = new System.Drawing.Size(797, 31);
             rpmValueNumericUpDown.TabIndex = 8;
             toolTip.SetToolTip(rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             rpmValueNumericUpDown.ValueChanged += rpmValueNumericUpDown_ValueChanged;
@@ -425,7 +439,7 @@ namespace ForzaDSX
             // buttonApplyMisc
             // 
             buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            buttonApplyMisc.Location = new System.Drawing.Point(169, 125);
+            buttonApplyMisc.Location = new System.Drawing.Point(190, 281);
             buttonApplyMisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonApplyMisc.MaximumSize = new System.Drawing.Size(429, 50);
             buttonApplyMisc.MinimumSize = new System.Drawing.Size(286, 42);
@@ -438,7 +452,7 @@ namespace ForzaDSX
             // 
             // miscDefaultsButton
             // 
-            miscDefaultsButton.Location = new System.Drawing.Point(770, 125);
+            miscDefaultsButton.Location = new System.Drawing.Point(791, 281);
             miscDefaultsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscDefaultsButton.Name = "miscDefaultsButton";
             miscDefaultsButton.Size = new System.Drawing.Size(107, 38);
@@ -446,6 +460,71 @@ namespace ForzaDSX
             miscDefaultsButton.Text = "Defaults";
             miscDefaultsButton.UseVisualStyleBackColor = true;
             miscDefaultsButton.Click += miscDefaultsButton_Click;
+            // 
+            // ExecutableListLabel
+            // 
+            ExecutableListLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            ExecutableListLabel.AutoSize = true;
+            ExecutableListLabel.Location = new System.Drawing.Point(3, 185);
+            ExecutableListLabel.Name = "ExecutableListLabel";
+            ExecutableListLabel.Size = new System.Drawing.Size(180, 25);
+            ExecutableListLabel.TabIndex = 40;
+            ExecutableListLabel.Text = "Executables To Match";
+            ExecutableListLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolTip.SetToolTip(ExecutableListLabel, "This is the list of executable names that will be used to activate this profile");
+            // 
+            // ExecutableListBox
+            // 
+            ExecutableListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            ExecutableListBox.FormattingEnabled = true;
+            ExecutableListBox.ItemHeight = 25;
+            ExecutableListBox.Location = new System.Drawing.Point(189, 123);
+            ExecutableListBox.Name = "ExecutableListBox";
+            ExecutableListBox.Size = new System.Drawing.Size(595, 150);
+            ExecutableListBox.TabIndex = 41;
+            ExecutableListBox.SelectedIndexChanged += ExecutableListBox_SelectedIndexChanged;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(AddExecutableButton);
+            flowLayoutPanel1.Controls.Add(EditExecutableButton);
+            flowLayoutPanel1.Controls.Add(RemoveExecutableButton);
+            flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new System.Drawing.Point(790, 123);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new System.Drawing.Size(799, 150);
+            flowLayoutPanel1.TabIndex = 42;
+            // 
+            // AddExecutableButton
+            // 
+            AddExecutableButton.Location = new System.Drawing.Point(3, 3);
+            AddExecutableButton.Name = "AddExecutableButton";
+            AddExecutableButton.Size = new System.Drawing.Size(112, 34);
+            AddExecutableButton.TabIndex = 0;
+            AddExecutableButton.Text = "Add";
+            AddExecutableButton.UseVisualStyleBackColor = true;
+            AddExecutableButton.Click += AddExecutableButton_Click;
+            // 
+            // EditExecutableButton
+            // 
+            EditExecutableButton.Location = new System.Drawing.Point(3, 43);
+            EditExecutableButton.Name = "EditExecutableButton";
+            EditExecutableButton.Size = new System.Drawing.Size(112, 34);
+            EditExecutableButton.TabIndex = 1;
+            EditExecutableButton.Text = "Edit";
+            EditExecutableButton.UseVisualStyleBackColor = true;
+            EditExecutableButton.Click += EditExecutableButton_Click;
+            // 
+            // RemoveExecutableButton
+            // 
+            RemoveExecutableButton.Location = new System.Drawing.Point(3, 83);
+            RemoveExecutableButton.Name = "RemoveExecutableButton";
+            RemoveExecutableButton.Size = new System.Drawing.Size(112, 34);
+            RemoveExecutableButton.TabIndex = 2;
+            RemoveExecutableButton.Text = "Remove";
+            RemoveExecutableButton.UseVisualStyleBackColor = true;
+            RemoveExecutableButton.Click += RemoveExecutableButton_Click;
             // 
             // brakeConfigTabPage
             // 
@@ -2080,44 +2159,58 @@ namespace ForzaDSX
             // ProfilesContextMenu
             // 
             ProfilesContextMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
-            ProfilesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripMenuItem, renameToolStripMenuItem, disableToolStripMenuItem, deleteToolStripMenuItem, copyToolStripMenuItem });
+            ProfilesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripMenuItem, renameToolStripMenuItem, disableToolStripMenuItem, deleteToolStripMenuItem, copyToolStripMenuItem, defaultToolStripMenuItem, setActiveToolStripMenuItem });
             ProfilesContextMenu.Name = "ProfilesContextMenu";
-            ProfilesContextMenu.Size = new System.Drawing.Size(148, 164);
+            ProfilesContextMenu.Size = new System.Drawing.Size(163, 228);
             // 
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            newToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // renameToolStripMenuItem
             // 
             renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            renameToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            renameToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             renameToolStripMenuItem.Text = "Rename";
             renameToolStripMenuItem.Click += renameToolStripMenuItem_Click;
             // 
             // disableToolStripMenuItem
             // 
             disableToolStripMenuItem.Name = "disableToolStripMenuItem";
-            disableToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            disableToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             disableToolStripMenuItem.Text = "Disable";
             disableToolStripMenuItem.Click += disableToolStripMenuItem_Click;
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            deleteToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // copyToolStripMenuItem
             // 
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            copyToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            copyToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             copyToolStripMenuItem.Text = "Copy";
             copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
+            // 
+            // defaultToolStripMenuItem
+            // 
+            defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
+            defaultToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
+            defaultToolStripMenuItem.Text = "Default";
+            defaultToolStripMenuItem.Click += defaultToolStripMenuItem_Click;
+            // 
+            // setActiveToolStripMenuItem
+            // 
+            setActiveToolStripMenuItem.Name = "setActiveToolStripMenuItem";
+            setActiveToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
+            setActiveToolStripMenuItem.Text = "Set Active";
+            setActiveToolStripMenuItem.Click += setActiveToolStripMenuItem_Click;
             // 
             // UI
             // 
@@ -2146,6 +2239,7 @@ namespace ForzaDSX
             ((ISupportInitialize)forzaPortNumericUpDown).EndInit();
             ((ISupportInitialize)rpmTrackBar).EndInit();
             ((ISupportInitialize)rpmValueNumericUpDown).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             brakeConfigTabPage.ResumeLayout(false);
             brakeConfigTabPage.PerformLayout();
             brakeTableLayoutPanel.ResumeLayout(false);
@@ -2330,10 +2424,8 @@ namespace ForzaDSX
 		private System.Windows.Forms.Label brakeVibrationMsg;
 		private System.Windows.Forms.Label throttleMsg;
 		private System.Windows.Forms.Label throttleVibrationMsg;
-		private System.Windows.Forms.Button buttonApplyMisc;
 		private System.Windows.Forms.Button buttonApply_Brake;
 		private System.Windows.Forms.Button buttonApply_Throttle;
-		private System.Windows.Forms.Button miscDefaultsButton;
 		private System.Windows.Forms.Button brakeDefaultsButton;
 		private System.Windows.Forms.Button throttleDefaultsButton;
 		private System.Windows.Forms.Label brakeTriggerMode;
@@ -2354,5 +2446,15 @@ namespace ForzaDSX
         private System.Windows.Forms.ToolStripMenuItem disableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setActiveToolStripMenuItem;
+        private System.Windows.Forms.Button buttonApplyMisc;
+        private System.Windows.Forms.Button miscDefaultsButton;
+        private System.Windows.Forms.Label ExecutableListLabel;
+        private System.Windows.Forms.ListBox ExecutableListBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button AddExecutableButton;
+        private System.Windows.Forms.Button EditExecutableButton;
+        private System.Windows.Forms.Button RemoveExecutableButton;
     }
 }
