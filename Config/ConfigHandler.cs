@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ForzaDSX.Config
 {
-    internal class ConfigHandler
+    public class ConfigHandler
     {
         //Methods to read config file
         //Method to initialize config file (Using default values), need to account for the different default profiles
@@ -24,6 +24,7 @@ namespace ForzaDSX.Config
             configData ??= ReadConfigFromDisk();
             configData ??= new Config();
             configData = AddDefaultProfiles(configData);
+            SaveConfig();
         }
 
 

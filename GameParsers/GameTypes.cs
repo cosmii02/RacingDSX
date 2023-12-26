@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForzaDSX.GameParsers
 {
-    internal enum GameTypes
+    public enum GameTypes
     {
         None = 0,
         Forza,

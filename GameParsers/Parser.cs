@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForzaDSX.GameParsers
 {
-    internal interface Parser
+    public interface Parser
     {
     }
 }

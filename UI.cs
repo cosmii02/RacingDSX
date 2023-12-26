@@ -1,18 +1,24 @@
-﻿using ForzaDSX.Properties;
+﻿using ForzaDSX.Config;
+using ForzaDSX.Properties;
 using System;
+using System.Linq;
+
 //using System.Configuration;
 using System.Threading;
 using System.Windows.Forms;
 using static ForzaDSX.ForzaDSXWorker;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ForzaDSX
 {
     public partial class UI : Form
     {
         protected ForzaDSXWorker forzaDSXWorker;
-        protected ForzaDSX.Properties.Settings currentSettings;
+        protected ForzaDSX.Config.Config currentSettings;
+        protected ForzaDSX.Config.Profile selectedProfile;
+        int selectedIndex = 0;
         //protected Configuration config;
-        public ForzaDSX.Properties.Settings CurrentSettings { get => currentSettings; set => currentSettings = value; }
+        public ForzaDSX.Config.Config CurrentSettings { get => currentSettings; set => currentSettings = value; }
 
         bool bForzaConnected = false;
         bool bDsxConnected = false;
@@ -72,8 +78,8 @@ namespace ForzaDSX
             brakeVibrationMsg.Text = String.Empty;
             brakeMsg.Text = String.Empty;
 
-            noRaceGroupBox.Visible = currentSettings._verbose > 0;
-            raceGroupBox.Visible = currentSettings._verbose > 0;
+            noRaceGroupBox.Visible = currentSettings.VerboseLevel > Config.VerboseLevel.Off;
+            raceGroupBox.Visible = currentSettings.VerboseLevel > Config.VerboseLevel.Off;
 
             // Starts the background Worker
             //this.connectionWorker.RunWorkerAsync();
@@ -171,7 +177,7 @@ namespace ForzaDSX
                     Output(value.message);
                     break;
                 case ForzaDSXReportStruct.ReportType.NORACE:
-                    if (currentSettings._verbose > 0)
+                    if (currentSettings.VerboseLevel > Config.VerboseLevel.Off)
                     {
                         noRaceGroupBox.Visible = true;
                         raceGroupBox.Visible = false;
@@ -180,7 +186,7 @@ namespace ForzaDSX
                     noRaceText.Text = value.message;
                     break;
                 case ForzaDSXReportStruct.ReportType.RACING:
-                    if (currentSettings._verbose > 0)
+                    if (currentSettings.VerboseLevel > Config.VerboseLevel.Off)
                     {
                         noRaceGroupBox.Visible = false;
                         raceGroupBox.Visible = true;
@@ -225,16 +231,15 @@ namespace ForzaDSX
             {
 
                 // Get values from the config given their key and their target type.
-                currentSettings = Properties.Settings.Default;
+                currentSettings = ConfigHandler.GetConfig();
+                selectedProfile = currentSettings.Profiles.Values.First();
 
-                currentSettings._left_Trigger_Effect_Intensity = Math.Clamp(currentSettings._left_Trigger_Effect_Intensity, 0.0f, 1.0f);
-                currentSettings._right_Trigger_Effect_Intensity = Math.Clamp(currentSettings._right_Trigger_Effect_Intensity, 0.0f, 1.0f);
 
-                verboseModeOffToolStripMenuItem.Checked = currentSettings._verbose == 0;
-                verboseModeLowToolStripMenuItem.Checked = currentSettings._verbose == 1;
-                verboseModeFullToolStripMenuItem.Checked = currentSettings._verbose == 2;
-                toolStripDSXPortButton.Text = "DSX Port: " + currentSettings._dsx_PORT.ToString();
-                toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings._verbose.ToString();
+                verboseModeOffToolStripMenuItem.Checked = currentSettings.VerboseLevel == VerboseLevel.Off;
+                verboseModeLowToolStripMenuItem.Checked = currentSettings.VerboseLevel == VerboseLevel.Limited;
+                verboseModeFullToolStripMenuItem.Checked = currentSettings.VerboseLevel == VerboseLevel.Full;
+                toolStripDSXPortButton.Text = "DSX Port: " + currentSettings.DSXPort.ToString();
+                toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings.VerboseLevel.ToString();
             }
             catch (Exception e)
             {
@@ -248,11 +253,9 @@ namespace ForzaDSX
         void SetupUI()
         {
             // Misc panel
-            this.rpmTrackBar.Value = DenormalizeValue(currentSettings._rpm_Redline_Ratio);
-            rpmValueNumericUpDown.Value = rpmTrackBar.Value;
 
-            this.appCheckBox.Checked = currentSettings._disable_App_Check;
-            if (currentSettings._disable_App_Check)
+
+            if (currentSettings.DisableAppCheck)
             {
                 toolStripAppCheckOnItem.Checked = false;
                 toolStripAppCheckOffItem.Checked = true;
@@ -265,25 +268,71 @@ namespace ForzaDSX
                 toolStripAppCheckButton.Text = "App Check Enabled";
             }
 
-            toolStripDSXPortButton.Text = "DSX Port: " + currentSettings._dsx_PORT.ToString();
-            toolStripDSXPortTextBox.Text = currentSettings._dsx_PORT.ToString();
-            this.dsxNumericUpDown.Value = currentSettings._dsx_PORT;
-            this.forzaPortNumericUpDown.Value = currentSettings._forza_PORT;
+            toolStripDSXPortButton.Text = "DSX Port: " + currentSettings.DSXPort.ToString();
+            toolStripDSXPortTextBox.Text = currentSettings.DSXPort.ToString();
+
+
+
+            loadProfilesIntoList();
+            SwitchDisplayedProfile();
+
+        }
+
+        void loadProfilesIntoList()
+        {
+            profilesListView.Items.Clear();
+            //Load Profiles into list
+            foreach (Profile profile in currentSettings.Profiles.Values)
+            {
+                String name = profile.Name;
+                if (!profile.IsEnabled)
+                {
+                    name += " (Disabled)";
+                }
+                if (profile == currentSettings.ActiveProfile)
+                {
+                    name += " (Active)";
+                }
+                ListViewItem item = new ListViewItem(name);
+                item.Name = profile.Name;
+                profilesListView.Items.Add(item);
+            }
+        }
+
+        void SwitchDisplayedProfile(String profileName = "")
+        {
+            if (profileName == "")
+            {
+                profileName = selectedProfile.Name;
+            }
+            if (currentSettings.Profiles.ContainsKey(profileName))
+            {
+                selectedProfile = currentSettings.Profiles[profileName];
+            }
+
+            BrakeSettings brakeSettings = selectedProfile.brakeSettings;
+            ThrottleSettings throttleSettings = selectedProfile.throttleSettings;
+
+            brakeSettings.EffectIntensity = Math.Clamp(brakeSettings.EffectIntensity, 0.0f, 1.0f);
+            throttleSettings.EffectIntensity = Math.Clamp(throttleSettings.EffectIntensity, 0.0f, 1.0f);
+            this.rpmTrackBar.Value = DenormalizeValue(selectedProfile.RPMRedlineRatio);
+            rpmValueNumericUpDown.Value = rpmTrackBar.Value;
+            this.forzaPortNumericUpDown.Value = selectedProfile.gameUDPPort;
 
             // Brake Panel
-            this.brakeTriggerModeComboBox.SelectedIndex = currentSettings.BrakeTriggerMode;
-            this.brakeEffectIntensityTrackBar.Value = DenormalizeValue(currentSettings._left_Trigger_Effect_Intensity);
-            this.gripLossTrackBar.Value = DenormalizeValue(currentSettings._grip_Loss_Val);
-            this.brakeVibrationStartTrackBar.Value = currentSettings._brake_Vibration_Start;
-            this.brakeVibrationModeTrackBar.Value = currentSettings._brake_Vibration_Mode_Start;
-            this.minBrakeVibrationTrackBar.Value = currentSettings._min_Brake_Vibration;
-            this.maxBrakeVibrationTrackBar.Value = currentSettings._max_Brake_Vibration;
-            this.vibrationSmoothingTrackBar.Value = DenormalizeValue(currentSettings._ewma_Alpha_Brake_Freq, 500.0f);
-            this.minBrakeStiffnessTrackBar.Value = currentSettings._min_Brake_Stiffness;
-            this.maxBrakeStiffnessTrackBar.Value = currentSettings._max_Brake_Stiffness;
-            this.minBrakeResistanceTrackBar.Value = currentSettings._min_Brake_Resistance;
-            this.maxBrakeResistanceTrackBar.Value = currentSettings._max_Brake_Resistance;
-            this.brakeResistanceSmoothingTrackBar.Value = DenormalizeValue(currentSettings._ewma_Alpha_Brake, 500.0f);
+            this.brakeTriggerModeComboBox.SelectedIndex = (int)brakeSettings.TriggerMode;
+            this.brakeEffectIntensityTrackBar.Value = DenormalizeValue(brakeSettings.EffectIntensity);
+            this.gripLossTrackBar.Value = DenormalizeValue(brakeSettings.GripLossValue);
+            this.brakeVibrationStartTrackBar.Value = brakeSettings.VibrationStart;
+            this.brakeVibrationModeTrackBar.Value = brakeSettings.VibrationModeStart;
+            this.minBrakeVibrationTrackBar.Value = brakeSettings.MinVibration;
+            this.maxBrakeVibrationTrackBar.Value = brakeSettings.MaxVibration;
+            this.vibrationSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.VibrationSmoothing, 500.0f);
+            this.minBrakeStiffnessTrackBar.Value = brakeSettings.MinStiffness;
+            this.maxBrakeStiffnessTrackBar.Value = brakeSettings.MaxStiffness;
+            this.minBrakeResistanceTrackBar.Value = brakeSettings.MinResistance;
+            this.maxBrakeResistanceTrackBar.Value = brakeSettings.MaxResistance;
+            this.brakeResistanceSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.ResistanceSmoothing, 500.0f);
 
             this.brakeEffectNumericUpDown.Value = this.brakeEffectIntensityTrackBar.Value;
             this.gripLossNumericUpDown.Value = this.gripLossTrackBar.Value;
@@ -299,21 +348,21 @@ namespace ForzaDSX
             this.brakeResistanceSmoothNumericUpDown.Value = this.brakeResistanceSmoothingTrackBar.Value;
 
             // Throttle Panel
-            this.throttleTriggerModeComboBox.SelectedIndex = currentSettings.ThrottleTriggerMode;
-            this.throttleIntensityTrackBar.Value = DenormalizeValue(currentSettings._right_Trigger_Effect_Intensity);
-            this.throttleGripLossTrackBar.Value = DenormalizeValue(currentSettings._throttle_Grip_Loss_Val);
-            this.throttleTurnAccelScaleTrackBar.Value = DenormalizeValue(currentSettings._turn_Accel_Mod);
-            this.throttleForwardAccelScaleTrackBar.Value = DenormalizeValue(currentSettings._forward_Accel_Mod);
-            this.throttleAccelLimitTrackBar.Value = currentSettings._acceleration_Limit;
-            this.throttleVibrationModeStartTrackBar.Value = currentSettings._throttle_Vibration_Mode_Start;
-            this.throttleMinVibrationTrackBar.Value = currentSettings._min_Accel_Griploss_Vibration;
-            this.throttleMaxVibrationTrackBar.Value = currentSettings._max_Accel_Griploss_Vibration;
-            this.throttleVibrationSmoothTrackBar.Value = DenormalizeValue(currentSettings._ewma_Alpha_Throttle_Freq);
-            this.throttleMinStiffnessTrackBar.Value = currentSettings._min_Accel_Griploss_Stiffness;
-            this.throttleMaxStiffnessTrackBar.Value = currentSettings._max_Accel_Griploss_Stiffness;
-            this.throttleMinResistanceTrackBar.Value = currentSettings._min_Throttle_Resistance;
-            this.throttleMaxResistanceTrackBar.Value = currentSettings._max_Throttle_Resistance;
-            this.throttleResistanceSmoothTrackBar.Value = DenormalizeValue(currentSettings._ewma_Alpha_Throttle);
+            this.throttleTriggerModeComboBox.SelectedIndex = (int)throttleSettings.TriggerMode;
+            this.throttleIntensityTrackBar.Value = DenormalizeValue(throttleSettings.EffectIntensity);
+            this.throttleGripLossTrackBar.Value = DenormalizeValue(throttleSettings.GripLossValue);
+            this.throttleTurnAccelScaleTrackBar.Value = DenormalizeValue(throttleSettings.TurnAccelerationScale);
+            this.throttleForwardAccelScaleTrackBar.Value = DenormalizeValue(throttleSettings.ForwardAccelerationScale);
+            this.throttleAccelLimitTrackBar.Value = throttleSettings.AccelerationLimit;
+            this.throttleVibrationModeStartTrackBar.Value = throttleSettings.VibrationModeStart;
+            this.throttleMinVibrationTrackBar.Value = throttleSettings.MinVibration;
+            this.throttleMaxVibrationTrackBar.Value = throttleSettings.MaxVibration;
+            this.throttleVibrationSmoothTrackBar.Value = DenormalizeValue(throttleSettings.VibrationSmoothing);
+            this.throttleMinStiffnessTrackBar.Value = throttleSettings.MinStiffness;
+            this.throttleMaxStiffnessTrackBar.Value = throttleSettings.MaxStiffness;
+            this.throttleMinResistanceTrackBar.Value = throttleSettings.MinResistance;
+            this.throttleMaxResistanceTrackBar.Value = throttleSettings.MaxResistance;
+            this.throttleResistanceSmoothTrackBar.Value = DenormalizeValue(throttleSettings.ResistanceSmoothing);
 
             this.throttleIntensityNumericUpDown.Value = this.throttleIntensityTrackBar.Value;
             this.throttleGripLossNumericUpDown.Value = this.throttleGripLossTrackBar.Value;
@@ -346,428 +395,540 @@ namespace ForzaDSX
 
         private void verboseModeFullToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            currentSettings._verbose = 2;
+            currentSettings.VerboseLevel = VerboseLevel.Full;
             verboseModeOffToolStripMenuItem.Checked = false;
             verboseModeLowToolStripMenuItem.Checked = false;
             verboseModeFullToolStripMenuItem.Checked = true;
-            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings._verbose.ToString();
+            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings.VerboseLevel.ToString();
+            ConfigHandler.SaveConfig();
 
         }
 
         private void verboseModeLowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            currentSettings._verbose = 1;
+            currentSettings.VerboseLevel = VerboseLevel.Limited;
             verboseModeOffToolStripMenuItem.Checked = false;
             verboseModeLowToolStripMenuItem.Checked = true;
             verboseModeFullToolStripMenuItem.Checked = false;
-            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings._verbose.ToString();
+            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings.VerboseLevel.ToString();
+            ConfigHandler.SaveConfig();
+
 
         }
 
         private void verboseModeOffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            currentSettings._verbose = 0;
+            currentSettings.VerboseLevel = VerboseLevel.Off;
             verboseModeOffToolStripMenuItem.Checked = true;
             verboseModeLowToolStripMenuItem.Checked = false;
             verboseModeFullToolStripMenuItem.Checked = false;
-            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings._verbose.ToString();
+            toolStripVerboseMode.Text = "Verbose Mode: " + currentSettings.VerboseLevel.ToString();
 
             noRaceGroupBox.Visible = false;
             raceGroupBox.Visible = false;
+            ConfigHandler.SaveConfig();
+
         }
 
         #region Misc
+
+
+
+
+
         private void rpmTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._rpm_Redline_Ratio = NormalizeValue(this.rpmTrackBar.Value);
+            selectedProfile.RPMRedlineRatio = NormalizeValue(this.rpmTrackBar.Value);
             rpmValueNumericUpDown.Value = rpmTrackBar.Value;
+
+
         }
 
         private void rpmValueNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._rpm_Redline_Ratio = NormalizeValue((float)this.rpmValueNumericUpDown.Value);
+            selectedProfile.RPMRedlineRatio = NormalizeValue((float)this.rpmValueNumericUpDown.Value);
             rpmTrackBar.Value = (int)Math.Floor(rpmValueNumericUpDown.Value);
-        }
 
-        private void appCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            currentSettings._disable_App_Check = this.appCheckBox.Checked;
-        }
 
-        private void dsxNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            currentSettings._dsx_PORT = (int)Math.Floor(this.dsxNumericUpDown.Value);
         }
 
         private void forzaPortNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._forza_PORT = (int)Math.Floor(this.forzaPortNumericUpDown.Value);
+            selectedProfile.gameUDPPort = (int)Math.Floor(this.forzaPortNumericUpDown.Value);
+
+
         }
         #endregion
 
         #region Brake
         private void brakeEffectIntensityTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._left_Trigger_Effect_Intensity = NormalizeValue(brakeEffectIntensityTrackBar.Value);
+            selectedProfile.brakeSettings.EffectIntensity = NormalizeValue(brakeEffectIntensityTrackBar.Value);
             this.brakeEffectNumericUpDown.Value = brakeEffectIntensityTrackBar.Value;
+
+
         }
 
         private void brakeEffectNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._left_Trigger_Effect_Intensity = NormalizeValue((float)brakeEffectNumericUpDown.Value);
+            selectedProfile.brakeSettings.EffectIntensity = NormalizeValue((float)brakeEffectNumericUpDown.Value);
             brakeEffectIntensityTrackBar.Value = (int)Math.Floor(brakeEffectNumericUpDown.Value);
+
+
         }
 
         private void gripLossTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._grip_Loss_Val = NormalizeValue(this.gripLossTrackBar.Value);
+            selectedProfile.brakeSettings.GripLossValue = NormalizeValue(gripLossTrackBar.Value);
             gripLossNumericUpDown.Value = gripLossTrackBar.Value;
+
+
         }
 
         private void gripLossNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._grip_Loss_Val = NormalizeValue((float)gripLossNumericUpDown.Value);
+            selectedProfile.brakeSettings.GripLossValue = NormalizeValue((float)gripLossNumericUpDown.Value);
             gripLossTrackBar.Value = (int)Math.Floor(gripLossNumericUpDown.Value);
+
+
         }
 
         private void brakeVibrationStartTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._brake_Vibration_Start = this.brakeVibrationStartTrackBar.Value;
+            selectedProfile.brakeSettings.VibrationStart = brakeVibrationStartTrackBar.Value;
             brakeVibrationStartNumericUpDown.Value = brakeVibrationStartTrackBar.Value;
+
+
         }
 
         private void brakeVibrationStartNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._brake_Vibration_Start = (int)Math.Floor(brakeVibrationStartNumericUpDown.Value);
-            brakeVibrationStartTrackBar.Value = currentSettings._brake_Vibration_Start;
+            selectedProfile.brakeSettings.VibrationStart = (int)Math.Floor(brakeVibrationStartNumericUpDown.Value);
+            brakeVibrationStartTrackBar.Value = selectedProfile.brakeSettings.VibrationStart;
+
+
         }
 
         private void brakeVibrationModeTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._brake_Vibration_Mode_Start = this.brakeVibrationModeTrackBar.Value;
+            selectedProfile.brakeSettings.VibrationModeStart = brakeVibrationModeTrackBar.Value;
             brakeVibrationModeNumericUpDown.Value = brakeVibrationModeTrackBar.Value;
+
+
         }
 
         private void brakeVibrationModeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._brake_Vibration_Mode_Start = (int)Math.Floor(brakeVibrationModeNumericUpDown.Value);
-            brakeVibrationModeTrackBar.Value = currentSettings._brake_Vibration_Mode_Start;
+            selectedProfile.brakeSettings.VibrationModeStart = (int)Math.Floor(brakeVibrationModeNumericUpDown.Value);
+            brakeVibrationModeTrackBar.Value = selectedProfile.brakeSettings.VibrationModeStart;
+
+
         }
 
         private void minBrakeVibrationTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._min_Brake_Vibration = minBrakeVibrationTrackBar.Value;
+            selectedProfile.brakeSettings.MinVibration = minBrakeVibrationTrackBar.Value;
             minBrakeVibrationNumericUpDown.Value = minBrakeVibrationTrackBar.Value;
+
+
         }
 
         private void minBrakeVibrationNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._min_Brake_Vibration = (int)Math.Floor(minBrakeVibrationNumericUpDown.Value);
-            minBrakeVibrationTrackBar.Value = currentSettings._min_Brake_Vibration;
+            selectedProfile.brakeSettings.MinVibration = (int)Math.Floor(minBrakeVibrationNumericUpDown.Value);
+            minBrakeVibrationTrackBar.Value = selectedProfile.brakeSettings.MinVibration;
+
+
         }
 
         private void maxBrakeVibrationTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._max_Brake_Vibration = maxBrakeVibrationTrackBar.Value;
+            selectedProfile.brakeSettings.MaxVibration = maxBrakeVibrationTrackBar.Value;
             maxBrakeVibrationNumericUpDown.Value = maxBrakeVibrationTrackBar.Value;
+
+
         }
 
         private void maxBrakeVibrationNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._max_Brake_Vibration = (int)Math.Floor(maxBrakeVibrationNumericUpDown.Value);
-            maxBrakeVibrationTrackBar.Value = currentSettings._max_Brake_Vibration;
+            selectedProfile.brakeSettings.MaxVibration = (int)Math.Floor(maxBrakeVibrationNumericUpDown.Value);
+            maxBrakeVibrationTrackBar.Value = selectedProfile.brakeSettings.MaxVibration;
+
+
         }
 
         private void vibrationSmoothingTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._ewma_Alpha_Brake_Freq = NormalizeValue(vibrationSmoothingTrackBar.Value, 500);
+            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue(vibrationSmoothingTrackBar.Value, 500);
             brakeVibrationSmoothNumericUpDown.Value = vibrationSmoothingTrackBar.Value;
+
+
         }
 
         private void brakeVibrationSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._ewma_Alpha_Brake_Freq = NormalizeValue((float)brakeVibrationSmoothNumericUpDown.Value, 500);
+            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue((float)brakeVibrationSmoothNumericUpDown.Value, 500);
             vibrationSmoothingTrackBar.Value = (int)Math.Floor(brakeVibrationSmoothNumericUpDown.Value);
+
+
         }
 
         private void minBrakeStiffnessTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._min_Brake_Stiffness = minBrakeStiffnessTrackBar.Value;
+            selectedProfile.brakeSettings.MinStiffness = minBrakeStiffnessTrackBar.Value;
             minBrakeStifnessNumericUpDown.Value = minBrakeStiffnessTrackBar.Value;
+
+
         }
 
         private void minBrakeStifnessNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._min_Brake_Stiffness = (int)Math.Floor(minBrakeVibrationNumericUpDown.Value);
-            minBrakeVibrationTrackBar.Value = currentSettings._min_Brake_Stiffness;
+            selectedProfile.brakeSettings.MinStiffness = (int)Math.Floor(minBrakeVibrationNumericUpDown.Value);
+            minBrakeVibrationTrackBar.Value = selectedProfile.brakeSettings.MinStiffness;
+
+
         }
 
         private void maxBrakeStiffnessTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._max_Brake_Stiffness = maxBrakeStiffnessTrackBar.Value;
+            selectedProfile.brakeSettings.MaxStiffness = maxBrakeStiffnessTrackBar.Value;
             maxBrakeStifnessNumericUpDown.Value = maxBrakeStiffnessTrackBar.Value;
+
+
         }
 
         private void maxBrakeStifnessNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._max_Brake_Stiffness = (int)Math.Floor(maxBrakeVibrationNumericUpDown.Value);
-            maxBrakeVibrationTrackBar.Value = currentSettings._max_Brake_Stiffness;
+            selectedProfile.brakeSettings.MaxStiffness = (int)Math.Floor(maxBrakeVibrationNumericUpDown.Value);
+            maxBrakeVibrationTrackBar.Value = selectedProfile.brakeSettings.MaxStiffness;
+
+
         }
 
         private void minBrakeResistanceTrackBar_Scroll(object sender, EventArgs e)
         {
-            int value = minBrakeResistanceTrackBar.Value;
-            if (value > currentSettings._max_Brake_Resistance)
-                value = currentSettings._max_Brake_Resistance;
 
-            currentSettings._min_Brake_Resistance = value;
+            int value = minBrakeResistanceTrackBar.Value;
+            if (value > selectedProfile.brakeSettings.MaxResistance)
+                value = selectedProfile.brakeSettings.MaxResistance;
+
+            selectedProfile.brakeSettings.MinResistance = value;
 
             minBrakeResistanceTrackBar.Value = value;
             minBrakeResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void minBrakeResistanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(minBrakeResistanceNumericUpDown.Value);
-            if (value > currentSettings._max_Brake_Resistance)
-                value = currentSettings._max_Brake_Resistance;
+            if (value > selectedProfile.brakeSettings.MaxResistance)
+                value = selectedProfile.brakeSettings.MaxResistance;
 
-            currentSettings._min_Brake_Resistance = value;
+            selectedProfile.brakeSettings.MinResistance = value;
 
             minBrakeResistanceTrackBar.Value = value;
             minBrakeResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void maxBrakeResistanceTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = maxBrakeResistanceTrackBar.Value;
-            if (value < currentSettings._min_Brake_Resistance)
-                value = currentSettings._min_Brake_Resistance;
 
-            currentSettings._max_Brake_Resistance = value;
+            if (value > selectedProfile.brakeSettings.MinResistance)
+                value = selectedProfile.brakeSettings.MinResistance;
 
+            selectedProfile.brakeSettings.MaxResistance = value;
             maxBrakeResistanceTrackBar.Value = value;
             maxBrakeResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void maxBrakeResistanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(maxBrakeResistanceNumericUpDown.Value);
-            if (value < currentSettings._min_Brake_Resistance)
-                value = currentSettings._min_Brake_Resistance;
+            if (value > selectedProfile.brakeSettings.MinResistance)
+                value = selectedProfile.brakeSettings.MinResistance;
 
-            currentSettings._max_Brake_Resistance = value;
+            selectedProfile.brakeSettings.MaxResistance = value;
 
             maxBrakeResistanceTrackBar.Value = value;
             maxBrakeResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void brakeResistanceSmoothingTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._ewma_Alpha_Brake = NormalizeValue(brakeResistanceSmoothingTrackBar.Value, 500);
+            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue(brakeResistanceSmoothingTrackBar.Value, 500);
             brakeResistanceSmoothNumericUpDown.Value = brakeResistanceSmoothingTrackBar.Value;
+
+
         }
 
         private void brakeResistanceSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._ewma_Alpha_Brake = NormalizeValue((float)brakeResistanceSmoothNumericUpDown.Value, 500);
+            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue((float)brakeResistanceSmoothNumericUpDown.Value, 500);
             brakeResistanceSmoothingTrackBar.Value = (int)Math.Floor(brakeResistanceSmoothNumericUpDown.Value);
+
+
         }
         #endregion
 
         #region Throttle
         private void throttleIntensityTrackBar_Scroll(object sender, EventArgs e)
         {
-            currentSettings._right_Trigger_Effect_Intensity = NormalizeValue(throttleIntensityTrackBar.Value);
+            selectedProfile.throttleSettings.EffectIntensity = NormalizeValue(throttleIntensityTrackBar.Value);
             throttleIntensityNumericUpDown.Value = throttleIntensityTrackBar.Value;
+
+
         }
 
         private void throttleIntensityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            currentSettings._right_Trigger_Effect_Intensity = NormalizeValue((float)throttleIntensityNumericUpDown.Value);
+            selectedProfile.throttleSettings.EffectIntensity = NormalizeValue((float)throttleIntensityNumericUpDown.Value);
             throttleIntensityTrackBar.Value = (int)Math.Floor(throttleIntensityNumericUpDown.Value);
+
+
         }
 
         private void throttleGripLossTrackBar_Scroll(object sender, EventArgs e)
         {
+
             int value = throttleGripLossTrackBar.Value;
-            currentSettings._throttle_Grip_Loss_Val = NormalizeValue(value);
+            selectedProfile.throttleSettings.GripLossValue = NormalizeValue(value);
             throttleGripLossNumericUpDown.Value = value;
+
+
         }
 
         private void throttleGripLossNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             float value = (float)throttleGripLossNumericUpDown.Value;
-            currentSettings._throttle_Grip_Loss_Val = NormalizeValue(value);
+            selectedProfile.throttleSettings.GripLossValue = NormalizeValue(value);
             throttleGripLossTrackBar.Value = (int)Math.Floor(value);
+
+
         }
 
         private void throttleTurnAccelScaleTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleTurnAccelScaleTrackBar.Value;
-            currentSettings._turn_Accel_Mod = NormalizeValue(value);
+            selectedProfile.throttleSettings.TurnAccelerationScale = NormalizeValue(value);
             throttleTurnAccelScaleNumericUpDown.Value = value;
+
+
         }
 
         private void throttleTurnAccelScaleNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             float value = (float)throttleTurnAccelScaleNumericUpDown.Value;
-            currentSettings._turn_Accel_Mod = NormalizeValue(value);
+            selectedProfile.throttleSettings.TurnAccelerationScale = NormalizeValue(value);
             throttleTurnAccelScaleTrackBar.Value = (int)Math.Floor(value);
+
+
         }
 
         private void throttleForwardAccelScaleTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleForwardAccelScaleTrackBar.Value;
-            currentSettings._forward_Accel_Mod = NormalizeValue(value);
+            selectedProfile.throttleSettings.ForwardAccelerationScale = NormalizeValue(value);
             throttleForwardAccelScaleNumericUpDown.Value = value;
+
+
         }
 
         private void throttleForwardAccelScaleNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             float value = (float)throttleForwardAccelScaleNumericUpDown.Value;
-            currentSettings._forward_Accel_Mod = NormalizeValue(value);
+            selectedProfile.throttleSettings.ForwardAccelerationScale = NormalizeValue(value);
             throttleForwardAccelScaleTrackBar.Value = (int)Math.Floor(value);
+
+
         }
 
         private void throttleAccelLimitTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleAccelLimitTrackBar.Value;
-            currentSettings._acceleration_Limit = value;
+            selectedProfile.throttleSettings.AccelerationLimit = value;
             throttleAccelLimitNumericUpDown.Value = value;
+
+
         }
 
         private void throttleAccelLimitNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleAccelLimitNumericUpDown.Value);
-            currentSettings._acceleration_Limit = value;
+            selectedProfile.throttleSettings.AccelerationLimit = value;
             throttleAccelLimitTrackBar.Value = value;
+
+
         }
 
         private void throttleVibrationModeStartTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleVibrationModeStartTrackBar.Value;
-            currentSettings._throttle_Vibration_Mode_Start = value;
+            selectedProfile.throttleSettings.VibrationModeStart = value;
             throttleVibrationStartNumericUpDown.Value = value;
+
+
         }
 
         private void throttleVibrationStartNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleVibrationStartNumericUpDown.Value);
-            currentSettings._throttle_Vibration_Mode_Start = value;
+            selectedProfile.throttleSettings.VibrationModeStart = value;
             throttleVibrationModeStartTrackBar.Value = value;
+
+
         }
 
         private void throttleMinVibrationTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMinVibrationTrackBar.Value;
-            currentSettings._min_Accel_Griploss_Vibration = value;
+            selectedProfile.throttleSettings.MinVibration = value;
             throttleMinVibrationNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMinVibrationNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMinVibrationNumericUpDown.Value);
-            currentSettings._min_Accel_Griploss_Vibration = value;
+            selectedProfile.throttleSettings.MinVibration = value;
             throttleMinVibrationTrackBar.Value = value;
+
+
         }
 
         private void throttleMaxVibrationTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMaxVibrationTrackBar.Value;
-            currentSettings._max_Accel_Griploss_Vibration = value;
+            selectedProfile.throttleSettings.MaxVibration = value;
             throttleMaxVibrationNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMaxVibrationNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMaxVibrationNumericUpDown.Value);
-            currentSettings._max_Accel_Griploss_Vibration = value;
+            selectedProfile.throttleSettings.MaxVibration = value;
             throttleMaxVibrationTrackBar.Value = value;
+
+
         }
 
         private void throttleVibrationSmoothTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleVibrationSmoothTrackBar.Value;
-            currentSettings._ewma_Alpha_Throttle_Freq = NormalizeValue(value);
+            selectedProfile.throttleSettings.VibrationSmoothing = NormalizeValue(value);
             throttleVibrationSmoothNumericUpDown.Value = value;
+
+
         }
 
         private void throttleVibrationSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             float value = (float)throttleVibrationSmoothNumericUpDown.Value;
-            currentSettings._ewma_Alpha_Throttle_Freq = NormalizeValue(value);
+            selectedProfile.throttleSettings.VibrationSmoothing = NormalizeValue(value);
             throttleVibrationSmoothTrackBar.Value = (int)Math.Floor(value);
+
+
         }
 
         private void throttleMinStiffnessTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMinStiffnessTrackBar.Value;
-            currentSettings._min_Accel_Griploss_Stiffness = value;
+            selectedProfile.throttleSettings.MinStiffness = value;
             throttleMinStiffnessNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMinStiffnessNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMinStiffnessNumericUpDown.Value);
-            currentSettings._min_Accel_Griploss_Stiffness = value;
+            selectedProfile.throttleSettings.MinStiffness = value;
             throttleMinStiffnessTrackBar.Value = value;
+
+
         }
 
         private void throttleMaxStiffnessTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMaxStiffnessTrackBar.Value;
-            currentSettings._max_Accel_Griploss_Stiffness = value;
+            selectedProfile.throttleSettings.MaxStiffness = value;
             throttleMaxStiffnessNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMaxStiffnessNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMaxStiffnessNumericUpDown.Value);
-            currentSettings._max_Accel_Griploss_Stiffness = value;
+            selectedProfile.throttleSettings.MaxStiffness = value;
             throttleMaxStiffnessTrackBar.Value = value;
+
+
         }
 
         private void throttleMinResistanceTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMinResistanceTrackBar.Value;
-            currentSettings._min_Throttle_Resistance = value;
+            selectedProfile.throttleSettings.MinResistance = value;
             throttleMinResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMinResistanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMinResistanceNumericUpDown.Value);
-            currentSettings._min_Throttle_Resistance = value;
+            selectedProfile.throttleSettings.MinResistance = value;
             throttleMinResistanceTrackBar.Value = value;
+
+
         }
 
         private void throttleMaxResistanceTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleMaxResistanceTrackBar.Value;
-            currentSettings._max_Throttle_Resistance = value;
+            selectedProfile.throttleSettings.MaxResistance = value;
             throttleMaxResistanceNumericUpDown.Value = value;
+
+
         }
 
         private void throttleMaxResistanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(throttleMaxResistanceNumericUpDown.Value);
-            currentSettings._max_Throttle_Resistance = value;
+            selectedProfile.throttleSettings.MaxResistance = value;
             throttleMaxResistanceTrackBar.Value = value;
+
+
         }
 
         private void throttleResistanceSmoothTrackBar_Scroll(object sender, EventArgs e)
         {
             int value = throttleResistanceSmoothTrackBar.Value;
-            currentSettings._ewma_Alpha_Throttle = NormalizeValue(value);
+            selectedProfile.throttleSettings.ResistanceSmoothing = NormalizeValue(value);
             throttleResistanceSmoothNumericUpDown.Value = value;
+
+
         }
 
         private void throttleResistanceSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             float value = (float)throttleResistanceSmoothNumericUpDown.Value;
-            currentSettings._ewma_Alpha_Throttle = NormalizeValue(value);
+            selectedProfile.throttleSettings.ResistanceSmoothing = NormalizeValue(value);
             throttleResistanceSmoothTrackBar.Value = (int)Math.Floor(value);
+
+
         }
         #endregion
 
@@ -777,9 +938,10 @@ namespace ForzaDSX
         {
             if (forzaDSXWorker != null)
             {
-                CurrentSettings.Save();
 
                 forzaDSXWorker.SetSettings(CurrentSettings);
+                ConfigHandler.SaveConfig();
+
             }
         }
 
@@ -787,9 +949,10 @@ namespace ForzaDSX
         {
             if (forzaDSXWorker != null)
             {
-                CurrentSettings.Save();
 
                 forzaDSXWorker.SetSettings(CurrentSettings);
+                ConfigHandler.SaveConfig();
+
             }
         }
 
@@ -797,37 +960,43 @@ namespace ForzaDSX
         {
             if (forzaDSXWorker != null)
             {
-                CurrentSettings.Save();
 
                 forzaDSXWorker.SetSettings(CurrentSettings);
+                ConfigHandler.SaveConfig();
+
             }
         }
 
         private void miscDefaultsButton_Click(object sender, EventArgs e)
         {
+
+            selectedProfile.RPMRedlineRatio = 0.9f;
+            selectedProfile.gameUDPPort = 9999;
             FullResetValues();
         }
 
         private void brakeDefaultsButton_Click(object sender, EventArgs e)
         {
+            selectedProfile.brakeSettings = new BrakeSettings();
             FullResetValues();
         }
 
         private void throttleDefaultsButton_Click(object sender, EventArgs e)
         {
+            selectedProfile.throttleSettings = new ThrottleSettings();
             FullResetValues();
         }
 
         protected void FullResetValues()
         {
-            CurrentSettings.Reset();
+            // CurrentSettings.Reset();
 
             SetupUI();
 
             if (forzaDSXWorker != null)
             {
-                CurrentSettings.Save();
-
+                // CurrentSettings.Save();
+                ConfigHandler.SaveConfig();
                 forzaDSXWorker.SetSettings(CurrentSettings);
 
                 StartForzaDSXThread();
@@ -836,22 +1005,23 @@ namespace ForzaDSX
 
         private void brakeTriggerModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurrentSettings.BrakeTriggerMode = (sbyte)brakeTriggerModeComboBox.SelectedIndex;
+            selectedProfile.brakeSettings.TriggerMode = (Config.TriggerMode)(sbyte)brakeTriggerModeComboBox.SelectedIndex;
         }
 
         private void throttleTriggerModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurrentSettings.ThrottleTriggerMode = (sbyte)throttleTriggerModeComboBox.SelectedIndex;
+            selectedProfile.throttleSettings.TriggerMode = (Config.TriggerMode)(sbyte)throttleTriggerModeComboBox.SelectedIndex;
         }
 
 
 
         private void toolStripAppCheckOnItem_Click(object sender, EventArgs e)
         {
-            currentSettings._disable_App_Check = false;
+            currentSettings.DisableAppCheck = false;
             toolStripAppCheckOnItem.Checked = true;
             toolStripAppCheckOffItem.Checked = false;
             toolStripAppCheckButton.Text = "App Check Enabled";
+            ConfigHandler.SaveConfig();
 
         }
 
@@ -861,23 +1031,27 @@ namespace ForzaDSX
 
         private void toolStripAppCheckOffItem_Click(object sender, EventArgs e)
         {
-            currentSettings._disable_App_Check = true;
+            currentSettings.DisableAppCheck = true;
             toolStripAppCheckOnItem.Checked = false;
             toolStripAppCheckOffItem.Checked = true;
             toolStripAppCheckButton.Text = "App Check Disabled";
+            ConfigHandler.SaveConfig();
+
         }
 
         private void toolStripDSXPortButton_Click(object sender, EventArgs e)
         {
             try
             {
-                currentSettings._dsx_PORT = Int32.Parse(toolStripDSXPortTextBox.Text);
+                currentSettings.DSXPort = Int32.Parse(toolStripDSXPortTextBox.Text);
+                ConfigHandler.SaveConfig();
+
             }
             catch (Exception)
             {
-                toolStripDSXPortTextBox.Text = currentSettings._dsx_PORT.ToString();
+                toolStripDSXPortTextBox.Text = currentSettings.DSXPort.ToString();
             }
-            toolStripDSXPortButton.Text = "DSX Port: " + currentSettings._dsx_PORT.ToString();
+            toolStripDSXPortButton.Text = "DSX Port: " + currentSettings.DSXPort.ToString();
         }
 
         private void toolStripDSXPortTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -886,14 +1060,133 @@ namespace ForzaDSX
             {
                 try
                 {
-                    currentSettings._dsx_PORT = Int32.Parse(toolStripDSXPortTextBox.Text);
+                    currentSettings.DSXPort = Int32.Parse(toolStripDSXPortTextBox.Text);
+                    ConfigHandler.SaveConfig();
                 }
                 catch (Exception)
                 {
-                    toolStripDSXPortTextBox.Text = currentSettings._dsx_PORT.ToString();
+                    toolStripDSXPortTextBox.Text = currentSettings.DSXPort.ToString();
                 }
-                toolStripDSXPortButton.Text = "DSX Port: " + currentSettings._dsx_PORT.ToString();
+                toolStripDSXPortButton.Text = "DSX Port: " + currentSettings.DSXPort.ToString();
             }
+        }
+
+        private void profilesListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (profilesListView.SelectedItems.Count == 0)
+            {
+                profilesListView.Items[selectedIndex].Selected = true;
+                return;
+
+            }
+
+        }
+
+
+
+        private void profilesListView_MouseDown(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo HI = profilesListView.HitTest(e.Location);
+
+
+            if (e.Button == MouseButtons.Right)
+            {
+if (HI.Item != null) { 
+                    profilesListView.FocusedItem = HI.Item;
+              
+                    ProfilesContextMenu.Items[1].Enabled = true;
+                    ProfilesContextMenu.Items[2].Enabled = true;
+                    ProfilesContextMenu.Items[3].Enabled = true;
+                    ProfilesContextMenu.Items[4].Enabled = false;
+                    if (currentSettings.Profiles[HI.Item.Name].IsEnabled)
+                    {
+                        ProfilesContextMenu.Items[2].Text = "Disable";
+                    } else
+                    {
+                        ProfilesContextMenu.Items[2].Text = "Enable";
+                    }
+                    ProfilesContextMenu.Show(Cursor.Position);
+                } else
+                {
+                    ProfilesContextMenu.Items[1].Enabled = false;
+                    ProfilesContextMenu.Items[2].Enabled = false;
+                    ProfilesContextMenu.Items[3].Enabled = false;
+                    ProfilesContextMenu.Items[4].Enabled = false;
+                    ProfilesContextMenu.Show(Cursor.Position);
+
+                }
+            } else if (e.Button == MouseButtons.Left)
+            {
+                if (HI.Item == null)
+                {
+                    return;
+                }
+                selectedIndex = HI.Item.Index;
+                String profileName = HI.Item.Name;
+               // HI.Item.Selected = true;
+                SwitchDisplayedProfile(profileName);
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String newProfileName = NameForm.ShowDialog("");
+            if (newProfileName != "")
+            {
+                Profile newProfile = new Profile();
+                newProfile.Name = newProfileName;
+                currentSettings.Profiles.Add(newProfileName, newProfile);
+                ConfigHandler.SaveConfig();
+                loadProfilesIntoList();
+            }
+
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String oldProfileName = profilesListView.FocusedItem.Name;
+            String newProfileName = NameForm.ShowDialog(oldProfileName);
+            if (newProfileName != "" && oldProfileName != newProfileName)
+            {
+                Profile newProfile = currentSettings.Profiles[oldProfileName];
+                currentSettings.Profiles.Remove(oldProfileName);
+                newProfile.Name = newProfileName;
+                currentSettings.Profiles.Add(newProfileName, newProfile);
+                ConfigHandler.SaveConfig();
+                loadProfilesIntoList();
+            }
+
+        }
+
+        private void disableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String profileName = profilesListView.FocusedItem.Name;
+            if (currentSettings.Profiles.ContainsKey(profileName))
+            {
+                Profile profile = currentSettings.Profiles[profileName];
+                profile.IsEnabled = !profile.IsEnabled;
+                //profile.IsEnabled = false;
+                ConfigHandler.SaveConfig();
+                loadProfilesIntoList();
+            }
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String profileName = profilesListView.FocusedItem.Name;
+            if (currentSettings.Profiles.ContainsKey(profileName))
+            {
+                currentSettings.Profiles.Remove(profileName);
+                ConfigHandler.SaveConfig();
+                loadProfilesIntoList();
+            }
+
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

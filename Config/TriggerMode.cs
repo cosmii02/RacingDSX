@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForzaDSX.Config
 {
-    internal enum TriggerMode
+    public enum TriggerMode : sbyte
     {
         Off,
         Resistance,

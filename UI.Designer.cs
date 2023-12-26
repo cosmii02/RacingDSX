@@ -44,12 +44,8 @@ namespace ForzaDSX
             miscTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             forzaPortNumericUpDown = new System.Windows.Forms.NumericUpDown();
             forzaPortLabel = new System.Windows.Forms.Label();
-            dsxPortLabel = new System.Windows.Forms.Label();
-            appCheckLabel = new System.Windows.Forms.Label();
             rpmLabel = new System.Windows.Forms.Label();
             rpmTrackBar = new System.Windows.Forms.TrackBar();
-            appCheckBox = new System.Windows.Forms.CheckBox();
-            dsxNumericUpDown = new System.Windows.Forms.NumericUpDown();
             rpmValueNumericUpDown = new System.Windows.Forms.NumericUpDown();
             buttonApplyMisc = new System.Windows.Forms.Button();
             miscDefaultsButton = new System.Windows.Forms.Button();
@@ -166,6 +162,12 @@ namespace ForzaDSX
             toolStripAppCheckOffItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripAppCheckOnItem = new System.Windows.Forms.ToolStripMenuItem();
             toolTip = new System.Windows.Forms.ToolTip(components);
+            ProfilesContextMenu = new System.Windows.Forms.ContextMenuStrip(components);
+            newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            disableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             mainPanel.SuspendLayout();
             ((ISupportInitialize)mainSplitContainer).BeginInit();
             mainSplitContainer.Panel1.SuspendLayout();
@@ -177,7 +179,6 @@ namespace ForzaDSX
             miscTableLayoutPanel.SuspendLayout();
             ((ISupportInitialize)forzaPortNumericUpDown).BeginInit();
             ((ISupportInitialize)rpmTrackBar).BeginInit();
-            ((ISupportInitialize)dsxNumericUpDown).BeginInit();
             ((ISupportInitialize)rpmValueNumericUpDown).BeginInit();
             brakeConfigTabPage.SuspendLayout();
             brakeTableLayoutPanel.SuspendLayout();
@@ -240,6 +241,7 @@ namespace ForzaDSX
             tableLayoutPanel1.SuspendLayout();
             noRaceGroupBox.SuspendLayout();
             statusStrip1.SuspendLayout();
+            ProfilesContextMenu.SuspendLayout();
             SuspendLayout();
             // 
             // mainPanel
@@ -283,13 +285,16 @@ namespace ForzaDSX
             // profilesListView
             // 
             profilesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            profilesListView.FullRowSelect = true;
             profilesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
             profilesListView.Location = new System.Drawing.Point(3, 27);
+            profilesListView.MultiSelect = false;
             profilesListView.Name = "profilesListView";
             profilesListView.Size = new System.Drawing.Size(230, 1198);
             profilesListView.TabIndex = 0;
             profilesListView.UseCompatibleStateImageBehavior = false;
             profilesListView.View = System.Windows.Forms.View.List;
+            profilesListView.MouseDown += profilesListView_MouseDown;
             // 
             // mainTabControl
             // 
@@ -327,12 +332,8 @@ namespace ForzaDSX
             miscTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             miscTableLayoutPanel.Controls.Add(forzaPortNumericUpDown, 1, 3);
             miscTableLayoutPanel.Controls.Add(forzaPortLabel, 0, 3);
-            miscTableLayoutPanel.Controls.Add(dsxPortLabel, 0, 2);
-            miscTableLayoutPanel.Controls.Add(appCheckLabel, 0, 1);
             miscTableLayoutPanel.Controls.Add(rpmLabel, 0, 0);
             miscTableLayoutPanel.Controls.Add(rpmTrackBar, 1, 0);
-            miscTableLayoutPanel.Controls.Add(appCheckBox, 1, 1);
-            miscTableLayoutPanel.Controls.Add(dsxNumericUpDown, 1, 2);
             miscTableLayoutPanel.Controls.Add(rpmValueNumericUpDown, 2, 0);
             miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 4);
             miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 4);
@@ -351,13 +352,13 @@ namespace ForzaDSX
             // 
             // forzaPortNumericUpDown
             // 
-            forzaPortNumericUpDown.AutoSize = true;
             forzaPortNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             forzaPortNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            forzaPortNumericUpDown.Location = new System.Drawing.Point(181, 156);
+            forzaPortNumericUpDown.Location = new System.Drawing.Point(169, 84);
             forzaPortNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             forzaPortNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
             forzaPortNumericUpDown.MaximumSize = new System.Drawing.Size(143, 0);
+            forzaPortNumericUpDown.MinimumSize = new System.Drawing.Size(140, 0);
             forzaPortNumericUpDown.Name = "forzaPortNumericUpDown";
             forzaPortNumericUpDown.Size = new System.Drawing.Size(143, 31);
             forzaPortNumericUpDown.TabIndex = 7;
@@ -368,40 +369,14 @@ namespace ForzaDSX
             // 
             forzaPortLabel.AutoSize = true;
             forzaPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            forzaPortLabel.Location = new System.Drawing.Point(4, 151);
+            forzaPortLabel.Location = new System.Drawing.Point(4, 79);
             forzaPortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             forzaPortLabel.Name = "forzaPortLabel";
-            forzaPortLabel.Size = new System.Drawing.Size(169, 41);
+            forzaPortLabel.Size = new System.Drawing.Size(157, 41);
             forzaPortLabel.TabIndex = 6;
-            forzaPortLabel.Text = "Forza Port";
+            forzaPortLabel.Text = "Game Port";
             forzaPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            toolTip.SetToolTip(forzaPortLabel, "Port for Forza UDP server");
-            // 
-            // dsxPortLabel
-            // 
-            dsxPortLabel.AutoSize = true;
-            dsxPortLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            dsxPortLabel.Location = new System.Drawing.Point(4, 110);
-            dsxPortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            dsxPortLabel.Name = "dsxPortLabel";
-            dsxPortLabel.Size = new System.Drawing.Size(169, 41);
-            dsxPortLabel.TabIndex = 4;
-            dsxPortLabel.Text = "DSX Port";
-            dsxPortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            toolTip.SetToolTip(dsxPortLabel, "Port for DSX Port Listener");
-            // 
-            // appCheckLabel
-            // 
-            appCheckLabel.AutoSize = true;
-            appCheckLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            appCheckLabel.Location = new System.Drawing.Point(4, 79);
-            appCheckLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            appCheckLabel.Name = "appCheckLabel";
-            appCheckLabel.Size = new System.Drawing.Size(169, 31);
-            appCheckLabel.TabIndex = 2;
-            appCheckLabel.Text = "Disable App Check?";
-            appCheckLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            toolTip.SetToolTip(appCheckLabel, "Should we disable the check for running applications?");
+            toolTip.SetToolTip(forzaPortLabel, "Port for Game's UDP Server");
             // 
             // rpmLabel
             // 
@@ -411,7 +386,7 @@ namespace ForzaDSX
             rpmLabel.Location = new System.Drawing.Point(4, 0);
             rpmLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             rpmLabel.Name = "rpmLabel";
-            rpmLabel.Size = new System.Drawing.Size(169, 79);
+            rpmLabel.Size = new System.Drawing.Size(157, 79);
             rpmLabel.TabIndex = 0;
             rpmLabel.Text = "RPM Redline Ratio";
             rpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -423,7 +398,7 @@ namespace ForzaDSX
             rpmTrackBar.Cursor = System.Windows.Forms.Cursors.NoMoveHoriz;
             rpmTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             rpmTrackBar.LargeChange = 50;
-            rpmTrackBar.Location = new System.Drawing.Point(181, 5);
+            rpmTrackBar.Location = new System.Drawing.Point(169, 5);
             rpmTrackBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rpmTrackBar.Maximum = 100;
             rpmTrackBar.Name = "rpmTrackBar";
@@ -434,43 +409,15 @@ namespace ForzaDSX
             toolTip.SetToolTip(rpmTrackBar, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             rpmTrackBar.Scroll += rpmTrackBar_Scroll;
             // 
-            // appCheckBox
-            // 
-            appCheckBox.AutoSize = true;
-            appCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            appCheckBox.Location = new System.Drawing.Point(181, 84);
-            appCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            appCheckBox.Name = "appCheckBox";
-            appCheckBox.Size = new System.Drawing.Size(593, 21);
-            appCheckBox.TabIndex = 3;
-            toolTip.SetToolTip(appCheckBox, "Should we disable the check for running applications?");
-            appCheckBox.UseVisualStyleBackColor = true;
-            appCheckBox.CheckedChanged += appCheckBox_CheckedChanged;
-            // 
-            // dsxNumericUpDown
-            // 
-            dsxNumericUpDown.AutoSize = true;
-            dsxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            dsxNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            dsxNumericUpDown.Location = new System.Drawing.Point(181, 115);
-            dsxNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            dsxNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
-            dsxNumericUpDown.MaximumSize = new System.Drawing.Size(143, 0);
-            dsxNumericUpDown.Name = "dsxNumericUpDown";
-            dsxNumericUpDown.Size = new System.Drawing.Size(143, 31);
-            dsxNumericUpDown.TabIndex = 5;
-            toolTip.SetToolTip(dsxNumericUpDown, "Port for DSX Port Listener");
-            dsxNumericUpDown.ValueChanged += dsxNumericUpDown_ValueChanged;
-            // 
             // rpmValueNumericUpDown
             // 
             rpmValueNumericUpDown.AutoSize = true;
             rpmValueNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             rpmValueNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            rpmValueNumericUpDown.Location = new System.Drawing.Point(782, 5);
+            rpmValueNumericUpDown.Location = new System.Drawing.Point(770, 5);
             rpmValueNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-            rpmValueNumericUpDown.Size = new System.Drawing.Size(806, 31);
+            rpmValueNumericUpDown.Size = new System.Drawing.Size(818, 31);
             rpmValueNumericUpDown.TabIndex = 8;
             toolTip.SetToolTip(rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             rpmValueNumericUpDown.ValueChanged += rpmValueNumericUpDown_ValueChanged;
@@ -478,7 +425,7 @@ namespace ForzaDSX
             // buttonApplyMisc
             // 
             buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            buttonApplyMisc.Location = new System.Drawing.Point(181, 197);
+            buttonApplyMisc.Location = new System.Drawing.Point(169, 125);
             buttonApplyMisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonApplyMisc.MaximumSize = new System.Drawing.Size(429, 50);
             buttonApplyMisc.MinimumSize = new System.Drawing.Size(286, 42);
@@ -491,7 +438,7 @@ namespace ForzaDSX
             // 
             // miscDefaultsButton
             // 
-            miscDefaultsButton.Location = new System.Drawing.Point(782, 197);
+            miscDefaultsButton.Location = new System.Drawing.Point(770, 125);
             miscDefaultsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscDefaultsButton.Name = "miscDefaultsButton";
             miscDefaultsButton.Size = new System.Drawing.Size(107, 38);
@@ -2130,6 +2077,48 @@ namespace ForzaDSX
             toolStripAppCheckOnItem.Text = "On";
             toolStripAppCheckOnItem.Click += toolStripAppCheckOnItem_Click;
             // 
+            // ProfilesContextMenu
+            // 
+            ProfilesContextMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
+            ProfilesContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripMenuItem, renameToolStripMenuItem, disableToolStripMenuItem, deleteToolStripMenuItem, copyToolStripMenuItem });
+            ProfilesContextMenu.Name = "ProfilesContextMenu";
+            ProfilesContextMenu.Size = new System.Drawing.Size(148, 164);
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            newToolStripMenuItem.Text = "New";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
+            // 
+            // renameToolStripMenuItem
+            // 
+            renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            renameToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            renameToolStripMenuItem.Text = "Rename";
+            renameToolStripMenuItem.Click += renameToolStripMenuItem_Click;
+            // 
+            // disableToolStripMenuItem
+            // 
+            disableToolStripMenuItem.Name = "disableToolStripMenuItem";
+            disableToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            disableToolStripMenuItem.Text = "Disable";
+            disableToolStripMenuItem.Click += disableToolStripMenuItem_Click;
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
+            // copyToolStripMenuItem
+            // 
+            copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            copyToolStripMenuItem.Size = new System.Drawing.Size(147, 32);
+            copyToolStripMenuItem.Text = "Copy";
+            copyToolStripMenuItem.Click += copyToolStripMenuItem_Click;
+            // 
             // UI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -2156,7 +2145,6 @@ namespace ForzaDSX
             miscTableLayoutPanel.PerformLayout();
             ((ISupportInitialize)forzaPortNumericUpDown).EndInit();
             ((ISupportInitialize)rpmTrackBar).EndInit();
-            ((ISupportInitialize)dsxNumericUpDown).EndInit();
             ((ISupportInitialize)rpmValueNumericUpDown).EndInit();
             brakeConfigTabPage.ResumeLayout(false);
             brakeConfigTabPage.PerformLayout();
@@ -2225,6 +2213,7 @@ namespace ForzaDSX
             noRaceGroupBox.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            ProfilesContextMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2252,12 +2241,8 @@ namespace ForzaDSX
 		private System.Windows.Forms.TableLayoutPanel miscTableLayoutPanel;
 		private System.Windows.Forms.NumericUpDown forzaPortNumericUpDown;
 		private System.Windows.Forms.Label forzaPortLabel;
-		private System.Windows.Forms.Label dsxPortLabel;
-		private System.Windows.Forms.Label appCheckLabel;
 		private System.Windows.Forms.Label rpmLabel;
 		private System.Windows.Forms.TrackBar rpmTrackBar;
-		private System.Windows.Forms.CheckBox appCheckBox;
-		private System.Windows.Forms.NumericUpDown dsxNumericUpDown;
 		private System.Windows.Forms.Label gripLossLabel;
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.TrackBar gripLossTrackBar;
@@ -2363,5 +2348,11 @@ namespace ForzaDSX
         private System.Windows.Forms.ToolStripDropDownButton toolStripAppCheckButton;
         private System.Windows.Forms.ToolStripMenuItem toolStripAppCheckOffItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripAppCheckOnItem;
+        private System.Windows.Forms.ContextMenuStrip ProfilesContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem disableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ForzaDSX.Config
 {
-    internal enum VerboseLevel
+    public enum VerboseLevel
     {
-        Off,
+        Off = 0,
         Limited,
         Full
     }
