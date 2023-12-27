@@ -55,6 +55,8 @@ namespace ForzaDSX
             AddExecutableButton = new System.Windows.Forms.Button();
             EditExecutableButton = new System.Windows.Forms.Button();
             RemoveExecutableButton = new System.Windows.Forms.Button();
+            GameModeLabel = new System.Windows.Forms.Label();
+            GameModeComboBox = new System.Windows.Forms.ComboBox();
             brakeConfigTabPage = new System.Windows.Forms.TabPage();
             brakeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             brakeResistanceSmoothNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -344,16 +346,19 @@ namespace ForzaDSX
             miscTableLayoutPanel.Controls.Add(rpmLabel, 0, 0);
             miscTableLayoutPanel.Controls.Add(rpmTrackBar, 1, 0);
             miscTableLayoutPanel.Controls.Add(rpmValueNumericUpDown, 2, 0);
-            miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 6);
-            miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 6);
-            miscTableLayoutPanel.Controls.Add(ExecutableListLabel, 0, 5);
-            miscTableLayoutPanel.Controls.Add(ExecutableListBox, 1, 5);
-            miscTableLayoutPanel.Controls.Add(flowLayoutPanel1, 2, 5);
+            miscTableLayoutPanel.Controls.Add(buttonApplyMisc, 1, 7);
+            miscTableLayoutPanel.Controls.Add(miscDefaultsButton, 2, 7);
+            miscTableLayoutPanel.Controls.Add(ExecutableListLabel, 0, 6);
+            miscTableLayoutPanel.Controls.Add(ExecutableListBox, 1, 6);
+            miscTableLayoutPanel.Controls.Add(flowLayoutPanel1, 2, 6);
+            miscTableLayoutPanel.Controls.Add(GameModeLabel, 0, 5);
+            miscTableLayoutPanel.Controls.Add(GameModeComboBox, 1, 5);
             miscTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             miscTableLayoutPanel.Location = new System.Drawing.Point(4, 5);
             miscTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscTableLayoutPanel.Name = "miscTableLayoutPanel";
-            miscTableLayoutPanel.RowCount = 7;
+            miscTableLayoutPanel.RowCount = 8;
+            miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -371,10 +376,8 @@ namespace ForzaDSX
             forzaPortNumericUpDown.Location = new System.Drawing.Point(190, 84);
             forzaPortNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             forzaPortNumericUpDown.Maximum = new decimal(new int[] { 65353, 0, 0, 0 });
-            forzaPortNumericUpDown.MaximumSize = new System.Drawing.Size(143, 0);
-            forzaPortNumericUpDown.MinimumSize = new System.Drawing.Size(140, 0);
             forzaPortNumericUpDown.Name = "forzaPortNumericUpDown";
-            forzaPortNumericUpDown.Size = new System.Drawing.Size(143, 31);
+            forzaPortNumericUpDown.Size = new System.Drawing.Size(593, 31);
             forzaPortNumericUpDown.TabIndex = 7;
             toolTip.SetToolTip(forzaPortNumericUpDown, "Port for Forza UDP server");
             forzaPortNumericUpDown.ValueChanged += forzaPortNumericUpDown_ValueChanged;
@@ -439,7 +442,7 @@ namespace ForzaDSX
             // buttonApplyMisc
             // 
             buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            buttonApplyMisc.Location = new System.Drawing.Point(190, 281);
+            buttonApplyMisc.Location = new System.Drawing.Point(190, 320);
             buttonApplyMisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonApplyMisc.MaximumSize = new System.Drawing.Size(429, 50);
             buttonApplyMisc.MinimumSize = new System.Drawing.Size(286, 42);
@@ -452,7 +455,7 @@ namespace ForzaDSX
             // 
             // miscDefaultsButton
             // 
-            miscDefaultsButton.Location = new System.Drawing.Point(791, 281);
+            miscDefaultsButton.Location = new System.Drawing.Point(791, 320);
             miscDefaultsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             miscDefaultsButton.Name = "miscDefaultsButton";
             miscDefaultsButton.Size = new System.Drawing.Size(107, 38);
@@ -465,7 +468,7 @@ namespace ForzaDSX
             // 
             ExecutableListLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             ExecutableListLabel.AutoSize = true;
-            ExecutableListLabel.Location = new System.Drawing.Point(3, 185);
+            ExecutableListLabel.Location = new System.Drawing.Point(3, 224);
             ExecutableListLabel.Name = "ExecutableListLabel";
             ExecutableListLabel.Size = new System.Drawing.Size(180, 25);
             ExecutableListLabel.TabIndex = 40;
@@ -478,7 +481,7 @@ namespace ForzaDSX
             ExecutableListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             ExecutableListBox.FormattingEnabled = true;
             ExecutableListBox.ItemHeight = 25;
-            ExecutableListBox.Location = new System.Drawing.Point(189, 123);
+            ExecutableListBox.Location = new System.Drawing.Point(189, 162);
             ExecutableListBox.Name = "ExecutableListBox";
             ExecutableListBox.Size = new System.Drawing.Size(595, 150);
             ExecutableListBox.TabIndex = 41;
@@ -491,7 +494,7 @@ namespace ForzaDSX
             flowLayoutPanel1.Controls.Add(RemoveExecutableButton);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new System.Drawing.Point(790, 123);
+            flowLayoutPanel1.Location = new System.Drawing.Point(790, 162);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new System.Drawing.Size(799, 150);
             flowLayoutPanel1.TabIndex = 42;
@@ -525,6 +528,29 @@ namespace ForzaDSX
             RemoveExecutableButton.Text = "Remove";
             RemoveExecutableButton.UseVisualStyleBackColor = true;
             RemoveExecutableButton.Click += RemoveExecutableButton_Click;
+            // 
+            // GameModeLabel
+            // 
+            GameModeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            GameModeLabel.AutoSize = true;
+            GameModeLabel.Location = new System.Drawing.Point(84, 127);
+            GameModeLabel.Name = "GameModeLabel";
+            GameModeLabel.Size = new System.Drawing.Size(99, 25);
+            GameModeLabel.TabIndex = 43;
+            GameModeLabel.Text = "UDP Mode";
+            GameModeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolTip.SetToolTip(GameModeLabel, "The Parser and backend to use to conver the game UDP to the DSX Commands");
+            // 
+            // GameModeComboBox
+            // 
+            GameModeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            GameModeComboBox.FormattingEnabled = true;
+            GameModeComboBox.Items.AddRange(new object[] { "(None)", "Forza", "Dirt" });
+            GameModeComboBox.Location = new System.Drawing.Point(189, 123);
+            GameModeComboBox.Name = "GameModeComboBox";
+            GameModeComboBox.Size = new System.Drawing.Size(182, 33);
+            GameModeComboBox.TabIndex = 44;
+            GameModeComboBox.SelectedIndexChanged += GameModeComboBox_SelectedIndexChanged;
             // 
             // brakeConfigTabPage
             // 
@@ -2456,5 +2482,7 @@ namespace ForzaDSX
         private System.Windows.Forms.Button AddExecutableButton;
         private System.Windows.Forms.Button EditExecutableButton;
         private System.Windows.Forms.Button RemoveExecutableButton;
+        private System.Windows.Forms.Label GameModeLabel;
+        private System.Windows.Forms.ComboBox GameModeComboBox;
     }
 }

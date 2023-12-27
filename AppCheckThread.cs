@@ -63,14 +63,18 @@ namespace ForzaDSX
 		{
 			lock (this)
 			{
-				foreach (var profile in settings.Profiles)
+                processProfilePairs.Clear();
+
+                foreach (var profile in settings.Profiles)
 				{
 					if (!profile.Value.IsEnabled) { continue; }
-					processProfilePairs.Clear();
 					profile.Value.executableNames.ForEach((name) =>
 					{
-						processProfilePairs.Add(name, profile.Key);
-					});
+                        if (!processProfilePairs.ContainsKey(name))
+                        {
+                            processProfilePairs.Add(name, profile.Key);
+                        }
+                    });
 				}
 			//	settings = currentSettings;
 			}
@@ -78,13 +82,17 @@ namespace ForzaDSX
 
 		public void Run()
 		{
+            processProfilePairs.Clear();
+
             foreach (var profile in settings.Profiles)
             {
                 if (!profile.Value.IsEnabled) { continue; }
-				processProfilePairs.Clear();
                 profile.Value.executableNames.ForEach((name) =>
                 {
-                    processProfilePairs.Add(name, profile.Key);
+					if (!processProfilePairs.ContainsKey(name))
+					{
+						processProfilePairs.Add(name, profile.Key);
+					}
                 });
             }
             bRunning = true;

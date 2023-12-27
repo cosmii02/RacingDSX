@@ -1,4 +1,5 @@
 ﻿using ForzaDSX.Config;
+using ForzaDSX.GameParsers;
 using ForzaDSX.Properties;
 using System;
 using System.ComponentModel;
@@ -146,7 +147,8 @@ namespace ForzaDSX
                 if (value.value)
                 {
                     SwitchActiveProfile(value.message);
-                } else
+                }
+                else
                 {
                     SwitchActiveProfile(null);
                 }
@@ -171,7 +173,7 @@ namespace ForzaDSX
         protected void SwitchActiveProfile(String profileName)
         {
             Profile profile = null;
-           
+
             if (profileName == "")
             {
                 //   profileName = selectedProfile.Name;
@@ -183,7 +185,7 @@ namespace ForzaDSX
             if (profileName != null && currentSettings.Profiles.ContainsKey(profileName))
             {
                 profile = currentSettings.Profiles[profileName];
-               
+
             }
             currentSettings.ActiveProfile = profile;
             ConfigHandler.SaveConfig();
@@ -197,6 +199,7 @@ namespace ForzaDSX
         protected void RestartAppCheckThread()
         {
             StopAppCheckThread();
+            System.Threading.Thread.Sleep(1100);
             startAppCheckThread();
         }
 
@@ -410,8 +413,8 @@ namespace ForzaDSX
 
         void SwitchDisplayedProfile(String profileName = "")
         {
-            
-            if (profileName == null || profileName == "" )
+
+            if (profileName == null || profileName == "")
             {
                 if (selectedProfile == null)
                 {
@@ -435,6 +438,7 @@ namespace ForzaDSX
             this.rpmTrackBar.Value = DenormalizeValue(selectedProfile.RPMRedlineRatio);
             rpmValueNumericUpDown.Value = rpmTrackBar.Value;
             this.forzaPortNumericUpDown.Value = selectedProfile.gameUDPPort;
+            this.GameModeComboBox.SelectedIndex = (int)selectedProfile.GameType;
 
             // Brake Panel
             this.brakeTriggerModeComboBox.SelectedIndex = (int)brakeSettings.TriggerMode;
@@ -1056,6 +1060,7 @@ namespace ForzaDSX
             if (forzaDSXWorker != null)
             {
                 selectedProfile.executableNames = executables.ToList();
+
                 forzaDSXWorker.SetSettings(CurrentSettings);
                 ConfigHandler.SaveConfig();
                 appCheckWorker.updateExecutables();
@@ -1151,7 +1156,7 @@ namespace ForzaDSX
 
         private void toolStripAppCheckOffItem_Click(object sender, EventArgs e)
         {
-           disableAppCheck();
+            disableAppCheck();
 
         }
 
@@ -1275,6 +1280,13 @@ namespace ForzaDSX
             String newProfileName = NameForm.ShowDialog("", "Please enter the Profile Name");
             if (newProfileName != "")
             {
+                if (currentSettings.Profiles.ContainsKey(newProfileName))
+                {
+                    string message = "You cannot have a duplicate Profile Name!";
+                    MessageBox.Show(message);
+                    return;
+
+                }
                 Profile newProfile = new Profile();
                 newProfile.Name = newProfileName;
                 currentSettings.Profiles.Add(newProfileName, newProfile);
@@ -1290,6 +1302,13 @@ namespace ForzaDSX
             String newProfileName = NameForm.ShowDialog(oldProfileName, "Please enter the Profile Name");
             if (newProfileName != "" && oldProfileName != newProfileName)
             {
+                if (currentSettings.Profiles.ContainsKey(newProfileName))
+                {
+                    string message = "You cannot have a duplicate Profile Name!";
+                    MessageBox.Show(message);
+                    return;
+
+                }
                 Profile newProfile = currentSettings.Profiles[oldProfileName];
                 currentSettings.Profiles.Remove(oldProfileName);
                 newProfile.Name = newProfileName;
@@ -1360,6 +1379,14 @@ namespace ForzaDSX
             String newExecutableName = NameForm.ShowDialog("", "Please enter the Executable Name"); ;
             if (newExecutableName != "")
             {
+                var prof = currentSettings.Profiles.Values.Where(x => x.executableNames.Contains(newExecutableName));
+                if (prof.Count() > 0)
+                {
+                    string message = "You cannot have a duplicate Executable Name! Executable already part of Profile " + prof.First().Name;
+                    MessageBox.Show(message);
+                    return;
+
+                }
                 executables.Add(newExecutableName);
                 // ExecutableListBox.Items.Add(newExecutableName);
 
@@ -1372,9 +1399,16 @@ namespace ForzaDSX
             String newExecutableName = NameForm.ShowDialog(oldExecutableName, "Please enter the Executable Name"); ;
             if (newExecutableName != "")
             {
+                var prof = currentSettings.Profiles.Values.Where(x => x.executableNames.Contains(newExecutableName));
+                if (prof.Count() > 0)
+                {
+                    string message = "You cannot have a duplicate Executable Name! Executable already part of Profile " + prof.First().Name;
+                    MessageBox.Show(message);
+                    return; 
+                }
                 int index = selectedProfile.executableNames.IndexOf(oldExecutableName);
                 executables[index] = newExecutableName;
-               // ExecutableListBox.SelectedIndex = -1;
+                // ExecutableListBox.SelectedIndex = -1;
                 // ExecutableListBox.Items.Add(newExecutableName);
 
             }
@@ -1383,8 +1417,8 @@ namespace ForzaDSX
         private void RemoveExecutableButton_Click(object sender, EventArgs e)
         {
             String oldExecutableName = ExecutableListBox.SelectedItems[0].ToString();
-            
-                executables.Remove(oldExecutableName);
+
+            executables.Remove(oldExecutableName);
 
         }
 
@@ -1397,15 +1431,34 @@ namespace ForzaDSX
                 RemoveExecutableButton.Enabled = true;
                 return;
 
-            } else if (ExecutableListBox.SelectedItems.Count == 0)
+            }
+            else if (ExecutableListBox.SelectedItems.Count == 0)
             {
                 EditExecutableButton.Enabled = false;
                 RemoveExecutableButton.Enabled = false;
-            } else if (ExecutableListBox.SelectedItems.Count == 1)
+            }
+            else if (ExecutableListBox.SelectedItems.Count == 1)
             {
                 EditExecutableButton.Enabled = true;
                 RemoveExecutableButton.Enabled = true;
             }
+        }
+
+        private void GameModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (GameModeComboBox.SelectedItem)
+            {
+                case "Forza":
+                    selectedProfile.GameType = GameTypes.Forza;
+                    break;
+                case "Dirt":
+                    selectedProfile.GameType = GameTypes.Dirt;
+                    break;
+                case "(None)":
+                    selectedProfile.GameType = GameTypes.None;
+                    break;
+            }
+
         }
     }
 }
