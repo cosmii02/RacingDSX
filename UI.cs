@@ -35,6 +35,8 @@ namespace ForzaDSX
         CancellationTokenSource forzaThreadCancellationToken;
         CancellationToken forzaThreadToken;
 
+        String clickedProfileName = null;
+
         public UI()
         {
             InitializeComponent();
@@ -1207,7 +1209,7 @@ namespace ForzaDSX
             {
                 if (HI.Item != null)
                 {
-                    profilesListView.FocusedItem = HI.Item;
+                    clickedProfileName = HI.Item.Name;
                     newToolStripMenuItem.Enabled = true;
                     renameToolStripMenuItem.Enabled = true;
                     disableToolStripMenuItem.Enabled = true;
@@ -1284,7 +1286,7 @@ namespace ForzaDSX
 
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String oldProfileName = profilesListView.FocusedItem.Name;
+            String oldProfileName = clickedProfileName;
             String newProfileName = NameForm.ShowDialog(oldProfileName, "Please enter the Profile Name");
             if (newProfileName != "" && oldProfileName != newProfileName)
             {
@@ -1300,7 +1302,7 @@ namespace ForzaDSX
 
         private void disableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String profileName = profilesListView.FocusedItem.Name;
+            String profileName = clickedProfileName;
             if (currentSettings.Profiles.ContainsKey(profileName))
             {
                 Profile profile = currentSettings.Profiles[profileName];
@@ -1315,7 +1317,7 @@ namespace ForzaDSX
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String profileName = profilesListView.FocusedItem.Name;
+            String profileName = clickedProfileName;
             if (currentSettings.Profiles.ContainsKey(profileName))
             {
                 currentSettings.Profiles.Remove(profileName);
@@ -1332,7 +1334,7 @@ namespace ForzaDSX
 
         private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String profileName = profilesListView.FocusedItem.Name;
+            String profileName = clickedProfileName;
             if (currentSettings.Profiles.ContainsKey(profileName))
             {
                 currentSettings.DefaultProfile = profileName;
@@ -1343,7 +1345,7 @@ namespace ForzaDSX
 
         private void setActiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            String profileName = profilesListView.FocusedItem.Name;
+            String profileName = clickedProfileName;
             if (currentSettings.Profiles.ContainsKey(profileName))
             {
                 //currentSettings.ActiveProfile = currentSettings.Profiles[profileName];

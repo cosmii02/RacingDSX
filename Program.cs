@@ -136,6 +136,10 @@ namespace ForzaDSX
 
     public struct Instruction
     {
+        public Instruction(InstructionType type)
+        {
+            this.type = type;
+        }
         public InstructionType type;
         public object[] parameters;
     }
