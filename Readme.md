@@ -1,4 +1,4 @@
-💛Thank you for using ForzaDSX💛 💛Currently there are no plans to make it compatible with upcoming mod support on dsx v3, unless someone makes a PR for it💛
+💛Thank you for using ForzaDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
 
 🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
