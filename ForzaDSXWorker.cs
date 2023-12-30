@@ -1,7 +1,10 @@
-﻿using System;
+﻿using ForzaDSX.Config;
+using ForzaDSX.GameParsers;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ForzaDSX
@@ -35,21 +38,40 @@ namespace ForzaDSX
 				// 3 = Brake message
 				BRAKE
 			}
-
-			public ForzaDSXReportStruct(ReportType type, RacingReportType racingType, string msg)
+            public ForzaDSXReportStruct(VerboseLevel level, ReportType type, RacingReportType racingType, string msg)
+            {
+              this.verboseLevel = level;
+				this.type = type;
+                this.racingType = racingType;
+                this.message = msg;
+            }
+            public ForzaDSXReportStruct(ReportType type, RacingReportType racingType, string msg)
 			{
 				this.type = type;
 				this.racingType = racingType;
 				this.message = msg;
 			}
 
-			public ForzaDSXReportStruct(ReportType type, string msg)
+            public ForzaDSXReportStruct(VerboseLevel level, ReportType type, string msg)
+            {
+				this.verboseLevel = level;
+                this.type = type;
+                this.message = msg;
+            }
+
+            public ForzaDSXReportStruct(ReportType type, string msg)
 			{
 				this.type = type;
 				this.message = msg;
 			}
+            public ForzaDSXReportStruct(VerboseLevel level, string msg)
+            {
+				this.verboseLevel = level;
+                this.type = ReportType.VERBOSEMESSAGE;
+                this.message = String.Empty;
+            }
 
-			public ForzaDSXReportStruct(string msg)
+            public ForzaDSXReportStruct(string msg)
 			{
 				this.type = ReportType.VERBOSEMESSAGE;
 				this.message = String.Empty;
@@ -58,48 +80,24 @@ namespace ForzaDSX
 			public ReportType type = 0;
 			public RacingReportType racingType = 0;
 			public string message = string.Empty;
+			public VerboseLevel verboseLevel = VerboseLevel.Limited;
 		}
 
-		ForzaDSX.Properties.Settings settings;
+		ForzaDSX.Config.Config settings;
 		IProgress<ForzaDSXReportStruct> progressReporter;
-
-		int lastThrottleResistance = 1;
-		int lastThrottleFreq = 0;
-		int lastBrakeResistance = 200;
-		int lastBrakeFreq = 0;
-
-		uint LastValidCarClass = 0;
-		int LastValidCarCPI = 0;
-		float MaxCPI = 255;
-
-		float LastEngineRPM = 0;
-		// FH does not always correctly set IsRaceOn, so we must also check if the RPM info is the same for a certain ammount of time
-		uint LastRPMAccumulator = 0;
-		uint RPMAccumulatorTriggerRaceOff = 200;
-
-		// Colors for Light Bar while in menus -> using car's PI colors from Forza
-		public static readonly uint CarClassD = 0;
-		public static readonly int[] ColorClassD = { 107, 185, 236 };
-		public static readonly uint CarClassC = 1;
-		public static readonly int[] ColorClassC = { 234, 202, 49 };
-		public static readonly uint CarClassB = 2;
-		public static readonly int[] ColorClassB = { 211, 90, 37 };
-		public static readonly uint CarClassA = 3;
-		public static readonly int[] ColorClassA = { 187, 59, 34 };
-		public static readonly uint CarClassS1 = 4;
-		public static readonly int[] ColorClassS1 = { 128, 54, 243 };
-		public static readonly uint CarClassS2 = 5;
-		public static readonly int[] ColorClassS2 = { 75, 88, 229 };
-		public static readonly int[] ColorClassX = { 105, 182, 72 };
+		Parser parser;
 
 
-		public ForzaDSXWorker(ForzaDSX.Properties.Settings currentSettings, IProgress<ForzaDSXReportStruct> progressReporter)
+
+
+
+		public ForzaDSXWorker(ForzaDSX.Config.Config currentSettings, IProgress<ForzaDSXReportStruct> progressReporter)
 		{
 			settings = currentSettings;
 			this.progressReporter = progressReporter;
 		}
 
-		public void SetSettings(ForzaDSX.Properties.Settings currentSettings)
+		public void SetSettings(ForzaDSX.Config.Config currentSettings)
 		{
 			lock(this)
 			{
@@ -111,328 +109,66 @@ namespace ForzaDSX
 		//See DataPacket.cs for more details about what forza parameters can be accessed.
 		//See the Enums at the bottom of this file for details about commands that can be sent to DualSenseX
 		//Also see the Test Function below to see examples about those commands
-		void SendData(DataPacket data)
+		void SendData()
 		{
 			Packet p = new Packet();
+	//		Parser parser = new ForzaParser(settings);
 			CsvData csvRecord = new CsvData();
-			//Set the controller to do this for
-			int controllerIndex = 0;
-
-			////Initialize our array of instructions
-			//p.instructions = new Instruction[3];
-
-			/* Combined variables */
-			int resistance = 0;
-			int filteredResistance = 0;
-			float avgAccel = 0;
-			int freq = 0;
-			int filteredFreq = 0;
-
-			bool bInRace = data.IsRaceOn;
-
-			float currentRPM = data.CurrentEngineRpm;
-			// FH does not always correctly set IsRaceOn, so we must also check if the RPM info is the same for a certain ammount of time
-			// Also check if Power <= 0 (car is really stopped)
-			if (currentRPM == LastEngineRPM
-				&& data.Power <= 0)
-			{
-				LastRPMAccumulator++;
-				if (LastRPMAccumulator > RPMAccumulatorTriggerRaceOff)
-				{
-					bInRace = false;
-				}
-			}
-			else
-			{
-				LastRPMAccumulator = 0;
-			}
-
-			LastEngineRPM = currentRPM;
-
-			//Get average tire slippage. This value runs from 0.0 upwards with a value of 1.0 or greater meaning total loss of grip.
-			float combinedTireSlip = (Math.Abs(data.TireCombinedSlipFrontLeft) + Math.Abs(data.TireCombinedSlipFrontRight) + Math.Abs(data.TireCombinedSlipRearLeft) + Math.Abs(data.TireCombinedSlipRearRight)) / 4;
-			float combinedFrontTireSlip = (Math.Abs(data.TireCombinedSlipFrontLeft) + Math.Abs(data.TireCombinedSlipFrontRight)) / 2;
-			float combinedRearTireSlip = (Math.Abs(data.TireCombinedSlipRearLeft) + Math.Abs(data.TireCombinedSlipRearRight)) / 2;
-
-			uint currentClass = LastValidCarClass;
-			if (data.CarClass > 0)
-			{
-				LastValidCarClass = currentClass = data.CarClass;
-			}
-
-			int currentCPI = LastValidCarCPI;
-			if (data.CarPerformanceIndex > 0)
-			{
-				LastValidCarCPI = currentCPI = Math.Min((int)data.CarPerformanceIndex, 255);
-			}
-
-			// Right Trigger (index 2)
-			//int RightTrigger = 2;
-			Instruction RightTrigger = new Instruction();
-			RightTrigger.type = InstructionType.TriggerUpdate;
-			//p.instructions[RightTrigger].type = InstructionType.TriggerUpdate;
-
-			// Left Trigger
-			//int LeftTrigger = 1;
-			//p.instructions[LeftTrigger].type = InstructionType.TriggerUpdate;
-			Instruction LeftTrigger = new Instruction();
-			LeftTrigger.type = InstructionType.TriggerUpdate;
-
-			// Light Bar
-			//int LightBar = 0;
-			//p.instructions[LightBar].type = InstructionType.RGBUpdate;
-			Instruction LightBar = new Instruction();
-			LightBar.type = InstructionType.RGBUpdate;
+			Profile activeProfile = settings.ActiveProfile;
+			ReportableInstruction reportableInstruction = new ReportableInstruction();
+		
 
 			// No race = normal triggers
-			if (!bInRace)
+			if (!parser.IsRaceOn())
 			{
-				RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
-				LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
+			
 
-				#region Light Bar color
-				int CPIcolorR = 255;
-				int CPIcolorG = 255;
-				int CPIcolorB = 255;
+				reportableInstruction = parser.GetPreRaceInstructions();
+				p.instructions = reportableInstruction.Instructions;
+				reportableInstruction.ForzaDSXReportStructs.ForEach(x =>
+				{
 
-				float cpiRatio = currentCPI / MaxCPI;
-
-				if (currentClass <= CarClassD)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassD[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassD[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassD[2]);
-				}
-				else if (currentClass <= CarClassC)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassC[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassC[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassC[2]);
-				}
-				else if (currentClass <= CarClassB)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassB[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassB[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassB[2]);
-				}
-				else if (currentClass <= CarClassA)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassA[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassA[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassA[2]);
-				}
-				else if (currentClass <= CarClassS1)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassS1[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassS1[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassS1[2]);
-				}
-				else if (currentClass <= CarClassS2)
-				{
-					CPIcolorR = (int)Math.Floor(cpiRatio * ColorClassS2[0]);
-					CPIcolorG = (int)Math.Floor(cpiRatio * ColorClassS2[1]);
-					CPIcolorB = (int)Math.Floor(cpiRatio * ColorClassS2[2]);
-				}
-				else
-				{
-					CPIcolorR = ColorClassX[0];
-					CPIcolorG = ColorClassX[1];
-					CPIcolorB = ColorClassX[2];
-				}
-
-				LightBar.parameters = new object[] { controllerIndex, CPIcolorR, CPIcolorG, CPIcolorB };
-				#endregion
-
-				if (settings._verbose > 0
-					&& progressReporter != null)
-				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.NORACE, $"No race going on. Normal Triggers. Car's Class = {currentClass}; CPI = {currentCPI}; CPI Ratio = {cpiRatio}; Color [{CPIcolorR}, {CPIcolorG}, {CPIcolorB}]" ));
-				}
-
-				p.instructions = new Instruction[] { LightBar, LeftTrigger, RightTrigger };
+					if (x.verboseLevel <= settings.VerboseLevel
+											&& progressReporter != null)
+					{
+						progressReporter.Report(x);
+					}
+				});
 
 				//Send the commands to DSX
 				Send(p);
 			}
 			else
 			{
-				#region Right Trigger
-				//Set the updates for the right Trigger(Throttle)
+				reportableInstruction = parser.GetInRaceRightTriggerInstruction();
+				sendReportableInstruction(reportableInstruction);
+				reportableInstruction = parser.GetInRaceLeftTriggerInstruction();
+				sendReportableInstruction(reportableInstruction);
+				reportableInstruction = parser.GetInRaceLightbarInstruction();
+				sendReportableInstruction(reportableInstruction);
 
-				avgAccel = (float)Math.Sqrt((settings._turn_Accel_Mod * (data.AccelerationX * data.AccelerationX)) + (settings._forward_Accel_Mod * (data.AccelerationZ * data.AccelerationZ)));
-
-				// Define losing grip as front tires slipping or rear tires slipping while accelerating a fair ammount
-				bool bLosingAccelGrip =
-					combinedFrontTireSlip > settings._throttle_Grip_Loss_Val
-				|| (combinedRearTireSlip > settings._throttle_Grip_Loss_Val && data.Accelerator > 200);
-
-				if (settings.ThrottleTriggerMode == (sbyte)InstructionTriggerMode.NONE)
-				{
-					RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
-				}
-				// If losing grip, start to "vibrate"
-				else if (bLosingAccelGrip && settings.ThrottleTriggerMode == (sbyte)InstructionTriggerMode.VIBRATION)
-				{
-					freq = (int)Math.Floor(Map(combinedTireSlip, settings._throttle_Grip_Loss_Val, 5, 0, settings._max_Accel_Griploss_Vibration));
-					resistance = (int)Math.Floor(Map(avgAccel, 0, settings._acceleration_Limit, settings._min_Accel_Griploss_Stiffness, settings._max_Accel_Griploss_Stiffness));
-					filteredResistance = (int)EWMA(resistance, lastThrottleResistance, settings._ewma_Alpha_Throttle);
-					filteredFreq = (int)EWMA(freq, lastThrottleFreq, settings._ewma_Alpha_Throttle_Freq);
-
-					lastThrottleResistance = filteredResistance;
-					lastThrottleFreq = filteredFreq;
-
-					if (filteredFreq <= settings._min_Accel_Griploss_Vibration
-						|| data.Accelerator <= settings._throttle_Vibration_Mode_Start)
-					{
-						RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * settings._right_Trigger_Effect_Intensity };
-
-						filteredFreq = 0;
-						filteredResistance = 0;
-					}
-					else
-					{
-						RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq * settings._right_Trigger_Effect_Intensity, filteredResistance * settings._right_Trigger_Effect_Intensity, settings._throttle_Vibration_Mode_Start, 0, 0, 0, 0 };
-					}
-
-					if (settings._verbose > 0
-						&& progressReporter != null)
-					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, $"Setting Throttle to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
-					}
-				}
-				else
-				{
-					//It should probably always be uniformly stiff
-					resistance = (int)Math.Floor(Map(avgAccel, 0, settings._acceleration_Limit, settings._min_Throttle_Resistance, settings._max_Throttle_Resistance));
-					filteredResistance = (int)EWMA(resistance, lastThrottleResistance, settings._ewma_Alpha_Throttle);
-
-					lastThrottleResistance = filteredResistance;
-					RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * settings._right_Trigger_Effect_Intensity };
-
-					if (settings._verbose > 0
-						&& progressReporter != null)
-					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, String.Empty));
-					}
-				}
-
-				if (settings._verbose > 0
-					&& progressReporter != null)
-				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.THROTTLE, $"Average Acceleration: {avgAccel}; Throttle Resistance: {filteredResistance}; Accelerator: {data.Accelerator}" ));
-				}
-
-				p.instructions = new Instruction[] { RightTrigger };
-
-				//Send the commands to DSX
-				Send(p);
-				#endregion
-				#region Left Trigger
-				//Update the left(Brake) trigger
-				
-				// Define losing grip as tires slipping while braking a fair ammount
-				bool bLosingBrakeGrip = combinedTireSlip > settings._grip_Loss_Val && data.Brake > 100;
-
-				if (settings.BrakeTriggerMode == (sbyte)InstructionTriggerMode.NONE)
-				{
-					LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
-				}
-				// If losing grip, start to "vibrate"
-				else if (bLosingBrakeGrip && settings.BrakeTriggerMode == (sbyte)InstructionTriggerMode.VIBRATION)
-				{
-					freq = (int)Math.Floor(Map(combinedTireSlip, settings._grip_Loss_Val, 5, 0, settings._max_Brake_Vibration));
-					resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings._max_Brake_Stiffness, settings._min_Brake_Stiffness));
-					filteredResistance = (int)EWMA(resistance, lastBrakeResistance, settings._ewma_Alpha_Brake);
-					filteredFreq = (int)EWMA(freq, lastBrakeFreq, settings._ewma_Alpha_Brake_Freq);
-
-					lastBrakeResistance = filteredResistance;
-					lastBrakeFreq = filteredFreq;
-
-					if (filteredFreq <= settings._min_Brake_Vibration)
-					{
-						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, 0 };
-					}
-					else
-					{
-						LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance, filteredFreq * settings._left_Trigger_Effect_Intensity, filteredResistance * settings._left_Trigger_Effect_Intensity, settings._brake_Vibration_Start, 0, 0, 0, 0 };
-					}
-					//Set left trigger to the custom mode VibrateResitance with values of Frequency = freq, Stiffness = 104, startPostion = 76. 
-					if (settings._verbose > 0
-						&& progressReporter != null)
-					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, $"Setting Brake to vibration mode with freq: {filteredFreq}, Resistance: {filteredResistance}" ));
-					}
-				}
-				else
-				{
-					//By default, Increasingly resistant to force
-					resistance = (int)Math.Floor(Map(data.Brake, 0, 255, settings._min_Brake_Resistance, settings._max_Brake_Resistance));
-					filteredResistance = (int)EWMA(resistance, lastBrakeResistance, settings._ewma_Alpha_Brake);
-					lastBrakeResistance = filteredResistance;
-
-					LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance * settings._left_Trigger_Effect_Intensity };
-
-					if (settings._verbose > 0
-						&& progressReporter != null)
-					{
-						progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION, String.Empty ));
-					}
-				}
-
-				if (settings._verbose > 0
-					&& progressReporter != null)
-				{
-					progressReporter.Report(new ForzaDSXReportStruct(ForzaDSXReportStruct.ReportType.RACING, ForzaDSXReportStruct.RacingReportType.BRAKE, $"Brake: {data.Brake}; Brake Resistance: {filteredResistance}; Tire Slip: {combinedTireSlip}" ));
-				}
-
-				p.instructions = new Instruction[] { LeftTrigger};
-
-				//Send the commands to DSX
-				Send(p);
-				#endregion
-
-				#region Light Bar
-				//Update the light bar
-				//Currently registers intensity on the green channel based on engine RPM as a percantage of the maxium. Changes to red if RPM ratio > 80% (usually red line)
-				float engineRange = data.EngineMaxRpm - data.EngineIdleRpm;
-				float CurrentRPMRatio = (currentRPM - data.EngineIdleRpm) / engineRange;
-				int GreenChannel = Math.Max((int)Math.Floor(CurrentRPMRatio * 255), 50);
-				int RedChannel = (int)Math.Floor(CurrentRPMRatio * 255);
-				if (CurrentRPMRatio >= settings._rpm_Redline_Ratio)
-				{
-					// Remove Green
-					GreenChannel = 255 - GreenChannel;
-				}
-
-				LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, 0 };
-
-				if (settings._verbose > 1
-					&& progressReporter != null)
-				{
-					progressReporter.Report(new ForzaDSXReportStruct($"Engine RPM: {data.CurrentEngineRpm}; Engine Max RPM: {data.EngineMaxRpm}; Engine Idle RPM: {data.EngineIdleRpm}"));
-				}
-
-				p.instructions = new Instruction[] { LightBar };
-
-				//Send the commands to DSX
-				Send(p);
-				#endregion
 			}
 		}
+
+		private void sendReportableInstruction(ReportableInstruction reportableInstruction)
+		{
+            reportableInstruction.ForzaDSXReportStructs.ForEach(x =>
+			{
+
+                if (x.verboseLevel <= settings.VerboseLevel
+				                                        && progressReporter != null)
+				{
+                    progressReporter.Report(x);
+                }
+            });
+			Packet p = new Packet();
+			p.instructions = reportableInstruction.Instructions;
+            //Send the commands to DSX
+            Send(p);
+        }
 
 		//Maps floats from one range to another.
-		public float Map(float x, float in_min, float in_max, float out_min, float out_max)
-		{
-			if (x > in_max)
-			{
-				x = in_max;
-			}
-			else if (x < in_min)
-			{
-				x = in_min;
-			}
-			return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-		}
+	
 
 		//private DataPacket data;
 		static UdpClient senderClient;
@@ -442,7 +178,7 @@ namespace ForzaDSX
 		void Connect()
 		{
 			senderClient = new UdpClient();
-			var portNumber = settings._dsx_PORT;
+			var portNumber = settings.DSXPort;
 
 			if (progressReporter != null)
 			{
@@ -458,9 +194,9 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings._dsx_PORT})."));
+					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings.DSXPort})."));
 				}
-				portNum = settings._dsx_PORT;
+				portNum = settings.DSXPort;
 			}
 
 			endPoint = new IPEndPoint(Triggers.localhost, portNum);
@@ -495,20 +231,20 @@ namespace ForzaDSX
 		//Send Data to DSX
 		void Send(Packet data)
 		{
-			if (settings._verbose > 1
+			if (settings.VerboseLevel > VerboseLevel.Limited
 				&& progressReporter != null)
 			{
 				progressReporter.Report(new ForzaDSXReportStruct($"Converting Message to JSON" ));
 			}
 			byte[] RequestData = Encoding.ASCII.GetBytes(Triggers.PacketToJson(data));
-			if (settings._verbose > 1
+			if (settings.VerboseLevel > VerboseLevel.Limited
 				&& progressReporter != null)
 			{
 				progressReporter.Report(new ForzaDSXReportStruct($"{Encoding.ASCII.GetString(RequestData)}" ));
 			}
 			try
 			{
-				if (settings._verbose > 1
+				if (settings.VerboseLevel > VerboseLevel.Limited
 					&& progressReporter != null)
 				{
 					progressReporter.Report(new ForzaDSXReportStruct($"Sending Message to DSX..." ));
@@ -516,7 +252,7 @@ namespace ForzaDSX
 
 				senderClient.Send(RequestData, RequestData.Length);
 
-				if (settings._verbose > 1
+				if (settings.VerboseLevel > VerboseLevel.Limited
 					&& progressReporter != null)
 				{
 					progressReporter.Report(new ForzaDSXReportStruct($"Message sent to DSX" ));
@@ -571,10 +307,30 @@ namespace ForzaDSX
 			try
 			{
 				Connect();
-
+				if (settings.ActiveProfile == null)
+				{
+                    if (progressReporter != null)
+					{
+                        progressReporter.Report(new ForzaDSXReportStruct("No active profile selected. Exiting..."));
+                    }
+                    return;
+                }
+				switch (settings.ActiveProfile.GameType)
+				{
+                    case GameTypes.Forza:
+                        parser = new ForzaParser(settings);
+                        break;
+                    case GameTypes.Dirt:
+                        parser = new DirtParser(settings);
+                        break;
+                    default:
+                        parser = new NullParser(settings);
+                        break;
+                }
+				//parser = new ForzaParser(settings);
 				//Connect to Forza
-				ipEndPoint = new IPEndPoint(IPAddress.Loopback, settings._forza_PORT);
-				client = new UdpClient(settings._forza_PORT);
+				ipEndPoint = new IPEndPoint(IPAddress.Loopback, settings.ActiveProfile.gameUDPPort);
+				client = new UdpClient(settings.ActiveProfile.gameUDPPort);
 
 				DataPacket data;
 				byte[] resultBuffer;
@@ -588,7 +344,7 @@ namespace ForzaDSX
 					if (resultBuffer == null)
 						continue;
 					//receive = await client.ReceiveAsync();
-					if (settings._verbose > 1
+					if (settings.VerboseLevel > VerboseLevel.Limited
 						&& progressReporter != null)
 					{
 						progressReporter.Report(new ForzaDSXReportStruct("recieved Message from Forza!"));
@@ -599,15 +355,16 @@ namespace ForzaDSX
 					{
 						//  return;
 					}
-					data = ParseData(resultBuffer);
-					if (settings._verbose > 1
+					//data = parseDirtData(resultBuffer);
+					parser.ParsePacket(resultBuffer);
+					if (settings.VerboseLevel > VerboseLevel.Limited
 						&& progressReporter != null)
 					{
 						progressReporter.Report(new ForzaDSXReportStruct("Data Parsed"));
 					}
 
 					//Process and send data to DSX
-					SendData(data);
+					SendData();
 				}
 			}
 			catch (Exception e)
@@ -627,7 +384,7 @@ namespace ForzaDSX
 		{
 			bRunning = false;
 
-			if (settings._verbose > 0
+			if (settings.VerboseLevel > VerboseLevel.Off
 					&& progressReporter != null)
 			{
 				progressReporter.Report(new ForzaDSXReportStruct($"Cleaning Up"));
@@ -644,23 +401,17 @@ namespace ForzaDSX
 				senderClient.Dispose();
 			}
 
-			if (settings._verbose > 0)
+			if (settings.VerboseLevel > VerboseLevel.Off)
 			{
 				progressReporter.Report(new ForzaDSXReportStruct($"Cleanup Finished. Exiting..."));
 			}
 		}
 
-		static float EWMA(float input, float last, float alpha)
-		{
-			return (alpha * input) + (1 - alpha) * last;
-		}
-		static int EWMA(int input, int last, float alpha)
-		{
-			return (int)Math.Floor(EWMA((float)input, (float)last, alpha));
-		}
 
-		//Parses data from Forza into a DataPacket
-		DataPacket ParseData(byte[] packet)
+
+
+        //Parses data from Forza into a DataPacket
+     /*   DataPacket ParseData(byte[] packet)
 		{
 			DataPacket data = new DataPacket();
 
@@ -754,7 +505,7 @@ namespace ForzaDSX
 			data.NormalAiBrakeDifference = packet.NormalAiBrakeDifference();
 
 			return data;
-		}
+		}*/
 
 		//Support different standards
 		static bool AdjustToBufferType(int bufferLength)

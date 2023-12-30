@@ -1,5 +1,23 @@
 💛Thank you for using ForzaDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
 
+
+
+
+# Setting up DiRT Rally 1 / 2 for UDP Connection:
+1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally X.0\hardwaresettings`;
+2. Open `hardware_settings_config` file with your favorite text editor;
+3. Find for **udp** tag and configure as shown below:
+      ```xml
+      <motion_platform>
+           ...
+           <udp enabled="true" extradata="3" ip="127.0.0.1" port="5300" delay="1" />
+           ...
+      </motion_platform>
+      ```
+   - **enabled = true**
+   - **extradata = 3**
+   - **port = 5300**
+
 🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)

@@ -7,7 +7,7 @@ namespace ForzaDSX
 {
     public class Program
     {
-        public const String VERSION = "0.5.8";
+        public const String VERSION = "0.6.0";
 
 		[STAThread]
 		static void Main(string[] args)
@@ -136,6 +136,10 @@ namespace ForzaDSX
 
     public struct Instruction
     {
+        public Instruction(InstructionType type)
+        {
+            this.type = type;
+        }
         public InstructionType type;
         public object[] parameters;
     }
