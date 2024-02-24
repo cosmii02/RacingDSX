@@ -1,11 +1,11 @@
-﻿using ForzaDSX.GameParsers;
+﻿using RacingDSX.GameParsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForzaDSX.Config
+namespace RacingDSX.Config
 {
     public class Profile
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ForzaDSX.Config
+namespace RacingDSX.Config
 {
     public class Config
     {

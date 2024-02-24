@@ -31,7 +31,7 @@ jobs:
         run: dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained true -c Release --output ./forza/devrel
 
       - name: Compress Artifact
-        run: zip -r ./forza/devrel/ForzaDSX-RC.zip ./forza/devrel
+        run: zip -r ./forza/devrel/RacingDSX-RC.zip ./forza/devrel
 
       - name: Generate Date
         id: get-date
@@ -40,8 +40,8 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          name: ForzaDSX-RC-${{ env.CURRENT_DATE }}
-          artifacts: ./forza/devrel/ForzaDSX-RC.zip
+          name: RacingDSX-RC-${{ env.CURRENT_DATE }}
+          artifacts: ./forza/devrel/RacingDSX-RC.zip
           tag: latest-candidate-${{ env.CURRENT_DATE }}
           prerelease: true
           allowUpdates: true

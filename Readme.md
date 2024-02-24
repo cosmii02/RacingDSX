@@ -1,4 +1,4 @@
-💛Thank you for using ForzaDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
+💛Thank you for using RacingDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
 
 
 
@@ -27,9 +27,9 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 Step by step instructions:
-1. Download latest version of ForzaDSX from releases https://github.com/cosmii02/ForzaDSX/releases
+1. Download latest version of RacingDSX from releases https://github.com/cosmii02/RacingDSX/releases
 2. extract the zip file to a folder (For example desktop)
-3. Run ForzaDSX exe
+3. Run RacingDSX exe
 ![image](https://user-images.githubusercontent.com/27782168/183417053-33676d94-f137-454b-ad7b-78066f71f6d2.png)
 4. allow firewall prompts if they show up
 5. Open DSX

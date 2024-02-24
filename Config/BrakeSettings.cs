@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForzaDSX.Config
+namespace RacingDSX.Config
 {
     public class BrakeSettings
     {

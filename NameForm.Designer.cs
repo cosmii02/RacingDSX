@@ -1,4 +1,4 @@
-﻿namespace ForzaDSX
+﻿namespace RacingDSX
 {
     partial class NameForm
     {

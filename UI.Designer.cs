@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
 	partial class UI
 	{

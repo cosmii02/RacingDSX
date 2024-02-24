@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
     public static class PacketParse
     {

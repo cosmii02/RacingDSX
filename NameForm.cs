@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
     public partial class NameForm : Form
     {

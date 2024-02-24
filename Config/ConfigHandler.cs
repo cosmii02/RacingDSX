@@ -1,4 +1,4 @@
-﻿using ForzaDSX.GameParsers;
+﻿using RacingDSX.GameParsers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ForzaDSX.Config
+namespace RacingDSX.Config
 {
     public class ConfigHandler
     {

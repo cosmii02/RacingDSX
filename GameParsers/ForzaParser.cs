@@ -1,13 +1,13 @@
-﻿using ForzaDSX.Config;
-using ForzaDSX.Properties;
+﻿using RacingDSX.Config;
+using RacingDSX.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ForzaDSX.ForzaDSXWorker;
+using static RacingDSX.RacingDSXWorker;
 
-namespace ForzaDSX.GameParsers
+namespace RacingDSX.GameParsers
 {
     internal class ForzaParser : Parser
     {
@@ -126,7 +126,7 @@ namespace ForzaDSX.GameParsers
             #endregion
 
 
-                reportableInstruction.ForzaDSXReportStructs.Add(new ForzaDSXReportStruct(VerboseLevel.Limited, ForzaDSXReportStruct.ReportType.NORACE, $"No race going on. Normal Triggers. Car's Class = {currentClass}; CPI = {currentCPI}; CPI Ratio = {cpiRatio}; Color [{CPIcolorR}, {CPIcolorG}, {CPIcolorB}]"));
+                reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(VerboseLevel.Limited, RacingDSXReportStruct.ReportType.NORACE, $"No race going on. Normal Triggers. Car's Class = {currentClass}; CPI = {currentCPI}; CPI Ratio = {cpiRatio}; Color [{CPIcolorR}, {CPIcolorG}, {CPIcolorB}]"));
             
 
             reportableInstruction.Instructions = new Instruction[] { LightBar, LeftTrigger, RightTrigger };

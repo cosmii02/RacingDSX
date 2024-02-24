@@ -1,6 +1,6 @@
-﻿using ForzaDSX.Config;
-using ForzaDSX.GameParsers;
-using ForzaDSX.Properties;
+﻿using RacingDSX.Config;
+using RacingDSX.GameParsers;
+using RacingDSX.Properties;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -8,27 +8,27 @@ using System.Linq;
 //using System.Configuration;
 using System.Threading;
 using System.Windows.Forms;
-using static ForzaDSX.ForzaDSXWorker;
+using static RacingDSX.RacingDSXWorker;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
     public partial class UI : Form
     {
-        protected ForzaDSXWorker forzaDSXWorker;
+        protected RacingDSXWorker RacingDSXWorker;
         AppCheckThread appCheckWorker;
-        protected ForzaDSX.Config.Config currentSettings;
-        protected ForzaDSX.Config.Profile selectedProfile;
+        protected RacingDSX.Config.Config currentSettings;
+        protected RacingDSX.Config.Profile selectedProfile;
         BindingList<String> executables = new BindingList<string>();
         int selectedIndex = 0;
         //protected Configuration config;
-        public ForzaDSX.Config.Config CurrentSettings { get => currentSettings; set => currentSettings = value; }
+        public RacingDSX.Config.Config CurrentSettings { get => currentSettings; set => currentSettings = value; }
 
         bool bForzaConnected = false;
         bool bDsxConnected = false;
 
         Thread appCheckThread;
-        Thread forzaDsxThread;
+        Thread RacingDSXThread;
 
         CancellationTokenSource appCheckThreadCancellationToken;
         CancellationToken appCheckThreadToken;
@@ -42,7 +42,7 @@ namespace ForzaDSX
         {
             InitializeComponent();
 
-            //forzaDSXWorker = new ForzaDSXWorker(this);
+            //RacingDSXWorker = new RacingDSXWorker(this);
         }
 
         void UpdateDSXConnectionStatus(bool bConnected)
@@ -74,7 +74,7 @@ namespace ForzaDSX
 
         private void UI_Load(object sender, EventArgs e)
         {
-            this.Text = "ForzaDSX version: " + Program.VERSION;
+            this.Text = "RacingDSX version: " + Program.VERSION;
 
             LoadSettings();
 
@@ -94,14 +94,14 @@ namespace ForzaDSX
 
 
 
-            var forzaProgressHandler = new Progress<ForzaDSXReportStruct>(WorkerThreadReporter);
+            var forzaProgressHandler = new Progress<RacingDSXReportStruct>(WorkerThreadReporter);
 
-            forzaDSXWorker = new ForzaDSXWorker(currentSettings, forzaProgressHandler);
+            RacingDSXWorker = new RacingDSXWorker(currentSettings, forzaProgressHandler);
 
             forzaThreadCancellationToken = new CancellationTokenSource();
             forzaThreadToken = forzaThreadCancellationToken.Token;
 
-            forzaThreadToken.Register(() => forzaDSXWorker.Stop());
+            forzaThreadToken.Register(() => RacingDSXWorker.Stop());
             var progressHandler = new Progress<AppCheckReportStruct>(AppCheckReporter);
             appCheckWorker = new AppCheckThread(ref currentSettings, progressHandler);
             appCheckThreadCancellationToken = new CancellationTokenSource();
@@ -117,7 +117,7 @@ namespace ForzaDSX
             {
                 UpdateDSXConnectionStatus(true);
                 UpdateForzaConnectionStatus(true);
-                StartForzaDSXThread();
+                StartRacingDSXThread();
             }
         }
 
@@ -154,18 +154,18 @@ namespace ForzaDSX
                 }
             }
 
-            if (forzaDsxThread == null)
+            if (RacingDSXThread == null)
             {
                 if (bForzaConnected && bDsxConnected)
                 {
-                    StartForzaDSXThread();
+                    StartRacingDSXThread();
                 }
             }
             else
             {
                 if (!bForzaConnected || !bDsxConnected)
                 {
-                    StopForzaDSXThread();
+                    StopRacingDSXThread();
                 }
             }
         }
@@ -191,8 +191,8 @@ namespace ForzaDSX
             ConfigHandler.SaveConfig();
             loadProfilesIntoList();
             SwitchDisplayedProfile(profileName);
-            StopForzaDSXThread();
-            StartForzaDSXThread();
+            StopRacingDSXThread();
+            StartRacingDSXThread();
 
         }
 
@@ -203,24 +203,24 @@ namespace ForzaDSX
             startAppCheckThread();
         }
 
-        protected void StartForzaDSXThread()
+        protected void StartRacingDSXThread()
         {
-            if (forzaDsxThread != null
-                || forzaDSXWorker == null)
+            if (RacingDSXThread != null
+                || RacingDSXWorker == null)
                 return;
             if (currentSettings.ActiveProfile == null)
                 return;
-            forzaDsxThread = new Thread(new ThreadStart(forzaDSXWorker.Run));
-            forzaDsxThread.IsBackground = true;
+            RacingDSXThread = new Thread(new ThreadStart(RacingDSXWorker.Run));
+            RacingDSXThread.IsBackground = true;
 
-            forzaDsxThread.Start();
+            RacingDSXThread.Start();
         }
 
-        protected void StopForzaDSXThread()
+        protected void StopRacingDSXThread()
         {
             try
             {
-                if (forzaDsxThread != null
+                if (RacingDSXThread != null
                     && forzaThreadCancellationToken != null)
                 {
                     forzaThreadCancellationToken.Cancel();
@@ -232,7 +232,7 @@ namespace ForzaDSX
                 throw;
             }
 
-            forzaDsxThread = null;
+            RacingDSXThread = null;
         }
         private void disableAppCheck()
         {
@@ -244,7 +244,7 @@ namespace ForzaDSX
             SwitchActiveProfile(currentSettings.DefaultProfile);
             UpdateDSXConnectionStatus(true);
             UpdateForzaConnectionStatus(true);
-            StartForzaDSXThread();
+            StartRacingDSXThread();
             ConfigHandler.SaveConfig();
         }
         protected void StopAppCheckThread()
@@ -266,14 +266,14 @@ namespace ForzaDSX
             appCheckThread = null;
         }
 
-        protected void WorkerThreadReporter(ForzaDSXReportStruct value)
+        protected void WorkerThreadReporter(RacingDSXReportStruct value)
         {
             switch (value.type)
             {
-                case ForzaDSXReportStruct.ReportType.VERBOSEMESSAGE:
+                case RacingDSXReportStruct.ReportType.VERBOSEMESSAGE:
                     Output(value.message);
                     break;
-                case ForzaDSXReportStruct.ReportType.NORACE:
+                case RacingDSXReportStruct.ReportType.NORACE:
                     if (currentSettings.VerboseLevel > Config.VerboseLevel.Off)
                     {
                         noRaceGroupBox.Visible = true;
@@ -282,7 +282,7 @@ namespace ForzaDSX
 
                     noRaceText.Text = value.message;
                     break;
-                case ForzaDSXReportStruct.ReportType.RACING:
+                case RacingDSXReportStruct.ReportType.RACING:
                     if (currentSettings.VerboseLevel > Config.VerboseLevel.Off)
                     {
                         noRaceGroupBox.Visible = false;
@@ -291,16 +291,16 @@ namespace ForzaDSX
 
                     switch (value.racingType)
                     {
-                        case ForzaDSXReportStruct.RacingReportType.THROTTLE_VIBRATION:
+                        case RacingDSXReportStruct.RacingReportType.THROTTLE_VIBRATION:
                             throttleVibrationMsg.Text = value.message;
                             break;
-                        case ForzaDSXReportStruct.RacingReportType.THROTTLE:
+                        case RacingDSXReportStruct.RacingReportType.THROTTLE:
                             throttleMsg.Text = value.message;
                             break;
-                        case ForzaDSXReportStruct.RacingReportType.BRAKE_VIBRATION:
+                        case RacingDSXReportStruct.RacingReportType.BRAKE_VIBRATION:
                             brakeVibrationMsg.Text = value.message;
                             break;
-                        case ForzaDSXReportStruct.RacingReportType.BRAKE:
+                        case RacingDSXReportStruct.RacingReportType.BRAKE:
                             brakeMsg.Text = value.message;
                             break;
                     }
@@ -1057,11 +1057,11 @@ namespace ForzaDSX
 
         private void buttonApplyMisc_Click(object sender, EventArgs e)
         {
-            if (forzaDSXWorker != null)
+            if (RacingDSXWorker != null)
             {
                 selectedProfile.executableNames = executables.ToList();
 
-                forzaDSXWorker.SetSettings(CurrentSettings);
+                RacingDSXWorker.SetSettings(CurrentSettings);
                 ConfigHandler.SaveConfig();
                 appCheckWorker.updateExecutables();
                 //RestartAppCheckThread();
@@ -1071,10 +1071,10 @@ namespace ForzaDSX
 
         private void buttonApply_Brake_Click(object sender, EventArgs e)
         {
-            if (forzaDSXWorker != null)
+            if (RacingDSXWorker != null)
             {
 
-                forzaDSXWorker.SetSettings(CurrentSettings);
+                RacingDSXWorker.SetSettings(CurrentSettings);
                 ConfigHandler.SaveConfig();
 
             }
@@ -1082,10 +1082,10 @@ namespace ForzaDSX
 
         private void buttonApply_Throttle_Click(object sender, EventArgs e)
         {
-            if (forzaDSXWorker != null)
+            if (RacingDSXWorker != null)
             {
 
-                forzaDSXWorker.SetSettings(CurrentSettings);
+                RacingDSXWorker.SetSettings(CurrentSettings);
                 ConfigHandler.SaveConfig();
 
             }
@@ -1117,13 +1117,13 @@ namespace ForzaDSX
 
             SetupUI();
 
-            if (forzaDSXWorker != null)
+            if (RacingDSXWorker != null)
             {
                 // CurrentSettings.Save();
                 ConfigHandler.SaveConfig();
-                forzaDSXWorker.SetSettings(CurrentSettings);
+                RacingDSXWorker.SetSettings(CurrentSettings);
 
-                StartForzaDSXThread();
+                StartRacingDSXThread();
             }
         }
 

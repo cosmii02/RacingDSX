@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForzaDSX.GameParsers
+namespace RacingDSX.GameParsers
 {
     public class ReportableInstruction
     {
         public Instruction[] Instructions { get; set; }
-        public List<ForzaDSXWorker.ForzaDSXReportStruct> ForzaDSXReportStructs { get; set; } = new List<ForzaDSXWorker.ForzaDSXReportStruct>();
+        public List<RacingDSXWorker.RacingDSXReportStruct> RacingDSXReportStructs { get; set; } = new List<RacingDSXWorker.RacingDSXReportStruct>();
     }
 }

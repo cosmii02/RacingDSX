@@ -1,5 +1,5 @@
-﻿using ForzaDSX.Config;
-using ForzaDSX.GameParsers;
+﻿using RacingDSX.Config;
+using RacingDSX.GameParsers;
 using System;
 using System.IO;
 using System.Net;
@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
 	public enum InstructionTriggerMode : sbyte
 	{
@@ -16,9 +16,9 @@ namespace ForzaDSX
 		VIBRATION
 	}
 
-	public class ForzaDSXWorker
+	public class RacingDSXWorker
 	{
-		public struct ForzaDSXReportStruct
+		public struct RacingDSXReportStruct
 		{
 			public enum ReportType : ushort
 			{
@@ -38,40 +38,40 @@ namespace ForzaDSX
 				// 3 = Brake message
 				BRAKE
 			}
-            public ForzaDSXReportStruct(VerboseLevel level, ReportType type, RacingReportType racingType, string msg)
+            public RacingDSXReportStruct(VerboseLevel level, ReportType type, RacingReportType racingType, string msg)
             {
               this.verboseLevel = level;
 				this.type = type;
                 this.racingType = racingType;
                 this.message = msg;
             }
-            public ForzaDSXReportStruct(ReportType type, RacingReportType racingType, string msg)
+            public RacingDSXReportStruct(ReportType type, RacingReportType racingType, string msg)
 			{
 				this.type = type;
 				this.racingType = racingType;
 				this.message = msg;
 			}
 
-            public ForzaDSXReportStruct(VerboseLevel level, ReportType type, string msg)
+            public RacingDSXReportStruct(VerboseLevel level, ReportType type, string msg)
             {
 				this.verboseLevel = level;
                 this.type = type;
                 this.message = msg;
             }
 
-            public ForzaDSXReportStruct(ReportType type, string msg)
+            public RacingDSXReportStruct(ReportType type, string msg)
 			{
 				this.type = type;
 				this.message = msg;
 			}
-            public ForzaDSXReportStruct(VerboseLevel level, string msg)
+            public RacingDSXReportStruct(VerboseLevel level, string msg)
             {
 				this.verboseLevel = level;
                 this.type = ReportType.VERBOSEMESSAGE;
                 this.message = String.Empty;
             }
 
-            public ForzaDSXReportStruct(string msg)
+            public RacingDSXReportStruct(string msg)
 			{
 				this.type = ReportType.VERBOSEMESSAGE;
 				this.message = String.Empty;
@@ -83,21 +83,21 @@ namespace ForzaDSX
 			public VerboseLevel verboseLevel = VerboseLevel.Limited;
 		}
 
-		ForzaDSX.Config.Config settings;
-		IProgress<ForzaDSXReportStruct> progressReporter;
+		RacingDSX.Config.Config settings;
+		IProgress<RacingDSXReportStruct> progressReporter;
 		Parser parser;
 
 
 
 
 
-		public ForzaDSXWorker(ForzaDSX.Config.Config currentSettings, IProgress<ForzaDSXReportStruct> progressReporter)
+		public RacingDSXWorker(RacingDSX.Config.Config currentSettings, IProgress<RacingDSXReportStruct> progressReporter)
 		{
 			settings = currentSettings;
 			this.progressReporter = progressReporter;
 		}
 
-		public void SetSettings(ForzaDSX.Config.Config currentSettings)
+		public void SetSettings(RacingDSX.Config.Config currentSettings)
 		{
 			lock(this)
 			{
@@ -125,7 +125,7 @@ namespace ForzaDSX
 
 				reportableInstruction = parser.GetPreRaceInstructions();
 				p.instructions = reportableInstruction.Instructions;
-				reportableInstruction.ForzaDSXReportStructs.ForEach(x =>
+				reportableInstruction.RacingDSXReportStructs.ForEach(x =>
 				{
 
 					if (x.verboseLevel <= settings.VerboseLevel
@@ -152,7 +152,7 @@ namespace ForzaDSX
 
 		private void sendReportableInstruction(ReportableInstruction reportableInstruction)
 		{
-            reportableInstruction.ForzaDSXReportStructs.ForEach(x =>
+            reportableInstruction.RacingDSXReportStructs.ForEach(x =>
 			{
 
                 if (x.verboseLevel <= settings.VerboseLevel
@@ -182,7 +182,7 @@ namespace ForzaDSX
 
 			if (progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.."));
+				progressReporter.Report(new RacingDSXReportStruct("DSX is using port " + portNumber + ". Attempting to connect.."));
 			}
 
 			int portNum;
@@ -194,7 +194,7 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings.DSXPort})."));
+					progressReporter.Report(new RacingDSXReportStruct($"DSX provided a non-numerical port! Using configured default ({settings.DSXPort})."));
 				}
 				portNum = settings.DSXPort;
 			}
@@ -209,19 +209,19 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct("Error connecting: " + e.Message));
+					progressReporter.Report(new RacingDSXReportStruct("Error connecting: " + e.Message));
 
 					if (e is SocketException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Couldn't access port. " + e.Message));
+						progressReporter.Report(new RacingDSXReportStruct("Couldn't access port. " + e.Message));
 					}
 					else if (e is ObjectDisposedException)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Connection object closed. Restart the application."));
+						progressReporter.Report(new RacingDSXReportStruct("Connection object closed. Restart the application."));
 					}
 					else
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Unknown error: " + e.Message));
+						progressReporter.Report(new RacingDSXReportStruct("Unknown error: " + e.Message));
 					}
 				}
 			}
@@ -234,20 +234,20 @@ namespace ForzaDSX
 			if (settings.VerboseLevel > VerboseLevel.Limited
 				&& progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct($"Converting Message to JSON" ));
+				progressReporter.Report(new RacingDSXReportStruct($"Converting Message to JSON" ));
 			}
 			byte[] RequestData = Encoding.ASCII.GetBytes(Triggers.PacketToJson(data));
 			if (settings.VerboseLevel > VerboseLevel.Limited
 				&& progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct($"{Encoding.ASCII.GetString(RequestData)}" ));
+				progressReporter.Report(new RacingDSXReportStruct($"{Encoding.ASCII.GetString(RequestData)}" ));
 			}
 			try
 			{
 				if (settings.VerboseLevel > VerboseLevel.Limited
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"Sending Message to DSX..." ));
+					progressReporter.Report(new RacingDSXReportStruct($"Sending Message to DSX..." ));
 				}
 
 				senderClient.Send(RequestData, RequestData.Length);
@@ -255,30 +255,30 @@ namespace ForzaDSX
 				if (settings.VerboseLevel > VerboseLevel.Limited
 					&& progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct($"Message sent to DSX" ));
+					progressReporter.Report(new RacingDSXReportStruct($"Message sent to DSX" ));
 				}
 			}
 			catch (Exception e)
 			{
 				if (progressReporter != null)
-					progressReporter.Report(new ForzaDSXReportStruct("Error Sending Message: " ));
+					progressReporter.Report(new RacingDSXReportStruct("Error Sending Message: " ));
 
 				if (e is SocketException)
 				{
 					if (progressReporter != null)
-						progressReporter.Report(new ForzaDSXReportStruct("Couldn't Access Port. " + e.Message ));
+						progressReporter.Report(new RacingDSXReportStruct("Couldn't Access Port. " + e.Message ));
 					throw e;
 				}
 				else if (e is ObjectDisposedException)
 				{
 					if (progressReporter != null)
-						progressReporter.Report(new ForzaDSXReportStruct("Connection closed. Restarting..."));
+						progressReporter.Report(new RacingDSXReportStruct("Connection closed. Restarting..."));
 					Connect();
 				}
 				else
 				{
 					if (progressReporter != null)
-						progressReporter.Report(new ForzaDSXReportStruct("Unknown Error: " + e.Message));
+						progressReporter.Report(new RacingDSXReportStruct("Unknown Error: " + e.Message));
 				}
 
 			}
@@ -311,7 +311,7 @@ namespace ForzaDSX
 				{
                     if (progressReporter != null)
 					{
-                        progressReporter.Report(new ForzaDSXReportStruct("No active profile selected. Exiting..."));
+                        progressReporter.Report(new RacingDSXReportStruct("No active profile selected. Exiting..."));
                     }
                     return;
                 }
@@ -347,7 +347,7 @@ namespace ForzaDSX
 					if (settings.VerboseLevel > VerboseLevel.Limited
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("recieved Message from Forza!"));
+						progressReporter.Report(new RacingDSXReportStruct("recieved Message from Forza!"));
 					}
 					//parse data
 					//var resultBuffer = receive.Buffer;
@@ -360,7 +360,7 @@ namespace ForzaDSX
 					if (settings.VerboseLevel > VerboseLevel.Limited
 						&& progressReporter != null)
 					{
-						progressReporter.Report(new ForzaDSXReportStruct("Data Parsed"));
+						progressReporter.Report(new RacingDSXReportStruct("Data Parsed"));
 					}
 
 					//Process and send data to DSX
@@ -371,7 +371,7 @@ namespace ForzaDSX
 			{
 				if (progressReporter != null)
 				{
-					progressReporter.Report(new ForzaDSXReportStruct("Application encountered an exception: " + e.Message));
+					progressReporter.Report(new RacingDSXReportStruct("Application encountered an exception: " + e.Message));
 				}
 			}
 			finally
@@ -387,7 +387,7 @@ namespace ForzaDSX
 			if (settings.VerboseLevel > VerboseLevel.Off
 					&& progressReporter != null)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct($"Cleaning Up"));
+				progressReporter.Report(new RacingDSXReportStruct($"Cleaning Up"));
 			}
 
 			if (client != null)
@@ -403,7 +403,7 @@ namespace ForzaDSX
 
 			if (settings.VerboseLevel > VerboseLevel.Off)
 			{
-				progressReporter.Report(new ForzaDSXReportStruct($"Cleanup Finished. Exiting..."));
+				progressReporter.Report(new RacingDSXReportStruct($"Cleanup Finished. Exiting..."));
 			}
 		}
 

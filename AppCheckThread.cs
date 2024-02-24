@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace ForzaDSX
+namespace RacingDSX
 {
 	public struct AppCheckReportStruct
 	{
@@ -42,14 +42,14 @@ namespace ForzaDSX
 
 	internal class AppCheckThread
 	{
-		readonly ForzaDSX.Config.Config settings;
+		readonly RacingDSX.Config.Config settings;
 		private Dictionary<String, String> processProfilePairs = new Dictionary<string, string>();
 
         readonly IProgress<AppCheckReportStruct> progressReporter;
 
 		protected bool bRunning = false;
 
-		public AppCheckThread(ref ForzaDSX.Config.Config currentSettings, IProgress<AppCheckReportStruct> progressReporter)
+		public AppCheckThread(ref RacingDSX.Config.Config currentSettings, IProgress<AppCheckReportStruct> progressReporter)
 		{
 
 			settings = currentSettings;
