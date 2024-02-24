@@ -15,7 +15,7 @@ namespace ForzaDSX.Config
         [JsonIgnore]
         public Profile ActiveProfile { get; set; } = null;
 
-        public int DSXPort { get; set; } = 6900;
+        public int DSXPort { get; set; } = 6969;
 
         public String DefaultProfile { get; set; } = "Forza";
     }

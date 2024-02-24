@@ -746,26 +746,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\patma\\.nuget\\packages\\": {}
+    "C:\\Users\\apple\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj",
+      "projectUniqueName": "c:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
       "projectName": "ForzaDSX",
-      "projectPath": "C:\\Users\\patma\\source\\repos\\RacingDSX\\ForzaDSX.csproj",
-      "packagesPath": "C:\\Users\\patma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patma\\source\\repos\\RacingDSX\\obj\\",
+      "projectPath": "c:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
+      "packagesPath": "C:\\Users\\apple\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\apple\\ForzaDSX\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\patma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\apple\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -778,6 +776,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -819,31 +822,31 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[7.0.14, 7.0.14]"
+            "version": "[7.0.16, 7.0.16]"
           }
         ],
         "frameworkReferences": {
@@ -854,7 +857,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
