@@ -1,6 +1,4 @@
-💛Thank you for using RacingDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
-
-
+💛Does not work with DSX V3 as it doesn't have a udp interface (ping pali about it for cookies)💛
 
 
 # Setting up DiRT Rally 1 / 2 for UDP Connection:
@@ -18,7 +16,7 @@
    - **extradata = 3**
    - **port = 5300**
 
-🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
+🔺🔺 Note for Forza Horizon 4 and Forza Motorsport 7 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
 3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
@@ -26,7 +24,7 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-Step by step instructions:
+Step by step instructions for Forza Horizon 5:
 1. Download latest version of RacingDSX from releases https://github.com/cosmii02/RacingDSX/releases
 2. extract the zip file to a folder (For example desktop)
 3. Run RacingDSX exe
