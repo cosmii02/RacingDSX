@@ -45,6 +45,7 @@ jobs:
           tag: latest-candidate-${{ env.CURRENT_DATE }}
           prerelease: true
           allowUpdates: true
+          description: THIS IS A PRE-RELEASE VERSION, it may contain more functionality but it's not tested yet
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
