@@ -1,6 +1,22 @@
-💛Thank you for using ForzaDSX💛 💛As of right now DSX V3 does not have a mod interface and will not be getting one any time soon :(  Naturally this also slows development of this mod as there's no point in developing for v2 considering how broken that is..💛
+💛Does not work with DSX V3 as it doesn't have a udp interface (ping pali about it for cookies)💛
 
-🔺🔺 Note for Forza 4 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
+
+# Setting up DiRT Rally 1 / 2 for UDP Connection:
+1. Go to `C:\Users\<USER>\Documents\My Games\DiRT Rally X.0\hardwaresettings`;
+2. Open `hardware_settings_config` file with your favorite text editor;
+3. Find for **udp** tag and configure as shown below:
+      ```xml
+      <motion_platform>
+           ...
+           <udp enabled="true" extradata="3" ip="127.0.0.1" port="5300" delay="1" />
+           ...
+      </motion_platform>
+      ```
+   - **enabled = true**
+   - **extradata = 3**
+   - **port = 5300**
+
+🔺🔺 Note for Forza Horizon 4 and Forza Motorsport 7 (THIS IS REQUIRED FOR IT TO WORK) 🔺🔺
 1. Install [Window 8 AppContainer Loopback Utility](https://telerik-fiddler.s3.amazonaws.com/fiddler/addons/enableloopbackutility.exe)
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
 3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
@@ -8,10 +24,10 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-Step by step instructions:
-1. Download latest version of ForzaDSX from releases https://github.com/cosmii02/ForzaDSX/releases
+Step by step instructions for Forza Horizon 5:
+1. Download latest version of RacingDSX from releases https://github.com/cosmii02/RacingDSX/releases
 2. extract the zip file to a folder (For example desktop)
-3. Run ForzaDSX exe
+3. Run RacingDSX exe
 ![image](https://user-images.githubusercontent.com/27782168/183417053-33676d94-f137-454b-ad7b-78066f71f6d2.png)
 4. allow firewall prompts if they show up
 5. Open DSX

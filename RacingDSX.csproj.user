@@ -4,10 +4,13 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>ForzaDSX</ActiveDebugProfile>
-    <_LastSelectedProfileId>E:\Development\Projects\ForzaDSX\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <ActiveDebugProfile>RacingDSX</ActiveDebugProfile>
+    <_LastSelectedProfileId>E:\Development\Projects\RacingDSX\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="NameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI.cs">
       <SubType>Form</SubType>
     </Compile>

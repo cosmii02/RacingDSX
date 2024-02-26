@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ForzaDSX": {
+    "RacingDSX": {
       "commandName": "Project",
       "nativeDebugging": true
     }

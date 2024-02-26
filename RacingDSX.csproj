@@ -15,9 +15,9 @@
     <Platforms>AnyCPU</Platforms>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <UseWindowsForms>True</UseWindowsForms>
-    <StartupObject>ForzaDSX.Program</StartupObject>
+    <StartupObject>RacingDSX.Program</StartupObject>
     <IsPublishable>True</IsPublishable>
-    <Title>ForzaDSX</Title>
+    <Title>RacingDSX</Title>
     <IncludeSymbols>True</IncludeSymbols>
     <UseWPF>False</UseWPF>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>

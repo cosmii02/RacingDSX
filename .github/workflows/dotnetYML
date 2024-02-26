@@ -20,12 +20,12 @@ jobs:
       - name: Package
         run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false -c Release --output ./forza/devrel
       - name: Compress Artifact
-        run: Compress-Archive -Path ./forza/devrel -DestinationPath ./forza/devrel/ForzaDSX-RC.zip
+        run: Compress-Archive -Path ./forza/devrel -DestinationPath ./forza/devrel/RacingDSX-RC.zip
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          name: ForzaDSX-RC
-          artifacts: ./forza/devrel/ForzaDSX-RC.zip
+          name: RacingDSX-RC
+          artifacts: ./forza/devrel/RacingDSX-RC.zip
           tag: latest-candidate
           prerelease: true
           allowUpdates: true

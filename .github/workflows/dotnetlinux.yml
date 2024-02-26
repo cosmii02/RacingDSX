@@ -24,24 +24,28 @@ jobs:
       - name: Set EnableWindowsTargeting
         run: dotnet new tool-manifest
 
-        
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Package
-        run: dotnet dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained true -c Release --output ./forza/devrel
+        run: dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained true -c Release --output ./forza/devrel
 
       - name: Compress Artifact
-        run: zip -r ./forza/devrel/ForzaDSX-RC.zip ./forza/devrel
+        run: zip -r ./forza/devrel/RacingDSX-RC.zip ./forza/devrel
+
+      - name: Generate Date
+        id: get-date
+        run: echo "CURRENT_DATE=$(date +'%m/%d')" >> $GITHUB_ENV
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          name: ForzaDSX-RC
-          artifacts: ./forza/devrel/ForzaDSX-RC.zip
-          tag: latest-candidate
+          name: RacingDSX-RC-${{ env.CURRENT_DATE }}
+          artifacts: ./forza/devrel/RacingDSX-RC.zip
+          tag: latest-candidate-${{ env.CURRENT_DATE }}
           prerelease: true
           allowUpdates: true
+          description: THIS IS A PRE-RELEASE VERSION, it may contain more functionality but it's not tested yet
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
