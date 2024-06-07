@@ -53,7 +53,7 @@ namespace RacingDSX.Config
                     GameType = GameTypes.Dirt
                 };
                 profile.throttleSettings.GripLossValue = 0.4f;
-                profile.executableNames.AddRange(new string[] { "drt"});
+                profile.executableNames.AddRange(new string[] { "drt", "dirtrally2"});
                 config.Profiles.Add("Dirt", profile);
             }
 
