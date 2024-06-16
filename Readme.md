@@ -1,4 +1,4 @@
-💛Does not work with DSX V3 as it doesn't have a udp interface (ping pali about it for cookies)💛
+💛Does not work with DSX V3, support is planned but PRs would be awesome as well :)💛
 
 
 # Setting up DiRT Rally 1 / 2 for UDP Connection:
