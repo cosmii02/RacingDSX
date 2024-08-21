@@ -1,9 +1,9 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RacingDSX.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="_grip_Loss_Val" Type="System.Single" Scope="User">
-      <Value Profile="(Default)">0.5</Value>
+      <Value Profile="(Default)">0.6</Value>
     </Setting>
     <Setting Name="_throttle_Grip_Loss_Val" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.2</Value>
@@ -103,3 +103,4 @@
     </Setting>
   </Settings>
 </SettingsFile>
+

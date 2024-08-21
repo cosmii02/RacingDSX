@@ -642,7 +642,7 @@ namespace RacingDSX
             brakeResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
             brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(781, 936);
             brakeResistanceSmoothNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            brakeResistanceSmoothNumericUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            brakeResistanceSmoothNumericUpDown.Maximum = new decimal(new int[] { 100, 0, 0, 0 });
             brakeResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             brakeResistanceSmoothNumericUpDown.Name = "brakeResistanceSmoothNumericUpDown";
             brakeResistanceSmoothNumericUpDown.Size = new System.Drawing.Size(66, 31);
@@ -814,7 +814,7 @@ namespace RacingDSX
             brakeResistanceSmoothingTrackBar.LargeChange = 50;
             brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(199, 917);
             brakeResistanceSmoothingTrackBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            brakeResistanceSmoothingTrackBar.Maximum = 500;
+            brakeResistanceSmoothingTrackBar.Maximum = 100;
             brakeResistanceSmoothingTrackBar.Minimum = 1;
             brakeResistanceSmoothingTrackBar.Name = "brakeResistanceSmoothingTrackBar";
             brakeResistanceSmoothingTrackBar.Size = new System.Drawing.Size(574, 69);

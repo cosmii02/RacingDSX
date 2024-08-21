@@ -751,11 +751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
-      "projectName": "ForzaDSX",
-      "projectPath": "c:\\Users\\apple\\ForzaDSX\\ForzaDSX.csproj",
+      "projectUniqueName": "C:\\Users\\apple\\RiderProjects\\RacingDSX\\RacingDSX.csproj",
+      "projectName": "RacingDSX",
+      "projectPath": "C:\\Users\\apple\\RiderProjects\\RacingDSX\\RacingDSX.csproj",
       "packagesPath": "C:\\Users\\apple\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\apple\\ForzaDSX\\obj\\",
+      "outputPath": "C:\\Users\\apple\\RiderProjects\\RacingDSX\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\apple\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -776,11 +776,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -821,32 +816,16 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
-          },
-          {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[7.0.16, 7.0.16]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.16, 7.0.16]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.17, 7.0.17]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[7.0.16, 7.0.16]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.17, 7.0.17]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.17, 7.0.17]"
           }
         ],
         "frameworkReferences": {
@@ -857,7 +836,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\apple\\.dotnet\\sdk\\7.0.407\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

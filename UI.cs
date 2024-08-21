@@ -448,12 +448,12 @@ namespace RacingDSX
             this.brakeVibrationModeTrackBar.Value = brakeSettings.VibrationModeStart;
             this.minBrakeVibrationTrackBar.Value = brakeSettings.MinVibration;
             this.maxBrakeVibrationTrackBar.Value = brakeSettings.MaxVibration;
-            this.vibrationSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.VibrationSmoothing, 500.0f);
+            this.vibrationSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.VibrationSmoothing, 100.0f);
             this.minBrakeStiffnessTrackBar.Value = brakeSettings.MinStiffness;
             this.maxBrakeStiffnessTrackBar.Value = brakeSettings.MaxStiffness;
             this.minBrakeResistanceTrackBar.Value = brakeSettings.MinResistance;
             this.maxBrakeResistanceTrackBar.Value = brakeSettings.MaxResistance;
-            this.brakeResistanceSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.ResistanceSmoothing, 500.0f);
+            this.brakeResistanceSmoothingTrackBar.Value = DenormalizeValue(brakeSettings.ResistanceSmoothing, 100.0f);
 
             this.brakeEffectNumericUpDown.Value = this.brakeEffectIntensityTrackBar.Value;
             this.gripLossNumericUpDown.Value = this.gripLossTrackBar.Value;
@@ -680,7 +680,7 @@ namespace RacingDSX
 
         private void vibrationSmoothingTrackBar_Scroll(object sender, EventArgs e)
         {
-            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue(vibrationSmoothingTrackBar.Value, 500);
+            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue(vibrationSmoothingTrackBar.Value, 100);
             brakeVibrationSmoothNumericUpDown.Value = vibrationSmoothingTrackBar.Value;
 
 
@@ -688,7 +688,7 @@ namespace RacingDSX
 
         private void brakeVibrationSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue((float)brakeVibrationSmoothNumericUpDown.Value, 500);
+            selectedProfile.brakeSettings.VibrationSmoothing = NormalizeValue((float)brakeVibrationSmoothNumericUpDown.Value, 100);
             vibrationSmoothingTrackBar.Value = (int)Math.Floor(brakeVibrationSmoothNumericUpDown.Value);
 
 
@@ -785,7 +785,7 @@ namespace RacingDSX
 
         private void brakeResistanceSmoothingTrackBar_Scroll(object sender, EventArgs e)
         {
-            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue(brakeResistanceSmoothingTrackBar.Value, 500);
+            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue(brakeResistanceSmoothingTrackBar.Value, 100);
             brakeResistanceSmoothNumericUpDown.Value = brakeResistanceSmoothingTrackBar.Value;
 
 
@@ -793,7 +793,7 @@ namespace RacingDSX
 
         private void brakeResistanceSmoothNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue((float)brakeResistanceSmoothNumericUpDown.Value, 500);
+            selectedProfile.brakeSettings.ResistanceSmoothing = NormalizeValue((float)brakeResistanceSmoothNumericUpDown.Value, 100);
             brakeResistanceSmoothingTrackBar.Value = (int)Math.Floor(brakeResistanceSmoothNumericUpDown.Value);
 
 
