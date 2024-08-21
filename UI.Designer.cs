@@ -963,7 +963,7 @@ namespace RacingDSX
             vibrationSmoothingTrackBar.LargeChange = 50;
             vibrationSmoothingTrackBar.Location = new System.Drawing.Point(199, 522);
             vibrationSmoothingTrackBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            vibrationSmoothingTrackBar.Maximum = 500;
+            vibrationSmoothingTrackBar.Maximum = 100;
             vibrationSmoothingTrackBar.Minimum = 1;
             vibrationSmoothingTrackBar.Name = "vibrationSmoothingTrackBar";
             vibrationSmoothingTrackBar.Size = new System.Drawing.Size(574, 69);

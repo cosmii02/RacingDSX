@@ -759,7 +759,7 @@ namespace RacingDSX
         {
             int value = maxBrakeResistanceTrackBar.Value;
 
-            if (value > selectedProfile.brakeSettings.MinResistance)
+            if (value < selectedProfile.brakeSettings.MinResistance)
                 value = selectedProfile.brakeSettings.MinResistance;
 
             selectedProfile.brakeSettings.MaxResistance = value;
@@ -772,7 +772,7 @@ namespace RacingDSX
         private void maxBrakeResistanceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)Math.Floor(maxBrakeResistanceNumericUpDown.Value);
-            if (value > selectedProfile.brakeSettings.MinResistance)
+            if (value < selectedProfile.brakeSettings.MinResistance)
                 value = selectedProfile.brakeSettings.MinResistance;
 
             selectedProfile.brakeSettings.MaxResistance = value;

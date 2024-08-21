@@ -15,7 +15,7 @@ namespace RacingDSX.Config
         [JsonIgnore]
         public Profile ActiveProfile { get; set; } = null;
 
-        public int DSXPort { get; set; } = 6969;
+        public int DSXPort { get; set; } = 6969; // This sets the default dsx port
 
         public String DefaultProfile { get; set; } = "Forza";
     }
