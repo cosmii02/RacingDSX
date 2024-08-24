@@ -60,26 +60,39 @@ namespace RacingDSX.GameParsers
         public virtual ReportableInstruction GetInRaceLightbarInstruction()
         {
             ReportableInstruction reportableInstruction = new ReportableInstruction();
-            //Update the light bar
-            //Currently registers intensity on the green channel based on engine RPM as a percantage of the maxium. Changes to red if RPM ratio > 80% (usually red line)
+
+            // Calculate RPM ratio
             float engineRange = data.EngineMaxRpm - data.EngineIdleRpm;
             float CurrentRPMRatio = (data.CurrentEngineRpm - data.EngineIdleRpm) / engineRange;
-            int GreenChannel = Math.Max((int)Math.Floor(CurrentRPMRatio * 255), 50);
+
+            // Calculate color based on RPM
             int RedChannel = (int)Math.Floor(CurrentRPMRatio * 255);
+            int GreenChannel = Math.Max((int)Math.Floor((1 - CurrentRPMRatio) * 255), 50);
+            int BlueChannel = 0;
+            int Brightness = 255;
+
+            // Check for redline
             if (CurrentRPMRatio >= activeProfile.RPMRedlineRatio)
             {
-                // Remove Green
-                GreenChannel = 255 - GreenChannel;
+                RedChannel = 255;
+                GreenChannel = 0;
+                BlueChannel = 0;
             }
 
-            LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, 0 };
+            // Set LightBar instruction
+            LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, BlueChannel, Brightness };
 
+            // Add report for verbose output
+            reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(
+                VerboseLevel.Full, 
+                $"Engine RPM: {data.CurrentEngineRpm}; Engine Max RPM: {data.EngineMaxRpm}; Engine Idle RPM: {data.EngineIdleRpm}; " +
+                $"RPM Ratio: {CurrentRPMRatio:F2}; Light Color: R{RedChannel} G{GreenChannel} B{BlueChannel}"
+            ));
 
-                reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(VerboseLevel.Full, $"Engine RPM: {data.CurrentEngineRpm}; Engine Max RPM: {data.EngineMaxRpm}; Engine Idle RPM: {data.EngineIdleRpm}"));
-            reportableInstruction.Instructions =  new Instruction[] {LeftTrigger};
+            // Set instructions
+            reportableInstruction.Instructions = new Instruction[] { LightBar };
 
             return reportableInstruction;
-
         }
         public virtual ReportableInstruction GetInRaceLeftTriggerInstruction()
         {
