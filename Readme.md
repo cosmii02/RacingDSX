@@ -1,4 +1,4 @@
-Tested and confirmed to work with DSX v2 and v3
+Tested and confirmed to work with DSX v2 and v3.1
 
 
 # Setting up DiRT Rally 1 / 2 for UDP Connection:
