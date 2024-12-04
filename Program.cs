@@ -1,78 +1,55 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Net;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace RacingDSX
 {
     public class Program
     {
-        public const String VERSION = "0.6.3";
+        public const String VERSION = "0.6.4";
 
-		[STAThread]
-		static void Main(string[] args)
-		{
-			for (int i = 0; i < args.Length; i++)
-			{
-				string arg = args[i];
+        [STAThread]
+        static void Main(string[] args)
+        {
+            for (int i = 0; i < args.Length; i++)
+            {
+                string arg = args[i];
 
-				switch (arg)
-				{
-					case "-v":
-						{
-							//Console.WriteLine($"RacingDSX Version {VERSION}");
-							return;
-						}
-					//case "--Program.verbose":
-					//	{
-					//		Console.WriteLine("_verbose Mode Enabled!");
-					//		verbose = true;
-					//		break;
-					//	}
-					//case "--csv":
-					//	{
-					//		logToCsv = true;
-					//		i++;
-					//		if (i >= args.Length)
-					//		{
-					//			Console.WriteLine("No Path Entered for Csv file output!! Exiting");
-					//			return;
-					//		}
-					//		csvFileName = args[i];
-					//		break;
-					//	}
-					default:
-						{
+                switch (arg)
+                {
+                    case "-v":
+                        {
+                            return;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+            }
 
-							break;
-						}
-				}
-			}
-
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new UI());
-		}
-
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new UI());
+        }
     }
 
-    //Needed to communicate with DualSenseX
     public static class Triggers
     {
         public static IPAddress localhost = new IPAddress(new byte[] { 127, 0, 0, 1 });
 
         public static string PacketToJson(Packet packet)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(packet);
+            return JsonSerializer.Serialize(packet);
         }
 
         public static Packet JsonToPacket(string json)
         {
-            return JsonConvert.DeserializeObject<Packet>(json);
+            return JsonSerializer.Deserialize<Packet>(json);
         }
     }
 
-    //The different trigger Modes. These correlate the values in the DualSenseX UI
     public enum TriggerMode
     {
         Normal = 0,
@@ -96,7 +73,6 @@ namespace RacingDSX
         Machine = 18
     }
 
-    //Custom Trigger Values. These correspond to the values in the DualSenseX UI
     public enum CustomTriggerValueMode
     {
         OFF = 0,
