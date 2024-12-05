@@ -1,25 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "eAAI0XpBR10=",
+  "dgSpecHash": "q1NBTf4rSNA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\apple\\RiderProjects\\RacingDSX\\RacingDSX.csproj",
+  "projectFilePath": "C:\\Users\\KennethTuisk\\RiderProjects\\RacingDSX\\RacingDSX.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\apple\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.0\\microsoft.extensions.configuration.binder.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration.environmentvariables\\9.0.0\\microsoft.extensions.configuration.environmentvariables.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.0\\microsoft.extensions.configuration.fileextensions.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.configuration.ini\\9.0.0\\microsoft.extensions.configuration.ini.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.0\\microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.0\\microsoft.extensions.fileproviders.physical.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.0\\microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.11\\microsoft.net.illink.tasks.8.0.11.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.11\\microsoft.netcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\apple\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\8.0.11\\microsoft.netcore.app.crossgen2.win-x64.8.0.11.nupkg.sha512"
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.0\\microsoft.extensions.configuration.binder.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration.environmentvariables\\9.0.0\\microsoft.extensions.configuration.environmentvariables.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\9.0.0\\microsoft.extensions.configuration.fileextensions.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.configuration.ini\\9.0.0\\microsoft.extensions.configuration.ini.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.0\\microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\9.0.0\\microsoft.extensions.fileproviders.physical.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\9.0.0\\microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
+    "C:\\Users\\KennethTuisk\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }
