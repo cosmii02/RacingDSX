@@ -69,8 +69,8 @@ namespace RacingDSX.GameParsers
             }
 
 
-            RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
-            LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
+            RightTrigger.Parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
+            LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
 
             #region Light Bar color
             int CPIcolorR = 255;
@@ -122,7 +122,7 @@ namespace RacingDSX.GameParsers
                 CPIcolorB = ColorClassX[2];
             }
 
-            LightBar.parameters = new object[] { controllerIndex, CPIcolorR, CPIcolorG, CPIcolorB };
+            LightBar.Parameters = new object[] { controllerIndex, CPIcolorR, CPIcolorG, CPIcolorB };
             #endregion
 
 

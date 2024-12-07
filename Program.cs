@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
 namespace RacingDSX
@@ -39,17 +40,40 @@ namespace RacingDSX
     {
         public static IPAddress localhost = new IPAddress(new byte[] { 127, 0, 0, 1 });
 
+        private static readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = false,
+            Converters = { new JsonStringEnumConverter() }
+        };
+
         public static string PacketToJson(Packet packet)
         {
-            return JsonSerializer.Serialize(packet);
+            try
+            {
+                return JsonSerializer.Serialize(packet, jsonOptions);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to serialize packet to JSON", ex);
+            }
         }
 
         public static Packet JsonToPacket(string json)
         {
-            return JsonSerializer.Deserialize<Packet>(json);
+            try
+            {
+                return JsonSerializer.Deserialize<Packet>(json, jsonOptions) 
+                    ?? throw new InvalidOperationException("Deserialized packet is null");
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Failed to deserialize JSON to packet", ex);
+            }
         }
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum TriggerMode
     {
         Normal = 0,
@@ -73,6 +97,7 @@ namespace RacingDSX
         Machine = 18
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum CustomTriggerValueMode
     {
         OFF = 0,
@@ -94,6 +119,7 @@ namespace RacingDSX
         VibratePulseAB = 16
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Trigger
     {
         Invalid,
@@ -101,6 +127,7 @@ namespace RacingDSX
         Right
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum InstructionType
     {
         Invalid,
@@ -110,18 +137,24 @@ namespace RacingDSX
         TriggerThreshold
     }
 
-    public struct Instruction
+    public class Instruction
     {
+        [JsonConstructor]
         public Instruction(InstructionType type)
         {
-            this.type = type;
+            Type = type;
         }
-        public InstructionType type;
-        public object[] parameters;
+
+        [JsonPropertyName("type")]
+        public InstructionType Type { get; set; }
+
+        [JsonPropertyName("parameters")]
+        public object[] Parameters { get; set; }
     }
 
     public class Packet
     {
-        public Instruction[] instructions;
+        [JsonPropertyName("instructions")]
+        public Instruction[] Instructions { get; set; }
     }
 }

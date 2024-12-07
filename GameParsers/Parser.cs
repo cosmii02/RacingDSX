@@ -49,9 +49,9 @@ namespace RacingDSX.GameParsers
         public virtual ReportableInstruction GetPreRaceInstructions()
         {
             ReportableInstruction p = new ReportableInstruction();
-            RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
-            LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
-            LightBar.parameters = new object[] { controllerIndex, 220, 120, 220};
+            RightTrigger.Parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
+            LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
+            LightBar.Parameters = new object[] { controllerIndex, 220, 120, 220};
             p.Instructions = new Instruction[] { LightBar, LeftTrigger, RightTrigger };
 
             return p;
@@ -80,7 +80,7 @@ namespace RacingDSX.GameParsers
             }
 
             // Set LightBar instruction
-            LightBar.parameters = new object[] { controllerIndex, RedChannel, GreenChannel, BlueChannel, Brightness };
+            LightBar.Parameters = new object[] { controllerIndex, RedChannel, GreenChannel, BlueChannel, Brightness };
 
             // Add report for verbose output
             reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(
@@ -110,7 +110,7 @@ namespace RacingDSX.GameParsers
 
             if (brakeSettings.TriggerMode == Config.TriggerMode.Off)
             {
-                LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
+                LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Normal, 0, 0 };
             }
             // If losing grip, start to "vibrate"
             else if (bLosingBrakeGrip && brakeSettings.TriggerMode == Config.TriggerMode.Vibration)
@@ -125,11 +125,11 @@ namespace RacingDSX.GameParsers
 
                 if (filteredFreq <= brakeSettings.MinVibration)
                 {
-                    LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, 0 };
+                    LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, 0 };
                 }
                 else
                 {
-                    LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance,
+                    LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance,
                             filteredFreq *brakeSettings.EffectIntensity, filteredResistance * brakeSettings.EffectIntensity, brakeSettings.VibrationStart, 0, 0, 0, 0 };
                 }
                 //Set left trigger to the custom mode VibrateResitance with values of Frequency = freq, Stiffness = 104, startPostion = 76. 
@@ -143,7 +143,7 @@ namespace RacingDSX.GameParsers
                 filteredResistance = (int)EWMA(resistance, lastBrakeResistance, brakeSettings.ResistanceSmoothing);
                 lastBrakeResistance = filteredResistance;
 
-                LeftTrigger.parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance * brakeSettings.EffectIntensity };
+                LeftTrigger.Parameters = new object[] { controllerIndex, Trigger.Left, TriggerMode.Resistance, 0, filteredResistance * brakeSettings.EffectIntensity };
 
                 reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(VerboseLevel.Limited, RacingDSXReportStruct.ReportType.RACING, RacingDSXReportStruct.RacingReportType.BRAKE_VIBRATION, ""));
                 
@@ -177,7 +177,7 @@ namespace RacingDSX.GameParsers
 
             if (throttleSettings.TriggerMode == Config.TriggerMode.Off)
             {
-                RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
+                RightTrigger.Parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Normal, 0, 0 };
             }
             // If losing grip, start to "vibrate"
             else if (bLosingAccelGrip && throttleSettings.TriggerMode == Config.TriggerMode.Vibration)
@@ -193,14 +193,14 @@ namespace RacingDSX.GameParsers
                 if (filteredFreq <= throttleSettings.MinVibration
                     || data.Accelerator <= throttleSettings.VibrationModeStart)
                 {
-                    RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * throttleSettings.EffectIntensity };
+                    RightTrigger.Parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * throttleSettings.EffectIntensity };
 
                     filteredFreq = 0;
                     filteredResistance = 0;
                 }
                 else
                 {
-                    RightTrigger.parameters = new object[] {
+                    RightTrigger.Parameters = new object[] {
                             controllerIndex, Trigger.Right, TriggerMode.CustomTriggerValue, CustomTriggerValueMode.VibrateResistance,
                             filteredFreq * throttleSettings.EffectIntensity, filteredResistance * throttleSettings.EffectIntensity,throttleSettings.VibrationModeStart, 0, 0, 0, 0 };
                 }
@@ -215,7 +215,7 @@ namespace RacingDSX.GameParsers
                 filteredResistance = (int)EWMA(resistance, lastThrottleResistance, throttleSettings.ResistanceSmoothing);
 
                 lastThrottleResistance = filteredResistance;
-                RightTrigger.parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * throttleSettings.EffectIntensity };
+                RightTrigger.Parameters = new object[] { controllerIndex, Trigger.Right, TriggerMode.Resistance, 0, filteredResistance * throttleSettings.EffectIntensity };
 
                 reportableInstruction.RacingDSXReportStructs.Add(new RacingDSXReportStruct(VerboseLevel.Limited, RacingDSXReportStruct.ReportType.RACING, RacingDSXReportStruct.RacingReportType.THROTTLE_VIBRATION, ""));
                 
