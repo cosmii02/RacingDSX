@@ -25,6 +25,11 @@ Download .NET8.0 from the link here: https://dotnet.microsoft.com/en-us/download
 2. Start the utility (if it shows a message about orphan sid, you can safely ignore it)
 3. Make sure that Forza Horizon 4 / Motorsport 7 are checked
 4. Save changes
+In case the above do not work for you run the below command in Powershell as admin, the command enables udp loopback without needing the utility.
+
+Forza Horizon 4: ```CheckNetIsolation LoopbackExempt -a -n="Microsoft.SunriseBaseGame_8wekyb3d8bbwe"```
+
+Forza Motorsport 7: I do not have FM7 to get the ID, sorry :)
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
