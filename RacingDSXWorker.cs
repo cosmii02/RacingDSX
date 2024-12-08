@@ -401,6 +401,9 @@ namespace RacingDSX
             {
                 case 232: // FM7 sled
                     return false;
+                case 264: // Dirt Rally 1
+                    FMData.BufferOffset = 0;
+                    return true;
                 case 311: // FM7 dash
                     FMData.BufferOffset = 0;
                     return true;
