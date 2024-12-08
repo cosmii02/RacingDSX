@@ -1,3 +1,5 @@
+![GitHub all releases](https://img.shields.io/github/downloads/cosmii02/racingDSX/total)
+
 Tested and confirmed to work with DSX v2 and v3.1
 
 🔺🔺 It is REQUIRED to install .NET8 for racingDSX to work at all!🔺🔺           
