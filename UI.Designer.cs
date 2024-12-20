@@ -32,8 +32,8 @@ namespace RacingDSX
         private void InitializeComponent()
         {
             components = new Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("test");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("test2");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("test");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("test2");
             ComponentResourceManager resources = new ComponentResourceManager(typeof(UI));
             mainPanel = new System.Windows.Forms.Panel();
             mainSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -269,7 +269,7 @@ namespace RacingDSX
             // 
             mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             mainSplitContainer.Location = new System.Drawing.Point(0, 0);
-            mainSplitContainer.Margin = new System.Windows.Forms.Padding(2);
+            mainSplitContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             mainSplitContainer.Name = "mainSplitContainer";
             // 
             // mainSplitContainer.Panel1
@@ -280,7 +280,7 @@ namespace RacingDSX
             // 
             mainSplitContainer.Panel2.Controls.Add(mainTabControl);
             mainSplitContainer.Size = new System.Drawing.Size(1478, 814);
-            mainSplitContainer.SplitterDistance = 188;
+            mainSplitContainer.SplitterDistance = 187;
             mainSplitContainer.SplitterWidth = 3;
             mainSplitContainer.TabIndex = 1;
             // 
@@ -289,10 +289,10 @@ namespace RacingDSX
             profilesGroupBox.Controls.Add(profilesListView);
             profilesGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             profilesGroupBox.Location = new System.Drawing.Point(0, 0);
-            profilesGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            profilesGroupBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             profilesGroupBox.Name = "profilesGroupBox";
-            profilesGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            profilesGroupBox.Size = new System.Drawing.Size(188, 814);
+            profilesGroupBox.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            profilesGroupBox.Size = new System.Drawing.Size(187, 814);
             profilesGroupBox.TabIndex = 3;
             profilesGroupBox.TabStop = false;
             profilesGroupBox.Text = "Profiles";
@@ -303,12 +303,12 @@ namespace RacingDSX
             profilesListView.Dock = System.Windows.Forms.DockStyle.Fill;
             profilesListView.ForeColor = System.Drawing.Color.White;
             profilesListView.FullRowSelect = true;
-            profilesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1, listViewItem2 });
-            profilesListView.Location = new System.Drawing.Point(2, 22);
-            profilesListView.Margin = new System.Windows.Forms.Padding(2);
+            profilesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem3, listViewItem4 });
+            profilesListView.Location = new System.Drawing.Point(2, 23);
+            profilesListView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             profilesListView.MultiSelect = false;
             profilesListView.Name = "profilesListView";
-            profilesListView.Size = new System.Drawing.Size(184, 790);
+            profilesListView.Size = new System.Drawing.Size(183, 788);
             profilesListView.TabIndex = 0;
             profilesListView.UseCompatibleStateImageBehavior = false;
             profilesListView.View = System.Windows.Forms.View.List;
@@ -326,7 +326,7 @@ namespace RacingDSX
             mainTabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
-            mainTabControl.Size = new System.Drawing.Size(1287, 814);
+            mainTabControl.Size = new System.Drawing.Size(1288, 814);
             mainTabControl.TabIndex = 0;
             // 
             // miscTabPage
@@ -336,7 +336,7 @@ namespace RacingDSX
             miscTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             miscTabPage.Name = "miscTabPage";
             miscTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            miscTabPage.Size = new System.Drawing.Size(1279, 781);
+            miscTabPage.Size = new System.Drawing.Size(1280, 781);
             miscTabPage.TabIndex = 3;
             miscTabPage.Text = "Misc";
             miscTabPage.UseVisualStyleBackColor = true;
@@ -375,8 +375,8 @@ namespace RacingDSX
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            miscTableLayoutPanel.Size = new System.Drawing.Size(1273, 773);
+            miscTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            miscTableLayoutPanel.Size = new System.Drawing.Size(1274, 773);
             miscTableLayoutPanel.TabIndex = 0;
             // 
             // forzaPortNumericUpDown
@@ -452,7 +452,7 @@ namespace RacingDSX
             rpmValueNumericUpDown.Location = new System.Drawing.Point(640, 4);
             rpmValueNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             rpmValueNumericUpDown.Name = "rpmValueNumericUpDown";
-            rpmValueNumericUpDown.Size = new System.Drawing.Size(660, 27);
+            rpmValueNumericUpDown.Size = new System.Drawing.Size(661, 27);
             rpmValueNumericUpDown.TabIndex = 8;
             toolTip.SetToolTip(rpmValueNumericUpDown, "The percentage of the current RPM when we are in the \"redline\" of the engine");
             rpmValueNumericUpDown.ValueChanged += rpmValueNumericUpDown_ValueChanged;
@@ -462,12 +462,12 @@ namespace RacingDSX
             buttonApplyMisc.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             buttonApplyMisc.Dock = System.Windows.Forms.DockStyle.Top;
             buttonApplyMisc.ForeColor = System.Drawing.Color.White;
-            buttonApplyMisc.Location = new System.Drawing.Point(159, 260);
+            buttonApplyMisc.Location = new System.Drawing.Point(159, 266);
             buttonApplyMisc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             buttonApplyMisc.MaximumSize = new System.Drawing.Size(343, 40);
-            buttonApplyMisc.MinimumSize = new System.Drawing.Size(229, 34);
+            buttonApplyMisc.MinimumSize = new System.Drawing.Size(229, 35);
             buttonApplyMisc.Name = "buttonApplyMisc";
-            buttonApplyMisc.Size = new System.Drawing.Size(343, 34);
+            buttonApplyMisc.Size = new System.Drawing.Size(343, 35);
             buttonApplyMisc.TabIndex = 9;
             buttonApplyMisc.Text = "Apply";
             buttonApplyMisc.UseVisualStyleBackColor = false;
@@ -477,10 +477,10 @@ namespace RacingDSX
             // 
             miscDefaultsButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             miscDefaultsButton.ForeColor = System.Drawing.Color.White;
-            miscDefaultsButton.Location = new System.Drawing.Point(640, 260);
+            miscDefaultsButton.Location = new System.Drawing.Point(640, 266);
             miscDefaultsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             miscDefaultsButton.Name = "miscDefaultsButton";
-            miscDefaultsButton.Size = new System.Drawing.Size(86, 30);
+            miscDefaultsButton.Size = new System.Drawing.Size(86, 29);
             miscDefaultsButton.TabIndex = 39;
             miscDefaultsButton.Text = "Defaults";
             miscDefaultsButton.UseVisualStyleBackColor = false;
@@ -490,7 +490,7 @@ namespace RacingDSX
             // 
             ExecutableListLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             ExecutableListLabel.AutoSize = true;
-            ExecutableListLabel.Location = new System.Drawing.Point(2, 183);
+            ExecutableListLabel.Location = new System.Drawing.Point(2, 187);
             ExecutableListLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             ExecutableListLabel.Name = "ExecutableListLabel";
             ExecutableListLabel.Size = new System.Drawing.Size(152, 20);
@@ -505,10 +505,10 @@ namespace RacingDSX
             ExecutableListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             ExecutableListBox.ForeColor = System.Drawing.Color.White;
             ExecutableListBox.FormattingEnabled = true;
-            ExecutableListBox.Location = new System.Drawing.Point(158, 133);
-            ExecutableListBox.Margin = new System.Windows.Forms.Padding(2);
+            ExecutableListBox.Location = new System.Drawing.Point(158, 136);
+            ExecutableListBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             ExecutableListBox.Name = "ExecutableListBox";
-            ExecutableListBox.Size = new System.Drawing.Size(477, 121);
+            ExecutableListBox.Size = new System.Drawing.Size(477, 123);
             ExecutableListBox.TabIndex = 41;
             ExecutableListBox.SelectedIndexChanged += ExecutableListBox_SelectedIndexChanged;
             // 
@@ -519,18 +519,18 @@ namespace RacingDSX
             flowLayoutPanel1.Controls.Add(RemoveExecutableButton);
             flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new System.Drawing.Point(639, 133);
-            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            flowLayoutPanel1.Location = new System.Drawing.Point(639, 136);
+            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(662, 121);
+            flowLayoutPanel1.Size = new System.Drawing.Size(663, 123);
             flowLayoutPanel1.TabIndex = 42;
             // 
             // AddExecutableButton
             // 
             AddExecutableButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             AddExecutableButton.ForeColor = System.Drawing.Color.White;
-            AddExecutableButton.Location = new System.Drawing.Point(2, 2);
-            AddExecutableButton.Margin = new System.Windows.Forms.Padding(2);
+            AddExecutableButton.Location = new System.Drawing.Point(2, 3);
+            AddExecutableButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             AddExecutableButton.Name = "AddExecutableButton";
             AddExecutableButton.Size = new System.Drawing.Size(90, 27);
             AddExecutableButton.TabIndex = 0;
@@ -541,8 +541,8 @@ namespace RacingDSX
             // EditExecutableButton
             // 
             EditExecutableButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
-            EditExecutableButton.Location = new System.Drawing.Point(2, 33);
-            EditExecutableButton.Margin = new System.Windows.Forms.Padding(2);
+            EditExecutableButton.Location = new System.Drawing.Point(2, 36);
+            EditExecutableButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             EditExecutableButton.Name = "EditExecutableButton";
             EditExecutableButton.Size = new System.Drawing.Size(90, 27);
             EditExecutableButton.TabIndex = 1;
@@ -554,8 +554,8 @@ namespace RacingDSX
             // 
             RemoveExecutableButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             RemoveExecutableButton.ForeColor = System.Drawing.Color.White;
-            RemoveExecutableButton.Location = new System.Drawing.Point(2, 64);
-            RemoveExecutableButton.Margin = new System.Windows.Forms.Padding(2);
+            RemoveExecutableButton.Location = new System.Drawing.Point(2, 69);
+            RemoveExecutableButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             RemoveExecutableButton.Name = "RemoveExecutableButton";
             RemoveExecutableButton.Size = new System.Drawing.Size(90, 27);
             RemoveExecutableButton.TabIndex = 2;
@@ -569,7 +569,7 @@ namespace RacingDSX
             GameModeLabel.AutoSize = true;
             GameModeLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             GameModeLabel.ForeColor = System.Drawing.Color.White;
-            GameModeLabel.Location = new System.Drawing.Point(73, 105);
+            GameModeLabel.Location = new System.Drawing.Point(73, 106);
             GameModeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             GameModeLabel.Name = "GameModeLabel";
             GameModeLabel.Size = new System.Drawing.Size(81, 20);
@@ -585,8 +585,8 @@ namespace RacingDSX
             GameModeComboBox.ForeColor = System.Drawing.Color.White;
             GameModeComboBox.FormattingEnabled = true;
             GameModeComboBox.Items.AddRange(new object[] { "(None)", "Forza", "Dirt" });
-            GameModeComboBox.Location = new System.Drawing.Point(158, 101);
-            GameModeComboBox.Margin = new System.Windows.Forms.Padding(2);
+            GameModeComboBox.Location = new System.Drawing.Point(158, 102);
+            GameModeComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             GameModeComboBox.Name = "GameModeComboBox";
             GameModeComboBox.Size = new System.Drawing.Size(146, 28);
             GameModeComboBox.TabIndex = 44;
@@ -598,7 +598,7 @@ namespace RacingDSX
             brakeConfigTabPage.Location = new System.Drawing.Point(4, 29);
             brakeConfigTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeConfigTabPage.Name = "brakeConfigTabPage";
-            brakeConfigTabPage.Size = new System.Drawing.Size(1279, 781);
+            brakeConfigTabPage.Size = new System.Drawing.Size(1280, 781);
             brakeConfigTabPage.TabIndex = 4;
             brakeConfigTabPage.Text = "Brake Trigger";
             // 
@@ -607,7 +607,7 @@ namespace RacingDSX
             brakeTableLayoutPanel.AutoScroll = true;
             brakeTableLayoutPanel.AutoSize = true;
             brakeTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            brakeTableLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            brakeTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeTableLayoutPanel.ColumnCount = 3;
             brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             brakeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -653,6 +653,7 @@ namespace RacingDSX
             brakeTableLayoutPanel.Controls.Add(brakeTriggerMode, 0, 0);
             brakeTableLayoutPanel.Controls.Add(brakeTriggerModeComboBox, 1, 0);
             brakeTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            brakeTableLayoutPanel.ForeColor = System.Drawing.Color.White;
             brakeTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             brakeTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeTableLayoutPanel.Name = "brakeTableLayoutPanel";
@@ -670,17 +671,19 @@ namespace RacingDSX
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            brakeTableLayoutPanel.Size = new System.Drawing.Size(1279, 781);
+            brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            brakeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            brakeTableLayoutPanel.Size = new System.Drawing.Size(1280, 781);
             brakeTableLayoutPanel.TabIndex = 0;
             // 
             // brakeResistanceSmoothNumericUpDown
             // 
             brakeResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             brakeResistanceSmoothNumericUpDown.AutoSize = true;
+            brakeResistanceSmoothNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(630, 758);
+            brakeResistanceSmoothNumericUpDown.ForeColor = System.Drawing.Color.White;
+            brakeResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(631, 758);
             brakeResistanceSmoothNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             brakeResistanceSmoothNumericUpDown.Name = "brakeResistanceSmoothNumericUpDown";
@@ -694,8 +697,10 @@ namespace RacingDSX
             // 
             maxBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             maxBrakeResistanceNumericUpDown.AutoSize = true;
+            maxBrakeResistanceNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(630, 694);
+            maxBrakeResistanceNumericUpDown.ForeColor = System.Drawing.Color.White;
+            maxBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(631, 694);
             maxBrakeResistanceNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             maxBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
             maxBrakeResistanceNumericUpDown.Name = "maxBrakeResistanceNumericUpDown";
@@ -708,8 +713,10 @@ namespace RacingDSX
             // 
             minBrakeResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             minBrakeResistanceNumericUpDown.AutoSize = true;
+            minBrakeResistanceNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(630, 630);
+            minBrakeResistanceNumericUpDown.ForeColor = System.Drawing.Color.White;
+            minBrakeResistanceNumericUpDown.Location = new System.Drawing.Point(631, 630);
             minBrakeResistanceNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             minBrakeResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
             minBrakeResistanceNumericUpDown.Name = "minBrakeResistanceNumericUpDown";
@@ -722,8 +729,10 @@ namespace RacingDSX
             // 
             maxBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             maxBrakeStifnessNumericUpDown.AutoSize = true;
+            maxBrakeStifnessNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(630, 566);
+            maxBrakeStifnessNumericUpDown.ForeColor = System.Drawing.Color.White;
+            maxBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(631, 566);
             maxBrakeStifnessNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             maxBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             maxBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -738,8 +747,10 @@ namespace RacingDSX
             // 
             minBrakeStifnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             minBrakeStifnessNumericUpDown.AutoSize = true;
+            minBrakeStifnessNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeStifnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(630, 502);
+            minBrakeStifnessNumericUpDown.ForeColor = System.Drawing.Color.White;
+            minBrakeStifnessNumericUpDown.Location = new System.Drawing.Point(631, 502);
             minBrakeStifnessNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             minBrakeStifnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             minBrakeStifnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -754,8 +765,10 @@ namespace RacingDSX
             // 
             brakeVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             brakeVibrationSmoothNumericUpDown.AutoSize = true;
+            brakeVibrationSmoothNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(630, 438);
+            brakeVibrationSmoothNumericUpDown.ForeColor = System.Drawing.Color.White;
+            brakeVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(631, 438);
             brakeVibrationSmoothNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeVibrationSmoothNumericUpDown.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             brakeVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -770,8 +783,10 @@ namespace RacingDSX
             // 
             maxBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             maxBrakeVibrationNumericUpDown.AutoSize = true;
+            maxBrakeVibrationNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(630, 374);
+            maxBrakeVibrationNumericUpDown.ForeColor = System.Drawing.Color.White;
+            maxBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(631, 374);
             maxBrakeVibrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             maxBrakeVibrationNumericUpDown.Name = "maxBrakeVibrationNumericUpDown";
             maxBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -783,8 +798,10 @@ namespace RacingDSX
             // 
             minBrakeVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             minBrakeVibrationNumericUpDown.AutoSize = true;
+            minBrakeVibrationNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(630, 310);
+            minBrakeVibrationNumericUpDown.ForeColor = System.Drawing.Color.White;
+            minBrakeVibrationNumericUpDown.Location = new System.Drawing.Point(631, 310);
             minBrakeVibrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             minBrakeVibrationNumericUpDown.Name = "minBrakeVibrationNumericUpDown";
             minBrakeVibrationNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -796,8 +813,10 @@ namespace RacingDSX
             // 
             brakeVibrationModeNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             brakeVibrationModeNumericUpDown.AutoSize = true;
+            brakeVibrationModeNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeVibrationModeNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(630, 246);
+            brakeVibrationModeNumericUpDown.ForeColor = System.Drawing.Color.White;
+            brakeVibrationModeNumericUpDown.Location = new System.Drawing.Point(631, 246);
             brakeVibrationModeNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeVibrationModeNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             brakeVibrationModeNumericUpDown.Name = "brakeVibrationModeNumericUpDown";
@@ -810,8 +829,10 @@ namespace RacingDSX
             // 
             brakeVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             brakeVibrationStartNumericUpDown.AutoSize = true;
+            brakeVibrationStartNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(630, 182);
+            brakeVibrationStartNumericUpDown.ForeColor = System.Drawing.Color.White;
+            brakeVibrationStartNumericUpDown.Location = new System.Drawing.Point(631, 182);
             brakeVibrationStartNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeVibrationStartNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             brakeVibrationStartNumericUpDown.Name = "brakeVibrationStartNumericUpDown";
@@ -824,8 +845,10 @@ namespace RacingDSX
             // 
             gripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             gripLossNumericUpDown.AutoSize = true;
+            gripLossNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             gripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            gripLossNumericUpDown.Location = new System.Drawing.Point(630, 118);
+            gripLossNumericUpDown.ForeColor = System.Drawing.Color.White;
+            gripLossNumericUpDown.Location = new System.Drawing.Point(631, 118);
             gripLossNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             gripLossNumericUpDown.Name = "gripLossNumericUpDown";
             gripLossNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -837,8 +860,10 @@ namespace RacingDSX
             // 
             brakeEffectNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             brakeEffectNumericUpDown.AutoSize = true;
+            brakeEffectNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeEffectNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            brakeEffectNumericUpDown.Location = new System.Drawing.Point(630, 54);
+            brakeEffectNumericUpDown.ForeColor = System.Drawing.Color.White;
+            brakeEffectNumericUpDown.Location = new System.Drawing.Point(631, 54);
             brakeEffectNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeEffectNumericUpDown.Name = "brakeEffectNumericUpDown";
             brakeEffectNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -848,7 +873,7 @@ namespace RacingDSX
             // 
             // brakeResistanceSmoothingTrackBar
             // 
-            brakeResistanceSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            brakeResistanceSmoothingTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeResistanceSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             brakeResistanceSmoothingTrackBar.LargeChange = 50;
             brakeResistanceSmoothingTrackBar.Location = new System.Drawing.Point(164, 744);
@@ -856,7 +881,7 @@ namespace RacingDSX
             brakeResistanceSmoothingTrackBar.Maximum = 100;
             brakeResistanceSmoothingTrackBar.Minimum = 1;
             brakeResistanceSmoothingTrackBar.Name = "brakeResistanceSmoothingTrackBar";
-            brakeResistanceSmoothingTrackBar.Size = new System.Drawing.Size(460, 56);
+            brakeResistanceSmoothingTrackBar.Size = new System.Drawing.Size(461, 56);
             brakeResistanceSmoothingTrackBar.TabIndex = 23;
             brakeResistanceSmoothingTrackBar.TickFrequency = 10;
             brakeResistanceSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -878,14 +903,14 @@ namespace RacingDSX
             // 
             // maxBrakeResistanceTrackBar
             // 
-            maxBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            maxBrakeResistanceTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             maxBrakeResistanceTrackBar.LargeChange = 50;
             maxBrakeResistanceTrackBar.Location = new System.Drawing.Point(164, 680);
             maxBrakeResistanceTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             maxBrakeResistanceTrackBar.Maximum = 7;
             maxBrakeResistanceTrackBar.Name = "maxBrakeResistanceTrackBar";
-            maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(460, 56);
+            maxBrakeResistanceTrackBar.Size = new System.Drawing.Size(461, 56);
             maxBrakeResistanceTrackBar.TabIndex = 21;
             maxBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             toolTip.SetToolTip(maxBrakeResistanceTrackBar, "The Maximum resistance on the Brake (0-7)");
@@ -905,14 +930,14 @@ namespace RacingDSX
             // 
             // minBrakeResistanceTrackBar
             // 
-            minBrakeResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            minBrakeResistanceTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             minBrakeResistanceTrackBar.LargeChange = 50;
             minBrakeResistanceTrackBar.Location = new System.Drawing.Point(164, 616);
             minBrakeResistanceTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             minBrakeResistanceTrackBar.Maximum = 7;
             minBrakeResistanceTrackBar.Name = "minBrakeResistanceTrackBar";
-            minBrakeResistanceTrackBar.Size = new System.Drawing.Size(460, 56);
+            minBrakeResistanceTrackBar.Size = new System.Drawing.Size(461, 56);
             minBrakeResistanceTrackBar.TabIndex = 19;
             minBrakeResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             toolTip.SetToolTip(minBrakeResistanceTrackBar, "The Minimum resistance on the Brake (0-7)");
@@ -932,7 +957,7 @@ namespace RacingDSX
             // 
             // maxBrakeStiffnessTrackBar
             // 
-            maxBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            maxBrakeStiffnessTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             maxBrakeStiffnessTrackBar.LargeChange = 50;
             maxBrakeStiffnessTrackBar.Location = new System.Drawing.Point(164, 552);
@@ -940,7 +965,7 @@ namespace RacingDSX
             maxBrakeStiffnessTrackBar.Maximum = 255;
             maxBrakeStiffnessTrackBar.Minimum = 1;
             maxBrakeStiffnessTrackBar.Name = "maxBrakeStiffnessTrackBar";
-            maxBrakeStiffnessTrackBar.Size = new System.Drawing.Size(460, 56);
+            maxBrakeStiffnessTrackBar.Size = new System.Drawing.Size(461, 56);
             maxBrakeStiffnessTrackBar.TabIndex = 17;
             maxBrakeStiffnessTrackBar.TickFrequency = 5;
             maxBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -962,7 +987,7 @@ namespace RacingDSX
             // 
             // minBrakeStiffnessTrackBar
             // 
-            minBrakeStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            minBrakeStiffnessTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             minBrakeStiffnessTrackBar.LargeChange = 50;
             minBrakeStiffnessTrackBar.Location = new System.Drawing.Point(164, 488);
@@ -970,7 +995,7 @@ namespace RacingDSX
             minBrakeStiffnessTrackBar.Maximum = 255;
             minBrakeStiffnessTrackBar.Minimum = 1;
             minBrakeStiffnessTrackBar.Name = "minBrakeStiffnessTrackBar";
-            minBrakeStiffnessTrackBar.Size = new System.Drawing.Size(460, 56);
+            minBrakeStiffnessTrackBar.Size = new System.Drawing.Size(461, 56);
             minBrakeStiffnessTrackBar.TabIndex = 15;
             minBrakeStiffnessTrackBar.TickFrequency = 5;
             minBrakeStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -992,7 +1017,7 @@ namespace RacingDSX
             // 
             // vibrationSmoothingTrackBar
             // 
-            vibrationSmoothingTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            vibrationSmoothingTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             vibrationSmoothingTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             vibrationSmoothingTrackBar.LargeChange = 50;
             vibrationSmoothingTrackBar.Location = new System.Drawing.Point(164, 424);
@@ -1000,7 +1025,7 @@ namespace RacingDSX
             vibrationSmoothingTrackBar.Maximum = 100;
             vibrationSmoothingTrackBar.Minimum = 1;
             vibrationSmoothingTrackBar.Name = "vibrationSmoothingTrackBar";
-            vibrationSmoothingTrackBar.Size = new System.Drawing.Size(460, 56);
+            vibrationSmoothingTrackBar.Size = new System.Drawing.Size(461, 56);
             vibrationSmoothingTrackBar.TabIndex = 13;
             vibrationSmoothingTrackBar.TickFrequency = 10;
             vibrationSmoothingTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1022,14 +1047,14 @@ namespace RacingDSX
             // 
             // maxBrakeVibrationTrackBar
             // 
-            maxBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            maxBrakeVibrationTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             maxBrakeVibrationTrackBar.LargeChange = 50;
             maxBrakeVibrationTrackBar.Location = new System.Drawing.Point(164, 360);
             maxBrakeVibrationTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             maxBrakeVibrationTrackBar.Maximum = 100;
             maxBrakeVibrationTrackBar.Name = "maxBrakeVibrationTrackBar";
-            maxBrakeVibrationTrackBar.Size = new System.Drawing.Size(460, 56);
+            maxBrakeVibrationTrackBar.Size = new System.Drawing.Size(461, 56);
             maxBrakeVibrationTrackBar.TabIndex = 11;
             maxBrakeVibrationTrackBar.TickFrequency = 5;
             maxBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1050,14 +1075,14 @@ namespace RacingDSX
             // 
             // minBrakeVibrationTrackBar
             // 
-            minBrakeVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            minBrakeVibrationTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minBrakeVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             minBrakeVibrationTrackBar.LargeChange = 50;
             minBrakeVibrationTrackBar.Location = new System.Drawing.Point(164, 296);
             minBrakeVibrationTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             minBrakeVibrationTrackBar.Maximum = 100;
             minBrakeVibrationTrackBar.Name = "minBrakeVibrationTrackBar";
-            minBrakeVibrationTrackBar.Size = new System.Drawing.Size(460, 56);
+            minBrakeVibrationTrackBar.Size = new System.Drawing.Size(461, 56);
             minBrakeVibrationTrackBar.TabIndex = 9;
             minBrakeVibrationTrackBar.TickFrequency = 5;
             minBrakeVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1078,14 +1103,14 @@ namespace RacingDSX
             // 
             // brakeVibrationModeTrackBar
             // 
-            brakeVibrationModeTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            brakeVibrationModeTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeVibrationModeTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             brakeVibrationModeTrackBar.LargeChange = 50;
             brakeVibrationModeTrackBar.Location = new System.Drawing.Point(164, 232);
             brakeVibrationModeTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeVibrationModeTrackBar.Maximum = 255;
             brakeVibrationModeTrackBar.Name = "brakeVibrationModeTrackBar";
-            brakeVibrationModeTrackBar.Size = new System.Drawing.Size(460, 56);
+            brakeVibrationModeTrackBar.Size = new System.Drawing.Size(461, 56);
             brakeVibrationModeTrackBar.TabIndex = 7;
             brakeVibrationModeTrackBar.TickFrequency = 5;
             brakeVibrationModeTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1106,14 +1131,14 @@ namespace RacingDSX
             // 
             // brakeVibrationStartTrackBar
             // 
-            brakeVibrationStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            brakeVibrationStartTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeVibrationStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             brakeVibrationStartTrackBar.LargeChange = 50;
             brakeVibrationStartTrackBar.Location = new System.Drawing.Point(164, 168);
             brakeVibrationStartTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeVibrationStartTrackBar.Maximum = 255;
             brakeVibrationStartTrackBar.Name = "brakeVibrationStartTrackBar";
-            brakeVibrationStartTrackBar.Size = new System.Drawing.Size(460, 56);
+            brakeVibrationStartTrackBar.Size = new System.Drawing.Size(461, 56);
             brakeVibrationStartTrackBar.TabIndex = 5;
             brakeVibrationStartTrackBar.TickFrequency = 5;
             brakeVibrationStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1134,13 +1159,13 @@ namespace RacingDSX
             // 
             // gripLossTrackBar
             // 
-            gripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            gripLossTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             gripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             gripLossTrackBar.Location = new System.Drawing.Point(164, 104);
             gripLossTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             gripLossTrackBar.Maximum = 100;
             gripLossTrackBar.Name = "gripLossTrackBar";
-            gripLossTrackBar.Size = new System.Drawing.Size(460, 56);
+            gripLossTrackBar.Size = new System.Drawing.Size(461, 56);
             gripLossTrackBar.TabIndex = 3;
             gripLossTrackBar.TickFrequency = 5;
             gripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1174,14 +1199,14 @@ namespace RacingDSX
             // 
             // brakeEffectIntensityTrackBar
             // 
-            brakeEffectIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            brakeEffectIntensityTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             brakeEffectIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             brakeEffectIntensityTrackBar.LargeChange = 10;
             brakeEffectIntensityTrackBar.Location = new System.Drawing.Point(164, 40);
             brakeEffectIntensityTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeEffectIntensityTrackBar.Maximum = 100;
             brakeEffectIntensityTrackBar.Name = "brakeEffectIntensityTrackBar";
-            brakeEffectIntensityTrackBar.Size = new System.Drawing.Size(460, 56);
+            brakeEffectIntensityTrackBar.Size = new System.Drawing.Size(461, 56);
             brakeEffectIntensityTrackBar.TabIndex = 1;
             brakeEffectIntensityTrackBar.TickFrequency = 5;
             brakeEffectIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1193,25 +1218,29 @@ namespace RacingDSX
             // 
             buttonApply_Brake.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             buttonApply_Brake.AutoSize = true;
+            buttonApply_Brake.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            buttonApply_Brake.ForeColor = System.Drawing.Color.White;
             buttonApply_Brake.Location = new System.Drawing.Point(164, 808);
             buttonApply_Brake.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             buttonApply_Brake.Name = "buttonApply_Brake";
-            buttonApply_Brake.Size = new System.Drawing.Size(460, 46);
+            buttonApply_Brake.Size = new System.Drawing.Size(461, 45);
             buttonApply_Brake.TabIndex = 37;
             buttonApply_Brake.Text = "Apply";
-            buttonApply_Brake.UseVisualStyleBackColor = true;
+            buttonApply_Brake.UseVisualStyleBackColor = false;
             buttonApply_Brake.Click += buttonApply_Brake_Click;
             // 
             // brakeDefaultsButton
             // 
             brakeDefaultsButton.AutoSize = true;
-            brakeDefaultsButton.Location = new System.Drawing.Point(630, 808);
+            brakeDefaultsButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            brakeDefaultsButton.ForeColor = System.Drawing.Color.White;
+            brakeDefaultsButton.Location = new System.Drawing.Point(631, 808);
             brakeDefaultsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeDefaultsButton.Name = "brakeDefaultsButton";
-            brakeDefaultsButton.Size = new System.Drawing.Size(99, 46);
+            brakeDefaultsButton.Size = new System.Drawing.Size(99, 45);
             brakeDefaultsButton.TabIndex = 38;
             brakeDefaultsButton.Text = "Defaults";
-            brakeDefaultsButton.UseVisualStyleBackColor = true;
+            brakeDefaultsButton.UseVisualStyleBackColor = false;
             brakeDefaultsButton.Click += brakeDefaultsButton_Click;
             // 
             // brakeTriggerMode
@@ -1228,12 +1257,14 @@ namespace RacingDSX
             // brakeTriggerModeComboBox
             // 
             brakeTriggerModeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            brakeTriggerModeComboBox.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            brakeTriggerModeComboBox.ForeColor = System.Drawing.Color.White;
             brakeTriggerModeComboBox.FormattingEnabled = true;
             brakeTriggerModeComboBox.Items.AddRange(new object[] { "Off", "Resistance", "Vibration" });
             brakeTriggerModeComboBox.Location = new System.Drawing.Point(164, 4);
             brakeTriggerModeComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             brakeTriggerModeComboBox.Name = "brakeTriggerModeComboBox";
-            brakeTriggerModeComboBox.Size = new System.Drawing.Size(460, 28);
+            brakeTriggerModeComboBox.Size = new System.Drawing.Size(461, 28);
             brakeTriggerModeComboBox.TabIndex = 40;
             brakeTriggerModeComboBox.SelectedIndexChanged += brakeTriggerModeComboBox_SelectedIndexChanged;
             // 
@@ -1244,7 +1275,7 @@ namespace RacingDSX
             throttleConfigTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleConfigTabPage.Name = "throttleConfigTabPage";
             throttleConfigTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            throttleConfigTabPage.Size = new System.Drawing.Size(1279, 781);
+            throttleConfigTabPage.Size = new System.Drawing.Size(1280, 781);
             throttleConfigTabPage.TabIndex = 2;
             throttleConfigTabPage.Text = "Throttle Trigger";
             throttleConfigTabPage.UseVisualStyleBackColor = true;
@@ -1252,6 +1283,7 @@ namespace RacingDSX
             // throttleTableLayoutPanel
             // 
             throttleTableLayoutPanel.AutoScroll = true;
+            throttleTableLayoutPanel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleTableLayoutPanel.ColumnCount = 3;
             throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             throttleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -1303,6 +1335,7 @@ namespace RacingDSX
             throttleTableLayoutPanel.Controls.Add(buttonApply_Throttle, 1, 15);
             throttleTableLayoutPanel.Controls.Add(throttleDefaultsButton, 2, 15);
             throttleTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            throttleTableLayoutPanel.ForeColor = System.Drawing.Color.White;
             throttleTableLayoutPanel.Location = new System.Drawing.Point(3, 4);
             throttleTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleTableLayoutPanel.Name = "throttleTableLayoutPanel";
@@ -1323,18 +1356,20 @@ namespace RacingDSX
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             throttleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            throttleTableLayoutPanel.Size = new System.Drawing.Size(1273, 773);
+            throttleTableLayoutPanel.Size = new System.Drawing.Size(1274, 773);
             throttleTableLayoutPanel.TabIndex = 0;
             // 
             // throttleTriggerModeComboBox
             // 
             throttleTriggerModeComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            throttleTriggerModeComboBox.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            throttleTriggerModeComboBox.ForeColor = System.Drawing.Color.White;
             throttleTriggerModeComboBox.FormattingEnabled = true;
             throttleTriggerModeComboBox.Items.AddRange(new object[] { "Off", "Resistance", "Vibration" });
             throttleTriggerModeComboBox.Location = new System.Drawing.Point(175, 4);
             throttleTriggerModeComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleTriggerModeComboBox.Name = "throttleTriggerModeComboBox";
-            throttleTriggerModeComboBox.Size = new System.Drawing.Size(460, 28);
+            throttleTriggerModeComboBox.Size = new System.Drawing.Size(461, 28);
             throttleTriggerModeComboBox.TabIndex = 46;
             throttleTriggerModeComboBox.SelectedIndexChanged += throttleTriggerModeComboBox_SelectedIndexChanged;
             // 
@@ -1342,6 +1377,8 @@ namespace RacingDSX
             // 
             throttleTriggerMode.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             throttleTriggerMode.AutoSize = true;
+            throttleTriggerMode.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            throttleTriggerMode.ForeColor = System.Drawing.Color.White;
             throttleTriggerMode.Location = new System.Drawing.Point(14, 0);
             throttleTriggerMode.Name = "throttleTriggerMode";
             throttleTriggerMode.Size = new System.Drawing.Size(155, 36);
@@ -1353,8 +1390,10 @@ namespace RacingDSX
             // 
             throttleResistanceSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleResistanceSmoothNumericUpDown.AutoSize = true;
+            throttleResistanceSmoothNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleResistanceSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(641, 886);
+            throttleResistanceSmoothNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleResistanceSmoothNumericUpDown.Location = new System.Drawing.Point(642, 886);
             throttleResistanceSmoothNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleResistanceSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             throttleResistanceSmoothNumericUpDown.Name = "throttleResistanceSmoothNumericUpDown";
@@ -1368,8 +1407,10 @@ namespace RacingDSX
             // 
             throttleMaxResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMaxResistanceNumericUpDown.AutoSize = true;
+            throttleMaxResistanceNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(641, 822);
+            throttleMaxResistanceNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMaxResistanceNumericUpDown.Location = new System.Drawing.Point(642, 822);
             throttleMaxResistanceNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMaxResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
             throttleMaxResistanceNumericUpDown.Name = "throttleMaxResistanceNumericUpDown";
@@ -1382,8 +1423,10 @@ namespace RacingDSX
             // 
             throttleMinResistanceNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMinResistanceNumericUpDown.AutoSize = true;
+            throttleMinResistanceNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinResistanceNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(641, 758);
+            throttleMinResistanceNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMinResistanceNumericUpDown.Location = new System.Drawing.Point(642, 758);
             throttleMinResistanceNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMinResistanceNumericUpDown.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
             throttleMinResistanceNumericUpDown.Name = "throttleMinResistanceNumericUpDown";
@@ -1396,8 +1439,10 @@ namespace RacingDSX
             // 
             throttleMaxStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMaxStiffnessNumericUpDown.AutoSize = true;
+            throttleMaxStiffnessNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(641, 694);
+            throttleMaxStiffnessNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMaxStiffnessNumericUpDown.Location = new System.Drawing.Point(642, 694);
             throttleMaxStiffnessNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMaxStiffnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             throttleMaxStiffnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -1412,8 +1457,10 @@ namespace RacingDSX
             // 
             throttleMinStiffnessNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMinStiffnessNumericUpDown.AutoSize = true;
+            throttleMinStiffnessNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinStiffnessNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(641, 630);
+            throttleMinStiffnessNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMinStiffnessNumericUpDown.Location = new System.Drawing.Point(642, 630);
             throttleMinStiffnessNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMinStiffnessNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             throttleMinStiffnessNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -1428,8 +1475,10 @@ namespace RacingDSX
             // 
             throttleVibrationSmoothNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleVibrationSmoothNumericUpDown.AutoSize = true;
+            throttleVibrationSmoothNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationSmoothNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(641, 566);
+            throttleVibrationSmoothNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleVibrationSmoothNumericUpDown.Location = new System.Drawing.Point(642, 566);
             throttleVibrationSmoothNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleVibrationSmoothNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             throttleVibrationSmoothNumericUpDown.Name = "throttleVibrationSmoothNumericUpDown";
@@ -1443,8 +1492,10 @@ namespace RacingDSX
             // 
             throttleMaxVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMaxVibrationNumericUpDown.AutoSize = true;
+            throttleMaxVibrationNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(641, 502);
+            throttleMaxVibrationNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMaxVibrationNumericUpDown.Location = new System.Drawing.Point(642, 502);
             throttleMaxVibrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMaxVibrationNumericUpDown.Name = "throttleMaxVibrationNumericUpDown";
             throttleMaxVibrationNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1456,8 +1507,10 @@ namespace RacingDSX
             // 
             throttleMinVibrationNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleMinVibrationNumericUpDown.AutoSize = true;
+            throttleMinVibrationNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinVibrationNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(641, 438);
+            throttleMinVibrationNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleMinVibrationNumericUpDown.Location = new System.Drawing.Point(642, 438);
             throttleMinVibrationNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMinVibrationNumericUpDown.Name = "throttleMinVibrationNumericUpDown";
             throttleMinVibrationNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1469,8 +1522,10 @@ namespace RacingDSX
             // 
             throttleVibrationStartNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleVibrationStartNumericUpDown.AutoSize = true;
+            throttleVibrationStartNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationStartNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(641, 374);
+            throttleVibrationStartNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleVibrationStartNumericUpDown.Location = new System.Drawing.Point(642, 374);
             throttleVibrationStartNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleVibrationStartNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             throttleVibrationStartNumericUpDown.Name = "throttleVibrationStartNumericUpDown";
@@ -1483,8 +1538,10 @@ namespace RacingDSX
             // 
             throttleAccelLimitNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleAccelLimitNumericUpDown.AutoSize = true;
+            throttleAccelLimitNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleAccelLimitNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(641, 310);
+            throttleAccelLimitNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleAccelLimitNumericUpDown.Location = new System.Drawing.Point(642, 310);
             throttleAccelLimitNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleAccelLimitNumericUpDown.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             throttleAccelLimitNumericUpDown.Name = "throttleAccelLimitNumericUpDown";
@@ -1497,8 +1554,10 @@ namespace RacingDSX
             // 
             throttleForwardAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleForwardAccelScaleNumericUpDown.AutoSize = true;
+            throttleForwardAccelScaleNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleForwardAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(641, 246);
+            throttleForwardAccelScaleNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleForwardAccelScaleNumericUpDown.Location = new System.Drawing.Point(642, 246);
             throttleForwardAccelScaleNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleForwardAccelScaleNumericUpDown.Name = "throttleForwardAccelScaleNumericUpDown";
             throttleForwardAccelScaleNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1510,8 +1569,10 @@ namespace RacingDSX
             // 
             throttleTurnAccelScaleNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleTurnAccelScaleNumericUpDown.AutoSize = true;
+            throttleTurnAccelScaleNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleTurnAccelScaleNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(641, 182);
+            throttleTurnAccelScaleNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleTurnAccelScaleNumericUpDown.Location = new System.Drawing.Point(642, 182);
             throttleTurnAccelScaleNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleTurnAccelScaleNumericUpDown.Name = "throttleTurnAccelScaleNumericUpDown";
             throttleTurnAccelScaleNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1523,8 +1584,10 @@ namespace RacingDSX
             // 
             throttleGripLossNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleGripLossNumericUpDown.AutoSize = true;
+            throttleGripLossNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleGripLossNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleGripLossNumericUpDown.Location = new System.Drawing.Point(641, 118);
+            throttleGripLossNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleGripLossNumericUpDown.Location = new System.Drawing.Point(642, 118);
             throttleGripLossNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleGripLossNumericUpDown.Name = "throttleGripLossNumericUpDown";
             throttleGripLossNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1536,8 +1599,10 @@ namespace RacingDSX
             // 
             throttleIntensityNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Left;
             throttleIntensityNumericUpDown.AutoSize = true;
+            throttleIntensityNumericUpDown.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleIntensityNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            throttleIntensityNumericUpDown.Location = new System.Drawing.Point(641, 54);
+            throttleIntensityNumericUpDown.ForeColor = System.Drawing.Color.White;
+            throttleIntensityNumericUpDown.Location = new System.Drawing.Point(642, 54);
             throttleIntensityNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleIntensityNumericUpDown.Name = "throttleIntensityNumericUpDown";
             throttleIntensityNumericUpDown.Size = new System.Drawing.Size(53, 27);
@@ -1547,7 +1612,7 @@ namespace RacingDSX
             // 
             // throttleResistanceSmoothTrackBar
             // 
-            throttleResistanceSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleResistanceSmoothTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleResistanceSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleResistanceSmoothTrackBar.LargeChange = 50;
             throttleResistanceSmoothTrackBar.Location = new System.Drawing.Point(175, 872);
@@ -1555,7 +1620,7 @@ namespace RacingDSX
             throttleResistanceSmoothTrackBar.Maximum = 100;
             throttleResistanceSmoothTrackBar.Minimum = 1;
             throttleResistanceSmoothTrackBar.Name = "throttleResistanceSmoothTrackBar";
-            throttleResistanceSmoothTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleResistanceSmoothTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleResistanceSmoothTrackBar.TabIndex = 28;
             throttleResistanceSmoothTrackBar.TickFrequency = 10;
             throttleResistanceSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1565,14 +1630,14 @@ namespace RacingDSX
             // 
             // throttleMaxResistanceTrackBar
             // 
-            throttleMaxResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMaxResistanceTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMaxResistanceTrackBar.LargeChange = 50;
             throttleMaxResistanceTrackBar.Location = new System.Drawing.Point(175, 808);
             throttleMaxResistanceTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMaxResistanceTrackBar.Maximum = 7;
             throttleMaxResistanceTrackBar.Name = "throttleMaxResistanceTrackBar";
-            throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMaxResistanceTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMaxResistanceTrackBar.TabIndex = 27;
             throttleMaxResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             toolTip.SetToolTip(throttleMaxResistanceTrackBar, "The Maximum resistance on the throttle (0-7)");
@@ -1580,14 +1645,14 @@ namespace RacingDSX
             // 
             // throttleMinResistanceTrackBar
             // 
-            throttleMinResistanceTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMinResistanceTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinResistanceTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMinResistanceTrackBar.LargeChange = 50;
             throttleMinResistanceTrackBar.Location = new System.Drawing.Point(175, 744);
             throttleMinResistanceTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMinResistanceTrackBar.Maximum = 7;
             throttleMinResistanceTrackBar.Name = "throttleMinResistanceTrackBar";
-            throttleMinResistanceTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMinResistanceTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMinResistanceTrackBar.TabIndex = 26;
             throttleMinResistanceTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             toolTip.SetToolTip(throttleMinResistanceTrackBar, "The Minimum resistance on the throttle (0-7)");
@@ -1595,7 +1660,7 @@ namespace RacingDSX
             // 
             // throttleMaxStiffnessTrackBar
             // 
-            throttleMaxStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMaxStiffnessTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMaxStiffnessTrackBar.LargeChange = 50;
             throttleMaxStiffnessTrackBar.Location = new System.Drawing.Point(175, 680);
@@ -1603,7 +1668,7 @@ namespace RacingDSX
             throttleMaxStiffnessTrackBar.Maximum = 255;
             throttleMaxStiffnessTrackBar.Minimum = 1;
             throttleMaxStiffnessTrackBar.Name = "throttleMaxStiffnessTrackBar";
-            throttleMaxStiffnessTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMaxStiffnessTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMaxStiffnessTrackBar.TabIndex = 25;
             throttleMaxStiffnessTrackBar.TickFrequency = 5;
             throttleMaxStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1613,7 +1678,7 @@ namespace RacingDSX
             // 
             // throttleMinStiffnessTrackBar
             // 
-            throttleMinStiffnessTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMinStiffnessTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinStiffnessTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMinStiffnessTrackBar.LargeChange = 50;
             throttleMinStiffnessTrackBar.Location = new System.Drawing.Point(175, 616);
@@ -1621,7 +1686,7 @@ namespace RacingDSX
             throttleMinStiffnessTrackBar.Maximum = 255;
             throttleMinStiffnessTrackBar.Minimum = 1;
             throttleMinStiffnessTrackBar.Name = "throttleMinStiffnessTrackBar";
-            throttleMinStiffnessTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMinStiffnessTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMinStiffnessTrackBar.TabIndex = 24;
             throttleMinStiffnessTrackBar.TickFrequency = 5;
             throttleMinStiffnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1631,7 +1696,7 @@ namespace RacingDSX
             // 
             // throttleVibrationSmoothTrackBar
             // 
-            throttleVibrationSmoothTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleVibrationSmoothTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationSmoothTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleVibrationSmoothTrackBar.LargeChange = 50;
             throttleVibrationSmoothTrackBar.Location = new System.Drawing.Point(175, 552);
@@ -1639,7 +1704,7 @@ namespace RacingDSX
             throttleVibrationSmoothTrackBar.Maximum = 100;
             throttleVibrationSmoothTrackBar.Minimum = 1;
             throttleVibrationSmoothTrackBar.Name = "throttleVibrationSmoothTrackBar";
-            throttleVibrationSmoothTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleVibrationSmoothTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleVibrationSmoothTrackBar.TabIndex = 23;
             throttleVibrationSmoothTrackBar.TickFrequency = 10;
             throttleVibrationSmoothTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1649,14 +1714,14 @@ namespace RacingDSX
             // 
             // throttleMaxVibrationTrackBar
             // 
-            throttleMaxVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMaxVibrationTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMaxVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMaxVibrationTrackBar.LargeChange = 50;
             throttleMaxVibrationTrackBar.Location = new System.Drawing.Point(175, 488);
             throttleMaxVibrationTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMaxVibrationTrackBar.Maximum = 100;
             throttleMaxVibrationTrackBar.Name = "throttleMaxVibrationTrackBar";
-            throttleMaxVibrationTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMaxVibrationTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMaxVibrationTrackBar.TabIndex = 22;
             throttleMaxVibrationTrackBar.TickFrequency = 5;
             throttleMaxVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1665,14 +1730,14 @@ namespace RacingDSX
             // 
             // throttleMinVibrationTrackBar
             // 
-            throttleMinVibrationTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleMinVibrationTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleMinVibrationTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleMinVibrationTrackBar.LargeChange = 50;
             throttleMinVibrationTrackBar.Location = new System.Drawing.Point(175, 424);
             throttleMinVibrationTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleMinVibrationTrackBar.Maximum = 100;
             throttleMinVibrationTrackBar.Name = "throttleMinVibrationTrackBar";
-            throttleMinVibrationTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleMinVibrationTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleMinVibrationTrackBar.TabIndex = 21;
             throttleMinVibrationTrackBar.TickFrequency = 5;
             throttleMinVibrationTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1681,14 +1746,14 @@ namespace RacingDSX
             // 
             // throttleVibrationModeStartTrackBar
             // 
-            throttleVibrationModeStartTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleVibrationModeStartTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationModeStartTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleVibrationModeStartTrackBar.LargeChange = 50;
             throttleVibrationModeStartTrackBar.Location = new System.Drawing.Point(175, 360);
             throttleVibrationModeStartTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleVibrationModeStartTrackBar.Maximum = 255;
             throttleVibrationModeStartTrackBar.Name = "throttleVibrationModeStartTrackBar";
-            throttleVibrationModeStartTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleVibrationModeStartTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleVibrationModeStartTrackBar.TabIndex = 20;
             throttleVibrationModeStartTrackBar.TickFrequency = 5;
             throttleVibrationModeStartTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1697,14 +1762,14 @@ namespace RacingDSX
             // 
             // throttleAccelLimitTrackBar
             // 
-            throttleAccelLimitTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleAccelLimitTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleAccelLimitTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleAccelLimitTrackBar.LargeChange = 50;
             throttleAccelLimitTrackBar.Location = new System.Drawing.Point(175, 296);
             throttleAccelLimitTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleAccelLimitTrackBar.Maximum = 255;
             throttleAccelLimitTrackBar.Name = "throttleAccelLimitTrackBar";
-            throttleAccelLimitTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleAccelLimitTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleAccelLimitTrackBar.TabIndex = 19;
             throttleAccelLimitTrackBar.TickFrequency = 5;
             throttleAccelLimitTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1713,13 +1778,13 @@ namespace RacingDSX
             // 
             // throttleForwardAccelScaleTrackBar
             // 
-            throttleForwardAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleForwardAccelScaleTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleForwardAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleForwardAccelScaleTrackBar.Location = new System.Drawing.Point(175, 232);
             throttleForwardAccelScaleTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleForwardAccelScaleTrackBar.Maximum = 100;
             throttleForwardAccelScaleTrackBar.Name = "throttleForwardAccelScaleTrackBar";
-            throttleForwardAccelScaleTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleForwardAccelScaleTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleForwardAccelScaleTrackBar.TabIndex = 18;
             throttleForwardAccelScaleTrackBar.TickFrequency = 5;
             throttleForwardAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1729,13 +1794,13 @@ namespace RacingDSX
             // 
             // throttleTurnAccelScaleTrackBar
             // 
-            throttleTurnAccelScaleTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleTurnAccelScaleTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleTurnAccelScaleTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleTurnAccelScaleTrackBar.Location = new System.Drawing.Point(175, 168);
             throttleTurnAccelScaleTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleTurnAccelScaleTrackBar.Maximum = 100;
             throttleTurnAccelScaleTrackBar.Name = "throttleTurnAccelScaleTrackBar";
-            throttleTurnAccelScaleTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleTurnAccelScaleTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleTurnAccelScaleTrackBar.TabIndex = 17;
             throttleTurnAccelScaleTrackBar.TickFrequency = 5;
             throttleTurnAccelScaleTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1745,14 +1810,14 @@ namespace RacingDSX
             // 
             // throttleGripLossTrackBar
             // 
-            throttleGripLossTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleGripLossTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleGripLossTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleGripLossTrackBar.LargeChange = 50;
             throttleGripLossTrackBar.Location = new System.Drawing.Point(175, 104);
             throttleGripLossTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleGripLossTrackBar.Maximum = 100;
             throttleGripLossTrackBar.Name = "throttleGripLossTrackBar";
-            throttleGripLossTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleGripLossTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleGripLossTrackBar.TabIndex = 16;
             throttleGripLossTrackBar.TickFrequency = 5;
             throttleGripLossTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1761,14 +1826,14 @@ namespace RacingDSX
             // 
             // throttleIntensityTrackBar
             // 
-            throttleIntensityTrackBar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            throttleIntensityTrackBar.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleIntensityTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             throttleIntensityTrackBar.LargeChange = 10;
             throttleIntensityTrackBar.Location = new System.Drawing.Point(175, 40);
             throttleIntensityTrackBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleIntensityTrackBar.Maximum = 100;
             throttleIntensityTrackBar.Name = "throttleIntensityTrackBar";
-            throttleIntensityTrackBar.Size = new System.Drawing.Size(460, 56);
+            throttleIntensityTrackBar.Size = new System.Drawing.Size(461, 56);
             throttleIntensityTrackBar.TabIndex = 2;
             throttleIntensityTrackBar.TickFrequency = 5;
             throttleIntensityTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -1803,7 +1868,9 @@ namespace RacingDSX
             // minThrottleResistanceLabel
             // 
             minThrottleResistanceLabel.AutoSize = true;
+            minThrottleResistanceLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minThrottleResistanceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            minThrottleResistanceLabel.ForeColor = System.Drawing.Color.White;
             minThrottleResistanceLabel.Location = new System.Drawing.Point(3, 740);
             minThrottleResistanceLabel.Name = "minThrottleResistanceLabel";
             minThrottleResistanceLabel.Size = new System.Drawing.Size(166, 64);
@@ -1815,7 +1882,9 @@ namespace RacingDSX
             // maxThrottleStiffnessLabel
             // 
             maxThrottleStiffnessLabel.AutoSize = true;
+            maxThrottleStiffnessLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            maxThrottleStiffnessLabel.ForeColor = System.Drawing.Color.White;
             maxThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 676);
             maxThrottleStiffnessLabel.Name = "maxThrottleStiffnessLabel";
             maxThrottleStiffnessLabel.Size = new System.Drawing.Size(166, 64);
@@ -1827,7 +1896,9 @@ namespace RacingDSX
             // minThrottleStiffnessLabel
             // 
             minThrottleStiffnessLabel.AutoSize = true;
+            minThrottleStiffnessLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minThrottleStiffnessLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            minThrottleStiffnessLabel.ForeColor = System.Drawing.Color.White;
             minThrottleStiffnessLabel.Location = new System.Drawing.Point(3, 612);
             minThrottleStiffnessLabel.Name = "minThrottleStiffnessLabel";
             minThrottleStiffnessLabel.Size = new System.Drawing.Size(166, 64);
@@ -1839,7 +1910,9 @@ namespace RacingDSX
             // throttleVibrationSmoothingLabel
             // 
             throttleVibrationSmoothingLabel.AutoSize = true;
+            throttleVibrationSmoothingLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationSmoothingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            throttleVibrationSmoothingLabel.ForeColor = System.Drawing.Color.White;
             throttleVibrationSmoothingLabel.Location = new System.Drawing.Point(3, 548);
             throttleVibrationSmoothingLabel.Name = "throttleVibrationSmoothingLabel";
             throttleVibrationSmoothingLabel.Size = new System.Drawing.Size(166, 64);
@@ -1851,7 +1924,9 @@ namespace RacingDSX
             // maxThrottleVibrationLabel
             // 
             maxThrottleVibrationLabel.AutoSize = true;
+            maxThrottleVibrationLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             maxThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            maxThrottleVibrationLabel.ForeColor = System.Drawing.Color.White;
             maxThrottleVibrationLabel.Location = new System.Drawing.Point(3, 484);
             maxThrottleVibrationLabel.Name = "maxThrottleVibrationLabel";
             maxThrottleVibrationLabel.Size = new System.Drawing.Size(166, 64);
@@ -1863,7 +1938,9 @@ namespace RacingDSX
             // minThrottleVibrationLabel
             // 
             minThrottleVibrationLabel.AutoSize = true;
+            minThrottleVibrationLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             minThrottleVibrationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            minThrottleVibrationLabel.ForeColor = System.Drawing.Color.White;
             minThrottleVibrationLabel.Location = new System.Drawing.Point(3, 420);
             minThrottleVibrationLabel.Name = "minThrottleVibrationLabel";
             minThrottleVibrationLabel.Size = new System.Drawing.Size(166, 64);
@@ -1875,7 +1952,9 @@ namespace RacingDSX
             // throttleVibrationStartLabel
             // 
             throttleVibrationStartLabel.AutoSize = true;
+            throttleVibrationStartLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleVibrationStartLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            throttleVibrationStartLabel.ForeColor = System.Drawing.Color.White;
             throttleVibrationStartLabel.Location = new System.Drawing.Point(3, 356);
             throttleVibrationStartLabel.Name = "throttleVibrationStartLabel";
             throttleVibrationStartLabel.Size = new System.Drawing.Size(166, 64);
@@ -1887,7 +1966,9 @@ namespace RacingDSX
             // accelerationLimitLabel
             // 
             accelerationLimitLabel.AutoSize = true;
+            accelerationLimitLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             accelerationLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            accelerationLimitLabel.ForeColor = System.Drawing.Color.White;
             accelerationLimitLabel.Location = new System.Drawing.Point(3, 292);
             accelerationLimitLabel.Name = "accelerationLimitLabel";
             accelerationLimitLabel.Size = new System.Drawing.Size(166, 64);
@@ -1899,7 +1980,9 @@ namespace RacingDSX
             // forwardAccelLabel
             // 
             forwardAccelLabel.AutoSize = true;
+            forwardAccelLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             forwardAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            forwardAccelLabel.ForeColor = System.Drawing.Color.White;
             forwardAccelLabel.Location = new System.Drawing.Point(3, 228);
             forwardAccelLabel.Name = "forwardAccelLabel";
             forwardAccelLabel.Size = new System.Drawing.Size(166, 64);
@@ -1911,7 +1994,9 @@ namespace RacingDSX
             // turnAccelLabel
             // 
             turnAccelLabel.AutoSize = true;
+            turnAccelLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             turnAccelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            turnAccelLabel.ForeColor = System.Drawing.Color.White;
             turnAccelLabel.Location = new System.Drawing.Point(3, 164);
             turnAccelLabel.Name = "turnAccelLabel";
             turnAccelLabel.Size = new System.Drawing.Size(166, 64);
@@ -1923,7 +2008,9 @@ namespace RacingDSX
             // throttleGripLossLabel
             // 
             throttleGripLossLabel.AutoSize = true;
+            throttleGripLossLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleGripLossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            throttleGripLossLabel.ForeColor = System.Drawing.Color.White;
             throttleGripLossLabel.Location = new System.Drawing.Point(3, 100);
             throttleGripLossLabel.Name = "throttleGripLossLabel";
             throttleGripLossLabel.Size = new System.Drawing.Size(166, 64);
@@ -1935,7 +2022,9 @@ namespace RacingDSX
             // throttleIntensityLabel
             // 
             throttleIntensityLabel.AutoSize = true;
+            throttleIntensityLabel.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             throttleIntensityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            throttleIntensityLabel.ForeColor = System.Drawing.Color.White;
             throttleIntensityLabel.Location = new System.Drawing.Point(3, 36);
             throttleIntensityLabel.Name = "throttleIntensityLabel";
             throttleIntensityLabel.Size = new System.Drawing.Size(166, 64);
@@ -1947,24 +2036,26 @@ namespace RacingDSX
             // buttonApply_Throttle
             // 
             buttonApply_Throttle.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            buttonApply_Throttle.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             buttonApply_Throttle.Location = new System.Drawing.Point(175, 936);
             buttonApply_Throttle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             buttonApply_Throttle.Name = "buttonApply_Throttle";
-            buttonApply_Throttle.Size = new System.Drawing.Size(460, 30);
+            buttonApply_Throttle.Size = new System.Drawing.Size(461, 29);
             buttonApply_Throttle.TabIndex = 43;
             buttonApply_Throttle.Text = "Apply";
-            buttonApply_Throttle.UseVisualStyleBackColor = true;
+            buttonApply_Throttle.UseVisualStyleBackColor = false;
             buttonApply_Throttle.Click += buttonApply_Throttle_Click;
             // 
             // throttleDefaultsButton
             // 
-            throttleDefaultsButton.Location = new System.Drawing.Point(641, 936);
+            throttleDefaultsButton.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
+            throttleDefaultsButton.Location = new System.Drawing.Point(642, 936);
             throttleDefaultsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             throttleDefaultsButton.Name = "throttleDefaultsButton";
-            throttleDefaultsButton.Size = new System.Drawing.Size(86, 30);
+            throttleDefaultsButton.Size = new System.Drawing.Size(86, 29);
             throttleDefaultsButton.TabIndex = 44;
             throttleDefaultsButton.Text = "Defaults";
-            throttleDefaultsButton.UseVisualStyleBackColor = true;
+            throttleDefaultsButton.UseVisualStyleBackColor = false;
             throttleDefaultsButton.Click += throttleDefaultsButton_Click;
             // 
             // outputTabPage
@@ -1976,7 +2067,7 @@ namespace RacingDSX
             outputTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             outputTabPage.Name = "outputTabPage";
             outputTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            outputTabPage.Size = new System.Drawing.Size(1279, 781);
+            outputTabPage.Size = new System.Drawing.Size(1280, 781);
             outputTabPage.TabIndex = 1;
             outputTabPage.Text = "Output";
             outputTabPage.UseVisualStyleBackColor = true;
@@ -1985,17 +2076,18 @@ namespace RacingDSX
             // 
             raceGroupBox.Controls.Add(tableLayoutPanel1);
             raceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            raceGroupBox.Location = new System.Drawing.Point(3, 280);
+            raceGroupBox.Location = new System.Drawing.Point(3, 281);
             raceGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             raceGroupBox.Name = "raceGroupBox";
             raceGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            raceGroupBox.Size = new System.Drawing.Size(1273, 363);
+            raceGroupBox.Size = new System.Drawing.Size(1274, 363);
             raceGroupBox.TabIndex = 3;
             raceGroupBox.TabStop = false;
             raceGroupBox.Text = "Racing";
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
@@ -2004,6 +2096,7 @@ namespace RacingDSX
             tableLayoutPanel1.Controls.Add(throttleMsg, 0, 1);
             tableLayoutPanel1.Controls.Add(throttleVibrationMsg, 0, 0);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
             tableLayoutPanel1.Location = new System.Drawing.Point(3, 24);
             tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -2012,7 +2105,7 @@ namespace RacingDSX
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            tableLayoutPanel1.Size = new System.Drawing.Size(1267, 335);
+            tableLayoutPanel1.Size = new System.Drawing.Size(1268, 335);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // brakeMsg
@@ -2053,13 +2146,15 @@ namespace RacingDSX
             // 
             // noRaceGroupBox
             // 
+            noRaceGroupBox.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             noRaceGroupBox.Controls.Add(noRaceText);
             noRaceGroupBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            noRaceGroupBox.Location = new System.Drawing.Point(3, 643);
+            noRaceGroupBox.ForeColor = System.Drawing.Color.White;
+            noRaceGroupBox.Location = new System.Drawing.Point(3, 644);
             noRaceGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             noRaceGroupBox.Name = "noRaceGroupBox";
             noRaceGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            noRaceGroupBox.Size = new System.Drawing.Size(1273, 134);
+            noRaceGroupBox.Size = new System.Drawing.Size(1274, 133);
             noRaceGroupBox.TabIndex = 2;
             noRaceGroupBox.TabStop = false;
             noRaceGroupBox.Text = "Menus";
@@ -2076,12 +2171,14 @@ namespace RacingDSX
             // 
             // outputListBox
             // 
+            outputListBox.BackColor = System.Drawing.Color.FromArgb(18, 18, 18);
             outputListBox.Dock = System.Windows.Forms.DockStyle.Top;
+            outputListBox.ForeColor = System.Drawing.Color.White;
             outputListBox.FormattingEnabled = true;
             outputListBox.Location = new System.Drawing.Point(3, 4);
             outputListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             outputListBox.Name = "outputListBox";
-            outputListBox.Size = new System.Drawing.Size(1273, 844);
+            outputListBox.Size = new System.Drawing.Size(1274, 844);
             outputListBox.TabIndex = 0;
             // 
             // toolStripStatusDSX
@@ -2259,7 +2356,7 @@ namespace RacingDSX
             Controls.Add(statusStrip1);
             DoubleBuffered = true;
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            MinimumSize = new System.Drawing.Size(396, 246);
+            MinimumSize = new System.Drawing.Size(395, 243);
             Name = "UI";
             Text = "UI";
             Load += UI_Load;
