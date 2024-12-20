@@ -5,7 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>RacingDSX</ActiveDebugProfile>
-    <_LastSelectedProfileId>E:\Development\Projects\RacingDSX\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\KennethTuisk\source\repos\cosmii02\RacingDSX\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="NameForm.cs">

@@ -9,7 +9,7 @@ namespace RacingDSX
 {
     public class Program
     {
-        public const String VERSION = "0.6.6";
+        public const String VERSION = "0.6.7";
 
         [STAThread]
         static void Main(string[] args)

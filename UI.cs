@@ -1404,7 +1404,7 @@ namespace RacingDSX
                 {
                     string message = "You cannot have a duplicate Executable Name! Executable already part of Profile " + prof.First().Name;
                     MessageBox.Show(message);
-                    return; 
+                    return;
                 }
                 int index = selectedProfile.executableNames.IndexOf(oldExecutableName);
                 executables[index] = newExecutableName;
@@ -1458,6 +1458,21 @@ namespace RacingDSX
                     selectedProfile.GameType = GameTypes.None;
                     break;
             }
+
+        }
+
+        private void rpmLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profilesListView_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void forzaPortLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }
